@@ -6,7 +6,7 @@
 
 #include QMK_KEYBOARD_H
 
-enum custom_layers { _QWERTY, _LOWER, _RAISE };
+enum custom_layers { _ERMAK, _QWERTY, _LOWER, _RAISE };
 
 /* Defines macros for use with the configurators "Any" key. (These are non-standard macros using the "Magnet" app on Mac). */
 /* Move active application right half. */
@@ -19,7 +19,8 @@ enum custom_layers { _QWERTY, _LOWER, _RAISE };
 #define KC_MINIM LCTL(LSFT(LGUI(KC_DOWN)))
 
 enum custom_keycodes {
-    QWERTY = SAFE_RANGE,
+    ERMAK = SAFE_RANGE,
+    QWERTY,
     LOWER,
     RAISE,
     CMD_TAB_CW,
@@ -56,20 +57,43 @@ tap_dance_action_t tap_dance_actions[] = {
  */
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /*
-            QWERTY
-            ┌───┬───┬───┬───┬───┬───┐               ┌───┬───┬───┬───┬───┬───┐
-            │ = │ 1 │ 2 │ 3 │ 4 │ 5 │               │ 6 │ 7 │ 8 │ 9 │ 0 │ - │
-            ├───┼───┼───┼───┼───┼───┤               ├───┼───┼───┼───┼───┼───┤
-            │Tab│ Q │ W │ E │ R │ T │               │ Y │ U │ I │ O │ P │ \ │
-            ├───┼───┼───┼───┼───┼───┤               ├───┼───┼───┼───┼───┼───┤
-            │Esc│ A │ S │ D │ F │ G │               │ H │ J │ K │ L │ ; │ ' │
-            ├───┼───┼───┼───┼───┼───┼───┐       ┌───┼───┼───┼───┼───┼───┼───┤
-            │Sft│ Z │ X │ C │ V │ B │Min│       │Max│ N │ M │ , │ . │ / │Sft│
-            └───┴───┴───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┴───┴───┘
-                    ┌───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┐
-                    │ ← │ → │Esc│Spc│Bsp│       │Tab│Ent│Del│ ↓ │ ↑ │
-                    └───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┘
+        ERMAK
+        ┌───┬───┬───┬───┬───┬───┐               ┌───┬───┬───┬───┬───┬───┐
+        │ ` │ 1 │ 2 │ 3 │ 4 │ 5 │               │ 6 │ 7 │ 8 │ 9 │ 0 │ \ │
+        ├───┼───┼───┼───┼───┼───┤               ├───┼───┼───┼───┼───┼───┤
+        │ + │ Q │ W │ E │ R │ T │               │ Y │ U │ I │ O │ P │ \ │
+        ├───┼───┼───┼───┼───┼───┤               ├───┼───┼───┼───┼───┼───┤
+        │Esc│ A │ S │ D │ F │ G │               │ H │ J │ K │ L │ ; │ ' │
+        ├───┼───┼───┼───┼───┼───┼───┐       ┌───┼───┼───┼───┼───┼───┼───┤
+        │Sft│ Z │ X │ C │ V │ B │Min│       │Max│ N │ M │ , │ . │ / │Sft│
+        └───┴───┴───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┴───┴───┘
+                ┌───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┐
+                │ [ │Alt│Gui│Bsp│Tab│       │Ent│Spc│Gui│Alt│ ] │
+                └───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┘
         */
+    [_ERMAK] = LAYOUT(
+        KC_EQL,         KC_1,         KC_2,            KC_3,         KC_4,          KC_5,                             KC_6,         KC_7,         KC_8,         KC_9,            KC_0,         KC_BACKSLASH,
+        KC_PLUS,        KC_B,         KC_Y,            KC_O,         KC_U,          KC_QUOTE,                         KC_SEMICOLON, KC_L,         KC_D,         KC_W,            KC_V,         KC_Z,
+        LCTL_T(KC_ESC), LGUI_T(KC_C), LALT_T(KC_I),    LCTL_T(KC_E), LSFT_T(KC_A),  KC_COMMA,                         KC_DOT,       RSFT_T(KC_H), RCTL_T(KC_T), RALT_T(KC_S),    RGUI_T(KC_N), KC_Q,
+        KC_LSFT,        KC_G,         KC_X,            KC_J,         KC_K,          KC_MINUS,     KC_MINIM, KC_MAXIM, KC_SLASH,     KC_R,         KC_M,         KC_F,            KC_P,         KC_RSFT,
+                                      KC_LEFT_BRACKET, KC_LALT,      KC_LGUI,       KC_BACKSPACE, KC_TAB,   KC_ENTER, KC_SPACE,     KC_RGUI,      KC_RALT,      KC_RIGHT_BRACKET
+    ),
+
+    /*
+        QWERTY
+        ┌───┬───┬───┬───┬───┬───┐               ┌───┬───┬───┬───┬───┬───┐
+        │ = │ 1 │ 2 │ 3 │ 4 │ 5 │               │ 6 │ 7 │ 8 │ 9 │ 0 │ - │
+        ├───┼───┼───┼───┼───┼───┤               ├───┼───┼───┼───┼───┼───┤
+        │Tab│ Q │ W │ E │ R │ T │               │ Y │ U │ I │ O │ P │ \ │
+        ├───┼───┼───┼───┼───┼───┤               ├───┼───┼───┼───┼───┼───┤
+        │Esc│ A │ S │ D │ F │ G │               │ H │ J │ K │ L │ ; │ ' │
+        ├───┼───┼───┼───┼───┼───┼───┐       ┌───┼───┼───┼───┼───┼───┼───┤
+        │Sft│ Z │ X │ C │ V │ B │Min│       │Max│ N │ M │ , │ . │ / │Sft│
+        └───┴───┴───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┴───┴───┘
+                ┌───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┐
+                │ ← │ → │Esc│Spc│Bsp│       │Tab│Ent│Del│ ↓ │ ↑ │
+                └───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┘
+    */
     [_QWERTY] = LAYOUT(
         KC_EQL,       KC_1,         KC_2,         KC_3,    KC_4,          TD5ENT,                                          KC_6,   KC_7,         KC_8,     KC_9,         KC_0,            KC_MINS,
         KC_TAB,       KC_Q,         KC_W,         KC_E,    KC_R,          KC_T,                                            KC_Y,   KC_U,         KC_I,     KC_O,         KC_P,            KC_BSLS,
@@ -79,20 +103,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     /*
-            Symbols/Numpad Layer
-            ┌────┬───┬───┬───┬───┬───┐               ┌───┬───┬───┬───┬───┬────┐
-            │BOOT│F1 │F2 │F3 │F4 │F5 │               │F6 │F7 │F8 │F9 │F10│F11 │
-            ├────┼───┼───┼───┼───┼───┤               ├───┼───┼───┼───┼───┼────┤
-            │____│ ! │ @ │ { │ } │ | │               │QMK│ 7 │ 8 │ 9 │ * │F12 │
-            ├────┼───┼───┼───┼───┼───┤               ├───┼───┼───┼───┼───┼────┤
-            │____│ # │ $ │ ( │ ) │ ` │               │QMK│ 4 │ 5 │ 6 │ + │____│
-            ├────┼───┼───┼───┼───┼───┼───┐       ┌───┼───┼───┼───┼───┼───┼────┤
-            │____│ # │ $ │ [ │ ] │ ~ │___│       │___│QMK│ 1 │ 2 │ 3 │ / │BOOT│
-            └────┴───┴───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┴───┴────┘
-                     ┌───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┐
-                     │___│___│___│___│___│       │ 0 │ 0 │ 0 │ 0 │ 0 │
-                     └───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┘
-        */
+        Symbols/Numpad Layer
+        ┌────┬───┬───┬───┬───┬───┐               ┌───┬───┬───┬───┬───┬────┐
+        │BOOT│F1 │F2 │F3 │F4 │F5 │               │F6 │F7 │F8 │F9 │F10│F11 │
+        ├────┼───┼───┼───┼───┼───┤               ├───┼───┼───┼───┼───┼────┤
+        │____│ ! │ @ │ { │ } │ | │               │QMK│ 7 │ 8 │ 9 │ * │F12 │
+        ├────┼───┼───┼───┼───┼───┤               ├───┼───┼───┼───┼───┼────┤
+        │____│ # │ $ │ ( │ ) │ ` │               │QMK│ 4 │ 5 │ 6 │ + │____│
+        ├────┼───┼───┼───┼───┼───┼───┐       ┌───┼───┼───┼───┼───┼───┼────┤
+        │____│ # │ $ │ [ │ ] │ ~ │___│       │___│QMK│ 1 │ 2 │ 3 │ / │BOOT│
+        └────┴───┴───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┴───┴────┘
+                 ┌───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┐
+                 │___│___│___│___│___│       │ 0 │ 0 │ 0 │ 0 │ 0 │
+                 └───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┘
+    */
 
     [_LOWER] = LAYOUT(
         QK_BOOT, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                                   KC_F6,   KC_F7, KC_F8, KC_F9, KC_F10,  KC_F11,
@@ -103,20 +127,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     /*
-            Navigation/Function Layer
-            ┌────┬────┬────┬────┬────┬────┐               ┌────┬────┬────┬────┬────┬────┐
-            │RGB │ACL0│ACL1│ACL2│____│____│               │____│____│MOD │RMOD│HUI │HUD │
-            ├────┼────┼────┼────┼────┼────┤               ├────┼────┼────┼────┼────┼────┤
-            │____│____│____│MS_U│____│____│               │____│BTN1│ ↑  │BTN2│SAI │SAD │
-            ├────┼────┼────┼────┼────┼────┤               ├────┼────┼────┼────┼────┼────┤
-            │____│____│MS_L│MS_D│MS_R│____│               │____│ ←  │ ↓  │ →  │VAI │VAD │
-            ├────┼────┼────┼────┼────┼────┼────┐     ┌────┼────┼────┼────┼────┼────┼────┤
-            │____│____│____│____│____│____│____│     │____│____│____│____│____│SPI │SPD │
-            └────┴────┴────┴────┴────┴────┴────┘     └────┴────┴────┴────┴────┴────┴────┘
-                           ┌───┬───┬───┬───┬───┐     ┌───┬───┬───┬───┬───┐
-                           │___│___│___│___│QMK│     │QMK│___│___│___│___│
-                           └───┴───┴───┴───┴───┘     └───┴───┴───┴───┴───┘
-        */
+        Navigation/Function Layer
+        ┌────┬────┬────┬────┬────┬────┐               ┌────┬────┬────┬────┬────┬────┐
+        │RGB │ACL0│ACL1│ACL2│____│____│               │____│____│MOD │RMOD│HUI │HUD │
+        ├────┼────┼────┼────┼────┼────┤               ├────┼────┼────┼────┼────┼────┤
+        │____│____│____│MS_U│____│____│               │____│BTN1│ ↑  │BTN2│SAI │SAD │
+        ├────┼────┼────┼────┼────┼────┤               ├────┼────┼────┼────┼────┼────┤
+        │____│____│MS_L│MS_D│MS_R│____│               │____│ ←  │ ↓  │ →  │VAI │VAD │
+        ├────┼────┼────┼────┼────┼────┼────┐     ┌────┼────┼────┼────┼────┼────┼────┤
+        │____│____│____│____│____│____│____│     │____│____│____│____│____│SPI │SPD │
+        └────┴────┴────┴────┴────┴────┴────┘     └────┴────┴────┴────┴────┴────┴────┘
+                       ┌───┬───┬───┬───┬───┐     ┌───┬───┬───┬───┬───┐
+                       │___│___│___│___│QMK│     │QMK│___│___│___│___│
+                       └───┴───┴───┴───┴───┘     └───┴───┴───┴───┴───┘
+    */
     [_RAISE] = LAYOUT(
         RGB_TOG, KC_ACL0, KC_ACL1, KC_ACL2, KC_TRNS, KC_TRNS,                                      KC_TRNS, KC_TRNS, RGB_MOD, RGB_RMOD, RGB_HUI, RGB_HUD,
         HF_TOGG, KC_TRNS, KC_TRNS, KC_MS_U, KC_TRNS, KC_TRNS,                                      KC_TRNS, KC_BTN1, KC_UP,   KC_BTN2,  RGB_SAI, RGB_SAD,
@@ -127,6 +151,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+        case ERMAK:
+            if (record->event.pressed) {
+                set_single_persistent_default_layer(_ERMAK);
+            }
+            return false;
         case QWERTY:
             if (record->event.pressed) {
                 set_single_persistent_default_layer(_QWERTY);
@@ -189,6 +218,8 @@ void matrix_scan_user(void) {
 #ifdef ENCODER_MAP_ENABLE
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
     /* Left Hand */                             /* Right Hand */
+    /* Switch between tabs. (Control + Tab). */ /* Switch between open apps on Mac. (Command + Tab + timer logic) */
+    [_ERMAK] = {ENCODER_CCW_CW(S(C(KC_TAB)), C(KC_TAB)), ENCODER_CCW_CW(CMD_TAB_CW, CMD_TAB_CCW)},
     /* Switch between tabs. (Control + Tab). */ /* Switch between open apps on Mac. (Command + Tab + timer logic) */
     [_QWERTY] = {ENCODER_CCW_CW(S(C(KC_TAB)), C(KC_TAB)), ENCODER_CCW_CW(CMD_TAB_CW, CMD_TAB_CCW)},
     /* Scrolls left & right. (Shift + Mouse Wheel Up). */ /* Scrolls up and down. (Page Down & Page Up - mouse wheel scroll incraments are too small) */
@@ -260,8 +291,11 @@ static void render_status(void) {
     oled_write_P(led_state.caps_lock ? PSTR("on ") : PSTR("off"), false);
     oled_write_P(PSTR("\n"), false);
     switch (get_highest_layer(layer_state)) {
+        case _ERMAK:
+            oled_write_P(PSTR("Ermak"), false);
+            break;
         case _QWERTY:
-            oled_write_P(PSTR("Qwerty Base"), false);
+            oled_write_P(PSTR("Qwerty"), false);
             break;
         case _LOWER:
             oled_write_P(PSTR("Numbers &\nSymbols"), false);
