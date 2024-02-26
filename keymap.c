@@ -32,26 +32,6 @@ bool     is_cmd_tab_active = false;
 uint16_t cmd_tab_timer     = 0;
 
 /**
- * Tap Dance declarations
- */
-enum tapdances {
-    _TD_FIVE_ENTER,
-};
-
-/* Tapdance */
-#define TD5ENT TD(_TD_FIVE_ENTER)
-
-/**
- * Tap Dance definitions
- *
- * To use this in the configurator, enter the name 'TD5ENT' in the "Any" key.
- */
-tap_dance_action_t tap_dance_actions[] = {
-    /* Tap once for 5, twice for Enter. */
-    [_TD_FIVE_ENTER] = ACTION_TAP_DANCE_DOUBLE(KC_5, KC_ENT),
-};
-
-/**
  * Keymap.
  * The rotary encoders are programmed manually below because the configurator does not support them yet.
  */
@@ -61,11 +41,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ┌───┬───┬───┬───┬───┬───┐               ┌───┬───┬───┬───┬───┬───┐
         │ ` │ 1 │ 2 │ 3 │ 4 │ 5 │               │ 6 │ 7 │ 8 │ 9 │ 0 │ \ │
         ├───┼───┼───┼───┼───┼───┤               ├───┼───┼───┼───┼───┼───┤
-        │ + │ Q │ W │ E │ R │ T │               │ Y │ U │ I │ O │ P │ \ │
+        │ + │ B │ Y │ O │ U │ ' │               │ ; │ L │ D │ W │ V │ Z │
         ├───┼───┼───┼───┼───┼───┤               ├───┼───┼───┼───┼───┼───┤
-        │Esc│ A │ S │ D │ F │ G │               │ H │ J │ K │ L │ ; │ ' │
+        │Esc│ C │ I │ E │ A │ , │               │ . │ J │ K │ S │ N │ Q │
         ├───┼───┼───┼───┼───┼───┼───┐       ┌───┼───┼───┼───┼───┼───┼───┤
-        │Sft│ Z │ X │ C │ V │ B │Min│       │Max│ N │ M │ , │ . │ / │Sft│
+        │Sft│ G │ X │ J │ K │ - │Min│       │Max│ / │ R │ M │ F │ P │Sft│
         └───┴───┴───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┴───┴───┘
                 ┌───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┐
                 │ [ │Alt│Gui│Bsp│Tab│       │Ent│Spc│Gui│Alt│ ] │
@@ -95,7 +75,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                 └───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┘
     */
     [_QWERTY] = LAYOUT(
-        KC_EQL,       KC_1,         KC_2,         KC_3,    KC_4,          TD5ENT,                     KC_6,   KC_7,         KC_8,     KC_9,         KC_0,            KC_MINS,
+        KC_EQL,       KC_1,         KC_2,         KC_3,    KC_4,          KC_5,                       KC_6,   KC_7,         KC_8,     KC_9,         KC_0,            KC_MINS,
         KC_TAB,       KC_Q,         KC_W,         KC_E,    KC_R,          KC_T,                       KC_Y,   KC_U,         KC_I,     KC_O,         KC_P,            KC_BSLS,
         LT(1,KC_DEL), LT(2,KC_A),   LCTL_T(KC_S), KC_D,    LGUI_T(KC_F),  KC_G,                       KC_H,   RGUI_T(KC_J), KC_K,     RCTL_T(KC_L), LT(2,KC_SCLN),   LT(1,KC_QUOT),
         KC_LSFT,      LALT_T(KC_Z), KC_X,         KC_C,    KC_V,          KC_B,   KC_MINIM, KC_MAXIM, KC_N,   KC_M,         KC_COMM,  KC_DOT,       RALT_T(KC_SLSH), KC_RSFT,
