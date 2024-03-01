@@ -30,12 +30,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ├───┼───┼───┼───┼───┼───┤               ├───┼───┼───┼───┼───┼───┤
         │ = │ B │ Y │ O │ U │ ' │               │ ; │ L │ D │ W │ V │ Z │
         ├───┼───┼───┼───┼───┼───┤               ├───┼───┼───┼───┼───┼───┤
-        │Esc│ C │ I │ E │ A │ , │               │ . │ J │ K │ S │ N │ Q │
+        │ESC│ C │ I │ E │ A │ , │               │ . │ J │ K │ S │ N │ Q │
         ├───┼───┼───┼───┼───┼───┼───┐       ┌───┼───┼───┼───┼───┼───┼───┤
-        │Sft│ G │ X │ J │ K │ - │Min│       │Max│ / │ R │ M │ F │ P │Sft│
+        │SFT│ G │ X │ J │ K │ - │Min│       │Max│ / │ R │ M │ F │ P │SFT│
         └───┴───┴───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┴───┴───┘
                 ┌───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┐
-                │ [ │Alt│Gui│Bsp│Tab│       │Ent│Spc│Gui│Alt│ ] │
+                │ [ │GUI│ALT│BSP│TAB│       │ENT│SPC│GUI│ALT│ ] │
                 └───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┘
         */
     [_ERMAK] = LAYOUT(
@@ -49,16 +49,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /*
         DVORAK
         ┌───┬───┬───┬───┬───┬───┐               ┌───┬───┬───┬───┬───┬───┐
-        │ ` │ 1 │ 2 │ 3 │ 4 │ 5 │               │ 6 │ 7 │ 8 │ 9 │ 0 │ ` │
+        │ ` │ 1 │ 2 │ 3 │ 4 │ 5 │               │ 6 │ 7 │ 8 │ 9 │ 0 │ \ │
         ├───┼───┼───┼───┼───┼───┤               ├───┼───┼───┼───┼───┼───┤
-        │ESC│ Q │ W │ E │ R │ T │               │ Y │ U │ I │ O │ P │BSP│
+        │ESC│ ' │ , │ . │ P │ Y │               │ F │ C │ C │ R │ L │ / │
         ├───┼───┼───┼───┼───┼───┤               ├───┼───┼───┼───┼───┼───┤
-        │TAB│ A │ S │ D │ F │ G │               │ H │ J │ K │ L │ ; │ ' │
+        │TAB│ A │ O │ E │ U │ I │               │ D │ H │ T │ N │ S │ - │
         ├───┼───┼───┼───┼───┼───┼───┐       ┌───┼───┼───┼───┼───┼───┼───┤
-        │SFT│ Z │ X │ C │ V │ B │Min│       │Max│ N │ M │ , │ . │ / │SFT│
+        │SFT│ ; │ Q │ J │ K │ X │Min│       │Max│ B │ M │ W │ V │ Z │SFT│
         └───┴───┴───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┴───┴───┘
                 ┌───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┐
-                │GUI│ALT│CTL│LOW│ENT│       │SPC│RSE│CTL│ALT│GUI│
+                │ [ │GUI│ALT│BSP│TAB│       │ENT│SPC│GUI│ALT│ ] │
                 └───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┘
     */
     [_DVORAK] = LAYOUT(
@@ -66,7 +66,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_EQUAL, KC_QUOTE,     KC_COMMA,        KC_DOT,       KC_P,         KC_Y,                            KC_F,     KC_G,         KC_C,         KC_R,            KC_L,         KC_SLASH,
         KC_TRNS,  LGUI_T(KC_A), LALT_T(KC_O),    LCTL_T(KC_E), LSFT_T(KC_U), KC_I,                            KC_D,     RSFT_T(KC_H), RCTL_T(KC_T), RALT_T(KC_N),    RGUI_T(KC_S), KC_MINUS,
         KC_LSFT,  KC_SEMICOLON, KC_Q,            KC_J,         KC_K,         KC_X,         KC_TRNS, KC_ERMAK, KC_B,     KC_M,         KC_W,         KC_V,            KC_Z,         KC_RSFT,
-                                KC_LEFT_BRACKET, KC_LGUI,      KC_LALT,      KC_BACKSPACE, KC_TAB,  KC_ENTER, KC_SPACE, KC_RGUI,      KC_RALT,      KC_RIGHT_BRACKET
+                                KC_TRNS,         KC_TRNS,      KC_TRNS,      KC_TRNS,      KC_TRNS, KC_TRNS,  KC_TRNS,  KC_TRNS,      KC_TRNS,      KC_TRNS
     ),
 
     /*
@@ -85,11 +85,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                 └───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┘
     */
     [_QWERTY] = LAYOUT(
-        KC_GRV,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                        KC_6,    KC_7,    KC_8,    KC_9,    KC_0,  KC_GRV,
-        KC_ESC,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                        KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,  KC_BSPC,
-        KC_TAB,   KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                        KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN,  KC_QUOT,
-        KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, KC_TRNS,     KC_ERMAK, KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_RSFT,
-                        KC_LGUI,KC_LALT,KC_LCTL, MO(_LOWER), KC_ENT,      KC_SPC, MO(_RAISE), KC_RCTL, KC_RALT, KC_RGUI
+        KC_GRV,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                       KC_6,    KC_7,    KC_8,    KC_9,    KC_0,  KC_GRV,
+        KC_ESC,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                       KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,  KC_BSPC,
+        KC_TAB,   KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                       KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN,  KC_QUOT,
+        KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,    KC_TRNS, KC_ERMAK, KC_N,    KC_M,    KC_COMM, KC_DOT, KC_SLSH,  KC_RSFT,
+                          KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
     ),
 
     /*
@@ -113,13 +113,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TRNS, KC_EXLM, KC_AT,   KC_LCBR, KC_RCBR, KC_PIPE,                                 DT_PRNT, KC_7,  KC_8,  KC_9,  KC_ASTR, KC_F12,
         KC_TRNS, KC_HASH, KC_DLR,  KC_LPRN, KC_RPRN, KC_GRV,                                  DT_UP,   KC_4,  KC_5,  KC_6,  KC_PPLS, KC_TRNS,
         KC_TRNS, KC_HASH, KC_DLR,  KC_LBRC, KC_RBRC, KC_TILD,       KC_TRNS,  KC_TRNS,        DT_DOWN, KC_1,  KC_2,  KC_3,  KC_PSLS, QK_BOOT,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_P0,   KC_P0, KC_P0,   KC_P0, KC_P0
+                 KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_P0,   KC_P0, KC_P0,   KC_P0, KC_P0
     ),
 
     /*
         Navigation/Function Layer
         ┌────┬────┬────┬────┬────┬────┐               ┌────┬────┬────┬────┬────┬────┐
-        │RGB │ACL0│ACL1│ACL2│____│____│               │____│____│MOD │RMOD│HUI │HUD │
+        │BOOT│ACL0│ACL1│ACL2│____│____│               │____│____│MOD │RMOD│HUI │EEP │
         ├────┼────┼────┼────┼────┼────┤               ├────┼────┼────┼────┼────┼────┤
         │____│____│____│MS_U│____│____│               │____│BTN1│ ↑  │BTN2│SAI │SAD │
         ├────┼────┼────┼────┼────┼────┤               ├────┼────┼────┼────┼────┼────┤
@@ -128,15 +128,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         │____│____│____│____│____│____│____│     │____│____│____│____│____│SPI │SPD │
         └────┴────┴────┴────┴────┴────┴────┘     └────┴────┴────┴────┴────┴────┴────┘
                        ┌───┬───┬───┬───┬───┐     ┌───┬───┬───┬───┬───┐
-                       │___│___│___│___│QMK│     │QMK│___│___│___│___│
+                       │___│___│BT2│BT1│___│     │___│___│___│___│___│
                        └───┴───┴───┴───┴───┘     └───┴───┴───┴───┴───┘
     */
     [_RAISE] = LAYOUT(
-        RGB_TOG, KC_ACL0, KC_ACL1, KC_ACL2, KC_TRNS, KC_TRNS,                                      KC_TRNS, KC_TRNS, RGB_MOD, RGB_RMOD, RGB_HUI, RGB_HUD,
+        QK_BOOT, KC_ACL0, KC_ACL1, KC_ACL2, KC_TRNS, KC_TRNS,                                      KC_TRNS, KC_TRNS, RGB_MOD, RGB_RMOD, RGB_HUI, QK_CLEAR_EEPROM,
         HF_TOGG, KC_TRNS, KC_TRNS, KC_MS_U, KC_TRNS, KC_TRNS,                                      KC_TRNS, KC_BTN1, KC_UP,   KC_BTN2,  RGB_SAI, RGB_SAD,
         HF_DWLU, KC_TRNS, KC_MS_L, KC_MS_D, KC_MS_R, KC_TRNS,                                      KC_TRNS, KC_LEFT, KC_DOWN, KC_RGHT,  RGB_VAI, RGB_VAD,
         HF_DWLD, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,          KC_TRNS,    KC_TRNS,           KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  RGB_SPI, RGB_SPD,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
+                 KC_TRNS, KC_TRNS, KC_BTN3, KC_BTN1, KC_BTN2, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
     ),
 };
 
@@ -144,7 +144,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 static void render_logo(void) {
     static const char PROGMEM qmk_logo[] = {0x80, 0x81, 0x82, 0x83, 0x84, 0x85, 0x86, 0x87, 0x88, 0x89, 0x8a, 0x8b, 0x8c, 0x8d, 0x8e, 0x8f, 0x90, 0x91, 0x92, 0x93, 0x94, 0xa0, 0xa1, 0xa2, 0xa3, 0xa4, 0xa5, 0xa6, 0xa7, 0xa8, 0xa9, 0xaa, 0xab, 0xac, 0xad, 0xae, 0xaf, 0xb0, 0xb1, 0xb2, 0xb3, 0xb4, 0xc0, 0xc1, 0xc2, 0xc3, 0xc4, 0xc5, 0xc6, 0xc7, 0xc8, 0xc9, 0xca, 0xcb, 0xcc, 0xcd, 0xce, 0xcf, 0xd0, 0xd1, 0xd2, 0xd3, 0xd4, 0};
-
     oled_write_P(qmk_logo, false);
 }
 
@@ -153,6 +152,9 @@ static void render_status(void) {
     switch (get_highest_layer(layer_state)) {
         case _ERMAK:
             oled_write_P(PSTR("Ermak"), false);
+            break;
+        case _DVORAK:
+            oled_write_P(PSTR("Dvorak"), false);
             break;
         case _QWERTY:
             oled_write_P(PSTR("Qwerty"), false);
@@ -220,7 +222,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 #ifdef ENCODER_MAP_ENABLE
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
-    [_ERMAK] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_RAISE, KC_DVORAK) },
+    [_ERMAK] = { ENCODER_CCW_CW(KC_VOLU, KC_VOLD), ENCODER_CCW_CW(KC_RAISE, KC_DVORAK) },
     [_DVORAK] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(KC_ERMAK, KC_QWERTY) },
     [_QWERTY] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(KC_DVORAK, KC_LOWER) },
     [_LOWER] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(KC_QWERTY, KC_RAISE) },
