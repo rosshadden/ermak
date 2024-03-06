@@ -1,10 +1,10 @@
+// Copyright 2024 Ross Hadden (@rosshadden)
 // Copyright 2024 Ryan Neff (@JellyTitan)
 // SPDX-License-Identifier: GPL-2.0-or-later
 
-// Copyright 2024 Ross Hadden (@JellyTitan)
-// SPDX-License-Identifier: GPL-2.0-or-later
-
 #include QMK_KEYBOARD_H
+
+#include "features/custom_shift_keys.h"
 
 enum sofle_layers {
   _ERMAK,
@@ -22,28 +22,49 @@ enum custom_keycodes {
   KC_RAISE,
 };
 
+const custom_shift_key_t custom_shift_keys[] = {
+  { KC_0, KC_ASTERISK },
+  { KC_1, KC_PIPE },
+  { KC_2, KC_EQUAL },
+  { KC_3, KC_TILDE },
+  { KC_4, KC_PLUS },
+  { KC_5, KC_LEFT_ANGLE_BRACKET },
+  { KC_6, KC_RIGHT_ANGLE_BRACKET },
+  { KC_7, KC_CIRCUMFLEX },
+  { KC_8, KC_PERCENT },
+  { KC_9, KC_AMPERSAND },
+  { KC_COMMA, KC_SEMICOLON },
+  { KC_DOT, KC_COLON },
+  { KC_DOUBLE_QUOTE, KC_RIGHT_PAREN },
+  { KC_ASTERISK, KC_DOLLAR },
+  { KC_QUESTION, KC_EXCLAIM },
+  { KC_QUOTE, KC_LEFT_PAREN },
+  { KC_SLASH, KC_BACKSLASH },
+};
+uint8_t NUM_CUSTOM_SHIFT_KEYS = sizeof(custom_shift_keys) / sizeof(custom_shift_key_t);
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   /*
     ERMAK
     ┌───┬───┬───┬───┬───┬───┐               ┌───┬───┬───┬───┬───┬───┐
-    │ ` │ 1 │ 2 │ 3 │ 4 │ 5 │               │ 6 │ 7 │ 8 │ 9 │ 0 │ \ │
+    │ [{│ 1|│ 2=│ 3~│ 4+│ 5<│               │ 6>│ 7^│ 8&│ 9%│ 0*│ ]}│
     ├───┼───┼───┼───┼───┼───┤               ├───┼───┼───┼───┼───┼───┤
-    │ = │ B │ Y │ O │ U │ ' │               │ ; │ L │ D │ W │ V │ Z │
+    │Tab│ B │ Y │ O │ U │ '(│               │ ")│ L │ D │ W │ V │ Z │
     ├───┼───┼───┼───┼───┼───┤               ├───┼───┼───┼───┼───┼───┤
-    │ESC│ C │ I │ E │ A │ , │               │ . │ J │ K │ S │ N │ Q │
+    │Esc│ C │ I │ E │ A │ ,;│               │ .:│ J │ K │ S │ N │ Q │
     ├───┼───┼───┼───┼───┼───┼───┐       ┌───┼───┼───┼───┼───┼───┼───┤
-    │SFT│ G │ X │ J │ K │ - │Min│       │Max│ / │ R │ M │ F │ P │SFT│
+    │Sft│ G │ X │ J │ K │ -_│Min│       │Max│ ?!│ R │ M │ F │ P │Sft│
     └───┴───┴───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┴───┴───┘
             ┌───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┐
-            │ [ │GUI│ALT│BSP│TAB│       │ENT│SPC│GUI│ALT│ ] │
+            │ #$│Gui│Alt│Bsp│Tab│       │Ent│Spc│Gui│Alt│ /\│
             └───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┘
   */
   [_ERMAK] = LAYOUT(
-    KC_GRAVE,       KC_1,         KC_2,            KC_3,         KC_4,          KC_5,                             KC_6,         KC_7,         KC_8,         KC_9,            KC_0,         KC_BACKSLASH,
-    KC_EQUAL,       KC_B,         KC_Y,            KC_O,         KC_U,          KC_QUOTE,                         KC_SEMICOLON, KC_L,         KC_D,         KC_W,            KC_V,         KC_Z,
-    LCTL_T(KC_ESC), LGUI_T(KC_C), LALT_T(KC_I),    LCTL_T(KC_E), LSFT_T(KC_A),  KC_COMMA,                         KC_DOT,       RSFT_T(KC_H), RCTL_T(KC_T), RALT_T(KC_S),    RGUI_T(KC_N), KC_Q,
-    KC_LSFT,        KC_G,         KC_X,            KC_J,         KC_K,          KC_MINUS,     KC_MUTE, KC_DVORAK, KC_SLASH,     KC_R,         KC_M,         KC_F,            KC_P,         KC_RSFT,
-                                  KC_LEFT_BRACKET, KC_LGUI,      KC_LALT,       KC_BACKSPACE, KC_TAB,  KC_ENTER,  KC_SPACE,     KC_RGUI,      KC_RALT,      KC_RIGHT_BRACKET
+    KC_LEFT_BRACKET, KC_1,         KC_2,            KC_3,         KC_4,          KC_5,                             KC_6,            KC_7,         KC_8,         KC_9,            KC_0,         KC_RIGHT_BRACKET,
+    KC_TAB,          KC_B,         KC_Y,            KC_O,         KC_U,          KC_QUOTE,                         KC_DOUBLE_QUOTE, KC_L,         KC_D,         KC_W,            KC_V,         KC_Z,
+    LCTL_T(KC_ESC),  LGUI_T(KC_C), LALT_T(KC_I),    LCTL_T(KC_E), LSFT_T(KC_A),  KC_COMMA,                         KC_DOT,          RSFT_T(KC_H), RCTL_T(KC_T), RALT_T(KC_S),    RGUI_T(KC_N), KC_Q,
+    KC_LSFT,         KC_G,         KC_X,            KC_J,         KC_K,          KC_MINUS,     KC_MUTE, KC_DVORAK, KC_QUESTION,     KC_R,         KC_M,         KC_F,            KC_P,         KC_RSFT,
+                                   KC_ASTERISK,     KC_LGUI,      KC_LALT,       KC_BACKSPACE, KC_TAB,  KC_ENTER,  KC_SPACE,        KC_RGUI,      KC_RALT,      KC_SLASH
   ),
 
   /*
@@ -58,7 +79,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     │SFT│ ; │ Q │ J │ K │ X │Min│       │Max│ B │ M │ W │ V │ Z │SFT│
     └───┴───┴───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┴───┴───┘
             ┌───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┐
-            │ [ │GUI│ALT│BSP│TAB│       │ENT│SPC│GUI│ALT│ ] │
+            │___│___│___│___│___│       │___│___│___│___│___│
             └───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┘
   */
   [_DVORAK] = LAYOUT(
@@ -66,7 +87,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_EQUAL, KC_QUOTE,     KC_COMMA,        KC_DOT,       KC_P,         KC_Y,                            KC_F,     KC_G,         KC_C,         KC_R,            KC_L,         KC_SLASH,
     KC_TRNS,  LGUI_T(KC_A), LALT_T(KC_O),    LCTL_T(KC_E), LSFT_T(KC_U), KC_I,                            KC_D,     RSFT_T(KC_H), RCTL_T(KC_T), RALT_T(KC_N),    RGUI_T(KC_S), KC_MINUS,
     KC_LSFT,  KC_SEMICOLON, KC_Q,            KC_J,         KC_K,         KC_X,         KC_TRNS, KC_ERMAK, KC_B,     KC_M,         KC_W,         KC_V,            KC_Z,         KC_RSFT,
-                            KC_TRNS,         KC_TRNS,      KC_TRNS,      KC_TRNS,      KC_TRNS, KC_TRNS,  KC_TRNS,  KC_TRNS,      KC_TRNS,      KC_TRNS
+                            KC_ERMAK,         KC_TRNS,      KC_TRNS,      KC_TRNS,      KC_TRNS, KC_TRNS,  KC_TRNS,  KC_TRNS,      KC_TRNS,      KC_TRNS
   ),
 
   /*
@@ -81,7 +102,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     │SFT│ Z │ X │ C │ V │ B │Min│       │Max│ N │ M │ , │ . │ / │SFT│
     └───┴───┴───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┴───┴───┘
             ┌───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┐
-            │GUI│ALT│CTL│LOW│ENT│       │SPC│RSE│CTL│ALT│GUI│
+            │___│___│___│___│___│       │___│___│___│___│___│
             └───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┘
   */
   [_QWERTY] = LAYOUT(
