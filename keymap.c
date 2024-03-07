@@ -160,6 +160,58 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 };
 
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  if (
+    get_highest_layer(default_layer_state) == _ERMAK &&
+    get_highest_layer(layer_state) == _ERMAK &&
+    !process_custom_shift_keys(keycode, record)
+  ) {
+    return false;
+  }
+
+  switch (keycode) {
+    case KC_ERMAK:
+      if (record->event.pressed) {
+        set_single_persistent_default_layer(_ERMAK);
+      }
+      return false;
+    case KC_DVORAK:
+      if (record->event.pressed) {
+        set_single_persistent_default_layer(_DVORAK);
+      }
+      return false;
+    case KC_QWERTY:
+      if (record->event.pressed) {
+        set_single_persistent_default_layer(_QWERTY);
+      }
+      return false;
+    case KC_LOWER:
+      if (record->event.pressed) {
+        set_single_persistent_default_layer(_LOWER);
+      }
+      return false;
+    case KC_RAISE:
+      if (record->event.pressed) {
+        set_single_persistent_default_layer(_RAISE);
+      }
+      return false;
+
+    case LSFT_T(KC_HASH):
+      if (record->tap.count && record->event.pressed) {
+        tap_code16(KC_HASH);
+        return false;
+      }
+      break;
+    case RSFT_T(KC_SLASH):
+      if (record->tap.count && record->event.pressed) {
+        tap_code16(KC_SLASH);
+        return false;
+      }
+      break;
+  }
+  return true;
+}
+
 #ifdef OLED_ENABLE
 
 static void render_logo(void) {
@@ -236,58 +288,6 @@ bool oled_task_user(void) {
 }
 
 #endif
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  if (
-    get_highest_layer(default_layer_state) == _ERMAK &&
-    get_highest_layer(layer_state) == _ERMAK &&
-    !process_custom_shift_keys(keycode, record)
-  ) {
-    return false;
-  }
-
-  switch (keycode) {
-    case KC_ERMAK:
-      if (record->event.pressed) {
-        set_single_persistent_default_layer(_ERMAK);
-      }
-      return false;
-    case KC_DVORAK:
-      if (record->event.pressed) {
-        set_single_persistent_default_layer(_DVORAK);
-      }
-      return false;
-    case KC_QWERTY:
-      if (record->event.pressed) {
-        set_single_persistent_default_layer(_QWERTY);
-      }
-      return false;
-    case KC_LOWER:
-      if (record->event.pressed) {
-        set_single_persistent_default_layer(_LOWER);
-      }
-      return false;
-    case KC_RAISE:
-      if (record->event.pressed) {
-        set_single_persistent_default_layer(_RAISE);
-      }
-      return false;
-
-    case LSFT_T(KC_HASH):
-      if (record->tap.count && record->event.pressed) {
-        tap_code16(KC_HASH);
-        return false;
-      }
-      break;
-    case RSFT_T(KC_SLASH):
-      if (record->tap.count && record->event.pressed) {
-        tap_code16(KC_SLASH);
-        return false;
-      }
-      break;
-  }
-  return true;
-}
 
 #ifdef ENCODER_MAP_ENABLE
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
