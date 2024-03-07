@@ -139,7 +139,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   /*
     Navigation/Function Layer
     ┌────┬────┬────┬────┬────┬────┐               ┌────┬────┬────┬────┬────┬────┐
-    │BOOT│ACL0│ACL1│ACL2│____│____│               │____│____│MOD │RMOD│HUI │EEP │
+    │BOOT│ACL0│ACL1│ACL2│____│MAKE│               │____│____│MOD │RMOD│HUI │EEP │
     ├────┼────┼────┼────┼────┼────┤               ├────┼────┼────┼────┼────┼────┤
     │____│____│____│MS_U│____│____│               │____│BTN1│ ↑  │BTN2│SAI │SAD │
     ├────┼────┼────┼────┼────┼────┤               ├────┼────┼────┼────┼────┼────┤
@@ -152,10 +152,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                    └───┴───┴───┴───┴───┘     └───┴───┴───┴───┴───┘
   */
   [_RAISE] = LAYOUT(
-    QK_BOOT, KC_ACL0, KC_ACL1, KC_ACL2, _______, _______,                   _______, _______, RGB_MOD, RGB_RMOD, RGB_HUI, QK_CLEAR_EEPROM,
-    HF_TOGG, _______, _______, KC_MS_U, _______, _______,                   _______, KC_BTN1, KC_UP,   KC_BTN2,  RGB_SAI, RGB_SAD,
-    HF_DWLU, _______, KC_MS_L, KC_MS_D, KC_MS_R, _______,                   _______, KC_LEFT, KC_DOWN, KC_RGHT,  RGB_VAI, RGB_VAD,
-    HF_DWLD, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,  RGB_SPI, RGB_SPD,
+    QK_BOOT, KC_ACL0, KC_ACL1, KC_ACL2, _______, QK_MAKE,                   _______, _______, RGB_MOD, RGB_RMOD, RGB_HUI, QK_CLEAR_EEPROM,
+    _______, _______, _______, KC_MS_U, _______, _______,                   _______, KC_BTN1, KC_UP,   KC_BTN2,  _______, _______,
+    _______, _______, KC_MS_L, KC_MS_D, KC_MS_R, _______,                   _______, KC_LEFT, KC_DOWN, KC_RGHT,  _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______,
                       _______, _______, KC_BTN3, KC_BTN1, KC_BTN2, _______, _______, _______, _______, _______
   ),
 };
