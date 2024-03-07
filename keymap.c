@@ -306,10 +306,10 @@ bool oled_task_user(void) {
 
 #ifdef ENCODER_MAP_ENABLE
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
-  [_ERMAK] = { ENCODER_CCW_CW(KC_VOLU, KC_VOLD), ENCODER_CCW_CW(KC_RAISE, KC_DVORAK) },
-  [_DVORAK] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(KC_ERMAK, KC_QWERTY) },
-  [_QWERTY] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(KC_DVORAK, KC_LOWER) },
-  [_LOWER] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(KC_QWERTY, KC_RAISE) },
-  [_RAISE] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(KC_LOWER, KC_ERMAK) },
+  [_ERMAK] = { ENCODER_CCW_CW(KC_VOLU, KC_VOLD), ENCODER_CCW_CW(DF(_RAISE), DF(_DVORAK)) },
+  [_DVORAK] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(DF(_ERMAK), DF(_QWERTY)) },
+  [_QWERTY] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(DF(_DVORAK), DF(_LOWER)) },
+  [_LOWER] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(DF(_QWERTY), DF(_RAISE)) },
+  [_RAISE] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(DF(_LOWER), DF(_ERMAK)) },
 };
 #endif
