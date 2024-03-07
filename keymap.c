@@ -61,7 +61,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   */
   [_ERMAK] = LAYOUT(
     KC_LEFT_BRACKET, KC_1,         KC_2,         KC_3,         KC_4,          KC_5,                             KC_6,            KC_7,         KC_8,         KC_9,            KC_0,         KC_RIGHT_BRACKET,
-    KC_TAB,          KC_B,         KC_Y,         KC_O,         KC_U,          KC_QUOTE,                         KC_DOUBLE_QUOTE, KC_L,         KC_D,         KC_W,            KC_V,         KC_Z,
+    KC_GRAVE,        KC_B,         KC_Y,         KC_O,         KC_U,          KC_QUOTE,                         KC_DOUBLE_QUOTE, KC_L,         KC_D,         KC_W,            KC_V,         KC_Z,
     LCTL_T(KC_ESC),  LGUI_T(KC_C), LALT_T(KC_I), LCTL_T(KC_E), LSFT_T(KC_A),  KC_COMMA,                         KC_DOT,          RSFT_T(KC_H), RCTL_T(KC_T), RALT_T(KC_S),    RGUI_T(KC_N), KC_Q,
     // KC_LSFT,         KC_G,         KC_X,         KC_J,         KC_K,          KC_MINUS,     KC_MUTE, KC_DVORAK, KC_QUESTION,     KC_R,         KC_M,         KC_F,            KC_P,         KC_RSFT,
     LSFT_T(KC_HASH), KC_G,         KC_X,         KC_J,         KC_K,          KC_MINUS,     KC_MUTE, KC_DVORAK, KC_QUESTION,     KC_R,         KC_M,         KC_F,            KC_P,         RSFT_T(KC_SLASH),
