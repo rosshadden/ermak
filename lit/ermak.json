@@ -1,0 +1,414 @@
+[
+  {
+    "name": "Ermak",
+    "author": "Ross Hadden",
+    "pcb": false,
+    "plate": false,
+    "css": "@import url(https://fonts.googleapis.com/css?family=Kode+Mono);\n\n* {\n    font-family: 'Kode Mono';\n}\n\n.keylabel4 {\n    font-size: 14px;\n}\n\n.keylabel1, .keylabel7 {\n    font-size: 14px;\n}\n\n.keylabel0, .keylabel2 {\n    font-size: 10px;\n}"
+  },
+  [
+    {
+      "y": 0.2,
+      "x": 3,
+      "p": "DSA",
+      "f": 8,
+      "fa": [
+        1
+      ]
+    },
+    "\n\n\n\n\n\n\n\n~\n\n3",
+    {
+      "x": 7
+    },
+    "\n\n\n\n\n\n\n\n&\n\n8"
+  ],
+  [
+    {
+      "y": -0.95,
+      "x": 10
+    },
+    "\n\n\n\n\n\n\n\n^\n\n7"
+  ],
+  [
+    {
+      "y": -0.9,
+      "x": 2
+    },
+    "\n\n\n\n\n\n\n\n=\n\n2",
+    {
+      "x": 1
+    },
+    "\n\n\n\n\n\n\n\n+\n\n4",
+    {
+      "x": 7
+    },
+    "\n\n\n\n\n\n\n\n%\n\n9"
+  ],
+  [
+    {
+      "y": -0.85,
+      "c": "#aaaaaa",
+      "f": 9,
+      "fa": [
+        1
+      ]
+    },
+    "\n\n\n\n\n\n\n`\n{\n\n[",
+    {
+      "c": "#cccccc",
+      "f": 8,
+      "fa": [
+        1
+      ]
+    },
+    "\n\n\n\n\n\n\n!\n|\n\n1",
+    {
+      "x": 3
+    },
+    "\n\n\n\n\n\n\n\n<\n\n5",
+    {
+      "x": 3
+    },
+    "\n\n\n\n\n\n\n\n>\n\n6",
+    {
+      "x": 3
+    },
+    "\n\n\n\n\n\n\n\n*\n\n0",
+    {
+      "c": "#aaaaaa",
+      "f": 6,
+      "fa": [
+        1
+      ]
+    },
+    "\n\n\n\n\n\n\n\n}\n\n]"
+  ],
+  [
+    {
+      "y": -0.30000000000000004,
+      "x": 3,
+      "c": "#cccccc",
+      "f": 8,
+      "fa": [
+        1
+      ]
+    },
+    "\n\n\n\n\n\n\n\n\nO",
+    {
+      "x": 7
+    },
+    "\n\n\n\n\n\n\n\n\nD"
+  ],
+  [
+    {
+      "y": -0.95,
+      "x": 10
+    },
+    "\n\n\n\n\n\n\n\n\nL"
+  ],
+  [
+    {
+      "y": -0.8999999999999999,
+      "x": 2
+    },
+    "\n\n\n\n\n\n\n\n\nY",
+    {
+      "x": 1
+    },
+    "\n\n\n\n\n\n\n\n\nU",
+    {
+      "x": 7
+    },
+    "\n\n\n\n\n\n\n\n\nW"
+  ],
+  [
+    {
+      "y": -0.8500000000000001,
+      "c": "#aaaaaa"
+    },
+    "\n\n\n\n\n\n\n\n\nTab",
+    {
+      "c": "#cccccc"
+    },
+    "\n\n\n\n\n\n\n\n\nB",
+    {
+      "x": 3
+    },
+    "\n\n\n\n\n\n\n\n\"\n\n'",
+    {
+      "a": 7,
+      "f": 6,
+      "w": 3,
+      "h": 2.75,
+      "d": true
+    },
+    "",
+    {
+      "a": 4,
+      "f": 8,
+      "fa": [
+        1
+      ]
+    },
+    "\n\n\n\n\n\n\n\n:\n\n;",
+    {
+      "x": 3
+    },
+    "\n\n\n\n\n\n\n\n\nV",
+    {
+      "c": "#aaaaaa",
+      "f": 6,
+      "fa": [
+        1
+      ]
+    },
+    "\n\n\n\n\n\n\n\n\nZ"
+  ],
+  [
+    {
+      "y": -0.2999999999999998,
+      "x": 3,
+      "c": "#cccccc",
+      "f": 8,
+      "fa": [
+        1
+      ]
+    },
+    "\n\n\n\nCtrl\n\n\n\n\nE",
+    {
+      "x": 7
+    },
+    "\n\n\n\nCtrl\n\n\n\n\nT"
+  ],
+  [
+    {
+      "y": -0.8500000000000001,
+      "x": 2
+    },
+    "\n\n\n\nAlt\n\n\n\n\nI",
+    {
+      "x": 1,
+      "n": true
+    },
+    "\n\n\n\nShift\n\n\n\n\nA",
+    {
+      "x": 5,
+      "n": true
+    },
+    "\n\n\n\nShift\n\n\n\n\nH",
+    {
+      "x": 1
+    },
+    "\n\n\n\nAlt\n\n\n\n\nS"
+  ],
+  [
+    {
+      "y": -0.8500000000000001,
+      "c": "#aaaaaa",
+      "f": 6,
+      "fa": [
+        1
+      ]
+    },
+    "\n\n\n\nCtrl\n\n\n\n\nEsc",
+    {
+      "c": "#cccccc",
+      "f": 8,
+      "fa": [
+        1
+      ]
+    },
+    "\n\n\n\nSuper\n\n\n\n\nC",
+    {
+      "x": 3
+    },
+    "\n\n\n\n\n\n\n\n<\n\n,",
+    {
+      "x": 3
+    },
+    "\n\n\n\n\n\n\n\n>\n\n.",
+    {
+      "x": 3
+    },
+    "\n\n\n\nSuper\n\n\n\n\nN",
+    {
+      "c": "#aaaaaa",
+      "f": 6,
+      "fa": [
+        1
+      ]
+    },
+    "\n\n\n\n\n\n\n\n\nQ"
+  ],
+  [
+    {
+      "y": -0.2999999999999998,
+      "x": 3,
+      "c": "#cccccc",
+      "f": 8,
+      "fa": [
+        1
+      ]
+    },
+    "\n\n\n\n\n\n\n\n\nJ",
+    {
+      "x": 7
+    },
+    "\n\n\n\n\n\n\n\n\nM"
+  ],
+  [
+    {
+      "y": -0.9500000000000002,
+      "x": 6.25
+    },
+    "\n\n\n\n\n\n\n\n\nVolume",
+    {
+      "x": 0.5
+    },
+    "\n\n\n\n\n\n\n\n\nLayout"
+  ],
+  [
+    {
+      "y": -0.8999999999999999,
+      "x": 2
+    },
+    "\n\n\n\n\n\n\n\n\nX",
+    {
+      "x": 1
+    },
+    "\n\n\n\n\n\n\n\n\nK",
+    {
+      "x": 5
+    },
+    "\n\n\n\n\n\n\n\n\nR",
+    {
+      "x": 1
+    },
+    "\n\n\n\n\n\n\n\n\nF"
+  ],
+  [
+    {
+      "y": -0.8500000000000001,
+      "c": "#aaaaaa",
+      "f": 5,
+      "fa": [
+        1
+      ]
+    },
+    "\n\n\n\nShift\n\n\n\n$\n\n#",
+    {
+      "c": "#cccccc",
+      "f": 8,
+      "fa": [
+        1
+      ]
+    },
+    "\n\n\n\n\n\n\n\n\nG",
+    {
+      "x": 3
+    },
+    "\n\n\n\n\n\n\n\n_\n\n-",
+    {
+      "x": 3
+    },
+    "\n\n\n\n\n\n\n\n?\n\n/",
+    {
+      "x": 3
+    },
+    "\n\n\n\n\n\n\n\n\nP",
+    {
+      "c": "#aaaaaa",
+      "f": 5,
+      "fa": [
+        1
+      ]
+    },
+    "\n\n\n\nShift\n\n\n\n\\\n\n/"
+  ],
+  [
+    {
+      "y": -0.15000000000000036,
+      "x": 2.75,
+      "f": 9,
+      "fa": [
+        1
+      ]
+    },
+    "\n\n\n\n\n\n\n\n\nAlt",
+    "\n\n\n\n\n\n\n\n\nSuper",
+    {
+      "x": 5.5
+    },
+    "\n\n\n\n\n\n\n\n\nSuper"
+  ],
+  [
+    {
+      "y": -0.8499999999999996,
+      "x": 1.75
+    },
+    ""
+  ],
+  [
+    {
+      "rx": 0.25,
+      "y": 4.35,
+      "x": 11
+    },
+    "\n\n\n\n\n\n\n\n\nAlt"
+  ],
+  [
+    {
+      "rx": 0.5,
+      "y": 4.5,
+      "x": 11.75
+    },
+    "\n\n\n\n\n\n\n\n`\n\n@"
+  ],
+  [
+    {
+      "r": 15,
+      "rx": 5,
+      "ry": 4.5,
+      "c": "#777777"
+    },
+    "\n\n\n\n\n\n\n\nBack\n\nspace"
+  ],
+  [
+    {
+      "r": 30,
+      "rx": 6.25,
+      "y": -0.25,
+      "x": 0.09999999999999964,
+      "c": "#aaaaaa",
+      "h": 1.5
+    },
+    "\n\n\n\n\n\n\n\n\nTab"
+  ],
+  [
+    {
+      "r": -30,
+      "rx": 8.75,
+      "y": -0.25,
+      "x": -1.0999999999999996,
+      "f": 8,
+      "fa": [
+        1
+      ],
+      "h": 1.5
+    },
+    "\n\n\n\n\n\n\n\n\nEnter"
+  ],
+  [
+    {
+      "r": -15,
+      "rx": 10,
+      "x": -1,
+      "c": "#777777",
+      "f": 9,
+      "fa": [
+        1
+      ]
+    },
+    "\n\n\n\n\n\n\n\n\nSpace"
+  ]
+]
