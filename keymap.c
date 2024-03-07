@@ -43,6 +43,12 @@ const custom_shift_key_t custom_shift_keys[] = {
 };
 uint8_t NUM_CUSTOM_SHIFT_KEYS = sizeof(custom_shift_keys) / sizeof(custom_shift_key_t);
 
+// const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
+// const key_override_t **key_overrides = (const key_override_t *[]){
+//   &delete_key_override,
+//   NULL
+// };
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   /*
     ERMAK
@@ -197,6 +203,25 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         set_single_persistent_default_layer(_RAISE);
       }
       return false;
+
+    case KC_BSPC:
+      static bool delkey_registered;
+      if (record->event.pressed) {
+        if (mod_state & MOD_MASK_SHIFT) {
+          del_mods(MOD_MASK_SHIFT);
+          register_code(KC_DEL);
+          delkey_registered = true;
+          set_mods(mod_state);
+          return false;
+        }
+      } else {
+        if (delkey_registered) {
+          unregister_code(KC_DEL);
+          delkey_registered = false;
+          return false;
+        }
+      }
+      return true;
   }
   return true;
 }
