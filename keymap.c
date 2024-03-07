@@ -63,8 +63,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_LEFT_BRACKET, KC_1,         KC_2,         KC_3,         KC_4,          KC_5,                             KC_6,            KC_7,         KC_8,         KC_9,            KC_0,         KC_RIGHT_BRACKET,
     KC_TAB,          KC_B,         KC_Y,         KC_O,         KC_U,          KC_QUOTE,                         KC_DOUBLE_QUOTE, KC_L,         KC_D,         KC_W,            KC_V,         KC_Z,
     LCTL_T(KC_ESC),  LGUI_T(KC_C), LALT_T(KC_I), LCTL_T(KC_E), LSFT_T(KC_A),  KC_COMMA,                         KC_DOT,          RSFT_T(KC_H), RCTL_T(KC_T), RALT_T(KC_S),    RGUI_T(KC_N), KC_Q,
+    // KC_LSFT,         KC_G,         KC_X,         KC_J,         KC_K,          KC_MINUS,     KC_MUTE, KC_DVORAK, KC_QUESTION,     KC_R,         KC_M,         KC_F,            KC_P,         KC_RSFT,
     LSFT_T(KC_HASH), KC_G,         KC_X,         KC_J,         KC_K,          KC_MINUS,     KC_MUTE, KC_DVORAK, KC_QUESTION,     KC_R,         KC_M,         KC_F,            KC_P,         RSFT_T(KC_SLASH),
-                                   KC_NO,        KC_LGUI,      KC_LALT,       KC_BACKSPACE, KC_TAB,  KC_ENTER,  KC_SPACE,        KC_RGUI,      KC_RALT,      KC_NO
+                                   KC_HASH,      KC_LGUI,      KC_LALT,       KC_BACKSPACE, KC_TAB,  KC_ENTER,  KC_SPACE,        KC_RGUI,      KC_RALT,      KC_SLASH
   ),
 
   /*
@@ -86,7 +87,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_GRV,   KC_1,         KC_2,            KC_3,         KC_4,         KC_5,                            KC_6,     KC_7,         KC_8,         KC_9,            KC_0,         KC_BACKSLASH,
     KC_EQUAL, KC_QUOTE,     KC_COMMA,        KC_DOT,       KC_P,         KC_Y,                            KC_F,     KC_G,         KC_C,         KC_R,            KC_L,         KC_SLASH,
     KC_TRNS,  LGUI_T(KC_A), LALT_T(KC_O),    LCTL_T(KC_E), LSFT_T(KC_U), KC_I,                            KC_D,     RSFT_T(KC_H), RCTL_T(KC_T), RALT_T(KC_N),    RGUI_T(KC_S), KC_MINUS,
-    KC_LSFT,  KC_SEMICOLON, KC_Q,            KC_J,         KC_K,         KC_X,         KC_TRNS, KC_ERMAK, KC_B,     KC_M,         KC_W,         KC_V,            KC_Z,         KC_RSFT,
+    KC_TRNS,  KC_SEMICOLON, KC_Q,            KC_J,         KC_K,         KC_X,         KC_TRNS, KC_ERMAK, KC_B,     KC_M,         KC_W,         KC_V,            KC_Z,         KC_RSFT,
                             KC_ERMAK,         KC_TRNS,      KC_TRNS,      KC_TRNS,      KC_TRNS, KC_TRNS,  KC_TRNS,  KC_TRNS,      KC_TRNS,      KC_TRNS
   ),
 
@@ -160,6 +161,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 };
 
+uint8_t mod_state;
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (
     get_highest_layer(default_layer_state) == _ERMAK &&
@@ -169,6 +171,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return false;
   }
 
+  mod_state = get_mods();
   switch (keycode) {
     case KC_ERMAK:
       if (record->event.pressed) {
@@ -198,13 +201,25 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     case LSFT_T(KC_HASH):
       if (record->tap.count && record->event.pressed) {
-        tap_code16(KC_HASH);
+        if (mod_state & MOD_MASK_SHIFT) {
+          del_mods(MOD_MASK_SHIFT);
+          tap_code16(KC_DOLLAR);
+          set_mods(mod_state);
+        } else {
+          tap_code16(KC_HASH);
+        }
         return false;
       }
       break;
     case RSFT_T(KC_SLASH):
       if (record->tap.count && record->event.pressed) {
-        tap_code16(KC_SLASH);
+        if (mod_state & MOD_MASK_SHIFT) {
+          del_mods(MOD_MASK_SHIFT);
+          tap_code16(KC_BACKSLASH);
+          set_mods(mod_state);
+        } else {
+          tap_code16(KC_SLASH);
+        }
         return false;
       }
       break;
