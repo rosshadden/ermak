@@ -1,6 +1,6 @@
 SRC += features/custom_shift_keys.c
 
-# POINTING_DEVICE_ENABLE = yes
-# POINTING_DEVICE_DRIVER = pimoroni_trackball
 # TAP_DANCE_ENABLE = yes
 VIA_ENABLE = yes
+
+DEFERRED_EXEC_ENABLE = yes
