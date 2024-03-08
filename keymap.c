@@ -71,7 +71,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_SLASH,        KC_B,         KC_Y,         KC_O,         KC_U,         KC_QUOTE,                         KC_DOUBLE_QUOTE, KC_L,         KC_D,         KC_W,         KC_V,         KC_Z,
     LCTL_T(KC_ESC),  LGUI_T(KC_C), LALT_T(KC_I), LCTL_T(KC_E), LSFT_T(KC_A), KC_COMMA,                         KC_DOT,          RSFT_T(KC_H), RCTL_T(KC_T), RALT_T(KC_S), RGUI_T(KC_N), KC_Q,
     KC_LSFT,         KC_G,         KC_X,         KC_J,         KC_K,         KC_MINUS,     KC_MUTE, KC_DVORAK, KC_QUESTION,     KC_R,         KC_M,         KC_F,         KC_P,         KC_RSFT,
-                                   KC_GRAVE,      KC_LGUI,      KC_LALT,      KC_BACKSPACE, KC_TAB,  KC_ENTER,  KC_SPACE,        KC_RGUI,      KC_RALT,      KC_HASH
+                                   KC_GRAVE,     KC_LALT,      KC_LGUI,      KC_BACKSPACE, KC_TAB,  KC_ENTER,  KC_SPACE,        KC_RGUI,      KC_RALT,      KC_HASH
   ),
 
   /*
