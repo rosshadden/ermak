@@ -161,15 +161,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                    └───┴───┴───┴───┴───┘     └───┴───┴───┴───┴───┘
   */
   [_RAISE] = LAYOUT(
-    QK_BOOT, KC_ACL0, KC_ACL1, KC_ACL2, _______, QK_MAKE,                   _______, _______, RGB_MOD, RGB_RMOD, RGB_HUI, QK_CLEAR_EEPROM,
-    _______, _______, _______, KC_MS_U, _______, _______,                   _______, KC_BTN1, KC_UP,   KC_BTN2,  _______, _______,
-    _______, _______, KC_MS_L, KC_MS_D, KC_MS_R, _______,                   _______, KC_LEFT, KC_DOWN, KC_RGHT,  _______, _______,
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______,
-                      _______, KC_BTN2, KC_BTN3, KC_BTN1, _______, _______, _______, _______, _______, _______
+    QK_BOOT, KC_ACL0, KC_ACL1, KC_ACL2, _______, QK_MAKE,                     _______, _______, RGB_MOD, RGB_RMOD, RGB_HUI, QK_CLEAR_EEPROM,
+    _______, KC_BTN2, _______, KC_MS_U, _______, _______,                     _______, KC_BTN1, KC_UP,   KC_BTN2,  _______, _______,
+    _______, KC_BTN1, KC_MS_L, KC_MS_D, KC_MS_R, _______,                     _______, KC_LEFT, KC_DOWN, KC_RGHT,  _______, _______,
+    _______, KC_BTN3, _______, _______, _______, _______,   _______, _______, _______, _______, _______, _______,  _______, _______,
+                      _______, _______, _______, KC_DELETE, _______, _______, _______, _______, _______, _______
   ),
 
   /*
-    blank
+    legacy
     ┌────┬────┬────┬────┬────┬────┐               ┌────┬────┬────┬────┬────┬────┐
     │____│____│____│____│____│____│               │____│____│____│____│____│____│
     ├────┼────┼────┼────┼────┼────┤               ├────┼────┼────┼────┼────┼────┤
@@ -184,10 +184,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                    └───┴───┴───┴───┴───┘     └───┴───┴───┴───┴───┘
   */
   [_LEGACY] = LAYOUT(
-    _______, KC_EXCLAIM, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+    _______, KC_EXCLAIM, KC_EQUAL, KC_EQUAL, KC_EQUAL, KC_EQUAL,                   KC_EQUAL, KC_EQUAL, KC_EQUAL, KC_EQUAL, KC_EQUAL, KC_EQUAL,
+    _______, _______, _______, _______, _______, KC_EQUAL,                   KC_EQUAL, _______, _______, _______, _______, _______,
+    KC_EQUAL, _______, _______, _______, _______, KC_EQUAL,                   KC_EQUAL, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, KC_EQUAL, _______, _______, KC_EQUAL, _______, _______, _______, _______, _______,
                       _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
   ),
 
@@ -245,26 +245,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         set_single_persistent_default_layer(_QWERTY);
       }
       return false;
-
-    case KC_BSPC:
-      static bool delkey_registered;
-      mod_state = get_mods();
-      if (record->event.pressed) {
-        if (mod_state & MOD_MASK_CS) {
-          del_mods(MOD_MASK_CS);
-          register_code(KC_DEL);
-          delkey_registered = true;
-          set_mods(mod_state);
-          return false;
-        }
-      } else {
-        if (delkey_registered) {
-          unregister_code(KC_DEL);
-          delkey_registered = false;
-          return false;
-        }
-      }
-      return true;
   }
   return true;
 }
