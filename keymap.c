@@ -10,16 +10,18 @@ enum sofle_layers {
   _ERMAK,
   _DVORAK,
   _QWERTY,
+
   _LOWER,
   _RAISE,
+  _LEGACY,
+
+  _BLANK,
 };
 
 enum custom_keycodes {
   KC_ERMAK = SAFE_RANGE,
   KC_DVORAK,
   KC_QWERTY,
-  KC_LOWER,
-  KC_RAISE,
 };
 
 const custom_shift_key_t custom_shift_keys[] = {
@@ -71,7 +73,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_SLASH,        KC_B,         KC_Y,         KC_O,         KC_U,         KC_QUOTE,                         KC_DOUBLE_QUOTE, KC_L,         KC_D,         KC_W,         KC_V,         KC_Z,
     LCTL_T(KC_ESC),  LGUI_T(KC_C), LALT_T(KC_I), LCTL_T(KC_E), LSFT_T(KC_A), KC_COMMA,                         KC_DOT,          RSFT_T(KC_H), RCTL_T(KC_T), RALT_T(KC_S), RGUI_T(KC_N), KC_Q,
     KC_LSFT,         KC_G,         KC_X,         KC_J,         KC_K,         KC_MINUS,     KC_MUTE, KC_DVORAK, KC_QUESTION,     KC_R,         KC_M,         KC_F,         KC_P,         KC_RSFT,
-                                   KC_GRAVE,     KC_LALT,      KC_LGUI,      KC_BACKSPACE, KC_TAB,  KC_ENTER,  KC_SPACE,        KC_RGUI,      KC_RALT,      KC_HASH
+                                   KC_GRAVE,     KC_LALT,      KC_LGUI,      KC_BACKSPACE, LT(_LOWER, KC_TAB),  LT(_RAISE, KC_ENTER),  KC_SPACE,        KC_RGUI,      KC_RALT,      KC_HASH
   ),
 
   /*
@@ -113,10 +115,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             └───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┘
   */
   [_QWERTY] = LAYOUT(
-    KC_GRV,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                       KC_6,    KC_7,    KC_8,    KC_9,    KC_0,  KC_GRV,
-    KC_ESC,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                       KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,  KC_BSPC,
-    KC_TAB,   KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                       KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN,  KC_QUOT,
-    KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,    _______, KC_ERMAK, KC_N,    KC_M,    KC_COMM, KC_DOT, KC_SLSH,  KC_RSFT,
+    KC_GRV,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                       KC_6,    KC_7,    KC_8,    KC_9,    KC_0,  KC_BACKSLASH,
+    KC_EQUAL,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                       KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,  KC_MINUS,
+    _______,   KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                       KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN,  KC_QUOT,
+    _______,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,    _______, KC_ERMAK, KC_N,    KC_M,    KC_COMM, KC_DOT, KC_SLSH,  KC_RSFT,
                       _______, _______, _______, _______, _______, _______,  _______, _______, _______, _______
   ),
 
@@ -140,7 +142,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, KC_EXLM, KC_AT,   KC_LCBR, KC_RCBR, KC_PIPE,                    DT_PRNT, KC_7,  KC_8,  KC_9,  KC_ASTR, KC_F12,
     _______, KC_HASH, KC_DLR,  KC_LPRN, KC_RPRN, KC_GRV,                     DT_UP,   KC_4,  KC_5,  KC_6,  KC_PPLS, _______,
     _______, KC_HASH, KC_DLR,  KC_LBRC, KC_RBRC, KC_TILD, _______,  _______, DT_DOWN, KC_1,  KC_2,  KC_3,  KC_PSLS, QK_BOOT,
-                      _______, _______, _______, _______, _______,  KC_P0,   KC_P0, KC_P0,   KC_P0, KC_P0
+                      _______, _______, _______, _______, _______,  _______, KC_P0,   KC_P0, KC_P0, KC_P0
   ),
 
   /*
@@ -163,9 +165,59 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, KC_MS_U, _______, _______,                   _______, KC_BTN1, KC_UP,   KC_BTN2,  _______, _______,
     _______, _______, KC_MS_L, KC_MS_D, KC_MS_R, _______,                   _______, KC_LEFT, KC_DOWN, KC_RGHT,  _______, _______,
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______,
-                      _______, _______, KC_BTN3, KC_BTN1, KC_BTN2, _______, _______, _______, _______, _______
+                      _______, KC_BTN2, KC_BTN3, KC_BTN1, _______, _______, _______, _______, _______, _______
+  ),
+
+  /*
+    blank
+    ┌────┬────┬────┬────┬────┬────┐               ┌────┬────┬────┬────┬────┬────┐
+    │____│____│____│____│____│____│               │____│____│____│____│____│____│
+    ├────┼────┼────┼────┼────┼────┤               ├────┼────┼────┼────┼────┼────┤
+    │____│____│____│____│____│____│               │____│____│____│____│____│____│
+    ├────┼────┼────┼────┼────┼────┤               ├────┼────┼────┼────┼────┼────┤
+    │____│____│____│____│____│____│               │____│____│____│____│____│____│
+    ├────┼────┼────┼────┼────┼────┼────┐     ┌────┼────┼────┼────┼────┼────┼────┤
+    │____│____│____│____│____│____│____│     │____│____│____│____│____│____│____│
+    └────┴────┴────┴────┴────┴────┴────┘     └────┴────┴────┴────┴────┴────┴────┘
+                   ┌───┬───┬───┬───┬───┐     ┌───┬───┬───┬───┬───┐
+                   │___│___│___│___│___│     │___│___│___│___│___│
+                   └───┴───┴───┴───┴───┘     └───┴───┴───┴───┴───┘
+  */
+  [_LEGACY] = LAYOUT(
+    _______, KC_EXCLAIM, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+                      _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
+  ),
+
+  /*
+    blank
+    ┌────┬────┬────┬────┬────┬────┐               ┌────┬────┬────┬────┬────┬────┐
+    │____│____│____│____│____│____│               │____│____│____│____│____│____│
+    ├────┼────┼────┼────┼────┼────┤               ├────┼────┼────┼────┼────┼────┤
+    │____│____│____│____│____│____│               │____│____│____│____│____│____│
+    ├────┼────┼────┼────┼────┼────┤               ├────┼────┼────┼────┼────┼────┤
+    │____│____│____│____│____│____│               │____│____│____│____│____│____│
+    ├────┼────┼────┼────┼────┼────┼────┐     ┌────┼────┼────┼────┼────┼────┼────┤
+    │____│____│____│____│____│____│____│     │____│____│____│____│____│____│____│
+    └────┴────┴────┴────┴────┴────┴────┘     └────┴────┴────┴────┴────┴────┴────┘
+                   ┌───┬───┬───┬───┬───┐     ┌───┬───┬───┬───┬───┐
+                   │___│___│___│___│___│     │___│___│___│___│___│
+                   └───┴───┴───┴───┴───┘     └───┴───┴───┴───┴───┘
+  */
+  [_BLANK] = LAYOUT(
+    _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+                      _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
   ),
 };
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+  return update_tri_layer_state(state, _LOWER, _RAISE, _LEGACY);
+}
 
 uint8_t mod_state;
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -177,7 +229,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return false;
   }
 
-  mod_state = get_mods();
   switch (keycode) {
     case KC_ERMAK:
       if (record->event.pressed) {
@@ -194,22 +245,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         set_single_persistent_default_layer(_QWERTY);
       }
       return false;
-    case KC_LOWER:
-      if (record->event.pressed) {
-        set_single_persistent_default_layer(_LOWER);
-      }
-      return false;
-    case KC_RAISE:
-      if (record->event.pressed) {
-        set_single_persistent_default_layer(_RAISE);
-      }
-      return false;
 
     case KC_BSPC:
       static bool delkey_registered;
+      mod_state = get_mods();
       if (record->event.pressed) {
-        if (mod_state & MOD_MASK_SHIFT) {
-          del_mods(MOD_MASK_SHIFT);
+        if (mod_state & MOD_MASK_CS) {
+          del_mods(MOD_MASK_CS);
           register_code(KC_DEL);
           delkey_registered = true;
           set_mods(mod_state);
@@ -251,14 +293,8 @@ static void render_status(void) {
     case _QWERTY:
       oled_write_P(PSTR("Qwerty"), false);
       break;
-    case _LOWER:
-      oled_write_P(PSTR("num/sym"), false);
-      break;
-    case _RAISE:
-      oled_write_P(PSTR("nav"), false);
-      break;
     default:
-      oled_write_P(PSTR("Unknown"), false);
+      oled_write_P(PSTR("UNKNOWN"), false);
       break;
   }
 
@@ -275,13 +311,16 @@ static void render_status(void) {
       oled_write_P(PSTR("Qwerty"), false);
       break;
     case _LOWER:
-      oled_write_P(PSTR("num/sym"), false);
+      oled_write_P(PSTR("num"), false);
       break;
     case _RAISE:
       oled_write_P(PSTR("nav"), false);
       break;
+    case _LEGACY:
+      oled_write_P(PSTR("legacy"), false);
+      break;
     default:
-      oled_write_P(PSTR("Unknown"), false);
+      oled_write_P(PSTR("UNKNOWN"), false);
       break;
   }
 }
@@ -306,10 +345,14 @@ bool oled_task_user(void) {
 
 #ifdef ENCODER_MAP_ENABLE
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
-  [_ERMAK] = { ENCODER_CCW_CW(KC_VOLU, KC_VOLD), ENCODER_CCW_CW(DF(_RAISE), DF(_DVORAK)) },
+  [_ERMAK] = { ENCODER_CCW_CW(KC_VOLU, KC_VOLD), ENCODER_CCW_CW(XXXXXXX, DF(_DVORAK)) },
   [_DVORAK] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(DF(_ERMAK), DF(_QWERTY)) },
-  [_QWERTY] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(DF(_DVORAK), DF(_LOWER)) },
-  [_LOWER] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(DF(_QWERTY), DF(_RAISE)) },
-  [_RAISE] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(DF(_LOWER), DF(_ERMAK)) },
+  [_QWERTY] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(DF(_DVORAK), XXXXXXX) },
+
+  [_LOWER] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
+  [_RAISE] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
+  [_LEGACY] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
+
+  [_BLANK] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
 };
 #endif
