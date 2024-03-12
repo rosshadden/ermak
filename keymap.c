@@ -56,22 +56,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ┌───┬───┬───┬───┬───┬───┐               ┌───┬───┬───┬───┬───┬───┐
     │ [{│ 1|│ 2=│ 3~│ 4+│ 5<│               │ 6>│ 7^│ 8&│ 9%│ 0*│ ]}│
     ├───┼───┼───┼───┼───┼───┤               ├───┼───┼───┼───┼───┼───┤
-    │ /\│ B │ Y │ O │ U │ '(│               │ ")│ L │ D │ W │ V │ Z │
+    │ #$│ B │ Y │ O │ U │ '(│               │ ")│ L │ D │ W │ V │ Z │
     ├───┼───┼───┼───┼───┼───┤               ├───┼───┼───┼───┼───┼───┤
     │Esc│ C │ I │ E │ A │ ,;│               │ .:│ J │ K │ S │ N │ Q │
     ├───┼───┼───┼───┼───┼───┼───┐       ┌───┼───┼───┼───┼───┼───┼───┤
-    │Sft│ G │ X │ J │ K │ -_│Vol│       │Lay│ ?!│ R │ M │ F │ P │Sft│
+    │Sft│ G │ X │ J │ K │ -_│Vol│       │Lay│ /\│ R │ M │ F │ P │Sft│
     └───┴───┴───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┴───┴───┘
             ┌───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┐
-            │ `@│Gui│Alt│Bsp│Tab│       │Ent│Spc│Gui│Alt│ #$│
+            │ `@│Gui│Alt│Bsp│Tab│       │Ent│Spc│Gui│Alt│ ?!│
             └───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┘
   */
   [_ERMAK] = LAYOUT(
-    KC_LEFT_BRACKET, KC_1,         KC_2,         KC_3,         KC_4,         KC_5,                             KC_6,            KC_7,         KC_8,         KC_9,         KC_0,         KC_RIGHT_BRACKET,
-    KC_SLASH,        KC_B,         KC_Y,         KC_O,         KC_U,         KC_QUOTE,                         KC_DOUBLE_QUOTE, KC_L,         KC_D,         KC_W,         KC_V,         KC_Z,
-    LCTL_T(KC_ESC),  LGUI_T(KC_C), LALT_T(KC_I), LCTL_T(KC_E), LSFT_T(KC_A), KC_COMMA,                         KC_DOT,          RSFT_T(KC_H), RCTL_T(KC_T), RALT_T(KC_S), RGUI_T(KC_N), KC_Q,
-    KC_LSFT,         KC_G,         KC_X,         KC_J,         KC_K,         KC_MINUS,     KC_MUTE, KC_DVORAK, KC_QUESTION,     KC_R,         KC_M,         KC_F,         KC_P,         KC_RSFT,
-                                   KC_GRAVE,     KC_LALT,      KC_LGUI,      KC_BACKSPACE, LT(_LOWER, KC_TAB),  LT(_RAISE, KC_ENTER),  KC_SPACE,        KC_RGUI,      KC_RALT,      KC_HASH
+    KC_LEFT_BRACKET, KC_1,         KC_2,         KC_3,         KC_4,         KC_5,                                                   KC_6,            KC_7,         KC_8,         KC_9,         KC_0,         KC_RIGHT_BRACKET,
+    KC_HASH,         KC_B,         KC_Y,         KC_O,         KC_U,         KC_QUOTE,                                               KC_DOUBLE_QUOTE, KC_L,         KC_D,         KC_W,         KC_V,         KC_Z,
+    LCTL_T(KC_ESC),  LGUI_T(KC_C), LALT_T(KC_I), LCTL_T(KC_E), LSFT_T(KC_A), KC_COMMA,                                               KC_DOT,          RSFT_T(KC_H), RCTL_T(KC_T), RALT_T(KC_S), RGUI_T(KC_N), KC_Q,
+    KC_LSFT,         KC_G,         KC_X,         KC_J,         KC_K,         KC_MINUS,     KC_MUTE,            KC_DVORAK,            KC_SLASH,        KC_R,         KC_M,         KC_F,         KC_P,         KC_RSFT,
+                                   KC_GRAVE,     KC_LALT,      KC_LGUI,      KC_BACKSPACE, LT(_LOWER, KC_TAB), LT(_RAISE, KC_ENTER), KC_SPACE,        KC_RGUI,      KC_RALT,      KC_QUESTION
   ),
 
   /*
@@ -218,7 +218,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //   _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
   //   _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
   //                     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
-  ),
+  // ),
 };
 
 layer_state_t layer_state_set_user(layer_state_t state) {
