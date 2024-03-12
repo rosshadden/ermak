@@ -1,0 +1,19 @@
+#!/usr/bin/env nu
+
+const map = {
+  '[': KC_LEFT_BRACKET
+  1: KC_1
+}
+
+def translate [str s] {
+}
+
+def main [] {
+  open data/keebler.nuon
+  | get layer_map.ermak
+  | each {
+    into string
+    | str replace -r `(\w+)\[([\w, ]+)\]` "$1($2)"
+    | if $in in map { map[$in] } else { $in }
+  }
+}
