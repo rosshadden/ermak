@@ -74,6 +74,7 @@ const aliases = {
   '!': KC_EXCLAIM
   '"': KC_DOUBLE_QUOTE
   '#': KC_HASH
+  '|': KC_PIPE
   '$': KC_DOLLAR
   '%': KC_PERCENT
   '&': KC_AMPERSAND
@@ -105,14 +106,22 @@ const aliases = {
 }
 
 def transform [key: string] {
-  str replace -r `(\w+)\[([\w, ]+)\]` "$1($2)"
-  | if $key in $aliases { $aliases | get $key } else { $key }
+  let parts = $key | parse "{fn}[{args}]" | get -i 0
+
+  if $key in $aliases {
+    $aliases | get $key
+  } else if ($parts | is-not-empty) {
+    $"($parts.fn)\(($parts.args))"
+  } else {
+    $key
+  }
 }
 
 def main [] {
   open data/keebler.nuon
   | get layer_map
   | values
+  | first 1
   | each {|layer|
     | each {|key|
       into string
