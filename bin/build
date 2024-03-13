@@ -123,6 +123,7 @@ def main [] {
   | values
   | first 1
   | each {|layer|
+    compact
     | each {|key|
       into string
       | transform $in
