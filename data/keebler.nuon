@@ -5,52 +5,74 @@
 	layers: []
 
 	layer_map: {
+
 		ermak: [
-			'['         1         2         3         4         5    null           null             6     7         8         9         0         ']'
-			'#'         B         Y         O         U         "'"  null           null             '"'   L         D         W         V         Z
-			LCTL_T[esc] LGUI_T[C] LALT_T[I] LCTL_T[E] LSFT_T[A] ,    null           null             .     RSFT_T[H] RCTL_T[T] RALT_T[S] RGUI_T[N] Q
-			lsft        G         X         J         K         -    mute           dvorak           /     R         M         F         P         rsft
-			null        null      '`'       lalt      lgui      back LT[_LOWER,tab] LT[_RAISE,enter] space rgui      ralt      ?         null      null
+			'['         1         2         3         4         5    ~~             ~~ ~~               6     7         8         9         0         ']'
+			'#'         B         Y         O         U         "'"  ~~             ~~ ~~               '"'   L         D         W         V         Z
+			LCTL_T[esc] LGUI_T[C] LALT_T[I] LCTL_T[E] LSFT_T[A] ,    ~~             ~~ ~~               .     RSFT_T[H] RCTL_T[T] RALT_T[S] RGUI_T[N] Q
+			lsft        G         X         J         K         -    mute           ~~ dvorak           /     R         M         F         P         rsft
+			~~          ~~        '`'       lalt      lgui      back LT[_LOWER,tab] ~~ LT[_RAISE,enter] space rgui      ralt      ?         ~~        ~~
 		]
 
 		dvorak: [
-			'`'  ___       ___       ___       ___       ___ null null  ___ ___       ___       ___       ___       \
-			=    `'`       ,         null      null      .   P    Y     F   G         C         R         L         /
-			___  LGUI_T[A] LALT_T[O] LCTL_T[E] LSFT_T[U] I   null null  D   RSFT_T[H] RCTL_T[T] RALT_T[N] RGUI_T[S] -
-			___  ;         Q         J         K         X   ___  ermak B   M         W         V         Z         rsft
-			null null      ___       ___       ___       ___ ___  ___   ___ ___       ___       ___       null      null
+			'`' __        __        __        __        __ ~~ ~~ ~~    __ __        __        __        __        \
+			=   `'`       ,         .         P         Y  ~~ ~~ ~~    F  G         C         R         L         /
+			__  LGUI_T[A] LALT_T[O] LCTL_T[E] LSFT_T[U] I  ~~ ~~ ~~    D  RSFT_T[H] RCTL_T[T] RALT_T[N] RGUI_T[S] -
+			__  ;         Q         J         K         X  __ ~~ ermak B  M         W         V         Z         rsft
+			~~  ~~        __        __        __        __ __ ~~ __    __ __        __        __        ~~        ~~
 		]
 
 		qwerty: [
-			'`'  ___       ___       ___       ___       ___ null null  ___ ___       ___       ___       ___       \
-			=    Q         W         E         R         T   null null  Y   U         I         O         P         -
-			___  LGUI_T[A] LALT_T[S] LCTL_T[D] LSFT_T[F] G   null null  H   RSFT_T[J] RCTL_T[K] RALT_T[L] RGUI_T[;] '"'
-			___  Z         X         C         V         B   ___  ermak N   M         ,         .         /         rsft
-			null null      ___       ___       ___       ___ ___  ___   ___ ___       ___       ___       null      null
+			'`' __        __        __        __        __ ~~ ~~ ~~    __ __        __        __        __        \
+			=   Q         W         E         R         T  ~~ ~~ ~~    Y  U         I         O         P         -
+			__  LGUI_T[A] LALT_T[S] LCTL_T[D] LSFT_T[F] G  ~~ ~~ ~~    H  RSFT_T[J] RCTL_T[K] RALT_T[L] RGUI_T[;] '"'
+			__  Z         X         C         V         B  __ ~~ ermak N  M         ,         .         /         rsft
+			~~  ~~        __        __        __        __ __ ~~ __    __ __        __        __        ~~        ~~
 		]
 
 		lower: [
-			QK_BOOT         F1   F2  F3  F4   F5   null null F6      F7  F8  F9  F10  F11
-			QK_CLEAR_EEPROM !    @   '{' '}'  '|'  null null DT_PRNT 7   8   9   *    F12
-			___             '#'  '$' '(' null null ')'  '`'  DT_UP   4   5   6   kp+  XXX
-			___             <    >   '[' ']'  ~    ___  ___  DT_DOWN 1   2   3   kp/  ___
-			null            null ___ ___ ___  ___  ___  ___  ___     kp0 kp0 kp0 null null
+			boot   F1  F2  F3  F4  F5  ~~ ~~ ~~ F6      F7  F8  F9  F10 F11
+			eeprom !   @   '{' '}' '|' ~~ ~~ ~~ DT_PRNT 7   8   9   *   F12
+			__     '#' '$' '(' ')' '`' ~~ ~~ ~~ DT_UP   4   5   6   kp+ XX
+			__     <   >   '[' ']' ~   __ ~~ __ DT_DOWN 1   2   3   kp/ __
+			~~     ~~  __  __  __  __  __ ~~ __ __      kp0 kp0 kp0 ~~  ~~
 		]
 
 		raise: [
-			XXX     KC_ACL0 KC_ACL1 KC_ACL2 XXX     QK_MAKE null null XXX XXX  RGB_MOD RGB_RMOD RGB_HUI XXX
-			XXX     btn2    XXX     KC_MS_U XXX     XXX     null null XXX btn1 up      btn2     XXX     XXX
-			CW_TOGG btn1    KC_MS_L KC_MS_D KC_MS_R XXX     null null XXX left down    right    XXX     XXX
-			___     btn3    XXX     XXX     XXX     XXX     ___  ___  XXX XXX  XXX     XXX      XXX     ___
-			null    null    btn2    btn3    btn1    ___     ___  ___  ___ ___  ___     ___      null    null
+			XX   KC_ACL0 KC_ACL1 KC_ACL2 XX      QK_MAKE ~~ ~~ ~~ XX XX   XX   XX    XX XX
+			XX   btn2    XX      KC_MS_U XX      XX      ~~ ~~ ~~ XX btn1 up   btn2  XX XX
+			capw btn1    KC_MS_L KC_MS_D KC_MS_R XX      ~~ ~~ ~~ XX left down right XX XX
+			__   btn3    XX      XX      XX      XX      __ ~~ __ XX XX   XX   XX    XX __
+			~~   ~~      btn2    btn3    btn1    __      __ ~~ __ __ __   __   __    ~~ ~~
 		]
 
 		legacy: [
-			~    !    @   '#' '$' %   null null ^   &   *   '(' ')'  '|'
-			___  ___  ___ ___ ___ '{' null null '}' ___ ___ ___ ___  ___
-			___  ___  ___ ___ ___ '[' null null ']' ___ ___ ___ ___  ___
-			___  ___  ___ ___ ___ '|' ___  ___  =   ___ ___ ___ ___  ___
-			null null ___ ___ ___ ___ ___  ___  ___ ___ ___ ___ null null
+			~  !  @  '#' '$' %   ~~ ~~ ~~ ^   &  *  '(' ')' '|'
+			__ __ __ __  __  '{' ~~ ~~ ~~ '}' __ __ __  __  __
+			__ __ __ __  __  '[' ~~ ~~ ~~ ']' __ __ __  __  __
+			__ __ __ __  __  '|' __ ~~ __ =   __ __ __  __  __
+			~~ ~~ __ __  __  __  __ ~~ __ __  __ __ __  ~~  ~~
 		]
+
+	}
+
+	templates: {
+
+		blank: [
+			__ __ __ __ __ __ ~~ ~~ ~~ __ __ __ __ __ __
+			__ __ __ __ __ __ ~~ ~~ ~~ __ __ __ __ __ __
+			__ __ __ __ __ __ ~~ ~~ ~~ __ __ __ __ __ __
+			__ __ __ __ __ __ __ ~~ __ __ __ __ __ __ __
+			~~ ~~ __ __ __ __ __ ~~ __ __ __ __ __ ~~ ~~
+		]
+
+		void: [
+			XX XX XX XX XX XX ~~ ~~ ~~ XX XX XX XX XX XX
+			XX XX XX XX XX XX ~~ ~~ ~~ XX XX XX XX XX XX
+			XX XX XX XX XX XX ~~ ~~ ~~ XX XX XX XX XX XX
+			XX XX XX XX XX XX XX ~~ XX XX XX XX XX XX XX
+			~~ ~~ XX XX XX XX XX ~~ XX XX XX XX XX ~~ ~~
+		]
+
 	}
 }

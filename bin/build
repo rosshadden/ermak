@@ -1,6 +1,10 @@
 #!/usr/bin/env nu
 
 const aliases = {
+  XX: KC_NO
+  __: KC_TRANS
+  ~~: null
+
   0: KC_0
   1: KC_1
   2: KC_2
@@ -74,7 +78,6 @@ const aliases = {
   '!': KC_EXCLAIM
   '"': KC_DOUBLE_QUOTE
   '#': KC_HASH
-  '|': KC_PIPE
   '$': KC_DOLLAR
   '%': KC_PERCENT
   '&': KC_AMPERSAND
@@ -98,27 +101,28 @@ const aliases = {
   '^': KC_CIRCUMFLEX
   '`': KC_GRAVE
   '{': KC_LEFT_CURLY_BRACE
+  '|': KC_PIPE
   '}': KC_RIGHT_CURLY_BRACE
   '~': KC_TILDE
 
-  esc: KC_ESC
-  tab: KC_TAB
   back: KC_BACKSPACE
   enter: KC_ENTER
+  esc: KC_ESC
   space: KC_SPACE
+  tab: KC_TAB
 
-  lsft: KC_LSFT
-  rsft: KC_RSFT
-  lctl: KC_LCTL
-  rctl: KC_RCTL
   lalt: KC_LALT
-  ralt: KC_RALT
+  lctl: KC_LCTL
   lgui: KC_LGUI
+  lsft: KC_LSFT
+  ralt: KC_RALT
+  rctl: KC_RCTL
   rgui: KC_RGUI
+  rsft: KC_RSFT
 
+  down: KC_DOWN
   left: KC_LEFT
   right: KC_RIGHT
-  down: KC_DOWN
   up: KC_UP
 
   btn1: KC_BTN1
@@ -126,15 +130,17 @@ const aliases = {
   btn3: KC_BTN3
 
   mute: KC_MUTE
-  volu: KC_VOLU
   vold: KC_VOLD
+  volu: KC_VOLU
 
-  ermak: KC_ERMAK
+  boot: QK_BOOT
+  capw: QK_CAPS_WORD_TOGGLE
+  eeprom: QK_CLEAR_EEPROM
+  make: QK_MAKE
+
   dvorak: KC_DVORAK
+  ermak: KC_ERMAK
   qwerty: KC_QWERTY
-
-  XXX: KC_NO
-  ___: KC_TRANS
 }
 
 def transform [key: string] {
