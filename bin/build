@@ -101,6 +101,38 @@ const aliases = {
   '}': KC_RIGHT_CURLY_BRACE
   '~': KC_TILDE
 
+  esc: KC_ESC
+  tab: KC_TAB
+  back: KC_BACKSPACE
+  enter: KC_ENTER
+  space: KC_SPACE
+
+  lsft: KC_LSFT
+  rsft: KC_RSFT
+  lctl: KC_LCTL
+  rctl: KC_RCTL
+  lalt: KC_LALT
+  ralt: KC_RALT
+  lgui: KC_LGUI
+  rgui: KC_RGUI
+
+  left: KC_LEFT
+  right: KC_RIGHT
+  down: KC_DOWN
+  up: KC_UP
+
+  btn1: KC_BTN1
+  btn2: KC_BTN2
+  btn3: KC_BTN3
+
+  mute: KC_MUTE
+  volu: KC_VOLU
+  vold: KC_VOLD
+
+  ermak: KC_ERMAK
+  dvorak: KC_DVORAK
+  qwerty: KC_QWERTY
+
   XXX: KC_NO
   ___: KC_TRANS
 }
