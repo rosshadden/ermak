@@ -111,7 +111,7 @@ def transform [key: string] {
   if $key in $aliases {
     $aliases | get $key
   } else if ($parts | is-not-empty) {
-    $"($parts.fn)\(($parts.args))"
+    $"(transform $parts.fn)\((transform $parts.args))"
   } else {
     $key
   }
