@@ -6,46 +6,46 @@
 
 	layer_map: {
 		ermak: [
-			'[' 1 2 3 4 5 null null 6 7 8 9 0 ']'
-			'#' B Y O U "'" null null '"' L D W V Z
-			LCTL_T[KC_ESC] LGUI_T[KC_C] LALT_T[KC_I] LCTL_T[KC_E] LSFT_T[KC_A] , null null . RSFT_T[KC_H] RCTL_T[T] RALT_T[S] RGUI_T[N] Q
-			KC_LSFT G X J K - KC_MUTE KC_DVORAK / R M F P KC_RSFT
-			null null '`' KC_LALT KC_LGUI KC_BACKSPACE LT[_LOWER, KC_TAB] LT[_RAISE, KC_ENTER] KC_SPACE KC_RGUI KC_RALT ? null null
+			'['            1            2            3            4            5            null       null      6          7            8         9         0         ']'
+			'#'            B            Y            O            U            "'"          null       null      '"'        L            D         W         V         Z
+			LCTL_T[KC_ESC] LGUI_T[KC_C] LALT_T[KC_I] LCTL_T[KC_E] LSFT_T[KC_A] ,            null       null      .          RSFT_T[KC_H] RCTL_T[T] RALT_T[S] RGUI_T[N] Q
+			KC_LSFT        G            X            J            K            -            KC_MUTE    KC_DVORAK /          R            M         F         P         KC_RSFT
+			null           null         '`'          KC_LALT      KC_LGUI      KC_BACKSPACE LT[_LOWER, KC_TAB]   LT[_RAISE, KC_ENTER]    KC_SPACE  KC_RGUI   KC_RALT   ? null null
 		]
 		dvorak: [
-			'`' ___ ___ ___ ___ ___ null null ___ ___ ___ ___ ___ \
-			KC_EQUAL `'` KC_COMMA null null KC_DOT P Y F G C R L KC_SLASH
-			___ LGUI_T[KC_A] LALT_T[KC_O] LCTL_T[KC_E] LSFT_T[KC_U] I null null D RSFT_T[KC_H] RCTL_T[KC_T] RALT_T[KC_N] RGUI_T[KC_S] -
-			___ ; Q J K X ___ KC_ERMAK B M W V Z KC_RSFT
-			null null ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ null null
+			'`'      ___          ___          ___          ___          ___    null null     ___ ___          ___          ___          ___          \
+			KC_EQUAL `'`          KC_COMMA     null         null         KC_DOT P    Y        F   G            C            R            L            KC_SLASH
+			___      LGUI_T[KC_A] LALT_T[KC_O] LCTL_T[KC_E] LSFT_T[KC_U] I      null null     D   RSFT_T[KC_H] RCTL_T[KC_T] RALT_T[KC_N] RGUI_T[KC_S] -
+			___      ;            Q            J            K            X      ___  KC_ERMAK B   M            W            V            Z            KC_RSFT
+			null     null         ___          ___          ___          ___    ___  ___      ___ ___          ___          ___          null         null
 		]
 		qwerty: [
-			'`' ___ ___ ___ ___ ___ null null ___ ___ ___ ___ ___ \
-			KC_EQUAL Q W E R T null null Y U I O P KC_MINUS
-			___ LGUI_T[KC_A] LALT_T[KC_S] LCTL_T[KC_D] LSFT_T[KC_F] G null null H RSFT_T[KC_J] RCTL_T[KC_K] RALT_T[KC_L] RGUI_T[KC_SEMICOLON] '"'
-			___ Z X C V B ___ KC_ERMAK N M KC_COMM KC_DOT KC_SLSH KC_RSFT
-			null null ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ null null
+			'`'      ___          ___          ___          ___          ___ null null     ___ ___          ___          ___          ___                  \
+			KC_EQUAL Q            W            E            R            T   null null     Y   U            I            O            P                    KC_MINUS
+			___      LGUI_T[KC_A] LALT_T[KC_S] LCTL_T[KC_D] LSFT_T[KC_F] G   null null     H   RSFT_T[KC_J] RCTL_T[KC_K] RALT_T[KC_L] RGUI_T[KC_SEMICOLON] '"'
+			___      Z            X            C            V            B   ___  KC_ERMAK N   M            KC_COMM      KC_DOT       KC_SLSH              KC_RSFT
+			null     null         ___          ___          ___          ___ ___  ___      ___ ___          ___          ___          null                 null
 		]
 		lower: [
-			QK_BOOT F1 F2 F3 F4 F5 null null F6 F7 F8 F9 F10 F11
-			QK_CLEAR_EEPROM KC_EXLM KC_AT KC_LCBR KC_RCBR KC_PIPE null null DT_PRNT 7 8 9 KC_ASTR F12
-			___ '#' KC_DLR '(' null null ')' '`' DT_UP 4 5 6 kp+ XXX
-			___ < > '[' ']' ~ ___ ___ DT_DOWN 1 2 3 kp/ ___
-			null null ___ ___ ___ ___ ___ ___ ___ kp0 kp0 kp0 null null
+			QK_BOOT         F1      F2     F3      F4      F5      null null F6      F7  F8  F9  F10     F11
+			QK_CLEAR_EEPROM KC_EXLM KC_AT  KC_LCBR KC_RCBR KC_PIPE null null DT_PRNT 7   8   9   KC_ASTR F12
+			___             '#'     KC_DLR '('     null    null    ')'  '`'  DT_UP   4   5   6   kp+     XXX
+			___             <       >      '['     ']'     ~       ___  ___  DT_DOWN 1   2   3   kp/     ___
+			null            null    ___    ___     ___     ___     ___  ___  ___     kp0 kp0 kp0 null    null
 		]
 		raise: [
-			XXX KC_ACL0 KC_ACL1 KC_ACL2 XXX QK_MAKE null null XXX XXX RGB_MOD RGB_RMOD RGB_HUI XXX
-			XXX KC_BTN2 XXX KC_MS_U XXX XXX null null XXX KC_BTN1 KC_UP KC_BTN2 XXX XXX
-			CW_TOGG KC_BTN1 KC_MS_L KC_MS_D KC_MS_R XXX null null XXX KC_LEFT KC_DOWN KC_RGHT XXX XXX
-			___ KC_BTN3 XXX XXX XXX XXX ___ ___ XXX XXX XXX XXX XXX ___
-			null null KC_BTN2 KC_BTN3 KC_BTN1 ___ ___ ___ ___ ___ ___ ___ null null
+			XXX     KC_ACL0 KC_ACL1 KC_ACL2 XXX     QK_MAKE null null XXX XXX     RGB_MOD RGB_RMOD RGB_HUI XXX
+			XXX     KC_BTN2 XXX     KC_MS_U XXX     XXX     null null XXX KC_BTN1 KC_UP   KC_BTN2  XXX     XXX
+			CW_TOGG KC_BTN1 KC_MS_L KC_MS_D KC_MS_R XXX     null null XXX KC_LEFT KC_DOWN KC_RGHT  XXX     XXX
+			___     KC_BTN3 XXX     XXX     XXX     XXX     ___  ___  XXX XXX     XXX     XXX      XXX     ___
+			null    null    KC_BTN2 KC_BTN3 KC_BTN1 ___     ___  ___  ___ ___     ___     ___      null    null
 		]
 		legacy: [
-			~ ! @ '#' '$' % null null ^ & * '(' ')' '|'
-			___ ___ ___ ___ ___ '{' null null '}' ___ ___ ___ ___ ___
-			___ ___ ___ ___ ___ '[' null null ']' ___ ___ ___ ___ ___
-			___ ___ ___ ___ ___ '|' ___ ___ = ___ ___ ___ ___ ___
-			null null ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ null null
+			~    !    @   '#' '$' %   null null ^   &   *   '(' ')'  '|'
+			___  ___  ___ ___ ___ '{' null null '}' ___ ___ ___ ___  ___
+			___  ___  ___ ___ ___ '[' null null ']' ___ ___ ___ ___  ___
+			___  ___  ___ ___ ___ '|' ___  ___  =   ___ ___ ___ ___  ___
+			null null ___ ___ ___ ___ ___  ___  ___ ___ ___ ___ null null
 		]
 	}
 }

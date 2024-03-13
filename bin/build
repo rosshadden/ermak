@@ -121,7 +121,6 @@ def main [] {
   open data/keebler.nuon
   | get layer_map
   | values
-  | first 1
   | each {|layer|
     compact
     | each {|key|
