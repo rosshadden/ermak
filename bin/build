@@ -3,7 +3,7 @@
 const aliases = {
   XX: KC_NO
   __: KC_TRANS
-  ~~: null
+  ││: null
 
   0: KC_0
   1: KC_1
@@ -120,14 +120,30 @@ const aliases = {
   rgui: KC_RGUI
   rsft: KC_RSFT
 
+  LALT: LALT_T
+  LCTL: LCTL_T
+  LGUI: LGUI_T
+  LSFT: LSFT_T
+  RALT: RALT_T
+  RCTL: RCTL_T
+  RGUI: RGUI_T
+  RSFT: RSFT_T
+
   down: KC_DOWN
   left: KC_LEFT
   right: KC_RIGHT
   up: KC_UP
 
-  btn1: KC_BTN1
-  btn2: KC_BTN2
-  btn3: KC_BTN3
+  btn1: KC_MS_BTN1
+  btn2: KC_MS_BTN2
+  btn3: KC_MS_BTN3
+  macl0: KC_MS_ACCEL0
+  macl1: KC_MS_ACCEL1
+  macl2: KC_MS_ACCEL2
+  mdown: KC_MS_DOWN
+  mleft: KC_MS_LEFT
+  mright: KC_MS_RIGHT
+  mup: KC_MS_UP
 
   mute: KC_MUTE
   vold: KC_VOLD
@@ -135,6 +151,9 @@ const aliases = {
 
   boot: QK_BOOT
   capw: QK_CAPS_WORD_TOGGLE
+  ddown: QK_DYNAMIC_TAPPING_TERM_DOWN
+  dprint: QK_DYNAMIC_TAPPING_TERM_PRINT
+  dup: QK_DYNAMIC_TAPPING_TERM_UP
   eeprom: QK_CLEAR_EEPROM
   make: QK_MAKE
 

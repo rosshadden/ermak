@@ -7,51 +7,51 @@
 	layer_map: {
 
 		ermak: [
-			'['         1         2         3         4         5    ~~             ~~ ~~               6     7         8         9         0         ']'
-			'#'         B         Y         O         U         "'"  ~~             ~~ ~~               '"'   L         D         W         V         Z
-			LCTL_T[esc] LGUI_T[C] LALT_T[I] LCTL_T[E] LSFT_T[A] ,    ~~             ~~ ~~               .     RSFT_T[H] RCTL_T[T] RALT_T[S] RGUI_T[N] Q
-			lsft        G         X         J         K         -    mute           ~~ dvorak           /     R         M         F         P         rsft
-			~~          ~~        '`'       lalt      lgui      back LT[_LOWER,tab] ~~ LT[_RAISE,enter] space rgui      ralt      ?         ~~        ~~
+			'['       1       2       3       4       5    ││             ││ ││               6     7       8       9       0       ']'
+			'#'       B       Y       O       U       "'"  ││             ││ ││               '"'   L       D       W       V       Z
+			LCTL[esc] LGUI[C] LALT[I] LCTL[E] LSFT[A] ,    ││             ││ ││               .     RSFT[H] RCTL[T] RALT[S] RGUI[N] Q
+			lsft      G       X       J       K       -    mute           ││ dvorak           /     R       M       F       P       rsft
+			││        ││      '`'     lalt    lgui    back LT[_LOWER,tab] ││ LT[_RAISE,enter] space rgui    ralt    ?       ││      ││
 		]
 
 		dvorak: [
-			'`' __        __        __        __        __ ~~ ~~ ~~    __ __        __        __        __        \
-			=   `'`       ,         .         P         Y  ~~ ~~ ~~    F  G         C         R         L         /
-			__  LGUI_T[A] LALT_T[O] LCTL_T[E] LSFT_T[U] I  ~~ ~~ ~~    D  RSFT_T[H] RCTL_T[T] RALT_T[N] RGUI_T[S] -
-			__  ;         Q         J         K         X  __ ~~ ermak B  M         W         V         Z         rsft
-			~~  ~~        __        __        __        __ __ ~~ __    __ __        __        __        ~~        ~~
+			'`' __      __      __      __      __ ││ ││ ││    __ __      __      __      __      \
+			=   `'`     ,       .       P       Y  ││ ││ ││    F  G       C       R       L       /
+			__  LGUI[A] LALT[O] LCTL[E] LSFT[U] I  ││ ││ ││    D  RSFT[H] RCTL[T] RALT[N] RGUI[S] -
+			__  ;       Q       J       K       X  __ ││ ermak B  M       W       V       Z       rsft
+			││  ││      __      __      __      __ __ ││ __    __ __      __      __      ││      ││
 		]
 
 		qwerty: [
-			'`' __        __        __        __        __ ~~ ~~ ~~    __ __        __        __        __        \
-			=   Q         W         E         R         T  ~~ ~~ ~~    Y  U         I         O         P         -
-			__  LGUI_T[A] LALT_T[S] LCTL_T[D] LSFT_T[F] G  ~~ ~~ ~~    H  RSFT_T[J] RCTL_T[K] RALT_T[L] RGUI_T[;] '"'
-			__  Z         X         C         V         B  __ ~~ ermak N  M         ,         .         /         rsft
-			~~  ~~        __        __        __        __ __ ~~ __    __ __        __        __        ~~        ~~
+			'`' __      __      __      __      __ ││ ││ ││    __ __      __      __      __      \
+			=   Q       W       E       R       T  ││ ││ ││    Y  U       I       O       P       -
+			__  LGUI[A] LALT[S] LCTL[D] LSFT[F] G  ││ ││ ││    H  RSFT[J] RCTL[K] RALT[L] RGUI[;] '"'
+			__  Z       X       C       V       B  __ ││ ermak N  M       ,       .       /       rsft
+			││  ││      __      __      __      __ __ ││ __    __ __      __      __      ││      ││
 		]
 
 		lower: [
-			boot   F1  F2  F3  F4  F5  ~~ ~~ ~~ F6      F7  F8  F9  F10 F11
-			eeprom !   @   '{' '}' '|' ~~ ~~ ~~ DT_PRNT 7   8   9   *   F12
-			__     '#' '$' '(' ')' '`' ~~ ~~ ~~ DT_UP   4   5   6   kp+ XX
-			__     <   >   '[' ']' ~   __ ~~ __ DT_DOWN 1   2   3   kp/ __
-			~~     ~~  __  __  __  __  __ ~~ __ __      kp0 kp0 kp0 ~~  ~~
+			boot   F1  F2  F3  F4  F5  ││ ││ ││ F6     F7  F8  F9  F10 F11
+			eeprom !   @   '{' '}' '|' ││ ││ ││ dprint 7   8   9   *   F12
+			__     '#' '$' '(' ')' '`' ││ ││ ││ dup    4   5   6   kp+ XX
+			__     <   >   '[' ']' ~   __ ││ __ ddown  1   2   3   kp/ __
+			││     ││  __  __  __  __  __ ││ __ __     kp0 kp0 kp0 ││  ││
 		]
 
 		raise: [
-			XX   KC_ACL0 KC_ACL1 KC_ACL2 XX      QK_MAKE ~~ ~~ ~~ XX XX   XX   XX    XX XX
-			XX   btn2    XX      KC_MS_U XX      XX      ~~ ~~ ~~ XX btn1 up   btn2  XX XX
-			capw btn1    KC_MS_L KC_MS_D KC_MS_R XX      ~~ ~~ ~~ XX left down right XX XX
-			__   btn3    XX      XX      XX      XX      __ ~~ __ XX XX   XX   XX    XX __
-			~~   ~~      btn2    btn3    btn1    __      __ ~~ __ __ __   __   __    ~~ ~~
+			XX   macl0 macl1 macl2 XX     make ││ ││ ││ XX XX   XX   XX    XX XX
+			XX   btn2  XX    mup   XX     XX   ││ ││ ││ XX btn1 up   btn2  XX XX
+			capw btn1  mleft mdown mright XX   ││ ││ ││ XX left down right XX XX
+			__   btn3  XX    XX    XX     XX   __ ││ __ XX XX   XX   XX    XX __
+			││   ││    btn2  btn3  btn1   __   __ ││ __ __ __   __   __    ││ ││
 		]
 
 		legacy: [
-			~  !  @  '#' '$' %   ~~ ~~ ~~ ^   &  *  '(' ')' '|'
-			__ __ __ __  __  '{' ~~ ~~ ~~ '}' __ __ __  __  __
-			__ __ __ __  __  '[' ~~ ~~ ~~ ']' __ __ __  __  __
-			__ __ __ __  __  '|' __ ~~ __ =   __ __ __  __  __
-			~~ ~~ __ __  __  __  __ ~~ __ __  __ __ __  ~~  ~~
+			~  !  @  '#' '$' %   ││ ││ ││ ^   &  *  '(' ')' '|'
+			__ __ __ __  __  '{' ││ ││ ││ '}' __ __ __  __  __
+			__ __ __ __  __  '[' ││ ││ ││ ']' __ __ __  __  __
+			__ __ __ __  __  '|' __ ││ __ =   __ __ __  __  __
+			││ ││ __ __  __  __  __ ││ __ __  __ __ __  ││  ││
 		]
 
 	}
@@ -59,19 +59,19 @@
 	templates: {
 
 		blank: [
-			__ __ __ __ __ __ ~~ ~~ ~~ __ __ __ __ __ __
-			__ __ __ __ __ __ ~~ ~~ ~~ __ __ __ __ __ __
-			__ __ __ __ __ __ ~~ ~~ ~~ __ __ __ __ __ __
-			__ __ __ __ __ __ __ ~~ __ __ __ __ __ __ __
-			~~ ~~ __ __ __ __ __ ~~ __ __ __ __ __ ~~ ~~
+			__ __ __ __ __ __ ││ ││ ││ __ __ __ __ __ __
+			__ __ __ __ __ __ ││ ││ ││ __ __ __ __ __ __
+			__ __ __ __ __ __ ││ ││ ││ __ __ __ __ __ __
+			__ __ __ __ __ __ __ ││ __ __ __ __ __ __ __
+			││ ││ __ __ __ __ __ ││ __ __ __ __ __ ││ ││
 		]
 
 		void: [
-			XX XX XX XX XX XX ~~ ~~ ~~ XX XX XX XX XX XX
-			XX XX XX XX XX XX ~~ ~~ ~~ XX XX XX XX XX XX
-			XX XX XX XX XX XX ~~ ~~ ~~ XX XX XX XX XX XX
-			XX XX XX XX XX XX XX ~~ XX XX XX XX XX XX XX
-			~~ ~~ XX XX XX XX XX ~~ XX XX XX XX XX ~~ ~~
+			XX XX XX XX XX XX ││ ││ ││ XX XX XX XX XX XX
+			XX XX XX XX XX XX ││ ││ ││ XX XX XX XX XX XX
+			XX XX XX XX XX XX ││ ││ ││ XX XX XX XX XX XX
+			XX XX XX XX XX XX XX ││ XX XX XX XX XX XX XX
+			││ ││ XX XX XX XX XX ││ XX XX XX XX XX ││ ││
 		]
 
 	}
