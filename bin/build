@@ -14,8 +14,13 @@ def transform [key: string] {
   }
 }
 
+def generate [] {
+}
+
 def main [] {
-  open data/keebler.nuon
+  let data = open data/keebler.nuon
+
+  let layers = $data
   | get layer_map
   | values
   | each {|layer|
@@ -25,5 +30,12 @@ def main [] {
       | transform $in
     }
   }
-  | to nuon
+
+  $data
+  | upsert layers $layers
+  | to json
+}
+
+def "main transform" [key: string] {
+  transform $key
 }
