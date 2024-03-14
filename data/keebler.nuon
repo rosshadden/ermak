@@ -19,15 +19,15 @@
 			=   `'`     ','     .       p       y  ││ ││ ││    f  g       c       r       l       /
 			__  LGUI[a] LALT[o] LCTL[e] LSFT[u] i  ││ ││ ││    d  RSFT[h] RCTL[t] RALT[n] RGUI[s] -
 			__  ';'     q       j       k       x  __ ││ ermak b  m       w       v       z       rsft
-			││  ││      __      __      __      __ __ ││ __    __ __      __      __      ││      ││
+			││  ││      '['     __      __      __ __ ││ __    __ __      __      ']'     ││      ││
 		]
 
 		qwerty: [
 			'`' __      __      __      __      __ ││ ││ ││    __ __      __      __      __      \
 			=   q       w       e       r       t  ││ ││ ││    y  u       i       o       p       -
 			__  LGUI[a] LALT[s] LCTL[d] LSFT[f] g  ││ ││ ││    h  RSFT[j] RCTL[k] RALT[l] RGUI[;] '"'
-			__  z       x       c       v       b  __ ││ ermak n  m       ','       .       /       rsft
-			││  ││      __      __      __      __ __ ││ __    __ __      __      __      ││      ││
+			__  z       x       c       v       b  __ ││ ermak n  m       ','     .       /       rsft
+			││  ││      '['     __      __      __ __ ││ __    __ __      __      ']'     ││      ││
 		]
 
 		lower: [
@@ -43,7 +43,7 @@
 			XX   btn3  XX    mup   XX     XX   ││ ││ ││ XX btn1 up   btn2  XX XX
 			capw btn1  mleft mdown mright XX   ││ ││ ││ XX left down right XX XX
 			__   btn2  XX    XX    XX     XX   __ ││ __ XX XX   XX   XX    XX __
-			││   ││    btn3  btn2  btn1   __   __ ││ __ __ __   __   __    ││ ││
+			││   ││    btn3  btn2  btn1   del  __ ││ __ __ __   __   __    ││ ││
 		]
 
 		legacy: [

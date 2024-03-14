@@ -104,6 +104,7 @@ let keymap = {
   '~': KC_TILDE
 
   back: KC_BACKSPACE
+  del: KC_DELETE
   enter: KC_ENTER
   esc: KC_ESC
   space: KC_SPACE
