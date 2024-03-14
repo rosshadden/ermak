@@ -5,7 +5,7 @@
     "author": "Ross Hadden",
     "pcb": false,
     "plate": false,
-    "css": "@import url(https://fonts.googleapis.com/css?family=Kode+Mono);\n\n* {\n    font-family: 'Kode Mono';\n}\n\n.keylabel4 {\n    font-size: 14px;\n}\n\n.keylabel1, .keylabel7 {\n    font-size: 14px;\n}\n\n.keylabel0, .keylabel2 {\n    font-size: 10px;\n}"
+    "css": "@import url(https://fonts.googleapis.com/css?family=Kode+Mono);\n\n* {\n    font-family: 'Kode Mono';\n}\n\n.keylabel4 {\n    font-size: 14px;\n}\n\n.keylabel1, .keylabel7 {\n    font-size: 14px;\n}\n\n.keylabel0, .keylabel2, .keylabel6, .keylabel8 {\n    font-size: 10px;\n}"
   },
   [
     {
@@ -126,7 +126,7 @@
       "c": "#aaaaaa",
       "a": 5
     },
-    "\\\n/",
+    "$\n#",
     {
       "c": "#cccccc",
       "a": 7
@@ -202,7 +202,7 @@
       "a": 4,
       "f": 6
     },
-    "\n\ncapw\n\nctrl\n\n\n\n\nEsc",
+    "\n\n\ncapw\nctrl\n\n\n\n\nEsc",
     {
       "c": "#cccccc",
       "a": 7,
@@ -292,7 +292,7 @@
     {
       "x": 3
     },
-    "=\n\n\n\n\n\n\n\n?\n\n!",
+    "=\n\n\n\n\n\n\n\n\\\n\n/",
     {
       "x": 3,
       "a": 7
@@ -341,7 +341,7 @@
       "x": 11.75,
       "a": 5
     },
-    "$\n#"
+    "!\n?"
   ],
   [
     {
@@ -351,7 +351,7 @@
       "c": "#777777",
       "a": 4
     },
-    "\n\ndel\n\n\n\n\n\n\nBS"
+    "\n\n\ndel\n\n\n\n\n\nBS"
   ],
   [
     {
