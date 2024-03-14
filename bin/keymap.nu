@@ -1,6 +1,6 @@
 let keymap = {
-  XX: KC_NO
-  __: KC_TRANS
+  XX: XXXXXXX
+  __: _______
   ││: null
 
   0: KC_0
