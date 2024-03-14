@@ -8,31 +8,31 @@
 
 		ermak: [
 			'['       1       2       3       4       5    ││             ││ ││               6     7       8       9       0       ']'
-			'#'       B       Y       O       U       "'"  ││             ││ ││               '"'   L       D       W       V       Z
-			LCTL[esc] LGUI[C] LALT[I] LCTL[E] LSFT[A] ,    ││             ││ ││               .     RSFT[H] RCTL[T] RALT[S] RGUI[N] Q
-			lsft      G       X       J       K       -    mute           ││ dvorak           /     R       M       F       P       rsft
+			'#'       b       y       o       u       "'"  ││             ││ ││               '"'   l       d       w       v       z
+			LCTL[esc] LGUI[c] LALT[i] LCTL[e] LSFT[a] ,    ││             ││ ││               .     RSFT[h] RCTL[t] RALT[s] RGUI[n] q
+			lsft      g       x       j       k       -    mute           ││ dvorak           /     r       m       f       p       rsft
 			││        ││      '`'     lalt    lgui    back LT[_LOWER,tab] ││ LT[_RAISE,enter] space rgui    ralt    ?       ││      ││
 		]
 
 		dvorak: [
 			'`' __      __      __      __      __ ││ ││ ││    __ __      __      __      __      \
-			=   `'`     ,       .       P       Y  ││ ││ ││    F  G       C       R       L       /
-			__  LGUI[A] LALT[O] LCTL[E] LSFT[U] I  ││ ││ ││    D  RSFT[H] RCTL[T] RALT[N] RGUI[S] -
-			__  ;       Q       J       K       X  __ ││ ermak B  M       W       V       Z       rsft
+			=   `'`     ,       .       p       y  ││ ││ ││    f  g       c       r       l       /
+			__  LGUI[a] LALT[o] LCTL[e] LSFT[u] i  ││ ││ ││    d  RSFT[h] RCTL[t] RALT[n] RGUI[s] -
+			__  ;       q       j       k       x  __ ││ ermak b  m       w       v       z       rsft
 			││  ││      __      __      __      __ __ ││ __    __ __      __      __      ││      ││
 		]
 
 		qwerty: [
 			'`' __      __      __      __      __ ││ ││ ││    __ __      __      __      __      \
-			=   Q       W       E       R       T  ││ ││ ││    Y  U       I       O       P       -
-			__  LGUI[A] LALT[S] LCTL[D] LSFT[F] G  ││ ││ ││    H  RSFT[J] RCTL[K] RALT[L] RGUI[;] '"'
-			__  Z       X       C       V       B  __ ││ ermak N  M       ,       .       /       rsft
+			=   q       w       e       r       t  ││ ││ ││    y  u       i       o       p       -
+			__  LGUI[a] LALT[s] LCTL[d] LSFT[f] g  ││ ││ ││    h  RSFT[j] RCTL[k] RALT[l] RGUI[;] '"'
+			__  z       x       c       v       b  __ ││ ermak n  m       ,       .       /       rsft
 			││  ││      __      __      __      __ __ ││ __    __ __      __      __      ││      ││
 		]
 
 		lower: [
-			boot   F1  F2  F3  F4  F5  ││ ││ ││ F6     F7  F8  F9  F10 F11
-			eeprom !   @   '{' '}' '|' ││ ││ ││ dprint 7   8   9   *   F12
+			boot   f1  f2  f3  f4  f5  ││ ││ ││ f6     f7  f8  f9  f10 f11
+			eeprom !   @   '{' '}' '|' ││ ││ ││ dprint 7   8   9   *   f12
 			__     '#' '$' '(' ')' '`' ││ ││ ││ dup    4   5   6   kp+ XX
 			__     <   >   '[' ']' ~   __ ││ __ ddown  1   2   3   kp/ __
 			││     ││  __  __  __  __  __ ││ __ __     kp0 kp0 kp0 ││  ││

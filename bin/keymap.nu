@@ -13,45 +13,45 @@ let keymap = {
   7: KC_7
   8: KC_8
   9: KC_9
-  A: KC_A
-  B: KC_B
-  C: KC_C
-  D: KC_D
-  E: KC_E
-  F: KC_F
-  G: KC_G
-  H: KC_H
-  I: KC_I
-  J: KC_J
-  K: KC_K
-  L: KC_L
-  M: KC_M
-  N: KC_N
-  O: KC_O
-  P: KC_P
-  Q: KC_Q
-  R: KC_R
-  S: KC_S
-  T: KC_T
-  U: KC_U
-  V: KC_V
-  W: KC_W
-  X: KC_X
-  Y: KC_Y
-  Z: KC_Z
+  a: KC_A
+  b: KC_B
+  c: KC_C
+  d: KC_D
+  e: KC_E
+  f: KC_F
+  g: KC_G
+  h: KC_H
+  i: KC_I
+  j: KC_J
+  k: KC_K
+  l: KC_L
+  m: KC_M
+  n: KC_N
+  o: KC_O
+  p: KC_P
+  q: KC_Q
+  r: KC_R
+  s: KC_S
+  t: KC_T
+  u: KC_U
+  v: KC_V
+  w: KC_W
+  x: KC_X
+  y: KC_Y
+  z: KC_Z
 
-  F1: KC_F1
-  F2: KC_F2
-  F3: KC_F3
-  F4: KC_F4
-  F5: KC_F5
-  F6: KC_F6
-  F7: KC_F7
-  F8: KC_F8
-  F9: KC_F9
-  F10: KC_F10
-  F11: KC_F11
-  F12: KC_F12
+  f1: KC_F1
+  f2: KC_F2
+  f3: KC_F3
+  f4: KC_F4
+  f5: KC_F5
+  f6: KC_F6
+  f7: KC_F7
+  f8: KC_F8
+  f9: KC_F9
+  f10: KC_F10
+  f11: KC_F11
+  f12: KC_F12
 
   kp*: KC_KP_ASTERISK
   kp+: KC_KP_PLUS
