@@ -9,16 +9,16 @@
 		ermak: [
 			'['       1       2       3       4       5    ││             ││ ││               6     7       8       9       0       ']'
 			'#'       b       y       o       u       "'"  ││             ││ ││               '"'   l       d       w       v       z
-			LCTL[esc] LGUI[c] LALT[i] LCTL[e] LSFT[a] ,    ││             ││ ││               .     RSFT[h] RCTL[t] RALT[s] RGUI[n] q
+			LCTL[esc] LGUI[c] LALT[i] LCTL[e] LSFT[a] ','  ││             ││ ││               .     RSFT[h] RCTL[t] RALT[s] RGUI[n] q
 			lsft      g       x       j       k       -    mute           ││ dvorak           /     r       m       f       p       rsft
 			││        ││      '`'     lalt    lgui    back LT[_LOWER,tab] ││ LT[_RAISE,enter] space rgui    ralt    ?       ││      ││
 		]
 
 		dvorak: [
 			'`' __      __      __      __      __ ││ ││ ││    __ __      __      __      __      \
-			=   `'`     ,       .       p       y  ││ ││ ││    f  g       c       r       l       /
+			=   `'`     ','     .       p       y  ││ ││ ││    f  g       c       r       l       /
 			__  LGUI[a] LALT[o] LCTL[e] LSFT[u] i  ││ ││ ││    d  RSFT[h] RCTL[t] RALT[n] RGUI[s] -
-			__  ;       q       j       k       x  __ ││ ermak b  m       w       v       z       rsft
+			__  ';'     q       j       k       x  __ ││ ermak b  m       w       v       z       rsft
 			││  ││      __      __      __      __ __ ││ __    __ __      __      __      ││      ││
 		]
 
@@ -26,7 +26,7 @@
 			'`' __      __      __      __      __ ││ ││ ││    __ __      __      __      __      \
 			=   q       w       e       r       t  ││ ││ ││    y  u       i       o       p       -
 			__  LGUI[a] LALT[s] LCTL[d] LSFT[f] g  ││ ││ ││    h  RSFT[j] RCTL[k] RALT[l] RGUI[;] '"'
-			__  z       x       c       v       b  __ ││ ermak n  m       ,       .       /       rsft
+			__  z       x       c       v       b  __ ││ ermak n  m       ','       .       /       rsft
 			││  ││      __      __      __      __ __ ││ __    __ __      __      __      ││      ││
 		]
 
@@ -40,10 +40,10 @@
 
 		raise: [
 			XX   macl0 macl1 macl2 XX     make ││ ││ ││ XX XX   XX   XX    XX XX
-			XX   btn2  XX    mup   XX     XX   ││ ││ ││ XX btn1 up   btn2  XX XX
+			XX   btn3  XX    mup   XX     XX   ││ ││ ││ XX btn1 up   btn2  XX XX
 			capw btn1  mleft mdown mright XX   ││ ││ ││ XX left down right XX XX
-			__   btn3  XX    XX    XX     XX   __ ││ __ XX XX   XX   XX    XX __
-			││   ││    btn2  btn3  btn1   __   __ ││ __ __ __   __   __    ││ ││
+			__   btn2  XX    XX    XX     XX   __ ││ __ XX XX   XX   XX    XX __
+			││   ││    btn3  btn2  btn1   __   __ ││ __ __ __   __   __    ││ ││
 		]
 
 		legacy: [
