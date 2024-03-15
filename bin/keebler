@@ -2,19 +2,7 @@
 
 source keymap.nu
 
-def transform [key: string] {
-  let parts = $key | parse "{fn}[{args}]" | get -i 0
-
-  if $key in $keymap {
-    $keymap | get $key
-  } else if ($parts | is-not-empty) {
-    $"(transform $parts.fn)\((transform $parts.args))"
-  } else {
-    $key
-  }
-}
-
-def generate [] {
+def build [] {
 }
 
 def main [] {
@@ -27,7 +15,7 @@ def main [] {
     compact
     | each {|key|
       into string
-      | transform $in
+      | main transform $in
     }
   }
 
@@ -36,6 +24,17 @@ def main [] {
   | to json
 }
 
-def "main transform" [key: string] {
-  transform $key
+# Transform a key string into a QMK keysym.
+def "main transform" [
+  key: string # key alias to map
+] {
+  let parts = $key | parse "{fn}[{args}]" | get -i 0
+
+  if $key in $keymap {
+    $keymap | get $key
+  } else if ($parts | is-not-empty) {
+    $"(main transform $parts.fn)\((main transform $parts.args))"
+  } else {
+    $key
+  }
 }
