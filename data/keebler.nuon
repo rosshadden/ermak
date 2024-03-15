@@ -2,77 +2,100 @@
 	keyboard: sofle_pico
 	keymap: ermak
 	layout: LAYOUT
-	layers: []
 
-	layer_map: {
+	templates: [
 
-		ermak: [
-			'['       1       2       3       4       5    ││             ││ ││               6     7       8       9       0       ']'
-			'#'       b       y       o       u       "'"  ││             ││ ││               '"'   l       d       w       v       z
-			LCTL[esc] LGUI[c] LALT[i] LCTL[e] LSFT[a] ','  ││             ││ ││               .     RSFT[h] RCTL[t] RALT[s] RGUI[n] q
-			lsft      g       x       j       k       -    mute           ││ dvorak           /     r       m       f       p       rsft
-			││        ││      '`'     lalt    lgui    back LT[_LOWER,tab] ││ LT[_RAISE,enter] space rgui    ralt    ?       ││      ││
-		]
+		{
+			name: blank
+			keys: [
+				__ __ __ __ __ __ ││ ││ ││ __ __ __ __ __ __
+				__ __ __ __ __ __ ││ ││ ││ __ __ __ __ __ __
+				__ __ __ __ __ __ ││ ││ ││ __ __ __ __ __ __
+				__ __ __ __ __ __ __ ││ __ __ __ __ __ __ __
+				││ ││ __ __ __ __ __ ││ __ __ __ __ __ ││ ││
+			]
+		}
 
-		dvorak: [
-			'`' __      __      __      __      __ ││ ││ ││    __ __      __      __      __      \
-			=   `'`     ','     .       p       y  ││ ││ ││    f  g       c       r       l       /
-			__  LGUI[a] LALT[o] LCTL[e] LSFT[u] i  ││ ││ ││    d  RSFT[h] RCTL[t] RALT[n] RGUI[s] -
-			__  ';'     q       j       k       x  __ ││ ermak b  m       w       v       z       rsft
-			││  ││      '['     __      __      __ __ ││ __    __ __      __      ']'     ││      ││
-		]
+		{
+			name: void
+			keys: [
+				XX XX XX XX XX XX ││ ││ ││ XX XX XX XX XX XX
+				XX XX XX XX XX XX ││ ││ ││ XX XX XX XX XX XX
+				XX XX XX XX XX XX ││ ││ ││ XX XX XX XX XX XX
+				XX XX XX XX XX XX XX ││ XX XX XX XX XX XX XX
+				││ ││ XX XX XX XX XX ││ XX XX XX XX XX ││ ││
+			]
+		}
 
-		qwerty: [
-			'`' __      __      __      __      __ ││ ││ ││    __ __      __      __      __      \
-			=   q       w       e       r       t  ││ ││ ││    y  u       i       o       p       -
-			__  LGUI[a] LALT[s] LCTL[d] LSFT[f] g  ││ ││ ││    h  RSFT[j] RCTL[k] RALT[l] RGUI[;] '"'
-			__  z       x       c       v       b  __ ││ ermak n  m       ','     .       /       rsft
-			││  ││      '['     __      __      __ __ ││ __    __ __      __      ']'     ││      ││
-		]
+	]
 
-		lower: [
-			boot   f1  f2  f3  f4  f5  ││ ││ ││ f6     f7  f8  f9  f10 f11
-			eeprom !   @   '{' '}' '|' ││ ││ ││ dprint 7   8   9   *   f12
-			__     '#' '$' '(' ')' '`' ││ ││ ││ dup    4   5   6   kp+ XX
-			__     <   >   '[' ']' ~   __ ││ __ ddown  1   2   3   kp/ __
-			││     ││  __  __  __  __  __ ││ __ __     kp0 kp0 kp0 ││  ││
-		]
+	layers: [
 
-		raise: [
-			XX   macl0 macl1 macl2 XX     make ││ ││ ││ XX XX   XX   XX    XX XX
-			XX   btn3  XX    mup   XX     XX   ││ ││ ││ XX btn1 up   btn2  XX XX
-			capw btn1  mleft mdown mright XX   ││ ││ ││ XX left down right XX XX
-			__   btn2  XX    XX    XX     XX   __ ││ __ XX XX   XX   XX    XX __
-			││   ││    btn3  btn2  btn1   del  __ ││ __ __ __   __   __    ││ ││
-		]
+		{
+			name: ermak
+			keys: [
+				'['       1       2       3       4       5    ││             ││ ││               6     7       8       9       0       ']'
+				'#'       b       y       o       u       "'"  ││             ││ ││               '"'   l       d       w       v       z
+				LCTL[esc] LGUI[c] LALT[i] LCTL[e] LSFT[a] ','  ││             ││ ││               .     RSFT[h] RCTL[t] RALT[s] RGUI[n] q
+				lsft      g       x       j       k       -    mute           ││ dvorak           /     r       m       f       p       rsft
+				││        ││      '`'     lalt    lgui    back LT[_LOWER,tab] ││ LT[_RAISE,enter] space rgui    ralt    ?       ││      ││
+			]
+		}
 
-		legacy: [
-			~  !  @  '#' '$' %   ││ ││ ││ ^   &  *  '(' ')' '|'
-			__ __ __ __  __  '{' ││ ││ ││ '}' __ __ __  __  __
-			__ __ __ __  __  '[' ││ ││ ││ ']' __ __ __  __  __
-			__ __ __ __  __  '|' __ ││ __ =   __ __ __  __  __
-			││ ││ __ __  __  __  __ ││ __ __  __ __ __  ││  ││
-		]
+		{
+			name: dvorak
+			keys: [
+				'`' __      __      __      __      __ ││ ││ ││    __ __      __      __      __      \
+				=   `'`     ','     .       p       y  ││ ││ ││    f  g       c       r       l       /
+				__  LGUI[a] LALT[o] LCTL[e] LSFT[u] i  ││ ││ ││    d  RSFT[h] RCTL[t] RALT[n] RGUI[s] -
+				__  ';'     q       j       k       x  __ ││ ermak b  m       w       v       z       rsft
+				││  ││      '['     __      __      __ __ ││ __    __ __      __      ']'     ││      ││
+			]
+		}
 
-	}
+		{
+			name: qwerty
+			keys: [
+				'`' __      __      __      __      __ ││ ││ ││    __ __      __      __      __      \
+				=   q       w       e       r       t  ││ ││ ││    y  u       i       o       p       -
+				__  LGUI[a] LALT[s] LCTL[d] LSFT[f] g  ││ ││ ││    h  RSFT[j] RCTL[k] RALT[l] RGUI[;] '"'
+				__  z       x       c       v       b  __ ││ ermak n  m       ','     .       /       rsft
+				││  ││      '['     __      __      __ __ ││ __    __ __      __      ']'     ││      ││
+			]
+		}
 
-	templates: {
+		{
+			name: lower
+			keys: [
+				boot   f1  f2  f3  f4  f5  ││ ││ ││ f6     f7  f8  f9  f10 f11
+				eeprom !   @   '{' '}' '|' ││ ││ ││ dprint 7   8   9   *   f12
+				__     '#' '$' '(' ')' '`' ││ ││ ││ dup    4   5   6   kp+ XX
+				__     <   >   '[' ']' ~   __ ││ __ ddown  1   2   3   kp/ __
+				││     ││  __  __  __  __  __ ││ __ __     kp0 kp0 kp0 ││  ││
+			]
+		}
 
-		blank: [
-			__ __ __ __ __ __ ││ ││ ││ __ __ __ __ __ __
-			__ __ __ __ __ __ ││ ││ ││ __ __ __ __ __ __
-			__ __ __ __ __ __ ││ ││ ││ __ __ __ __ __ __
-			__ __ __ __ __ __ __ ││ __ __ __ __ __ __ __
-			││ ││ __ __ __ __ __ ││ __ __ __ __ __ ││ ││
-		]
+		{
+			name: raise
+			keys: [
+				XX   macl0 macl1 macl2 XX     make ││ ││ ││ XX XX   XX   XX    XX XX
+				XX   btn3  XX    mup   XX     XX   ││ ││ ││ XX btn1 up   btn2  XX XX
+				capw btn1  mleft mdown mright XX   ││ ││ ││ XX left down right XX XX
+				__   btn2  XX    XX    XX     XX   __ ││ __ XX XX   XX   XX    XX __
+				││   ││    btn3  btn2  btn1   del  __ ││ __ __ __   __   __    ││ ││
+			]
+		}
 
-		void: [
-			XX XX XX XX XX XX ││ ││ ││ XX XX XX XX XX XX
-			XX XX XX XX XX XX ││ ││ ││ XX XX XX XX XX XX
-			XX XX XX XX XX XX ││ ││ ││ XX XX XX XX XX XX
-			XX XX XX XX XX XX XX ││ XX XX XX XX XX XX XX
-			││ ││ XX XX XX XX XX ││ XX XX XX XX XX ││ ││
-		]
+		{
+			name: legacy
+			keys: [
+				~  !  @  '#' '$' %   ││ ││ ││ ^   &  *  '(' ')' '|'
+				__ __ __ __  __  '{' ││ ││ ││ '}' __ __ __  __  __
+				__ __ __ __  __  '[' ││ ││ ││ ']' __ __ __  __  __
+				__ __ __ __  __  '|' __ ││ __ =   __ __ __  __  __
+				││ ││ __ __  __  __  __ ││ __ __  __ __ __  ││  ││
+			]
+		}
 
-	}
+	]
 }

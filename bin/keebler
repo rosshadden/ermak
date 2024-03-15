@@ -2,21 +2,20 @@
 
 source keymap.nu
 
-def build [] {
-}
-
 def main [] {
   let data = open data/keebler.nuon
 
   let layers = $data
-  | get layer_map
-  | values
+  | get layers
   | each {|layer|
-    compact
+    let keycodes = get keys
+    | compact
     | each {|key|
       into string
       | main transform $in
     }
+
+    $layer | upsert keycodes $keycodes
   }
 
   $data
@@ -37,4 +36,7 @@ def "main transform" [
   } else {
     $key
   }
+}
+
+def "main build" [] {
 }
