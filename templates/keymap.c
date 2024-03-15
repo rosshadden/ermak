@@ -6,16 +6,10 @@
 
 #include "features/custom_shift_keys.h"
 
-{{keyboard}}
-
 enum sofle_layers {
-  _ERMAK,
-  _DVORAK,
-  _QWERTY,
-
-  _LOWER,
-  _RAISE,
-  _LEGACY,
+  {% for layer in layers -%}
+    {{ layer.id }},
+  {% endfor %}
 };
 
 enum custom_keycodes {
@@ -53,14 +47,9 @@ uint8_t NUM_CUSTOM_SHIFT_KEYS = sizeof(custom_shift_keys) / sizeof(custom_shift_
 // };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-{% for layer in layers -%}
-  LAYOUT(
-  {% for key in layer -%}
-    {{ key }},
+  {% for layer in layers -%}
+    [{{ layer.id }}] = {{ layer.keymap }},
   {% endfor %}
-  ),
-
-{% endfor %}
 };
 
 layer_state_t layer_state_set_user(layer_state_t state) {

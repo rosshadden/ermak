@@ -39,26 +39,36 @@ def "build keymaps" [ctx: record] {
 	let layers = $ctx
 	| get layers
 	| each {|layer|
-		let keymaps = $layer.codes
+		let keymap = $layer.codes
 		| str join ", "
-		| $"[_($layer.name | str upcase)] = LAYOUT\(($in)),"
+		| $"LAYOUT\(($in))"
 
-		$layer | upsert keymaps $keymaps
+		$layer
+		| upsert id $"_($layer.name | str upcase)"
+		| upsert keymap $keymap
 	}
 	$ctx | upsert layers $layers
 }
 
 # Generate QMK file.
 def "build qmk" [ctx: record] {
-}
-
-def build [] {
-	open data/keebler.nuon
-	| build codes $in
-	| build keymaps $in
+	$ctx
+	| to json
+	| tera --stdin --template templates/keymap.c
 }
 
 def main [] {
-	build
+	open data/keebler.nuon
+	| build codes $in
+	| build keymaps $in
+	| build qmk $in
 	| to json
+}
+
+# Generate QMK file.
+def "main build" [] {
+	open data/keebler.nuon
+	| build codes $in
+	| build keymaps $in
+	| build qmk $in
 }
