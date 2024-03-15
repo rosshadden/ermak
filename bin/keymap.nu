@@ -119,14 +119,14 @@ let keymap = {
   rgui: KC_RGUI
   rsft: KC_RSFT
 
-  LALT: LALT_T
-  LCTL: LCTL_T
-  LGUI: LGUI_T
-  LSFT: LSFT_T
-  RALT: RALT_T
-  RCTL: RCTL_T
-  RGUI: RGUI_T
-  RSFT: RSFT_T
+  lalt_t: LALT_T
+  lctl_t: LCTL_T
+  lgui_t: LGUI_T
+  lsft_t: LSFT_T
+  ralt_t: RALT_T
+  rctl_t: RCTL_T
+  rgui_t: RGUI_T
+  rsft_t: RSFT_T
 
   down: KC_DOWN
   left: KC_LEFT

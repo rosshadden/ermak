@@ -2,21 +2,6 @@
 
 source keymap.nu
 
-# Map a key string into a QMK keycode.
-def map [
-	key: string # key alias to map
-] {
-	let parts = $key | parse "{fn}[{args}]" | get -i 0
-
-	if $key in $keymap {
-		$keymap | get $key
-	} else if ($parts | is-not-empty) {
-    $"(map $parts.fn)\((map $parts.args))"
-	} else {
-		$key
-	}
-}
-
 # Process all layers and keys into QMK keycodes.
 def "build codes" [ctx: record] {
 	let layers = $ctx
@@ -26,7 +11,7 @@ def "build codes" [ctx: record] {
 		| compact
 		| each {|key|
 			into string
-			| map $in
+			| main map $in
 		}
 
 		$layer | upsert codes $codes
@@ -54,15 +39,43 @@ def "build keymaps" [ctx: record] {
 def "build qmk" [ctx: record] {
 	$ctx
 	| to json
-	| tera --stdin --template templates/keymap.c
+	| tera --stdin --template ./templates/keymap.c
+	| save --force ./keymap.c
 }
 
 def main [] {
 	open data/keebler.nuon
 	| build codes $in
 	| build keymaps $in
-	| build qmk $in
 	| to json
+}
+
+# Map a key string into a QMK keycode.
+def "main map" [
+	key: string # key alias to map
+	--fn (-f) # whether key is a function
+] {
+	let parts = $key | parse "{fn}[{args}]" | get -i 0
+
+	if $fn and $"($key)_t" in $keymap {
+		$keymap | get $"($key)_t"
+	} else if $key in $keymap {
+		$keymap | get $key
+	} else if ($parts | is-not-empty) {
+		let fn = main map $parts.fn --fn
+		let args = $parts.args
+		| split column ","
+		| str trim
+		| get 0
+		| values
+		| each {
+			main map $in
+		}
+		| str join ", "
+    $"($fn)\(($args))"
+	} else {
+		$key
+	}
 }
 
 # Generate QMK file.

@@ -33,10 +33,11 @@
 
 		{
 			name: ermak
+			base: true
 			keys: [
 				'['       1       2       3       4       5    ││             ││ ││               6     7       8       9       0       ']'
 				'#'       b       y       o       u       "'"  ││             ││ ││               '"'   l       d       w       v       z
-				LCTL[esc] LGUI[c] LALT[i] LCTL[e] LSFT[a] ','  ││             ││ ││               .     RSFT[h] RCTL[t] RALT[s] RGUI[n] q
+				lctl[esc] lgui[c] lalt[i] lctl[e] lsft[a] ','  ││             ││ ││               .     rsft[h] rctl[t] ralt[s] rgui[n] q
 				lsft      g       x       j       k       -    mute           ││ dvorak           /     r       m       f       p       rsft
 				││        ││      '`'     lalt    lgui    back LT[_LOWER,tab] ││ LT[_RAISE,enter] space rgui    ralt    ?       ││      ││
 			]
@@ -44,10 +45,11 @@
 
 		{
 			name: dvorak
+			base: true
 			keys: [
 				'`' __      __      __      __      __ ││ ││ ││    __ __      __      __      __      \
 				=   `'`     ','     .       p       y  ││ ││ ││    f  g       c       r       l       /
-				__  LGUI[a] LALT[o] LCTL[e] LSFT[u] i  ││ ││ ││    d  RSFT[h] RCTL[t] RALT[n] RGUI[s] -
+				__  lgui[a] lalt[o] lctl[e] lsft[u] i  ││ ││ ││    d  rsft[h] rctl[t] ralt[n] rgui[s] -
 				__  ';'     q       j       k       x  __ ││ ermak b  m       w       v       z       rsft
 				││  ││      '['     __      __      __ __ ││ __    __ __      __      ']'     ││      ││
 			]
@@ -55,10 +57,11 @@
 
 		{
 			name: qwerty
+			base: true
 			keys: [
 				'`' __      __      __      __      __ ││ ││ ││    __ __      __      __      __      \
 				=   q       w       e       r       t  ││ ││ ││    y  u       i       o       p       -
-				__  LGUI[a] LALT[s] LCTL[d] LSFT[f] g  ││ ││ ││    h  RSFT[j] RCTL[k] RALT[l] RGUI[;] '"'
+				__  lgui[a] lalt[s] lctl[d] lsft[f] g  ││ ││ ││    h  rsft[j] rctl[k] ralt[l] rgui[;] '"'
 				__  z       x       c       v       b  __ ││ ermak n  m       ','     .       /       rsft
 				││  ││      '['     __      __      __ __ ││ __    __ __      __      ']'     ││      ││
 			]
