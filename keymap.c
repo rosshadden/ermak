@@ -107,16 +107,15 @@ static void render_status(void) {
   oled_write_P(PSTR("Keebler\nv1.0.0\n~~~~~~~~~"), false);
 
   oled_write_P(PSTR("\nBASE:\n\t"), false);
-
   switch (get_highest_layer(default_layer_state)) {
     case _ERMAK:
-      oled_write_P(PSTR("Ermak"), false);
+      oled_write_P(PSTR("ermak"), false);
       break;
     case _DVORAK:
-      oled_write_P(PSTR("Dvorak"), false);
+      oled_write_P(PSTR("dvorak"), false);
       break;
     case _QWERTY:
-      oled_write_P(PSTR("Qwerty"), false);
+      oled_write_P(PSTR("qwerty"), false);
       break;
     default:
       oled_write_P(PSTR("UNKNOWN"), false);
@@ -124,22 +123,21 @@ static void render_status(void) {
   }
 
   oled_write_P(PSTR("\nLAYER:\n\t"), false);
-
   switch (get_highest_layer(layer_state)) {
     case _ERMAK:
-      oled_write_P(PSTR("Ermak"), false);
+      oled_write_P(PSTR("ermak"), false);
       break;
     case _DVORAK:
-      oled_write_P(PSTR("Dvorak"), false);
+      oled_write_P(PSTR("dvorak"), false);
       break;
     case _QWERTY:
-      oled_write_P(PSTR("Qwerty"), false);
+      oled_write_P(PSTR("qwerty"), false);
       break;
     case _LOWER:
-      oled_write_P(PSTR("num"), false);
+      oled_write_P(PSTR("lower"), false);
       break;
     case _RAISE:
-      oled_write_P(PSTR("nav"), false);
+      oled_write_P(PSTR("raise"), false);
       break;
     case _LEGACY:
       oled_write_P(PSTR("legacy"), false);
