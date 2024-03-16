@@ -2,6 +2,7 @@
 	keyboard: sofle_pico
 	firmware: keebler
 	keymap: ermak
+	version: v0.1.0
 
 	templates: [
 

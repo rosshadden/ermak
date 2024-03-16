@@ -1,6 +1,6 @@
 #!/usr/bin/env nu
 
-source keymap.nu
+source ../data/keymap.nu
 
 # Process all layers and keys into QMK keycodes.
 def "build codes" [ctx: record] {

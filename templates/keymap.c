@@ -96,7 +96,7 @@ static void render_logo(void) {
 }
 
 static void render_status(void) {
-  oled_write_P(PSTR("Keebler\nv1.0.0\n~~~~~~~~~"), false);
+  oled_write_P(PSTR("{{ firmware | capitalize }}\n{{ version }}\n~~~~~~~~~"), false);
 
   oled_write_P(PSTR("\nBASE:\n\t"), false);
   switch (get_highest_layer(default_layer_state)) {
