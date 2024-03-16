@@ -74,7 +74,7 @@ def "main map" [
 		| str join ", "
     $"($fn)\(($args))"
 	} else {
-		$key
+		$key | str upcase
 	}
 }
 

@@ -40,7 +40,7 @@
 				'#'       b       y       o       u       "'"  ││             ││ ││               '"'   l       d       w       v       z
 				lctl[esc] lgui[c] lalt[i] lctl[e] lsft[a] ','  ││             ││ ││               .     rsft[h] rctl[t] ralt[s] rgui[n] q
 				lsft      g       x       j       k       -    mute           ││ dvorak           /     r       m       f       p       rsft
-				││        ││      '`'     lalt    lgui    back LT[_LOWER,tab] ││ LT[_RAISE,enter] space rgui    ralt    ?       ││      ││
+				││        ││      '`'     lalt    lgui    back lt[_LOWER,tab] ││ lt[_RAISE,enter] space rgui    ralt    ?       ││      ││
 			]
 		}
 
