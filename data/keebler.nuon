@@ -36,11 +36,11 @@
 			name: ermak
 			base: true
 			keys: [
-				"lt[Ø,[]" 1       2         3       4       5         ││             ││ ││               6         7       8       9       0       ']'
-				'#'       b       y         o       u       "lt[Ø,']" ││             ││ ││               'lt[Ø,"]' l       d       w       v       z
-				lctl[esc] lgui[c] lalt[i]   lctl[e] lsft[a] ','       ││             ││ ││               .         rsft[h] rctl[t] ralt[s] rgui[n] q
-				lsft      g       x         j       k       -         mute           ││ dvorak           /         r       m       f       p       rsft
-				││        ││      "lt[Ø,`]" lalt    lgui    back      lt[_LOWER,tab] ││ lt[_RAISE,enter] space     rgui    ralt    ?       ││      ││
+				"lt[Ø,[]" 1       2         3       4       5         ││             ││ ││               6     7       8       9       0       ']'
+				'#'       b       y         o       u       `'` ││             ││ ││               '"'   l       d       w       v       z
+				lctl[esc] lgui[c] lalt[i]   lctl[e] lsft[a] ','       ││             ││ ││               .     rsft[h] rctl[t] ralt[s] rgui[n] q
+				lsft      g       x         j       k       -         mute           ││ dvorak           /     r       m       f       p       rsft
+				││        ││      '`' lalt    lgui    back      lt[_LOWER,tab] ││ lt[_RAISE,enter] space rgui    ralt    ?       ││      ││
 			]
 		}
 
