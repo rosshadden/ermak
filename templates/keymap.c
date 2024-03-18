@@ -58,14 +58,6 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
 uint8_t mod_state;
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  if (
-    get_highest_layer(default_layer_state) == _ERMAK &&
-    get_highest_layer(layer_state) == _ERMAK &&
-    !process_custom_shift_keys(keycode, record)
-  ) {
-    return false;
-  }
-
   switch (keycode) {
     case KC_ERMAK:
       if (record->event.pressed) {
@@ -83,16 +75,43 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
 
-    case LT(0, KC_LEFT_BRACKET:
+    case LT(0, KC_LEFT_BRACKET):
       if (record->tap.count && record->event.pressed) {
           tap_code16(KC_LEFT_BRACKET);
       } else if (record->event.pressed) {
           tap_code16(KC_LEFT_BRACKET);
-          tap_code16(KC_LEFT);
           tap_code16(KC_RIGHT_BRACKET);
+          tap_code16(KC_LEFT);
+      }
+      return false;
+    case LT(0, KC_QUOTE):
+      if (record->tap.count && record->event.pressed) {
+          tap_code16(KC_QUOTE);
+      } else if (record->event.pressed) {
+          tap_code16(KC_QUOTE);
+          tap_code16(KC_QUOTE);
+          tap_code16(KC_LEFT);
+      }
+      return false;
+    case LT(0, KC_GRAVE):
+      if (record->tap.count && record->event.pressed) {
+          tap_code16(KC_GRAVE);
+      } else if (record->event.pressed) {
+          tap_code16(KC_GRAVE);
+          tap_code16(KC_GRAVE);
+          tap_code16(KC_LEFT);
       }
       return false;
   }
+
+  if (
+    get_highest_layer(default_layer_state) == _ERMAK &&
+    get_highest_layer(layer_state) == _ERMAK &&
+    !process_custom_shift_keys(keycode, record)
+  ) {
+    return false;
+  }
+
   return true;
 }
 
