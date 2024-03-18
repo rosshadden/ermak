@@ -23,7 +23,6 @@ let keymap = {
 	kpE: KC_KP_ENTER
 
 	"'": KC_QUOTE
-	"Ø": 0
 	'!': KC_EXCLAIM
 	'"': KC_DOUBLE_QUOTE
 	'#': KC_HASH
