@@ -82,6 +82,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         set_single_persistent_default_layer(_QWERTY);
       }
       return false;
+
+    case LT(0, KC_LEFT_BRACKET:
+      if (record->tap.count && record->event.pressed) {
+          tap_code16(KC_LEFT_BRACKET);
+      } else if (record->event.pressed) {
+          tap_code16(KC_LEFT_BRACKET);
+          tap_code16(KC_LEFT);
+          tap_code16(KC_RIGHT_BRACKET);
+      }
+      return false;
   }
   return true;
 }
