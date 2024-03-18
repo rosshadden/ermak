@@ -74,9 +74,6 @@ let keymap = {
 	rgui_t: RGUI_T
 	rsft_t: RSFT_T
 
-	lt: LT
-	mt: MT
-
 	macl0: KC_MS_ACCEL0
 	macl1: KC_MS_ACCEL1
 	macl2: KC_MS_ACCEL2

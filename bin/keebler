@@ -74,7 +74,7 @@ def "main map" [
 		}
 		| str join ", "
     $"($fn)\(($args))"
-	} else if ($key | str starts-with '_') {
+	} else if ($fn or ($key | str starts-with '_')) {
 		$key | str upcase
 	} else {
 		"KC_" ++ $key | str upcase
@@ -87,4 +87,36 @@ def "main build" [] {
 	| build codes $in
 	| build keymaps $in
 	| build qmk $in
+}
+
+# Generate keymap.c.
+def "main compile" [] {
+	main build
+	qmk compile -j 32 -kb sofle_pico -km ermak
+}
+
+# Flash QMK firmware.
+def "main flash" [] {
+	mount /dev/disk/by-label/RPI-RP2 /mnt/usb
+	cp ~/qmk_firmware/sofle_pico_ermak.uf2 /mnt/usb
+}
+
+# Generate QMK file.
+def "main watch compile" [] {
+	watch . {|op, path|
+		if $path in (glob "{bin,data,templates}/*") {
+			echo "Compiling board..."
+			main compile
+		}
+	}
+}
+
+# Generate QMK file.
+def "main watch flash" [] {
+	watch /dev/disk/by-label {|op, path|
+		if ($op == "Create" and ($path | str ends-with "/RPI-RP2")) {
+			echo "Flashing board..."
+			main flash
+		}
+	}
 }
