@@ -5,6 +5,7 @@
 #include QMK_KEYBOARD_H
 
 #include "features/custom_shift_keys.h"
+#include "features/layer_lock.h"
 
 #define L(kc) LT(0, kc)
 
@@ -20,8 +21,9 @@ enum sofle_layers {
   
 };
 
-// enum custom_keycodes {
-// };
+enum custom_keycodes {
+  LOCK = SAFE_RANGE,
+};
 
 const custom_shift_key_t custom_shift_keys[] = {
   { KC_0, KC_ASTERISK },
@@ -45,14 +47,8 @@ const custom_shift_key_t custom_shift_keys[] = {
 };
 uint8_t NUM_CUSTOM_SHIFT_KEYS = sizeof(custom_shift_keys) / sizeof(custom_shift_key_t);
 
-// const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
-// const key_override_t **key_overrides = (const key_override_t *[]){
-//   &delete_key_override,
-//   NULL
-// };
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [_ERMAK] = LAYOUT(L(KC_LEFT_BRACKET), KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_RIGHT_BRACKET, KC_HASH, KC_B, KC_Y, KC_O, KC_U, L(KC_QUOTE), KC_DOUBLE_QUOTE, KC_L, KC_D, KC_W, KC_V, KC_Z, LCTL_T(KC_ESC), LGUI_T(KC_C), LALT_T(KC_I), LCTL_T(KC_E), LSFT_T(KC_A), KC_COMMA, KC_DOT, RSFT_T(KC_H), RCTL_T(KC_T), RALT_T(KC_S), RGUI_T(KC_N), KC_Q, KC_LSFT, KC_G, KC_X, KC_J, KC_K, KC_MINUS, KC_MUTE, DF(_DVORAK), KC_SLASH, KC_R, KC_M, KC_F, KC_P, KC_RSFT, L(KC_GRAVE), KC_LALT, KC_LGUI, KC_BACKSPACE, LT(_NUM, KC_TAB), LT(_NAV, KC_ENTER), KC_SPACE, KC_RGUI, KC_RALT, KC_QUESTION),
+  [_ERMAK] = LAYOUT(L(KC_LEFT_BRACKET), KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_RIGHT_BRACKET, KC_HASH, KC_B, KC_Y, KC_O, KC_U, L(KC_QUOTE), KC_DOUBLE_QUOTE, KC_L, KC_D, KC_W, KC_V, KC_Z, LCTL_T(KC_ESC), LGUI_T(KC_C), LALT_T(KC_I), LCTL_T(KC_E), LSFT_T(KC_A), KC_COMMA, KC_DOT, RSFT_T(KC_H), RCTL_T(KC_T), RALT_T(KC_S), RGUI_T(KC_N), KC_Q, LSFT_T(LOCK), KC_G, KC_X, KC_J, KC_K, KC_MINUS, KC_MUTE, DF(_DVORAK), KC_SLASH, KC_R, KC_M, KC_F, KC_P, RSFT_T(LOCK), L(KC_GRAVE), KC_LALT, KC_LGUI, KC_BACKSPACE, LT(_NUM, KC_TAB), LT(_NAV, KC_ENTER), KC_SPACE, KC_RGUI, KC_RALT, KC_QUESTION),
   [_TYPING] = LAYOUT(KC_LEFT_BRACKET, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_QUOTE, _______, _______, _______, _______, _______, _______, _______, KC_C, KC_I, KC_E, KC_A, _______, _______, KC_H, KC_T, KC_S, KC_N, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_GRAVE, _______, _______, _______, _______, _______, _______, _______, _______, _______),
   [_DVORAK] = LAYOUT(KC_GRAVE, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_BACKSLASH, KC_EQUAL, KC_QUOTE, KC_COMMA, KC_DOT, KC_P, KC_Y, KC_F, KC_G, KC_C, KC_R, KC_L, KC_SLASH, _______, LGUI_T(KC_A), LALT_T(KC_O), LCTL_T(KC_E), LSFT_T(KC_U), KC_I, KC_D, RSFT_T(KC_H), RCTL_T(KC_T), RALT_T(KC_N), RGUI_T(KC_S), KC_MINUS, _______, KC_SEMICOLON, KC_Q, KC_J, KC_K, KC_X, _______, DF(_ERMAK), KC_B, KC_M, KC_W, KC_V, KC_Z, KC_RSFT, KC_LEFT_BRACKET, _______, _______, _______, _______, _______, _______, _______, _______, KC_RIGHT_BRACKET),
   [_QWERTY] = LAYOUT(KC_GRAVE, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_BACKSLASH, KC_EQUAL, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_MINUS, _______, LGUI_T(KC_A), LALT_T(KC_S), LCTL_T(KC_D), LSFT_T(KC_F), KC_G, KC_H, RSFT_T(KC_J), RCTL_T(KC_K), RALT_T(KC_L), RGUI_T(KC_SEMICOLON), KC_DOUBLE_QUOTE, _______, KC_Z, KC_X, KC_C, KC_V, KC_B, _______, _______, KC_N, KC_M, KC_COMMA, KC_DOT, KC_SLASH, KC_RSFT, KC_LEFT_BRACKET, _______, _______, _______, _______, _______, _______, _______, _______, KC_RIGHT_BRACKET),
@@ -69,6 +65,8 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
 uint8_t mod_state;
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  if (!process_layer_lock(keycode, record, LOCK)) { return false; }
+
   if (
     get_highest_layer(default_layer_state) == _ERMAK &&
     get_highest_layer(layer_state) == _ERMAK &&
@@ -78,6 +76,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
 
   switch (keycode) {
+    case LSFT_T(LOCK):
+    case RSFT_T(LOCK):
+      if (record->event.pressed && record->tap.count) {
+        layer_lock_invert(get_highest_layer(layer_state));
+        return false;
+      }
+      break;
+
     case L(KC_LEFT_BRACKET):
       if (!record->event.pressed) return false;
       if (record->tap.count) {

@@ -5,6 +5,7 @@
 #include QMK_KEYBOARD_H
 
 #include "features/custom_shift_keys.h"
+#include "features/layer_lock.h"
 
 #define L(kc) LT(0, kc)
 
@@ -14,8 +15,9 @@ enum sofle_layers {
   {% endfor %}
 };
 
-// enum custom_keycodes {
-// };
+enum custom_keycodes {
+  LOCK = SAFE_RANGE,
+};
 
 const custom_shift_key_t custom_shift_keys[] = {
   { KC_0, KC_ASTERISK },
@@ -39,12 +41,6 @@ const custom_shift_key_t custom_shift_keys[] = {
 };
 uint8_t NUM_CUSTOM_SHIFT_KEYS = sizeof(custom_shift_keys) / sizeof(custom_shift_key_t);
 
-// const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
-// const key_override_t **key_overrides = (const key_override_t *[]){
-//   &delete_key_override,
-//   NULL
-// };
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   {% for layer in layers -%}
     [{{ layer.id }}] = {{ layer.keymap }},
@@ -57,6 +53,8 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
 uint8_t mod_state;
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  if (!process_layer_lock(keycode, record, LOCK)) { return false; }
+
   if (
     get_highest_layer(default_layer_state) == _ERMAK &&
     get_highest_layer(layer_state) == _ERMAK &&
@@ -66,6 +64,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
 
   switch (keycode) {
+    case LSFT_T(LOCK):
+    case RSFT_T(LOCK):
+      if (record->event.pressed && record->tap.count) {
+        layer_lock_invert(get_highest_layer(layer_state));
+        return false;
+      }
+      break;
+
     case L(KC_LEFT_BRACKET):
       if (!record->event.pressed) return false;
       if (record->tap.count) {
