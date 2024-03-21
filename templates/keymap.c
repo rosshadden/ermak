@@ -114,21 +114,19 @@ static void render_logo(void) {
 static void render_status(void) {
   oled_write_P(PSTR("{{ firmware | capitalize }}\n{{ version }}\n~~~~~~~~~"), false);
 
-  oled_write_P(PSTR("\nBASE:\n\t"), false);
+  oled_write_P(PSTR("\nLAYER:\n\t"), false);
   switch (get_highest_layer(default_layer_state)) {
     {% for layer in layers -%}
-    {% if layer.base -%}
     case {{ layer.id }}:
       oled_write_P(PSTR("{{ layer.name }}"), false);
       break;
-    {% endif -%}
     {% endfor -%}
     default:
       oled_write_P(PSTR("UNKNOWN"), false);
       break;
   }
 
-  oled_write_P(PSTR("\nLAYER:\n\t"), false);
+  oled_write_P(PSTR("\nOVERLAY:\n\t"), false);
   switch (get_highest_layer(layer_state)) {
     {% for layer in layers -%}
     case {{ layer.id }}:
@@ -139,6 +137,8 @@ static void render_status(void) {
       oled_write_P(PSTR("UNKNOWN"), false);
       break;
   }
+
+  oled_write_P(PSTR("\n\n\n"), false);
 }
 
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
@@ -166,9 +166,9 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
   [_QWERTY] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(DF(_DVORAK), XXXXXXX) },
 
   // [_GAMING] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
+  // [_TYPING] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
   [_LEGACY] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
   [_LOWER] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
   [_RAISE] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
-  // [_TYPING] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
 };
 #endif

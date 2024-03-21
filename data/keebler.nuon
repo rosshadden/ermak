@@ -8,7 +8,6 @@
 
 		{
 			name: blank
-			base: false
 			keys: [
 				__ __ __ __ __ __ ││ ││ ││ __ __ __ __ __ __
 				__ __ __ __ __ __ ││ ││ ││ __ __ __ __ __ __
@@ -20,7 +19,6 @@
 
 		{
 			name: void
-			base: false
 			keys: [
 				XX XX XX XX XX XX ││ ││ ││ XX XX XX XX XX XX
 				XX XX XX XX XX XX ││ ││ ││ XX XX XX XX XX XX
@@ -36,7 +34,6 @@
 
 		{
 			name: ermak
-			base: true
 			keys: [
 				"l[[]"    1       2       3       4       5      ││             ││ ││               6     7       8       9       0       ']'
 				'#'       b       y       o       u       "l[']" ││             ││ ││               '"'   l       d       w       v       z
@@ -47,8 +44,7 @@
 		}
 
 		{
-			name: type
-			base: false
+			name: typing
 			keys: [
 				'[' __ __  __ __ __  ││ ││ ││ __ __ __ __ __ __
 				__  __ __  __ __ "'" ││ ││ ││ __ __ __ __ __ __
@@ -60,7 +56,6 @@
 
 		{
 			name: dvorak
-			base: true
 			keys: [
 				'`' __      __      __      __      __ ││ ││ ││         __ __      __      __      __      \
 				=   `'`     ','     .       p       y  ││ ││ ││         f  g       c       r       l       /
@@ -72,7 +67,6 @@
 
 		{
 			name: qwerty
-			base: true
 			keys: [
 				'`' __      __      __      __      __ ││ ││ ││ __ __      __      __      __      \
 				=   q       w       e       r       t  ││ ││ ││ y  u       i       o       p       -
@@ -83,8 +77,7 @@
 		}
 
 		{
-			name: game
-			base: false
+			name: gaming
 			keys: [
 				'`' __  __  __ __ __ ││ ││ ││ __ __ __ __  __ \
 				=   p   q   w  e  r  ││ ││ ││ t  y  u  i   o  -
@@ -96,7 +89,6 @@
 
 		{
 			name: lower
-			base: false
 			keys: [
 				boot   f1  f2  f3  f4  f5  ││ ││ ││ f6     f7  f8  f9  f10 f11
 				eeprom !   @   '{' '}' '|' ││ ││ ││ dprint 7   8   9   *   f12
@@ -108,7 +100,6 @@
 
 		{
 			name: raise
-			base: false
 			keys: [
 				XX   macl0 macl1 macl2 XX     make ││ ││ ││ XX XX   XX   XX    XX XX
 				XX   btn3  XX    mup   XX     XX   ││ ││ ││ XX btn1 up   btn2  XX XX
@@ -120,13 +111,12 @@
 
 		{
 			name: legacy
-			base: false
 			keys: [
-				~  !         @  '#'        '$' %   ││ ││ ││ ^   &  *           '(' ')' '|'
-				__ __        __ __         __  '{' ││ ││ ││ '}' __ df[_dvorak] __  __  __
-				__ __        __ df[_ermak] __  '[' ││ ││ ││ ']' __ df[_type]   __  __  df[_qwerty]
-				__ df[_game] __ __         __  '|' __ ││ __ =   __ __          __  __  __
-				││ ││        __ __         __  __  __ ││ __ __  __ __          __  ││  ││
+				~  !           @  '#'        '$' %   ││ ││ ││ ^   &  *           '(' ')' '|'
+				__ __          __ __         __  '{' ││ ││ ││ '}' __ df[_dvorak] __  __  __
+				__ __          __ df[_ermak] __  '[' ││ ││ ││ ']' __ df[_typing] __  __  df[_qwerty]
+				__ df[_gaming] __ __         __  '|' __ ││ __ =   __ __          __  __  __
+				││ ││          __ __         __  __  __ ││ __ __  __ __          __  ││  ││
 			]
 		}
 
