@@ -14,11 +14,8 @@ enum sofle_layers {
   {% endfor %}
 };
 
-enum custom_keycodes {
-  KC_ERMAK = SAFE_RANGE,
-  KC_DVORAK,
-  KC_QWERTY,
-};
+// enum custom_keycodes {
+// };
 
 const custom_shift_key_t custom_shift_keys[] = {
   { KC_0, KC_ASTERISK },
@@ -69,22 +66,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
 
   switch (keycode) {
-    case KC_ERMAK:
-      if (record->event.pressed) {
-        set_single_persistent_default_layer(_ERMAK);
-      }
-      return false;
-    case KC_DVORAK:
-      if (record->event.pressed) {
-        set_single_persistent_default_layer(_DVORAK);
-      }
-      return false;
-    case KC_QWERTY:
-      if (record->event.pressed) {
-        set_single_persistent_default_layer(_QWERTY);
-      }
-      return false;
-
     case L(KC_LEFT_BRACKET):
       if (!record->event.pressed) return false;
       if (record->tap.count) {
@@ -184,8 +165,8 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
   [_DVORAK] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(DF(_ERMAK), DF(_QWERTY)) },
   [_QWERTY] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(DF(_DVORAK), XXXXXXX) },
 
+  [_LEGACY] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
   [_LOWER] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
   [_RAISE] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
-  [_LEGACY] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
 };
 #endif

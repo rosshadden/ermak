@@ -8,6 +8,7 @@
 
 		{
 			name: blank
+			base: false
 			keys: [
 				__ __ __ __ __ __ ││ ││ ││ __ __ __ __ __ __
 				__ __ __ __ __ __ ││ ││ ││ __ __ __ __ __ __
@@ -19,6 +20,7 @@
 
 		{
 			name: void
+			base: false
 			keys: [
 				XX XX XX XX XX XX ││ ││ ││ XX XX XX XX XX XX
 				XX XX XX XX XX XX ││ ││ ││ XX XX XX XX XX XX
@@ -39,7 +41,7 @@
 				"l[[]"    1       2       3       4       5      ││             ││ ││               6     7       8       9       0       ']'
 				'#'       b       y       o       u       "l[']" ││             ││ ││               '"'   l       d       w       v       z
 				lctl[esc] lgui[c] lalt[i] lctl[e] lsft[a] ','    ││             ││ ││               .     rsft[h] rctl[t] ralt[s] rgui[n] q
-				lsft      g       x       j       k       -      mute           ││ dvorak           /     r       m       f       p       rsft
+				lsft      g       x       j       k       -      mute           ││ df[_dvorak]      /     r       m       f       p       rsft
 				││        ││      "l[`]"  lalt    lgui    back   lt[_LOWER,tab] ││ lt[_RAISE,enter] space rgui    ralt    ?       ││      ││
 			]
 		}
@@ -48,11 +50,11 @@
 			name: dvorak
 			base: true
 			keys: [
-				'`' __      __      __      __      __ ││ ││ ││    __ __      __      __      __      \
-				=   `'`     ','     .       p       y  ││ ││ ││    f  g       c       r       l       /
-				__  lgui[a] lalt[o] lctl[e] lsft[u] i  ││ ││ ││    d  rsft[h] rctl[t] ralt[n] rgui[s] -
-				__  ';'     q       j       k       x  __ ││ ermak b  m       w       v       z       rsft
-				││  ││      '['     __      __      __ __ ││ __    __ __      __      ']'     ││      ││
+				'`' __      __      __      __      __ ││ ││ ││         __ __      __      __      __      \
+				=   `'`     ','     .       p       y  ││ ││ ││         f  g       c       r       l       /
+				__  lgui[a] lalt[o] lctl[e] lsft[u] i  ││ ││ ││         d  rsft[h] rctl[t] ralt[n] rgui[s] -
+				__  ';'     q       j       k       x  __ ││ df[_ermak] b  m       w       v       z       rsft
+				││  ││      '['     __      __      __ __ ││ __         __ __      __      ']'     ││      ││
 			]
 		}
 
@@ -60,16 +62,17 @@
 			name: qwerty
 			base: true
 			keys: [
-				'`' __      __      __      __      __ ││ ││ ││    __ __      __      __      __      \
-				=   q       w       e       r       t  ││ ││ ││    y  u       i       o       p       -
-				__  lgui[a] lalt[s] lctl[d] lsft[f] g  ││ ││ ││    h  rsft[j] rctl[k] ralt[l] rgui[;] '"'
-				__  z       x       c       v       b  __ ││ ermak n  m       ','     .       /       rsft
-				││  ││      '['     __      __      __ __ ││ __    __ __      __      ']'     ││      ││
+				'`' __      __      __      __      __ ││ ││ ││ __ __      __      __      __      \
+				=   q       w       e       r       t  ││ ││ ││ y  u       i       o       p       -
+				__  lgui[a] lalt[s] lctl[d] lsft[f] g  ││ ││ ││ h  rsft[j] rctl[k] ralt[l] rgui[;] '"'
+				__  z       x       c       v       b  __ ││ __ n  m       ','     .       /       rsft
+				││  ││      '['     __      __      __ __ ││ __ __ __      __      ']'     ││      ││
 			]
 		}
 
 		{
 			name: lower
+			base: false
 			keys: [
 				boot   f1  f2  f3  f4  f5  ││ ││ ││ f6     f7  f8  f9  f10 f11
 				eeprom !   @   '{' '}' '|' ││ ││ ││ dprint 7   8   9   *   f12
@@ -81,6 +84,7 @@
 
 		{
 			name: raise
+			base: false
 			keys: [
 				XX   macl0 macl1 macl2 XX     make ││ ││ ││ XX XX   XX   XX    XX XX
 				XX   btn3  XX    mup   XX     XX   ││ ││ ││ XX btn1 up   btn2  XX XX
@@ -92,6 +96,7 @@
 
 		{
 			name: legacy
+			base: false
 			keys: [
 				~  !  @  '#'   '$' %   ││ ││ ││ ^   &  *      '(' ')' '|'
 				__ __ __ __    __  '{' ││ ││ ││ '}' __ dvorak __  __  __
