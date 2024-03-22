@@ -9,22 +9,22 @@
 		{
 			name: blank
 			keys: [
-				XX XX XX XX XX XX ││ ││ ││ XX XX XX XX XX XX
-				XX XX XX XX XX XX ││ ││ ││ XX XX XX XX XX XX
-				__ XX XX XX XX XX ││ ││ ││ XX XX XX XX XX XX
-				__ XX XX XX XX XX __ ││ __ XX XX XX XX XX __
-				││ ││ XX XX XX __ __ ││ __ __ XX XX XX ││ ││
+				XX         XX XX XX XX XX ││ ││ ││ XX XX XX XX XX XX
+				XX         XX XX XX XX XX ││ ││ ││ XX XX XX XX XX XX
+				__         XX XX XX XX XX ││ ││ ││ XX XX XX XX XX XX
+				lsft[lock] XX XX XX XX XX __ ││ __ XX XX XX XX XX rsft[lock]
+				││         ││ XX XX XX __ __ ││ __ __ XX XX XX ││ ││
 			]
 		}
 
 		{
 			name: modal
 			keys: [
-				__ __ __ __ __ __ ││ ││ ││ __ __ __ __ __ __
-				__ __ __ __ __ __ ││ ││ ││ __ __ __ __ __ __
-				__ __ __ __ __ __ ││ ││ ││ __ __ __ __ __ __
-				__ __ __ __ __ __ __ ││ __ __ __ __ __ __ __
-				││ ││ __ __ __ __ __ ││ __ __ __ __ __ ││ ││
+				__         __ __ __ __ __ ││ ││ ││ __ __ __ __ __ __
+				__         __ __ __ __ __ ││ ││ ││ __ __ __ __ __ __
+				__         __ __ __ __ __ ││ ││ ││ __ __ __ __ __ __
+				lsft[lock] __ __ __ __ __ __ ││ __ __ __ __ __ __ rsft[lock]
+				││         ││ __ __ __ __ __ ││ __ __ __ __ __ ││ ││
 			]
 		}
 
@@ -90,33 +90,55 @@
 		{
 			name: num
 			keys: [
-				boot       XX XX  XX  XX  &   ││ ││ ││ ';' XX  XX  kp= @   num
-				eeprom     !  '[' ']' '#' '`' ││ ││ ││ ':' kp7 kp8 kp9 %   XX
-				__         ^  '(' ')' '$' '|' ││ ││ ││ kp- kp4 kp5 kp6 kp+ '_'
-				lsft[lock] <  '{' '}' >   ~   __ ││ __ kp* kp1 kp2 kp3 kp/ rsft[lock]
-				││         ││ XX  XX  XX  __  __ ││ __ __  kp0 kp. ',' ││  ││
+				XX         XX XX   XX     XX   &   ││ ││ ││ ';' XX  XX  kp= @   num
+				XX         !  '['  ']'    '#'  '`' ││ ││ ││ ':' kp7 kp8 kp9 %   XX
+				__         ^  '('  ')'    '$'  '|' ││ ││ ││ kp- kp4 kp5 kp6 kp+ '_'
+				lsft[lock] <  '{'  '}'    >    ~   __ ││ __ kp* kp1 kp2 kp3 kp/ rsft[lock]
+				││         ││ boot eeprom make __  __ ││ __ __  kp0 kp. ',' ││  ││
 			]
 		}
 
 		{
 			name: nav
 			keys: [
-				XX         macl0 macl1 macl2 XX     make ││ ││ ││ XX XX   XX   XX    XX XX
-				XX         btn3  XX    mup   XX     XX   ││ ││ ││ XX btn1 up   btn2  XX XX
-				capw       btn1  mleft mdown mright XX   ││ ││ ││ XX left down right XX XX
-				lsft[lock] btn2  XX    XX    XX     XX   __ ││ __ XX XX   XX   XX    XX rsft[lock]
-				││         ││    btn3  btn2  btn1   del  __ ││ __ __ __   __   __    ││ ││
+				XX         macl0 macl1 macl2 XX     XX  ││ ││ ││ XX XX   XX   XX    XX XX
+				XX         btn3  XX    mup   XX     XX  ││ ││ ││ XX btn1 up   btn2  XX XX
+				capw       btn1  mleft mdown mright XX  ││ ││ ││ XX left down right XX XX
+				lsft[lock] btn2  XX    XX    XX     XX  __ ││ __ XX XX   XX   XX    XX rsft[lock]
+				││         ││    btn3  btn2  btn1   del __ ││ __ __ __   __   __    ││ ││
+			]
+		}
+
+		{
+			name: media
+			keys: [
+				XX         XX   XX XX   XX   XX ││ ││ ││ XX   XX   XX   XX   XX   XX
+				XX         rwnd XX XX   XX   XX ││ ││ ││ XX   next XX   XX   XX   XX
+				__         XX   XX XX   XX   XX ││ ││ ││ XX   prev XX   stop next XX
+				lsft[lock] XX   XX vold volu XX __ ││ __ XX   XX   mute ffwd prev rsft[lock]
+				││         ││   XX XX   XX   __ __ ││ __ play XX   XX   XX   ││   ││
+			]
+		}
+
+		{
+			name: sys
+			keys: [
+				XX         XX XX XX   XX   XX ││ ││ ││ XX XX XX XX   XX  XX
+				XX         XX XX XX   XX   XX ││ ││ ││ XX XX XX wake XX  XX
+				__         XX XX XX   XX   XX ││ ││ ││ XX XX XX slep XX  XX
+				lsft[lock] XX XX brid briu XX __ ││ __ XX XX XX XX   pwr rsft[lock]
+				││         ││ XX XX   XX   __ __ ││ __ __ XX XX XX   ││  ││
 			]
 		}
 
 		{
 			name: layers
 			keys: [
-				XX         f1          f2 f3         f4 f5 ││ ││ ││ f6 f7 f8          f9 f10 f11
-				XX         XX          XX XX         XX XX ││ ││ ││ XX XX df[_dvorak] XX XX  f12
-				__         XX          XX df[_ermak] XX XX ││ ││ ││ XX XX df[_typing] XX XX  df[_qwerty]
-				lsft[lock] df[_gaming] XX XX         XX XX __ ││ __ XX XX XX          XX XX  rsft[lock]
-				││         ││          XX XX         XX __ __ ││ __ __ XX XX          XX ││  ││
+				XX         f1          f2 f3         f4 f5 ││ ││ ││ f6 f7 f8          f9       f10 f11
+				XX         XX          XX XX         XX XX ││ ││ ││ XX XX df[_dvorak] XX       XX  f12
+				__         XX          XX df[_ermak] XX XX ││ ││ ││ XX XX df[_typing] df[_sys] XX  df[_qwerty]
+				lsft[lock] df[_gaming] XX XX         XX XX __ ││ __ XX XX df[_media]  XX       XX  rsft[lock]
+				││         ││          XX XX         XX __ __ ││ __ __ XX XX          XX       ││  ││
 			]
 		}
 

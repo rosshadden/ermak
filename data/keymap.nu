@@ -83,6 +83,13 @@ let keymap = {
 	mright: KC_MS_RIGHT
 	mup: KC_MS_UP
 
+	ffwd: KC_MEDIA_FAST_FORWARD
+	next: KC_MEDIA_NEXT_TRACK
+	play: KC_MEDIA_PLAY_PAUSE
+	prev: KC_MEDIA_PREV_TRACK
+	rwnd: KC_MEDIA_REWIND
+	stop: KC_MEDIA_STOP
+
 	boot: QK_BOOT
 	capw: QK_CAPS_WORD_TOGGLE
 	ddown: QK_DYNAMIC_TAPPING_TERM_DOWN
