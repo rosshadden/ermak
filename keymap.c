@@ -17,7 +17,7 @@ enum sofle_layers {
   _GAMING,
   _NUM,
   _NAV,
-  _LEGACY,
+  _LAYERS,
   
 };
 
@@ -48,19 +48,19 @@ const custom_shift_key_t custom_shift_keys[] = {
 uint8_t NUM_CUSTOM_SHIFT_KEYS = sizeof(custom_shift_keys) / sizeof(custom_shift_key_t);
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [_ERMAK] = LAYOUT(L(KC_LEFT_BRACKET), KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_RIGHT_BRACKET, KC_HASH, KC_B, KC_Y, KC_O, KC_U, L(KC_QUOTE), KC_DOUBLE_QUOTE, KC_L, KC_D, KC_W, KC_V, KC_Z, LCTL_T(KC_ESC), LGUI_T(KC_C), LALT_T(KC_I), LCTL_T(KC_E), LSFT_T(KC_A), KC_COMMA, KC_DOT, RSFT_T(KC_H), RCTL_T(KC_T), RALT_T(KC_S), RGUI_T(KC_N), KC_Q, LSFT_T(LOCK), KC_G, KC_X, KC_J, KC_K, KC_MINUS, KC_MUTE, DF(_DVORAK), KC_SLASH, KC_R, KC_M, KC_F, KC_P, RSFT_T(LOCK), L(KC_GRAVE), KC_LALT, KC_LGUI, KC_BACKSPACE, LT(_NUM, KC_TAB), LT(_NAV, KC_ENTER), KC_SPACE, KC_RGUI, KC_RALT, KC_QUESTION),
+  [_ERMAK] = LAYOUT(L(KC_LEFT_BRACKET), KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_RIGHT_BRACKET, KC_HASH, KC_B, KC_Y, KC_O, KC_U, L(KC_QUOTE), KC_DOUBLE_QUOTE, KC_L, KC_D, KC_W, KC_V, KC_Z, LCTL_T(KC_ESC), LGUI_T(KC_C), LALT_T(KC_I), LCTL_T(KC_E), LSFT_T(KC_A), KC_COMMA, KC_DOT, RSFT_T(KC_H), RCTL_T(KC_T), RALT_T(KC_S), RGUI_T(KC_N), KC_Q, KC_LSFT, KC_G, KC_X, KC_J, KC_K, KC_MINUS, KC_MUTE, DF(_DVORAK), KC_SLASH, KC_R, KC_M, KC_F, KC_P, KC_RSFT, L(KC_GRAVE), KC_LALT, KC_LGUI, KC_BACKSPACE, LT(_NUM, KC_TAB), LT(_NAV, KC_ENTER), KC_SPACE, KC_RGUI, KC_RALT, KC_QUESTION),
   [_TYPING] = LAYOUT(KC_LEFT_BRACKET, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_QUOTE, _______, _______, _______, _______, _______, _______, _______, KC_C, KC_I, KC_E, KC_A, _______, _______, KC_H, KC_T, KC_S, KC_N, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_GRAVE, _______, _______, _______, _______, _______, _______, _______, _______, _______),
   [_DVORAK] = LAYOUT(KC_GRAVE, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_BACKSLASH, KC_EQUAL, KC_QUOTE, KC_COMMA, KC_DOT, KC_P, KC_Y, KC_F, KC_G, KC_C, KC_R, KC_L, KC_SLASH, _______, LGUI_T(KC_A), LALT_T(KC_O), LCTL_T(KC_E), LSFT_T(KC_U), KC_I, KC_D, RSFT_T(KC_H), RCTL_T(KC_T), RALT_T(KC_N), RGUI_T(KC_S), KC_MINUS, _______, KC_SEMICOLON, KC_Q, KC_J, KC_K, KC_X, _______, DF(_ERMAK), KC_B, KC_M, KC_W, KC_V, KC_Z, KC_RSFT, KC_LEFT_BRACKET, _______, _______, _______, _______, _______, _______, _______, _______, KC_RIGHT_BRACKET),
   [_QWERTY] = LAYOUT(KC_GRAVE, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_BACKSLASH, KC_EQUAL, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_MINUS, _______, LGUI_T(KC_A), LALT_T(KC_S), LCTL_T(KC_D), LSFT_T(KC_F), KC_G, KC_H, RSFT_T(KC_J), RCTL_T(KC_K), RALT_T(KC_L), RGUI_T(KC_SEMICOLON), KC_DOUBLE_QUOTE, _______, KC_Z, KC_X, KC_C, KC_V, KC_B, _______, _______, KC_N, KC_M, KC_COMMA, KC_DOT, KC_SLASH, KC_RSFT, KC_LEFT_BRACKET, _______, _______, _______, _______, _______, _______, _______, _______, KC_RIGHT_BRACKET),
   [_GAMING] = LAYOUT(KC_GRAVE, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_BACKSLASH, KC_EQUAL, KC_P, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_MINUS, _______, KC_SEMICOLON, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_DOUBLE_QUOTE, _______, KC_SLASH, KC_Z, KC_X, KC_C, KC_V, _______, _______, KC_B, KC_N, KC_M, KC_COMMA, KC_DOT, KC_RSFT, KC_LEFT_BRACKET, _______, _______, _______, _______, _______, _______, _______, _______, KC_RIGHT_BRACKET),
-  [_NUM] = LAYOUT(QK_BOOT, _______, _______, _______, _______, KC_AMPERSAND, KC_SEMICOLON, KC_DOLLAR, KC_HASH, KC_KP_EQUAL, KC_AT, KC_NUM, QK_CLEAR_EEPROM, KC_EXCLAIM, KC_HASH, KC_LEFT_BRACKET, KC_RIGHT_BRACKET, KC_GRAVE, KC_COLON, KC_KP_7, KC_KP_8, KC_KP_9, KC_PERCENT, _______, _______, KC_CIRCUMFLEX, KC_DOLLAR, KC_LEFT_PAREN, KC_RIGHT_PAREN, KC_PIPE, KC_KP_MINUS, KC_KP_4, KC_KP_5, KC_KP_6, KC_KP_PLUS, KC_UNDERSCORE, _______, KC_LEFT_ANGLE_BRACKET, KC_RIGHT_ANGLE_BRACKET, KC_LEFT_CURLY_BRACE, KC_RIGHT_CURLY_BRACE, KC_TILDE, _______, _______, KC_KP_ASTERISK, KC_KP_1, KC_KP_2, KC_KP_3, KC_KP_SLASH, _______, _______, _______, _______, _______, _______, _______, _______, KC_KP_0, KC_KP_DOT, KC_COMMA),
-  [_NAV] = LAYOUT(XXXXXXX, KC_MS_ACCEL0, KC_MS_ACCEL1, KC_MS_ACCEL2, XXXXXXX, QK_MAKE, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_BTN3, XXXXXXX, KC_MS_UP, XXXXXXX, XXXXXXX, XXXXXXX, KC_BTN1, KC_UP, KC_BTN2, XXXXXXX, XXXXXXX, QK_CAPS_WORD_TOGGLE, KC_BTN1, KC_MS_LEFT, KC_MS_DOWN, KC_MS_RIGHT, XXXXXXX, XXXXXXX, KC_LEFT, KC_DOWN, KC_RIGHT, XXXXXXX, XXXXXXX, _______, KC_BTN2, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, KC_BTN3, KC_BTN2, KC_BTN1, KC_DEL, _______, _______, _______, _______, _______, _______),
-  [_LEGACY] = LAYOUT(KC_TILDE, KC_EXCLAIM, KC_AT, KC_HASH, KC_DOLLAR, KC_PERCENT, KC_CIRCUMFLEX, KC_AMPERSAND, KC_ASTERISK, KC_LEFT_PAREN, KC_RIGHT_PAREN, KC_PIPE, _______, _______, _______, _______, _______, KC_LEFT_CURLY_BRACE, KC_RIGHT_CURLY_BRACE, _______, DF(_DVORAK), _______, _______, _______, _______, _______, _______, DF(_ERMAK), _______, KC_LEFT_BRACKET, KC_RIGHT_BRACKET, _______, DF(_TYPING), _______, _______, DF(_QWERTY), _______, DF(_GAMING), _______, _______, _______, KC_PIPE, _______, _______, KC_EQUAL, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______),
+  [_NUM] = LAYOUT(QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_AMPERSAND, KC_SEMICOLON, XXXXXXX, XXXXXXX, KC_KP_EQUAL, KC_AT, KC_NUM, QK_CLEAR_EEPROM, KC_EXCLAIM, KC_LEFT_BRACKET, KC_RIGHT_BRACKET, KC_HASH, KC_GRAVE, KC_COLON, KC_KP_7, KC_KP_8, KC_KP_9, KC_PERCENT, XXXXXXX, _______, KC_CIRCUMFLEX, KC_LEFT_PAREN, KC_RIGHT_PAREN, KC_DOLLAR, KC_PIPE, KC_KP_MINUS, KC_KP_4, KC_KP_5, KC_KP_6, KC_KP_PLUS, KC_UNDERSCORE, LSFT_T(LOCK), KC_LEFT_ANGLE_BRACKET, KC_LEFT_CURLY_BRACE, KC_RIGHT_CURLY_BRACE, KC_RIGHT_ANGLE_BRACKET, KC_TILDE, _______, _______, KC_KP_ASTERISK, KC_KP_1, KC_KP_2, KC_KP_3, KC_KP_SLASH, RSFT_T(LOCK), XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, _______, _______, KC_KP_0, KC_KP_DOT, KC_COMMA),
+  [_NAV] = LAYOUT(XXXXXXX, KC_MS_ACCEL0, KC_MS_ACCEL1, KC_MS_ACCEL2, XXXXXXX, QK_MAKE, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_BTN3, XXXXXXX, KC_MS_UP, XXXXXXX, XXXXXXX, XXXXXXX, KC_BTN1, KC_UP, KC_BTN2, XXXXXXX, XXXXXXX, QK_CAPS_WORD_TOGGLE, KC_BTN1, KC_MS_LEFT, KC_MS_DOWN, KC_MS_RIGHT, XXXXXXX, XXXXXXX, KC_LEFT, KC_DOWN, KC_RIGHT, XXXXXXX, XXXXXXX, LSFT_T(LOCK), KC_BTN2, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RSFT_T(LOCK), KC_BTN3, KC_BTN2, KC_BTN1, KC_DEL, _______, _______, _______, _______, _______, _______),
+  [_LAYERS] = LAYOUT(XXXXXXX, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, DF(_DVORAK), XXXXXXX, XXXXXXX, KC_F12, _______, XXXXXXX, XXXXXXX, DF(_ERMAK), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, DF(_TYPING), XXXXXXX, XXXXXXX, DF(_QWERTY), LSFT_T(LOCK), DF(_GAMING), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RSFT_T(LOCK), XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX),
   
 };
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-  return update_tri_layer_state(state, _NUM, _NAV, _LEGACY);
+  return update_tri_layer_state(state, _NUM, _NAV, _LAYERS);
 }
 
 uint8_t mod_state;
@@ -155,8 +155,8 @@ static void render_status(void) {
     case _NAV:
       oled_write_P(PSTR("nav"), false);
       break;
-    case _LEGACY:
-      oled_write_P(PSTR("legacy"), false);
+    case _LAYERS:
+      oled_write_P(PSTR("layers"), false);
       break;
     default:
       oled_write_P(PSTR("UNKNOWN"), false);
@@ -186,8 +186,8 @@ static void render_status(void) {
     case _NAV:
       oled_write_P(PSTR("nav"), false);
       break;
-    case _LEGACY:
-      oled_write_P(PSTR("legacy"), false);
+    case _LAYERS:
+      oled_write_P(PSTR("layers"), false);
       break;
     default:
       oled_write_P(PSTR("UNKNOWN"), false);
@@ -223,7 +223,7 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
 
   // [_GAMING] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
   // [_TYPING] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
-  [_LEGACY] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
+  [_LAYERS] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
   [_NAV] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
   [_NUM] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
 };

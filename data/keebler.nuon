@@ -9,22 +9,22 @@
 		{
 			name: blank
 			keys: [
-				__ __ __ __ __ __ ││ ││ ││ __ __ __ __ __ __
-				__ __ __ __ __ __ ││ ││ ││ __ __ __ __ __ __
-				__ __ __ __ __ __ ││ ││ ││ __ __ __ __ __ __
-				__ __ __ __ __ __ __ ││ __ __ __ __ __ __ __
-				││ ││ __ __ __ __ __ ││ __ __ __ __ __ ││ ││
-			]
-		}
-
-		{
-			name: void
-			keys: [
 				XX XX XX XX XX XX ││ ││ ││ XX XX XX XX XX XX
 				XX XX XX XX XX XX ││ ││ ││ XX XX XX XX XX XX
 				__ XX XX XX XX XX ││ ││ ││ XX XX XX XX XX XX
 				__ XX XX XX XX XX __ ││ __ XX XX XX XX XX __
 				││ ││ XX XX XX __ __ ││ __ __ XX XX XX ││ ││
+			]
+		}
+
+		{
+			name: modal
+			keys: [
+				__ __ __ __ __ __ ││ ││ ││ __ __ __ __ __ __
+				__ __ __ __ __ __ ││ ││ ││ __ __ __ __ __ __
+				__ __ __ __ __ __ ││ ││ ││ __ __ __ __ __ __
+				__ __ __ __ __ __ __ ││ __ __ __ __ __ __ __
+				││ ││ __ __ __ __ __ ││ __ __ __ __ __ ││ ││
 			]
 		}
 
@@ -35,11 +35,11 @@
 		{
 			name: ermak
 			keys: [
-				"l[[]"     1       2       3       4       5      ││           ││ ││             6     7       8       9       0       ']'
-				'#'        b       y       o       u       "l[']" ││           ││ ││             '"'   l       d       w       v       z
-				lctl[esc]  lgui[c] lalt[i] lctl[e] lsft[a] ','    ││           ││ ││             .     rsft[h] rctl[t] ralt[s] rgui[n] q
-				lsft[lock] g       x       j       k       -      mute         ││ df[_dvorak]    /     r       m       f       p       rsft[lock]
-				││         ││      "l[`]"  lalt    lgui    back   lt[_num,tab] ││ lt[_nav,enter] space rgui    ralt    ?       ││      ││
+				"l[[]"    1       2       3       4       5      ││           ││ ││             6     7       8       9       0       ']'
+				'#'       b       y       o       u       "l[']" ││           ││ ││             '"'   l       d       w       v       z
+				lctl[esc] lgui[c] lalt[i] lctl[e] lsft[a] ','    ││           ││ ││             .     rsft[h] rctl[t] ralt[s] rgui[n] q
+				lsft      g       x       j       k       -      mute         ││ df[_dvorak]    /     r       m       f       p       rsft
+				││        ││      "l[`]"  lalt    lgui    back   lt[_num,tab] ││ lt[_nav,enter] space rgui    ralt    ?       ││      ││
 			]
 		}
 
@@ -90,33 +90,33 @@
 		{
 			name: num
 			keys: [
-				boot   __ __  __  __  &   ││ ││ ││ ';' '$' '#' kp= @   num
-				eeprom !  '#' '[' ']' '`' ││ ││ ││ ':' kp7 kp8 kp9 %   __
-				__     ^  '$' '(' ')' '|' ││ ││ ││ kp- kp4 kp5 kp6 kp+ '_'
-				__     <  >   '{' '}' ~   __ ││ __ kp* kp1 kp2 kp3 kp/ __
-				││     ││ __  __  __  __  __ ││ __ __  kp0 kp. ',' ││  ││
+				boot       XX XX  XX  XX  &   ││ ││ ││ ';' XX  XX  kp= @   num
+				eeprom     !  '[' ']' '#' '`' ││ ││ ││ ':' kp7 kp8 kp9 %   XX
+				__         ^  '(' ')' '$' '|' ││ ││ ││ kp- kp4 kp5 kp6 kp+ '_'
+				lsft[lock] <  '{' '}' >   ~   __ ││ __ kp* kp1 kp2 kp3 kp/ rsft[lock]
+				││         ││ XX  XX  XX  __  __ ││ __ __  kp0 kp. ',' ││  ││
 			]
 		}
 
 		{
 			name: nav
 			keys: [
-				XX   macl0 macl1 macl2 XX     make ││ ││ ││ XX XX   XX   XX    XX XX
-				XX   btn3  XX    mup   XX     XX   ││ ││ ││ XX btn1 up   btn2  XX XX
-				capw btn1  mleft mdown mright XX   ││ ││ ││ XX left down right XX XX
-				__   btn2  XX    XX    XX     XX   __ ││ __ XX XX   XX   XX    XX __
-				││   ││    btn3  btn2  btn1   del  __ ││ __ __ __   __   __    ││ ││
+				XX         macl0 macl1 macl2 XX     make ││ ││ ││ XX XX   XX   XX    XX XX
+				XX         btn3  XX    mup   XX     XX   ││ ││ ││ XX btn1 up   btn2  XX XX
+				capw       btn1  mleft mdown mright XX   ││ ││ ││ XX left down right XX XX
+				lsft[lock] btn2  XX    XX    XX     XX   __ ││ __ XX XX   XX   XX    XX rsft[lock]
+				││         ││    btn3  btn2  btn1   del  __ ││ __ __ __   __   __    ││ ││
 			]
 		}
 
 		{
-			name: legacy
+			name: layers
 			keys: [
-				~  !           @  '#'        '$' %   ││ ││ ││ ^   &  *           '(' ')' '|'
-				__ __          __ __         __  '{' ││ ││ ││ '}' __ df[_dvorak] __  __  __
-				__ __          __ df[_ermak] __  '[' ││ ││ ││ ']' __ df[_typing] __  __  df[_qwerty]
-				__ df[_gaming] __ __         __  '|' __ ││ __ =   __ __          __  __  __
-				││ ││          __ __         __  __  __ ││ __ __  __ __          __  ││  ││
+				XX         f1          f2 f3         f4 f5 ││ ││ ││ f6 f7 f8          f9 f10 f11
+				XX         XX          XX XX         XX XX ││ ││ ││ XX XX df[_dvorak] XX XX  f12
+				__         XX          XX df[_ermak] XX XX ││ ││ ││ XX XX df[_typing] XX XX  df[_qwerty]
+				lsft[lock] df[_gaming] XX XX         XX XX __ ││ __ XX XX XX          XX XX  rsft[lock]
+				││         ││          XX XX         XX __ __ ││ __ __ XX XX          XX ││  ││
 			]
 		}
 
