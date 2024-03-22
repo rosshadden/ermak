@@ -22,9 +22,9 @@
 			keys: [
 				XX XX XX XX XX XX ││ ││ ││ XX XX XX XX XX XX
 				XX XX XX XX XX XX ││ ││ ││ XX XX XX XX XX XX
-				XX XX XX XX XX XX ││ ││ ││ XX XX XX XX XX XX
-				XX XX XX XX XX XX XX ││ XX XX XX XX XX XX XX
-				││ ││ XX XX XX XX XX ││ XX XX XX XX XX ││ ││
+				__ XX XX XX XX XX ││ ││ ││ XX XX XX XX XX XX
+				__ XX XX XX XX XX __ ││ __ XX XX XX XX XX __
+				││ ││ XX XX XX __ __ ││ __ __ XX XX XX ││ ││
 			]
 		}
 
@@ -90,11 +90,11 @@
 		{
 			name: num
 			keys: [
-				boot   f1  f2  f3  f4  f5  ││ ││ ││ f6     f7  f8  f9  f10 f11
-				eeprom !   @   '{' '}' '|' ││ ││ ││ dprint 7   8   9   *   f12
-				__     '#' '$' '(' ')' '`' ││ ││ ││ dup    4   5   6   kp+ XX
-				__     <   >   '[' ']' ~   __ ││ __ ddown  1   2   3   kp/ __
-				││     ││  __  __  __  __  __ ││ __ __     kp0 kp0 kp0 ││  ││
+				boot   __ __  __  __  &   ││ ││ ││ ';' '$' '#' kp= @   num
+				eeprom !  '#' '[' ']' '`' ││ ││ ││ ':' kp7 kp8 kp9 %   __
+				__     ^  '$' '(' ')' '|' ││ ││ ││ kp- kp4 kp5 kp6 kp+ '_'
+				__     <  >   '{' '}' ~   __ ││ __ kp* kp1 kp2 kp3 kp/ __
+				││     ││ __  __  __  __  __ ││ __ __  kp0 kp. ',' ││  ││
 			]
 		}
 

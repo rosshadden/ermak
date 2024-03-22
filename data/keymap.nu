@@ -37,6 +37,7 @@ let keymap = {
 	'-': KC_MINUS
 	'.': KC_DOT
 	'/': KC_SLASH
+	':': KC_COLON
 	';': KC_SEMICOLON
 	'<': KC_LEFT_ANGLE_BRACKET
 	'=': KC_EQUAL
@@ -47,6 +48,7 @@ let keymap = {
 	'\': KC_BACKSLASH
 	']': KC_RIGHT_BRACKET
 	'^': KC_CIRCUMFLEX
+	'_': KC_UNDERSCORE
 	'`': KC_GRAVE
 	'{': KC_LEFT_CURLY_BRACE
 	'|': KC_PIPE
