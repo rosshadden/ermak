@@ -82,6 +82,10 @@ let keymap = {
 	mleft: KC_MS_LEFT
 	mright: KC_MS_RIGHT
 	mup: KC_MS_UP
+	mwd: KC_MS_WH_DOWN
+	mwl: KC_MS_WH_LEFT
+	mwr: KC_MS_WH_RIGHT
+	mwu: KC_MS_WH_UP
 
 	ffwd: KC_MEDIA_FAST_FORWARD
 	next: KC_MEDIA_NEXT_TRACK

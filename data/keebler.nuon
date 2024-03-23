@@ -90,11 +90,11 @@
 		{
 			name: num
 			keys: [
-				XX         XX XX   XX     XX   &   ││ ││ ││ ';' XX  XX  kp= @   num
-				XX         !  '['  ']'    '#'  '`' ││ ││ ││ ':' kp7 kp8 kp9 %   XX
-				__         ^  '('  ')'    '$'  '|' ││ ││ ││ kp- kp4 kp5 kp6 kp+ '_'
-				lsft[lock] <  '{'  '}'    >    ~   __ ││ __ kp* kp1 kp2 kp3 kp/ rsft[lock]
-				││         ││ boot eeprom make __  __ ││ __ __  kp0 kp. ',' ││  ││
+				XX         XX XX     XX   XX   &   ││ ││ ││ ';' XX  XX  kp= @   num
+				XX         !  '['    ']'  '#'  '`' ││ ││ ││ ':' kp7 kp8 kp9 %   XX
+				__         ^  '('    ')'  '$'  '|' ││ ││ ││ kp- kp4 kp5 kp6 kp+ '_'
+				lsft[lock] <  '{'    '}'  >    ~   __ ││ __ kp* kp1 kp2 kp3 kp/ rsft[lock]
+				││         ││ eeprom boot make __  __ ││ __ __  kp0 kp. ',' ││  ││
 			]
 		}
 
@@ -102,9 +102,9 @@
 			name: nav
 			keys: [
 				XX         macl0 macl1 macl2 XX     XX  ││ ││ ││ XX XX   XX   XX    XX XX
-				XX         btn3  XX    mup   XX     XX  ││ ││ ││ XX btn1 up   btn2  XX XX
-				capw       btn1  mleft mdown mright XX  ││ ││ ││ XX left down right XX XX
-				lsft[lock] btn2  XX    XX    XX     XX  __ ││ __ XX XX   XX   XX    XX rsft[lock]
+				XX         mwl   mwr   mup   XX     XX  ││ ││ ││ XX btn1 up   btn2  XX XX
+				capw       mwu   mleft mdown mright XX  ││ ││ ││ XX left down right XX XX
+				lsft[lock] mwd   btn3  btn2  btn1   XX  __ ││ __ XX XX   XX   XX    XX rsft[lock]
 				││         ││    btn3  btn2  btn1   del __ ││ __ __ __   __   __    ││ ││
 			]
 		}
