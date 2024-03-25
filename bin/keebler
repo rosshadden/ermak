@@ -74,7 +74,7 @@ def "main map" [
 		}
 		| str join ", "
     $"($fn)\(($args))"
-	} else if ($fn or ($key | str starts-with '_')) {
+	} else if ($fn or ($key | str contains '_')) {
 		$key | str upcase
 	} else {
 		"KC_" ++ $key | str upcase

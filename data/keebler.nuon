@@ -134,8 +134,8 @@
 		{
 			name: layers
 			keys: [
-				XX         f1          f2 f3         f4 f5 ││ ││ ││ f6 f7 f8          f9       f10 f11
-				XX         XX          XX XX         XX XX ││ ││ ││ XX XX df[_dvorak] XX       XX  f12
+				f12        f1          f2 f3         f4 f5 ││ ││ ││ f6 f7 f8          f9       f10 f11
+				eh_left    XX          XX XX         XX XX ││ ││ ││ XX XX df[_dvorak] XX       XX  eh_rght
 				__         XX          XX df[_ermak] XX XX ││ ││ ││ XX XX df[_typing] df[_sys] XX  df[_qwerty]
 				lsft[lock] df[_gaming] XX XX         XX XX __ ││ __ XX XX df[_media]  XX       XX  rsft[lock]
 				││         ││          XX XX         XX __ __ ││ __ __ XX XX          XX       ││  ││

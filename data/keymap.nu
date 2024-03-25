@@ -57,15 +57,6 @@ let keymap = {
 
 	back: KC_BACKSPACE
 
-	lalt: KC_LALT
-	lctl: KC_LCTL
-	lgui: KC_LGUI
-	lsft: KC_LSFT
-	ralt: KC_RALT
-	rctl: KC_RCTL
-	rgui: KC_RGUI
-	rsft: KC_RSFT
-
 	lalt_t: LALT_T
 	lctl_t: LCTL_T
 	lgui_t: LGUI_T
