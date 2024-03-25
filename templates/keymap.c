@@ -82,6 +82,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       } else {
         tap_code16(KC_LEFT_BRACKET);
         tap_code16(KC_RIGHT_BRACKET);
+        del_mods(MOD_MASK_SHIFT);
         tap_code16(KC_LEFT);
       }
       return false;
@@ -92,6 +93,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       } else {
         tap_code16(KC_QUOTE);
         tap_code16(KC_QUOTE);
+        del_mods(MOD_MASK_SHIFT);
         tap_code16(KC_LEFT);
       }
       return false;
@@ -102,6 +104,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       } else {
         tap_code16(KC_GRAVE);
         tap_code16(KC_GRAVE);
+        del_mods(MOD_MASK_SHIFT);
         tap_code16(KC_LEFT);
         return true;
       }
