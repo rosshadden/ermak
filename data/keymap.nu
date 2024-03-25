@@ -102,5 +102,6 @@ let keymap = {
 	eeprom: QK_CLEAR_EEPROM
 	make: QK_MAKE
 
-	lock: LOCK
+	lock: PG_LOCK
+	sel: PG_SEL
 }

@@ -6,6 +6,7 @@
 
 #include "features/custom_shift_keys.h"
 #include "features/layer_lock.h"
+#include "features/select_word.h"
 
 #define L(kc) LT(0, kc)
 
@@ -16,7 +17,8 @@ enum sofle_layers {
 };
 
 enum custom_keycodes {
-  LOCK = SAFE_RANGE,
+  PG_LOCK = SAFE_RANGE,
+  PG_SEL,
 };
 
 const custom_shift_key_t custom_shift_keys[] = {
@@ -53,7 +55,8 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
 uint8_t mod_state;
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  if (!process_layer_lock(keycode, record, LOCK)) { return false; }
+  if (!process_layer_lock(keycode, record, PG_LOCK)) { return false; }
+  if (!process_select_word(keycode, record, PG_SEL)) { return false; }
 
   if (
     get_highest_layer(default_layer_state) == _ERMAK &&
@@ -64,8 +67,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
 
   switch (keycode) {
-    case LSFT_T(LOCK):
-    case RSFT_T(LOCK):
+    case LSFT_T(PG_LOCK):
+    case RSFT_T(PG_LOCK):
       if (record->event.pressed && record->tap.count) {
         layer_lock_invert(get_highest_layer(layer_state));
         return false;
