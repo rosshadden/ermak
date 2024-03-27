@@ -90,22 +90,22 @@
 		{
 			name: num
 			keys: [
-				XX         XX XX     XX   XX   &   ││ ││ ││ ';' XX  XX  kp= @   num
-				XX         !  '['    ']'  '#'  '`' ││ ││ ││ ':' kp7 kp8 kp9 %   XX
-				capw       ^  '('    ')'  '$'  '|' ││ ││ ││ kp- kp4 kp5 kp6 kp+ '_'
-				lsft[lock] <  '{'    '}'  >    ~   __ ││ __ kp* kp1 kp2 kp3 kp/ rsft[lock]
-				││         ││ eeprom boot make __  __ ││ __ __  kp0 kp. ',' ││  ││
+				XX         XX XX     XX   XX   &   ││ ││ ││                  ';' XX  XX  kp= @   num
+				XX         !  '['    ']'  '#'  '`' ││ ││ ││                  ':' kp7 kp8 kp9 %   XX
+				capw       ^  '('    ')'  '$'  '|' ││ ││ ││                  kp- kp4 kp5 kp6 kp+ '_'
+				lsft[lock] <  '{'    '}'  >    ~   __ ││ __                  kp* kp1 kp2 kp3 kp/ rsft[lock]
+				││         ││ eeprom boot make __  __ ││ lt[_nav,df[_ermak]] __  kp0 kp. ',' ││  ││
 			]
 		}
 
 		{
 			name: nav
 			keys: [
-				XX         macl0 macl1 macl2 XX     XX  ││ ││ ││ XX   XX   btn3 XX    XX  menu
-				XX         mwl   mwr   mup   XX     XX  ││ ││ ││ XX   btn1 up   btn2  XX  pgup
-				__         mwu   mleft mdown mright XX  ││ ││ ││ home left down right end pgdn
-				lsft[lock] mwd   btn3  btn2  btn1   XX  __ ││ __ XX   sel  undo again XX  rsft[lock]
-				││         ││    btn3  btn2  btn1   del __ ││ __ __   __   __   __    ││  ││
+				XX         macl0 macl1 macl2 XX     XX  ││                  ││ ││ XX   XX   btn3 XX    XX  menu
+				XX         mwl   mwl   mup   mwr    mwr ││                  ││ ││ XX   btn1 up   btn2  XX  pgup
+				__         mwu   mleft mdown mright mwu ││                  ││ ││ home left down right end pgdn
+				lsft[lock] mwd   btn3  btn2  btn1   mwd __                  ││ __ XX   sel  undo again XX  rsft[lock]
+				││         ││    btn3  btn2  btn1   del lt[_num,df[_ermak]] ││ __ __   __   __   __    ││  ││
 			]
 		}
 

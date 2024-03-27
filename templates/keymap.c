@@ -59,14 +59,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (!process_select_word(keycode, record, PG_SEL)) { return false; }
 
   if (
-    get_highest_layer(default_layer_state) == _ERMAK &&
-    get_highest_layer(layer_state) == _ERMAK &&
+    (get_highest_layer(default_layer_state) == _ERMAK || get_highest_layer(default_layer_state) == _TYPING) &&
     !process_custom_shift_keys(keycode, record)
   ) {
     return false;
   }
 
   switch (keycode) {
+    case LT(_NUM, DF(_ERMAK)):
+    case LT(_NAV, DF(_ERMAK)):
+      if (record->event.pressed && record->tap.count) {
+        set_single_persistent_default_layer(_ERMAK);
+        return false;
+      }
+      break;
+
     case LSFT_T(PG_LOCK):
     case RSFT_T(PG_LOCK):
       if (record->event.pressed && record->tap.count) {
