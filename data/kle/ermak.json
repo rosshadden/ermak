@@ -14,50 +14,56 @@
       "p": "DSA",
       "f": 8
     },
-    "\n\n#\n\n\n\n\n\n~\n\n3",
+    "\n\n\nmA\n\n\n\n\n~\n\n3",
     {
       "x": 7
     },
-    "*\n\n\n\n\n\n\n\n&\n\n8"
+    "\n\n\nmM\n\n\n\n\n&\n\n8"
   ],
   [
     {
       "y": -0.95,
-      "x": 10
+      "x": 10,
+      "a": 5
     },
-    "&\n\n\n\n\n\n\n\n^\n\n7"
+    "^\n7"
   ],
   [
     {
       "y": -0.9,
-      "x": 2
+      "x": 2,
+      "a": 4
     },
-    "\n\n@\n\n\n\n\n\n=\n\n2",
+    "\n\n\nmA\n\n\n\n\n=\n\n2",
     {
-      "x": 1
+      "x": 1,
+      "a": 5
     },
-    "\n\n$\n\n\n\n\n\n+\n\n4",
+    "+\n4",
     {
-      "x": 7
+      "x": 7,
+      "a": 4
     },
-    "(\n\n\n\n\n\n\n\n%\n\n9"
+    "=\n\n\n\n\n\n\n\n%\n\n9"
   ],
   [
     {
       "y": -0.85,
       "c": "#aaaaaa",
+      "a": 5,
       "f": 9
     },
-    "\n\n`\n\n\n\n\n\n{\n\n[",
+    "{\n[",
     {
       "c": "#cccccc",
+      "a": 4,
       "f": 8
     },
-    "\n\n!\n\n\n\n\n\n|\n\n1",
+    "\n\n\nmA\n\n\n\n\n|\n\n1",
     {
       "x": 3
     },
-    "\n\n%\n\n\n\n\n\n<\n\n5",
+    "&\n\n\n\n\n\n\n\n<\n\n5",
     {
       "x": 3,
       "fa": [
@@ -72,53 +78,52 @@
         1
       ]
     },
-    "^\n\n\n\n\n\n\n\n>\n\n6",
+    ";\n\n\n\n\n\n\n\n>\n\n6",
     {
       "x": 3,
       "f": 8
     },
-    ")\n\n\n\n\n\n\n\n*\n\n0",
+    "@\n\n\n\n\n\n\n\n*\n\n0",
     {
       "c": "#aaaaaa",
       "f": 6
     },
-    "|\n\n\n\n\n\n\n\n}\n\n]"
+    "num\n\n\n📕\n\n\n\n\n}\n\n]"
   ],
   [
     {
       "y": -0.30000000000000004,
       "x": 3,
       "c": "#cccccc",
-      "a": 7,
       "f": 8
     },
-    "O",
+    "]\n\n\nm⬆️\n\n\n\n\n\nO",
     {
       "x": 7
     },
-    "D"
+    "8\n\n\n⬆️\n\n\n\n\n\nD"
   ],
   [
     {
       "y": -0.95,
       "x": 10
     },
-    "L"
+    "7\n\n\nmL\n\n\n\n\n\nL"
   ],
   [
     {
       "y": -0.8999999999999999,
       "x": 2
     },
-    "Y",
+    "[\n\n\nml\n\n\n\n\n\nY",
     {
       "x": 1
     },
-    "U",
+    "#\n\n\nmr\n\n\n\n\n\nU",
     {
       "x": 7
     },
-    "W"
+    "9\n\n\nmR\n\n\n\n\n\nW"
   ],
   [
     {
@@ -129,14 +134,13 @@
     "$\n#",
     {
       "c": "#cccccc",
-      "a": 7
-    },
-    "B",
-    {
-      "x": 3,
       "a": 4
     },
-    "\n\n{\n\n\n\n\n\n(\n\n'",
+    "!\n\n\nml\n\n\n\n\n\nB",
+    {
+      "x": 3
+    },
+    "`\n\n\nmr\n\n\n\n\n(\n\n'",
     {
       "a": 7,
       "f": 6,
@@ -149,17 +153,16 @@
       "a": 4,
       "f": 8
     },
-    "}\n\n\n\n\n\n\n\n)\n\n\"",
+    ":\n\n\n\n\n\n\n\n)\n\n\"",
     {
-      "x": 3,
-      "a": 7
+      "x": 3
     },
-    "V",
+    "%\n\n\n\n\n\n\n\n\nV",
     {
       "c": "#aaaaaa",
       "f": 6
     },
-    "Z"
+    "\n\n\npgup\n\n\n\n\n\nZ"
   ],
   [
     {
@@ -168,66 +171,62 @@
       "c": "#cccccc",
       "f": 8
     },
-    "E\n\n\n\nctrl",
+    ")\n\n\nm⬇️\nctrl\n\n\n\n\nE",
     {
       "x": 7
     },
-    "T\n\n\n\nctrl"
+    "5\n\n\n⬇️\nctrl\n\n\n\n\nT"
   ],
   [
     {
       "y": -0.8500000000000001,
       "x": 2
     },
-    "I\n\n\n\nalt",
+    "(\n\n\nm⬅️\nalt\n\n\n\n\nI",
     {
       "x": 1,
       "n": true
     },
-    "A\n\n\n\nshift",
+    "$\n\n\nm➡️\nshift\n\n\n\n\nA",
     {
       "x": 5,
       "n": true
     },
-    "H\n\n\n\nshift",
+    "4\n\n\n⬅️\nshift\n\n\n\n\nH",
     {
       "x": 1
     },
-    "S\n\n\n\nalt"
+    "6\n\n\n➡️\nalt\n\n\n\n\nS"
   ],
   [
     {
       "y": -0.8500000000000001,
       "c": "#aaaaaa",
-      "a": 4,
       "f": 6
     },
-    "\n\n\ncapw\nctrl\n\n\n\n\nEsc",
+    "capw\n\n\n\nctrl\n\n\n\n\nEsc",
     {
       "c": "#cccccc",
-      "a": 7,
       "f": 8
     },
-    "C\n\n\n\nsuper",
-    {
-      "x": 3,
-      "a": 4
-    },
-    "\n\n[\n\n\n\n\n\n;\n\n,",
+    "^\n\n\nmu\nsuper\n\n\n\n\nC",
     {
       "x": 3
     },
-    "]\n\n\n\n\n\n\n\n:\n\n.",
+    "|\n\n\nmu\n\n\n\n\n;\n\n,",
     {
-      "x": 3,
-      "a": 7
+      "x": 3
     },
-    "N\n\n\n\nsuper",
+    "-\n\n\n🏠\n\n\n\n\n:\n\n.",
+    {
+      "x": 3
+    },
+    "+\n\n\nend\nsuper\n\n\n\n\nN",
     {
       "c": "#aaaaaa",
       "f": 6
     },
-    "Q"
+    "_\n\n\npgdn\n\n\n\n\n\nQ"
   ],
   [
     {
@@ -236,16 +235,17 @@
       "c": "#cccccc",
       "f": 8
     },
-    "J",
+    "}\n\n\nmM\n\n\n\n\n\nJ",
     {
       "x": 7
     },
-    "M"
+    "2\n\n\n↪️\n\n\n\n\n\nM"
   ],
   [
     {
       "y": -0.9500000000000002,
-      "x": 6.25
+      "x": 6.25,
+      "a": 7
     },
     "Vol",
     {
@@ -256,21 +256,22 @@
   [
     {
       "y": -0.8999999999999999,
-      "x": 2
+      "x": 2,
+      "a": 4
     },
-    "X",
+    "{\n\n\nmR\n\n\n\n\n\nX",
     {
       "x": 1
     },
-    "K",
+    ">\n\n\nmL\n\n\n\n\n\nK",
     {
       "x": 5
     },
-    "R",
+    "1\n\n\nsel\n\n\n\n\n\nR",
     {
       "x": 1
     },
-    "F"
+    "3\n\n\n↩️\n\n\n\n\n\nF"
   ],
   [
     {
@@ -278,31 +279,29 @@
       "c": "#aaaaaa",
       "f": 5
     },
-    "Shift",
+    "lock\n\n\n\n\n\n\n\n\nShift",
     {
       "c": "#cccccc",
       "f": 8
     },
-    "G",
-    {
-      "x": 3,
-      "a": 4
-    },
-    "\n\n|\n\n\n\n\n\n_\n\n-",
+    "<\n\n\nmd\n\n\n\n\n\nG",
     {
       "x": 3
     },
-    "=\n\n\n\n\n\n\n\n\\\n\n/",
+    "~\n\n\nmd\n\n\n\n\n_\n\n-",
     {
-      "x": 3,
-      "a": 7
+      "x": 3
     },
-    "P",
+    "*\n\n\n\n\n\n\n\n\\\n\n/",
+    {
+      "x": 3
+    },
+    "/\n\n\n\n\n\n\n\n\nP",
     {
       "c": "#aaaaaa",
       "f": 5
     },
-    "Shift"
+    "lock\n\n\n\n\n\n\n\n\nShift"
   ],
   [
     {
@@ -310,46 +309,42 @@
       "x": 2.75,
       "f": 9
     },
-    "Alt\n\n\n\nalt",
-    "Gui\n\n\n\ngui",
+    "boot\n\n\nmR\nalt\n\n\n\n\nwez",
+    "make\n\n\nmL\ngui\n\n\n\n\nhypr",
     {
       "x": 5.5
     },
-    "Gui\n\n\n\ngui"
+    "0\n\n\n\ngui\n\n\n\n\nhypr"
   ],
   [
     {
       "y": -0.8499999999999996,
-      "x": 1.75,
-      "a": 5
+      "x": 1.75
     },
-    "@\n`"
+    "ee\n\n\nmM\n\n\n\n\n@\n\n`"
   ],
   [
     {
       "rx": 0.25,
       "y": 4.35,
-      "x": 11,
-      "a": 7
+      "x": 11
     },
-    "Alt\n\n\n\nalt"
+    ".\n\n\n\nalt\n\n\n\n\nwez"
   ],
   [
     {
       "rx": 0.5,
       "y": 4.5,
-      "x": 11.75,
-      "a": 5
+      "x": 11.75
     },
-    "!\n?"
+    ",\n\n\n\n\n\n\n\n!\n\n?"
   ],
   [
     {
       "r": 15,
       "rx": 5,
       "ry": 4.5,
-      "c": "#777777",
-      "a": 4
+      "c": "#777777"
     },
     "\n\n\ndel\n\n\n\n\n\nBS"
   ],
@@ -363,7 +358,7 @@
       "a": 7,
       "h": 1.5
     },
-    "Tab\n\n\n\nlower"
+    "Tab\n\n\n\nnum"
   ],
   [
     {
@@ -374,7 +369,7 @@
       "f": 8,
       "h": 1.5
     },
-    "Enter\n\n\n\nraise"
+    "Enter\n\n\n\nnav"
   ],
   [
     {

@@ -13,7 +13,7 @@
 				XX         XX XX XX XX XX ││ ││ ││ XX XX XX XX XX XX
 				__         XX XX XX XX XX ││ ││ ││ XX XX XX XX XX XX
 				lsft[lock] XX XX XX XX XX __ ││ __ XX XX XX XX XX rsft[lock]
-				││         ││ XX XX XX __ __ ││ __ __ XX XX XX ││ ││
+				││         ││ XX __ __ __ __ ││ __ __ __ __ XX ││ ││
 			]
 		}
 
@@ -35,11 +35,11 @@
 		{
 			name: ermak
 			keys: [
-				"l[[]"    1       2       3       4       5      ││           ││ ││             6     7       8       9       0       ']'
-				'#'       b       y       o       u       "l[']" ││           ││ ││             '"'   l       d       w       v       z
-				lctl[esc] lgui[c] lalt[i] lctl[e] lsft[a] ','    ││           ││ ││             .     rsft[h] rctl[t] ralt[s] rgui[n] q
-				lsft      g       x       j       k       -      mute         ││ df[_dvorak]    /     r       m       f       p       rsft
-				││        ││      "l[`]"  lalt    lgui    back   lt[_num,tab] ││ lt[_nav,enter] space rgui    ralt    ?       ││      ││
+				"l[[]"    1       2       3        4        5      ││           ││ ││             6     7        8        9       0       ']'
+				'#'       b       y       o        u        "l[']" ││           ││ ││             '"'   l        d        w       v       z
+				lctl[esc] lgui[c] lalt[i] lctl[e]  lsft[a]  ','    ││           ││ ││             .     rsft[h]  rctl[t]  ralt[s] rgui[n] q
+				lsft      g       x       j        k        -      mute         ││ df[_dvorak]    /     r        m        f       p       rsft
+				││        ││      "l[`]"  lalt[no] lgui[no] back   lt[_num,tab] ││ lt[_nav,enter] space rgui[no] ralt[no] ?       ││      ││
 			]
 		}
 
@@ -116,18 +116,18 @@
 				XX         rwnd XX XX   XX   XX ││ ││ ││ XX   next XX   XX   XX   XX
 				__         XX   XX XX   XX   XX ││ ││ ││ XX   prev XX   stop next XX
 				lsft[lock] XX   XX vold volu XX __ ││ __ XX   XX   mute ffwd prev rsft[lock]
-				││         ││   XX XX   XX   __ __ ││ __ play XX   XX   XX   ││   ││
+				││         ││   XX __   __   __ __ ││ __ play __   __   XX   ││   ││
 			]
 		}
 
 		{
 			name: sys
 			keys: [
-				XX         XX XX XX   XX   XX ││ ││ ││ XX XX XX XX   XX  XX
-				XX         XX XX XX   XX   XX ││ ││ ││ XX XX XX wake XX  XX
-				__         XX XX XX   XX   XX ││ ││ ││ XX XX XX slep XX  XX
-				lsft[lock] XX XX brid briu XX __ ││ __ XX XX XX XX   pwr rsft[lock]
-				││         ││ XX XX   XX   __ __ ││ __ __ XX XX XX   ││  ││
+				XX         XX XX   XX   XX   XX ││ ││ ││ XX XX XX XX   XX  XX
+				XX         XX pscr XX   XX   XX ││ ││ ││ XX XX XX wake XX  XX
+				__         XX XX   XX   XX   XX ││ ││ ││ XX XX XX slep XX  XX
+				lsft[lock] XX XX   brid briu XX __ ││ __ XX XX XX XX   pwr rsft[lock]
+				││         ││ XX   XX   XX   __ __ ││ __ __ XX XX XX   ││  ││
 			]
 		}
 

@@ -74,6 +74,24 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       break;
 
+    // hyprland
+    case LGUI_T(KC_NO):
+    case RGUI_T(KC_NO):
+      if (record->event.pressed && record->tap.count) {
+        tap_code16(LAG(KC_SPACE));
+        return false;
+      }
+      break;
+
+    // wezterm
+    case LALT_T(KC_NO):
+    case RALT_T(KC_NO):
+      if (record->event.pressed && record->tap.count) {
+        tap_code16(C(KC_SPACE));
+        return false;
+      }
+      break;
+
     case LSFT_T(PG_LOCK):
     case RSFT_T(PG_LOCK):
       if (record->event.pressed && record->tap.count) {
