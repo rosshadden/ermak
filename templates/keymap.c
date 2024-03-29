@@ -134,6 +134,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         return true;
       }
       return false;
+    case L(KC_Q):
+      if (!record->event.pressed) return false;
+      if (is_caps_word_on()) add_weak_mods(MOD_MASK_SHIFT);
+      tap_code16(KC_Q);
+      if (!record->tap.count) {
+        del_mods(MOD_MASK_SHIFT);
+        tap_code16(KC_U);
+      }
+      return false;
   }
 
   return true;
