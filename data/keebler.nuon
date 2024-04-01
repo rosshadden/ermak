@@ -137,8 +137,19 @@
 				f12        f1          f2 f3         f4 f5 ││ ││ ││ f6 f7 f8          f9       f10 f11
 				eh_left    XX          XX XX         XX XX ││ ││ ││ XX XX df[_dvorak] XX       XX  eh_rght
 				__         XX          XX df[_ermak] XX XX ││ ││ ││ XX XX df[_typing] df[_sys] XX  df[_qwerty]
-				lsft[lock] df[_gaming] XX XX         XX XX __ ││ __ XX XX df[_media]  XX       XX  rsft[lock]
+				lsft[lock] df[_gaming] XX df[_melee] XX XX __ ││ __ XX XX df[_media]  XX       XX  rsft[lock]
 				││         ││          XX XX         XX __ __ ││ __ __ XX XX          XX       ││  ││
+			]
+		}
+
+		{
+			name: melee
+			keys: [
+				XX         XX   XX    XX    XX     XX    ││ ││ ││ JS_7 XX    XX    XX   XX     XX
+				XX         XX   XX    jup   XX     XX    ││ ││ ││ XX   JS_6  JS_3  XX   XX     XX
+				__         JS_5 jleft jdown jright XX    ││ ││ ││ XX   JS_1  JS_2  JS_4 XX     XX
+				lsft[lock] XX   JS_8  JS_11 JS_9   JS_10 __ ││ __ XX   cleft cdown cup  cright rsft[lock]
+				││         ││   XX    __    __     jmod  __ ││ __ JS_0 XX    XX    XX   ││     ││
 			]
 		}
 

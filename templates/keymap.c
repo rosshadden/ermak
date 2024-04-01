@@ -19,6 +19,8 @@ enum sofle_layers {
 enum custom_keycodes {
   PG_LOCK = SAFE_RANGE,
   PG_SEL,
+  KC_JUP, KC_JDOWN, KC_JLEFT, KC_JRIGHT, KC_JMOD,
+  KC_CUP, KC_CDOWN, KC_CLEFT, KC_CRIGHT,
 };
 
 const custom_shift_key_t custom_shift_keys[] = {
@@ -53,6 +55,16 @@ layer_state_t layer_state_set_user(layer_state_t state) {
   return update_tri_layer_state(state, _NUM, _NAV, _LAYERS);
 }
 
+joystick_config_t joystick_axes[JOYSTICK_AXIS_COUNT] = {
+  JOYSTICK_AXIS_VIRTUAL, JOYSTICK_AXIS_VIRTUAL, // joystick
+  JOYSTICK_AXIS_VIRTUAL, JOYSTICK_AXIS_VIRTUAL, // c-stick
+};
+
+static bool precision = false;
+static uint16_t precision_mod = 64;
+// static uint16_t axis_val = 127;
+static uint16_t axis_val = 255;
+
 uint8_t mod_state;
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (!process_layer_lock(keycode, record, PG_LOCK)) { return false; }
@@ -63,6 +75,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     !process_custom_shift_keys(keycode, record)
   ) {
     return false;
+  }
+
+  int16_t precision_val = axis_val;
+  if (precision) {
+    precision_val -= precision_mod;
   }
 
   switch (keycode) {
@@ -142,6 +159,34 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         del_mods(MOD_MASK_SHIFT);
         tap_code16(KC_U);
       }
+      return false;
+
+    case KC_JUP:
+      joystick_set_axis(1, record->event.pressed ? precision_val : 0);
+      return false;
+    case KC_JDOWN:
+      joystick_set_axis(1, record->event.pressed ? -precision_val : 0);
+      return false;
+    case KC_JLEFT:
+      joystick_set_axis(0, record->event.pressed ? -precision_val : 0);
+      return false;
+    case KC_JRIGHT:
+      joystick_set_axis(0, record->event.pressed ? precision_val : 0);
+      return false;
+    case KC_JMOD:
+      precision = record->event.pressed;
+      return false;
+    case KC_CUP:
+      joystick_set_axis(3, record->event.pressed ? precision_val : 0);
+      return false;
+    case KC_CDOWN:
+      joystick_set_axis(3, record->event.pressed ? -precision_val : 0);
+      return false;
+    case KC_CLEFT:
+      joystick_set_axis(2, record->event.pressed ? -precision_val : 0);
+      return false;
+    case KC_CRIGHT:
+      joystick_set_axis(2, record->event.pressed ? precision_val : 0);
       return false;
   }
 

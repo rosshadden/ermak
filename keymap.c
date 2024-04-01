@@ -21,12 +21,15 @@ enum sofle_layers {
   _MEDIA,
   _SYS,
   _LAYERS,
+  _MELEE,
   
 };
 
 enum custom_keycodes {
   PG_LOCK = SAFE_RANGE,
   PG_SEL,
+  KC_JUP, KC_JDOWN, KC_JLEFT, KC_JRIGHT, KC_JMOD,
+  KC_CUP, KC_CDOWN, KC_CLEFT, KC_CRIGHT,
 };
 
 const custom_shift_key_t custom_shift_keys[] = {
@@ -61,13 +64,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_NAV] = LAYOUT(XXXXXXX, KC_MS_ACCEL0, KC_MS_ACCEL1, KC_MS_ACCEL2, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_BTN3, XXXXXXX, XXXXXXX, KC_MENU, XXXXXXX, KC_MS_WH_LEFT, KC_MS_WH_LEFT, KC_MS_UP, KC_MS_WH_RIGHT, KC_MS_WH_RIGHT, XXXXXXX, KC_BTN1, KC_UP, KC_BTN2, XXXXXXX, KC_PGUP, _______, KC_MS_WH_UP, KC_MS_LEFT, KC_MS_DOWN, KC_MS_RIGHT, KC_MS_WH_UP, KC_HOME, KC_LEFT, KC_DOWN, KC_RIGHT, KC_END, KC_PGDN, LSFT_T(PG_LOCK), KC_MS_WH_DOWN, KC_BTN3, KC_BTN2, KC_BTN1, KC_MS_WH_DOWN, _______, _______, XXXXXXX, PG_SEL, KC_UNDO, KC_AGAIN, XXXXXXX, RSFT_T(PG_LOCK), KC_BTN3, KC_BTN2, KC_BTN1, KC_DEL, LT(_NUM, DF(_ERMAK)), _______, _______, _______, _______, _______),
   [_MEDIA] = LAYOUT(XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_MEDIA_REWIND, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_MEDIA_NEXT_TRACK, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_MEDIA_PREV_TRACK, XXXXXXX, KC_MEDIA_STOP, KC_MEDIA_NEXT_TRACK, XXXXXXX, LSFT_T(PG_LOCK), XXXXXXX, XXXXXXX, KC_VOLD, KC_VOLU, XXXXXXX, _______, _______, XXXXXXX, XXXXXXX, KC_MUTE, KC_MEDIA_FAST_FORWARD, KC_MEDIA_PREV_TRACK, RSFT_T(PG_LOCK), XXXXXXX, _______, _______, _______, _______, _______, KC_MEDIA_PLAY_PAUSE, _______, _______, XXXXXXX),
   [_SYS] = LAYOUT(XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PSCR, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_WAKE, XXXXXXX, XXXXXXX, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_SLEP, XXXXXXX, XXXXXXX, LSFT_T(PG_LOCK), XXXXXXX, XXXXXXX, KC_BRID, KC_BRIU, XXXXXXX, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PWR, RSFT_T(PG_LOCK), XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX),
-  [_LAYERS] = LAYOUT(KC_F12, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, EH_LEFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, DF(_DVORAK), XXXXXXX, XXXXXXX, EH_RGHT, _______, XXXXXXX, XXXXXXX, DF(_ERMAK), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, DF(_TYPING), DF(_SYS), XXXXXXX, DF(_QWERTY), LSFT_T(PG_LOCK), DF(_GAMING), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, XXXXXXX, XXXXXXX, DF(_MEDIA), XXXXXXX, XXXXXXX, RSFT_T(PG_LOCK), XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX),
+  [_LAYERS] = LAYOUT(KC_F12, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, EH_LEFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, DF(_DVORAK), XXXXXXX, XXXXXXX, EH_RGHT, _______, XXXXXXX, XXXXXXX, DF(_ERMAK), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, DF(_TYPING), DF(_SYS), XXXXXXX, DF(_QWERTY), LSFT_T(PG_LOCK), DF(_GAMING), XXXXXXX, DF(_MELEE), XXXXXXX, XXXXXXX, _______, _______, XXXXXXX, XXXXXXX, DF(_MEDIA), XXXXXXX, XXXXXXX, RSFT_T(PG_LOCK), XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX),
+  [_MELEE] = LAYOUT(XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, JS_7, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_JUP, XXXXXXX, XXXXXXX, XXXXXXX, JS_6, JS_3, XXXXXXX, XXXXXXX, XXXXXXX, _______, JS_5, KC_JLEFT, KC_JDOWN, KC_JRIGHT, XXXXXXX, XXXXXXX, JS_1, JS_2, JS_4, XXXXXXX, XXXXXXX, LSFT_T(PG_LOCK), XXXXXXX, JS_8, JS_11, JS_9, JS_10, _______, _______, XXXXXXX, KC_CLEFT, KC_CDOWN, KC_CUP, KC_CRIGHT, RSFT_T(PG_LOCK), XXXXXXX, _______, _______, KC_JMOD, _______, _______, JS_0, XXXXXXX, XXXXXXX, XXXXXXX),
   
 };
 
 layer_state_t layer_state_set_user(layer_state_t state) {
   return update_tri_layer_state(state, _NUM, _NAV, _LAYERS);
 }
+
+joystick_config_t joystick_axes[JOYSTICK_AXIS_COUNT] = {
+  JOYSTICK_AXIS_VIRTUAL, JOYSTICK_AXIS_VIRTUAL, // joystick
+  JOYSTICK_AXIS_VIRTUAL, JOYSTICK_AXIS_VIRTUAL, // c-stick
+};
+
+static bool precision = false;
+static uint16_t precision_mod = 64;
+// static uint16_t axis_val = 127;
+static uint16_t axis_val = 255;
 
 uint8_t mod_state;
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -79,6 +93,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     !process_custom_shift_keys(keycode, record)
   ) {
     return false;
+  }
+
+  int16_t precision_val = axis_val;
+  if (precision) {
+    precision_val -= precision_mod;
   }
 
   switch (keycode) {
@@ -159,6 +178,34 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         tap_code16(KC_U);
       }
       return false;
+
+    case KC_JUP:
+      joystick_set_axis(1, record->event.pressed ? precision_val : 0);
+      return false;
+    case KC_JDOWN:
+      joystick_set_axis(1, record->event.pressed ? -precision_val : 0);
+      return false;
+    case KC_JLEFT:
+      joystick_set_axis(0, record->event.pressed ? -precision_val : 0);
+      return false;
+    case KC_JRIGHT:
+      joystick_set_axis(0, record->event.pressed ? precision_val : 0);
+      return false;
+    case KC_JMOD:
+      precision = record->event.pressed;
+      return false;
+    case KC_CUP:
+      joystick_set_axis(3, record->event.pressed ? precision_val : 0);
+      return false;
+    case KC_CDOWN:
+      joystick_set_axis(3, record->event.pressed ? -precision_val : 0);
+      return false;
+    case KC_CLEFT:
+      joystick_set_axis(2, record->event.pressed ? -precision_val : 0);
+      return false;
+    case KC_CRIGHT:
+      joystick_set_axis(2, record->event.pressed ? precision_val : 0);
+      return false;
   }
 
   return true;
@@ -215,6 +262,9 @@ static void render_status(void) {
     case _LAYERS:
       oled_write_P(PSTR("layers"), false);
       break;
+    case _MELEE:
+      oled_write_P(PSTR("melee"), false);
+      break;
     default:
       oled_write_P(PSTR("UNKNOWN"), false);
       break;
@@ -251,6 +301,9 @@ static void render_status(void) {
       break;
     case _LAYERS:
       oled_write_P(PSTR("layers"), false);
+      break;
+    case _MELEE:
+      oled_write_P(PSTR("melee"), false);
       break;
     default:
       oled_write_P(PSTR("UNKNOWN"), false);
