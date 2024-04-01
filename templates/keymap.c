@@ -193,7 +193,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   return true;
 }
 
-#ifdef OLED_ENABLE
+#if defined(OLED_ENABLE)
 
 static void render_logo(void) {
   static const char PROGMEM qmk_logo[] = {
@@ -250,7 +250,7 @@ bool oled_task_user(void) {
 
 #endif
 
-#ifdef ENCODER_MAP_ENABLE
+#if defined(ENCODER_MAP_ENABLE)
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
   [_ERMAK]  = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(XXXXXXX, DF(_DVORAK)) },
   [_DVORAK] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(DF(_ERMAK), DF(_QWERTY)) },
@@ -259,6 +259,7 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
   [_GAMING] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
   [_LAYERS] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
   [_MEDIA]  = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
+  [_MELEE]  = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
   [_NAV]    = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
   [_NUM]    = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
   [_SYS]    = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },

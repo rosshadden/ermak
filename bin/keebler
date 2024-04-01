@@ -105,7 +105,7 @@ def "main flash" [] {
 def "main watch compile" [] {
 	watch . {|op, path|
 		if $path in (glob "{bin,data,templates}/*") {
-			echo "Compiling board..."
+			echo $"\n(date now | format date "%T"): Compiling board..."
 			main compile
 		}
 	}
@@ -115,7 +115,7 @@ def "main watch compile" [] {
 def "main watch flash" [] {
 	watch /dev/disk/by-label {|op, path|
 		if ($op == "Create" and ($path | str ends-with "/RPI-RP2")) {
-			echo "Flashing board..."
+			echo $"(date now | format date "%T"): Flashing board..."
 			main flash
 		}
 	}
