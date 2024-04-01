@@ -79,6 +79,7 @@ let keymap = {
 	mwu: KC_MS_WH_UP
 
 	ffwd: KC_MEDIA_FAST_FORWARD
+	mic: KC_F20
 	next: KC_MEDIA_NEXT_TRACK
 	play: KC_MEDIA_PLAY_PAUSE
 	prev: KC_MEDIA_PREV_TRACK
