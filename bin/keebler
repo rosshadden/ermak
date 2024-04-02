@@ -65,10 +65,11 @@ def "main map" [
 	} else if ($parts | is-not-empty) {
 		let fn = $parts.fn | main map --fn
 		let args = $parts.args
-		| split column ","
+		| split column -c ,
 		| str trim
 		| get 0
 		| values
+		| if ($in | is-empty) { [ ',' ] } else {}
 		| each {
 			main map
 		}
