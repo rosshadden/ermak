@@ -35,22 +35,22 @@
 		{
 			name: ermak
 			keys: [
-				"l[[]"    1       2       3        4        5      ││           ││ ││             6     7        8        9       0       ']'
-				'#'       lgui[b] lalt[y] lctl[o]  lsft[u]  "l[']" ││           ││ ││             '"'   rsft[l]  rctl[d]  ralt[w] rgui[v] z
-				lctl[esc] c       i       e        a        ','    ││           ││ ││             .     h        t        s       n       l[q]
-				lsft      lgui[g] lalt[x] lctl[j]  lsft[k]  -      mute         ││ mic            /     rsft[r]  rctl[m]  ralt[f] rgui[p] rsft
-				││        ││      "l[`]"  lalt[no] lgui[no] back   lt[_num,tab] ││ lt[_nav,enter] space rgui[no] ralt[no] ?       ││      ││
+				"l[[]"        1       2       3        4        5      ││           ││ ││             6     7        8        9       0       ']'
+				'#'           lgui[b] lalt[y] lctl[o]  lsft[u]  "l[']" ││           ││ ││             '"'   rsft[l]  rctl[d]  ralt[w] rgui[v] z
+				lctl[esc]     c       i       e        a        ','    ││           ││ ││             .     h        t        s       n       l[q]
+				osm[mod_lsft] lgui[g] lalt[x] lctl[j]  lsft[k]  -      mute         ││ mic            /     rsft[r]  rctl[m]  ralt[f] rgui[p] osm[mod_rsft]
+				││            ││      "l[`]"  lalt[no] lgui[no] back   lt[_num,tab] ││ lt[_nav,enter] space rgui[no] ralt[no] ?       ││      ││
 			]
 		}
 
 		{
 			name: typing
 			keys: [
-				'[' __ __  __ __ __  ││ ││ ││ __ __ __ __ __ __
-				__  b  y   o  u  "'" ││ ││ ││ __ l  d  w  v  __
-				__  c  i   e  a  __  ││ ││ ││ __ h  t  s  n  __
-				__  g  x   j  k  __  __ ││ __ __ r  m  f  p  __
-				││  ││ '`' __ __ __  __ ││ __ __ __ __ __ ││ ││
+				'['  __ __  __ __ __  ││ ││ ││ __ __ __ __ __ __
+				__   b  y   o  u  "'" ││ ││ ││ __ l  d  w  v  __
+				__   c  i   e  a  __  ││ ││ ││ __ h  t  s  n  __
+				lsft g  x   j  k  __  __ ││ __ __ r  m  f  p  rsft
+				││   ││ '`' __ __ __  __ ││ __ __ __ __ __ ││ ││
 			]
 		}
 
