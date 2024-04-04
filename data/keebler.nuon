@@ -38,7 +38,7 @@
 				"l[[]"        1       2       3        4        5      ││           ││ ││             6     7        8        9       0       ']'
 				'#'           lgui[b] lalt[y] lctl[o]  lsft[u]  "l[']" ││           ││ ││             '"'   rsft[l]  rctl[d]  ralt[w] rgui[v] z
 				lctl[esc]     c       i       e        a        ','    ││           ││ ││             .     h        t        s       n       l[q]
-				osm[mod_lsft] lgui[g] lalt[x] lctl[j]  lsft[k]  -      mute         ││ mic            /     rsft[r]  rctl[m]  ralt[f] rgui[p] osm[mod_rsft]
+				osm[mod_lsft] g       x       j        k        -      mute         ││ mic            /     r        m        f       p       osm[mod_rsft]
 				││            ││      "l[`]"  lalt[no] lgui[no] back   lt[_num,tab] ││ lt[_nav,enter] space rgui[no] ralt[no] ?       ││      ││
 			]
 		}
@@ -57,11 +57,11 @@
 		{
 			name: dvorak
 			keys: [
-				'`' __      __      __      __      __ ││ ││ ││         __ __      __      __      __      \
-				=   `'`     ','     .       p       y  ││ ││ ││         f  g       c       r       l       /
-				__  a       o       e       u       i  ││ ││ ││         d  h       t       n       s       -
-				__  lgui[;] lalt[q] lctl[j] lsft[k] x  __ ││ df[_ermak] b  rsft[m] rctl[w] ralt[v] rgui[z] rsft
-				││  ││      '['     __      __      __ __ ││ __         __ __      __      ']'     ││      ││
+				'`' __        __      __      __      __ ││ ││ ││         __ __      __      __      __      \
+				=   "lgui[']" lalt[,] lctl[.] lsft[p] y  ││ ││ ││         f  rsft[g] rctl[c] ralt[r] rgui[l] /
+				__  a         o       e       u       i  ││ ││ ││         d  h       t       n       s       -
+				__  ';'       q       j       k       x  __ ││ df[_ermak] b  m       w       v       z       __
+				││  ││        '['     __      __      __ __ ││ __         __ __      __      ']'     ││      ││
 			]
 		}
 
@@ -69,9 +69,9 @@
 			name: qwerty
 			keys: [
 				'`' __      __      __      __      __ ││ ││ ││ __ __      __      __      __      \
-				=   q       w       e       r       t  ││ ││ ││ y  u       i       o       p       -
+				=   lgui[q] lalt[w] lctl[e] lsft[r] t  ││ ││ ││ y  rsft[u] rctl[i] ralt[o] rgui[p] -
 				__  a       s       d       f       g  ││ ││ ││ h  j       k       l       ';'     "'"
-				__  lgui[z] lalt[x] lctl[c] lsft[v] b  __ ││ __ n  rsft[m] rctl[,] ralt[.] rgui[/] rsft
+				__  z       x       c       v       b  __ ││ __ n  m       ','     .       /       __
 				││  ││      '['     __      __      __ __ ││ __ __ __      __      ']'     ││      ││
 			]
 		}

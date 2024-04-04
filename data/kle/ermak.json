@@ -97,33 +97,33 @@
       "c": "#cccccc",
       "f": 8
     },
-    "]\n\n\nm⬆️\n\n\n\n\n\nO",
+    "]\n\n\nm⬆️\nctrl\n\n\n\n\nO",
     {
       "x": 7
     },
-    "8\n\n\n⬆️\n\n\n\n\n\nD"
+    "8\n\n\n⬆️\nctrl\n\n\n\n\nD"
   ],
   [
     {
       "y": -0.95,
       "x": 10
     },
-    "7\n\n\nmL\n\n\n\n\n\nL"
+    "7\n\n\nmL\nshift\n\n\n\n\nL"
   ],
   [
     {
       "y": -0.8999999999999999,
       "x": 2
     },
-    "[\n\n\nml\n\n\n\n\n\nY",
+    "[\n\n\nml\nalt\n\n\n\n\nY",
     {
       "x": 1
     },
-    "#\n\n\nmr\n\n\n\n\n\nU",
+    "#\n\n\nmr\nshift\n\n\n\n\nU",
     {
       "x": 7
     },
-    "9\n\n\nmR\n\n\n\n\n\nW"
+    "9\n\n\nmR\nalt\n\n\n\n\nW"
   ],
   [
     {
@@ -136,7 +136,7 @@
       "c": "#cccccc",
       "a": 4
     },
-    "!\n\n\nml\n\n\n\n\n\nB",
+    "!\n\n\nml\nsuper\n\n\n\n\nB",
     {
       "x": 3,
       "a": 0
@@ -158,7 +158,7 @@
     {
       "x": 3
     },
-    "%\n\n\n\n\n\n\n\n\nV",
+    "%\n\n\n\nsuper\n\n\n\n\nV",
     {
       "c": "#aaaaaa",
       "f": 6
@@ -228,7 +228,7 @@
       "a": 0,
       "f": 6
     },
-    "_\n\n\npgdn\n\nu\n\n\n\nQ"
+    "_\n\n\npgdn\n\nQu\n\n\n\nQ"
   ],
   [
     {
@@ -238,11 +238,11 @@
       "a": 4,
       "f": 8
     },
-    "}\n\n\nmM\nctrl\n\n\n\n\nJ",
+    "}\n\n\nmM\n\n\n\n\n\nJ",
     {
       "x": 7
     },
-    "2\n\n\n↪️\nctrl\n\n\n\n\nM"
+    "2\n\n\n↪️\n\n\n\n\n\nM"
   ],
   [
     {
@@ -260,19 +260,19 @@
       "y": -0.8999999999999999,
       "x": 2
     },
-    "{\n\n\nmR\nalt\n\n\n\n\nX",
+    "{\n\n\nmR\n\n\n\n\n\nX",
     {
       "x": 1
     },
-    ">\n\n\nmL\nshift\n\n\n\n\nK",
+    ">\n\n\nmL\n\n\n\n\n\nK",
     {
       "x": 5
     },
-    "1\n\n\nsel\nshift\n\n\n\n\nR",
+    "1\n\n\nsel\n\n\n\n\n\nR",
     {
       "x": 1
     },
-    "3\n\n\n↩️\nalt\n\n\n\n\nF"
+    "3\n\n\n↩️\n\n\n\n\n\nF"
   ],
   [
     {
@@ -280,12 +280,12 @@
       "c": "#aaaaaa",
       "f": 5
     },
-    "lock\n\n\n\n\n\n\n\n\nShift",
+    "lock\n\n\n\nshift\n\n\n\n\nshift",
     {
       "c": "#cccccc",
       "f": 8
     },
-    "<\n\n\nmd\nsuper\n\n\n\n\nG",
+    "<\n\n\nmd\n\n\n\n\n\nG",
     {
       "x": 3
     },
@@ -297,12 +297,12 @@
     {
       "x": 3
     },
-    "/\n\n\n\nsuper\n\n\n\n\nP",
+    "/\n\n\n\n\n\n\n\n\nP",
     {
       "c": "#aaaaaa",
       "f": 5
     },
-    "lock\n\n\n\n\n\n\n\n\nShift"
+    "lock\n\n\n\nshift\n\n\n\n\nshift"
   ],
   [
     {

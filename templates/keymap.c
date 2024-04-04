@@ -67,14 +67,13 @@ static uint16_t axis_val = 255;
 
 uint8_t mod_state;
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  if (!process_layer_lock(keycode, record, PG_LOCK)) { return false; }
-  if (!process_select_word(keycode, record, PG_SEL)) { return false; }
+  if (!process_layer_lock(keycode, record, PG_LOCK)) return false;
+  if (!process_select_word(keycode, record, PG_SEL)) return false;
 
-  if (
-    (get_highest_layer(default_layer_state) == _ERMAK || get_highest_layer(default_layer_state) == _TYPING) &&
-    !process_custom_shift_keys(keycode, record)
-  ) {
-    return false;
+  switch (get_highest_layer(default_layer_state)) {
+    case _ERMAK:
+    case _TYPING:
+      if (!process_custom_shift_keys(keycode, record)) return false;
   }
 
   int16_t precision_val = axis_val;
