@@ -4,6 +4,7 @@
 
 #include QMK_KEYBOARD_H
 
+// #include "features/achordion.h"
 #include "features/custom_shift_keys.h"
 #include "features/layer_lock.h"
 #include "features/select_word.h"
@@ -67,6 +68,7 @@ static uint16_t axis_val = 255;
 
 uint8_t mod_state;
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  // if (!process_achordion(keycode, record)) return false;
   if (!process_layer_lock(keycode, record, PG_LOCK)) return false;
   if (!process_select_word(keycode, record, PG_SEL)) return false;
 
@@ -191,6 +193,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
   return true;
 }
+
+// void matrix_scan_user(void) {
+//   achordion_task();
+// }
 
 #if defined(OLED_ENABLE)
 
