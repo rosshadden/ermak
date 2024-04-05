@@ -4,7 +4,7 @@
 
 #include QMK_KEYBOARD_H
 
-// #include "features/achordion.h"
+#include "features/achordion.h"
 #include "features/custom_shift_keys.h"
 #include "features/layer_lock.h"
 #include "features/select_word.h"
@@ -68,7 +68,7 @@ static uint16_t axis_val = 255;
 
 uint8_t mod_state;
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  // if (!process_achordion(keycode, record)) return false;
+  if (!process_achordion(keycode, record)) return false;
   if (!process_layer_lock(keycode, record, PG_LOCK)) return false;
   if (!process_select_word(keycode, record, PG_SEL)) return false;
 
@@ -194,9 +194,39 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   return true;
 }
 
-// void matrix_scan_user(void) {
-//   achordion_task();
-// }
+void matrix_scan_user(void) {
+  achordion_task();
+}
+
+bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record, uint16_t other_keycode, keyrecord_t* other_record) {
+  switch (tap_hold_keycode) {
+    case LCTL_T(KC_E):
+      if (other_keycode == KC_U) return true;
+      break;
+    case RGUI_T(KC_N):
+      if (other_keycode == RSFT_T(KC_H) || other_keycode == KC_L) return true;
+      break;
+  }
+
+  if (other_record->event.key.row % (MATRIX_ROWS / 2) == 0) return true;
+  if (other_record->event.key.row % (MATRIX_ROWS / 2) == 4) return true;
+
+  return achordion_opposite_hands(tap_hold_record, other_record);
+}
+
+uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
+  switch (tap_hold_keycode) {
+    case LCTL_T(KC_ESC):
+    case LT(_NUM, KC_TAB):
+    case LT(_NAV, KC_ENTER):
+      return 0;
+  }
+  return 800;
+}
+
+uint16_t achordion_streak_timeout(uint16_t tap_hold_keycode) {
+  return 120;
+}
 
 #if defined(OLED_ENABLE)
 

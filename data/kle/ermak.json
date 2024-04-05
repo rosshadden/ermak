@@ -97,33 +97,33 @@
       "c": "#cccccc",
       "f": 8
     },
-    "]\n\n\nm⬆️\nctrl\n\n\n\n\nO",
+    "]\n\n\nm⬆️\n\n\n\n\n\nO",
     {
       "x": 7
     },
-    "8\n\n\n⬆️\nctrl\n\n\n\n\nD"
+    "8\n\n\n⬆️\n\n\n\n\n\nD"
   ],
   [
     {
       "y": -0.95,
       "x": 10
     },
-    "7\n\n\nmL\nshift\n\n\n\n\nL"
+    "7\n\n\nmL\n\n\n\n\n\nL"
   ],
   [
     {
       "y": -0.8999999999999999,
       "x": 2
     },
-    "[\n\n\nml\nalt\n\n\n\n\nY",
+    "[\n\n\nml\n\n\n\n\n\nY",
     {
       "x": 1
     },
-    "#\n\n\nmr\nshift\n\n\n\n\nU",
+    "#\n\n\nmr\n\n\n\n\n\nU",
     {
       "x": 7
     },
-    "9\n\n\nmR\nalt\n\n\n\n\nW"
+    "9\n\n\nmR\n\n\n\n\n\nW"
   ],
   [
     {
@@ -136,7 +136,7 @@
       "c": "#cccccc",
       "a": 4
     },
-    "!\n\n\nml\nsuper\n\n\n\n\nB",
+    "!\n\n\nml\n\n\n\n\n\nB",
     {
       "x": 3,
       "a": 0
@@ -158,7 +158,7 @@
     {
       "x": 3
     },
-    "%\n\n\n\nsuper\n\n\n\n\nV",
+    "%\n\n\n\n\n\n\n\n\nV",
     {
       "c": "#aaaaaa",
       "f": 6
@@ -172,32 +172,32 @@
       "c": "#cccccc",
       "f": 8
     },
-    ")\n\n\nm⬇️\n\n\n\n\n\nE",
+    ")\n\n\nm⬇️\nctrl\n\n\n\n\nE",
     {
       "x": 7
     },
-    "5\n\n\n⬇️\n\n\n\n\n\nT"
+    "5\n\n\n⬇️\nctrl\n\n\n\n\nT"
   ],
   [
     {
       "y": -0.8500000000000001,
       "x": 2
     },
-    "(\n\n\nm⬅️\n\n\n\n\n\nI",
+    "(\n\n\nm⬅️\nalt\n\n\n\n\nI",
     {
       "x": 1,
       "n": true
     },
-    "$\n\n\nm➡️\n\n\n\n\n\nA",
+    "$\n\n\nm➡️\nshift\n\n\n\n\nA",
     {
       "x": 5,
       "n": true
     },
-    "4\n\n\n⬅️\n\n\n\n\n\nH",
+    "4\n\n\n⬅️\nshift\n\n\n\n\nH",
     {
       "x": 1
     },
-    "6\n\n\n➡️\n\n\n\n\n\nS"
+    "6\n\n\n➡️\nalt\n\n\n\n\nS"
   ],
   [
     {
@@ -210,7 +210,7 @@
       "c": "#cccccc",
       "f": 8
     },
-    "^\n\n\nmu\n\n\n\n\n\nC",
+    "^\n\n\nmu\nsuper\n\n\n\n\nC",
     {
       "x": 3
     },
@@ -222,7 +222,7 @@
     {
       "x": 3
     },
-    "+\n\n\nend\n\n\n\n\n\nN",
+    "+\n\n\nend\nsuper\n\n\n\n\nN",
     {
       "c": "#aaaaaa",
       "a": 0,
