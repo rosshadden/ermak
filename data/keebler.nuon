@@ -93,11 +93,11 @@
 		{
 			name: num
 			keys: [
-				eeprom     XX XX   XX     XX   &   ││ ││ ││                  ';'  XX  XX  kp= @   num
-				XX         !  '['  ']'    '#'  '`' ││ ││ ││                  ':'  kp7 kp8 kp9 %   XX
-				capw       ^  '('  ')'    '$'  '|' ││ ││ ││                  kp-  kp4 kp5 kp6 kp+ '_'
-				lsft[lock] <  '{'  '}'    >    ~   __ ││ __                  kp*  kp1 kp2 kp3 kp/ rsft[lock]
-				││         ││ boot reboot make __  __ ││ lt[_nav,df[_ermak]] rspc kp0 kp. ',' ││  ││
+				XX         XX XX   XX  XX  &   ││ ││ ││                  ';'  XX  XX  kp= @   num
+				XX         !  '['  ']' '#' '`' ││ ││ ││                  ':'  kp7 kp8 kp9 %   XX
+				capw       ^  '('  ')' '$' '|' ││ ││ ││                  kp-  kp4 kp5 kp6 kp+ '_'
+				lsft[lock] <  '{'  '}' >   ~   __ ││ __                  kp*  kp1 kp2 kp3 kp/ rsft[lock]
+				││         ││ boot XX  XX  __  __ ││ lt[_nav,df[_ermak]] rspc kp0 kp. ',' ││  ││
 			]
 		}
 
@@ -108,7 +108,7 @@
 				XX         btn3  mwl   mup   mwr    btn3 ││                  ││ ││ XX   btn1 up   btn2  XX  pgup
 				__         btn1  mleft mdown mright btn1 ││                  ││ ││ home left down right end pgdn
 				lsft[lock] btn2  __    mwd   mwu    btn2 __                  ││ __ XX   sel  undo again XX  rsft[lock]
-				││         ││    btn3  btn2  btn1   del  lt[_num,df[_ermak]] ││ __ __   __   __   __    ││  ││
+				││         ││    btn3  btn2  btn1   del  lt[_num,df[_ermak]] ││ __ __   __   __   XX    ││  ││
 			]
 		}
 
@@ -130,18 +130,29 @@
 				XX         XX pscr XX   XX   XX ││ ││ ││ XX XX XX wake XX  XX
 				__         XX XX   XX   XX   XX ││ ││ ││ XX XX XX slep XX  XX
 				lsft[lock] XX XX   brid briu XX __ ││ __ XX XX XX XX   pwr rsft[lock]
-				││         ││ XX   XX   XX   __ __ ││ __ __ XX XX XX   ││  ││
+				││         ││ XX   __   __   __ __ ││ __ __ __ __ XX   ││  ││
 			]
 		}
 
 		{
 			name: layers
 			keys: [
-				f12        f1          f2 f3         f4 f5      ││ ││ ││ f6 f7 f8          f9       f10 f11
-				eh_left    XX          XX XX         XX dt_up   ││ ││ ││ XX XX df[_dvorak] XX       XX  eh_rght
-				__         XX          XX df[_ermak] XX dt_prnt ││ ││ ││ XX XX df[_typing] df[_sys] XX  df[_qwerty]
-				lsft[lock] df[_gaming] XX df[_melee] XX dt_down __ ││ __ XX XX df[_media]  XX       XX  rsft[lock]
-				││         ││          XX XX         XX __      __ ││ __ __ XX XX          XX       ││  ││
+				f12        f1          f2 f3         f4 f5      ││ ││ ││ f6        f7 f8          f9       f10 f11
+				eh_left    XX          XX XX         XX dt_up   ││ ││ ││ XX        XX df[_dvorak] XX       XX  eh_rght
+				__         XX          XX df[_ermak] XX dt_prnt ││ ││ ││ XX        XX df[_typing] df[_sys] XX  df[_qwerty]
+				lsft[lock] df[_gaming] XX df[_melee] XX dt_down __ ││ __ XX        XX df[_media]  XX       XX  rsft[lock]
+				││         ││          XX __         __ __      __ ││ __ df[_meta] __ __          XX       ││  ││
+			]
+		}
+
+		{
+			name: meta
+			keys: [
+				XX         XX XX XX     XX XX ││ ││ ││ XX XX     XX   XX XX XX
+				XX         XX XX XX     XX XX ││ ││ ││ XX XX     XX   XX XX XX
+				__         XX XX eeprom XX XX ││ ││ ││ XX XX     XX   XX XX XX
+				lsft[lock] XX XX XX     XX XX __ ││ __ XX reboot make XX XX rsft[lock]
+				││         ││ XX __     __ __ __ ││ __ __ __     __   XX ││ ││
 			]
 		}
 
