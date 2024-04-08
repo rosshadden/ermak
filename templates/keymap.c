@@ -200,16 +200,19 @@ void matrix_scan_user(void) {
 
 bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record, uint16_t other_keycode, keyrecord_t* other_record) {
   switch (tap_hold_keycode) {
+    case LALT_T(KC_I):
+      if (other_keycode == LGUI_T(KC_C)) return true;
+      break;
     case LCTL_T(KC_E):
-      if (other_keycode == KC_U) return true;
+      if (other_keycode == KC_U || other_keycode == LGUI_T(KC_C)) return true;
       break;
     case RGUI_T(KC_N):
       if (other_keycode == RSFT_T(KC_H) || other_keycode == KC_L) return true;
       break;
   }
 
-  if (other_record->event.key.row % (MATRIX_ROWS / 2) == 0) return true;
-  if (other_record->event.key.row % (MATRIX_ROWS / 2) == 4) return true;
+  const uint8_t row = other_record->event.key.row % (MATRIX_ROWS / 2);
+  if (row == 0 || row == 4) return true;
 
   return achordion_opposite_hands(tap_hold_record, other_record);
 }
