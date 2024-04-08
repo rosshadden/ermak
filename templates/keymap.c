@@ -85,38 +85,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
 
   switch (keycode) {
-    case LT(_NUM, DF(_ERMAK)):
-    case LT(_NAV, DF(_ERMAK)):
-      if (record->event.pressed && record->tap.count) {
-        set_single_persistent_default_layer(_ERMAK);
-        return false;
-      }
+    // keys
+    case KC_CLEAR:
+      if (!record->event.pressed) return false;
+      clear_mods();
       break;
-
     case KC_RSPC:
       if (!record->event.pressed) return false;
       tap_code16(KC_SPACE);
       tap_code16(KC_LEFT);
       break;
 
-    // hyprland
-    case LGUI_T(KC_NO):
-    case RGUI_T(KC_NO):
-      if (record->event.pressed && record->tap.count) {
-        tap_code16(LAG(KC_SPACE));
-        return false;
-      }
-      break;
-
-    // wezterm
-    case LALT_T(KC_NO):
-    case RALT_T(KC_NO):
-      if (record->event.pressed && record->tap.count) {
-        tap_code16(C(KC_SPACE));
-        return false;
-      }
-      break;
-
+    // modifiers
     case LSFT_T(PG_LOCK):
     case RSFT_T(PG_LOCK):
       if (record->event.pressed && record->tap.count) {
@@ -125,6 +105,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       break;
 
+    // layers
+    case LT(_NUM, DF(_ERMAK)):
+    case LT(_NAV, DF(_ERMAK)):
+      if (record->event.pressed && record->tap.count) {
+        set_single_persistent_default_layer(_ERMAK);
+        return false;
+      }
+      break;
+
+    // lingers
     case L(KC_LEFT_BRACKET):
       if (!record->event.pressed) return false;
       if (record->tap.count) {
@@ -169,6 +159,25 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
 
+    // apps
+    case LGUI_T(KC_NO):
+    case RGUI_T(KC_NO):
+      if (record->event.pressed && record->tap.count) {
+        // hyprland
+        tap_code16(LAG(KC_SPACE));
+        return false;
+      }
+      break;
+    case LALT_T(KC_NO):
+    case RALT_T(KC_NO):
+      if (record->event.pressed && record->tap.count) {
+        // wezterm
+        tap_code16(C(KC_SPACE));
+        return false;
+      }
+      break;
+
+    // joystick
     case KC_JUP:
       joystick_set_axis(1, record->event.pressed ? precision_val : 0);
       return false;
@@ -208,7 +217,7 @@ void matrix_scan_user(void) {
 bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record, uint16_t other_keycode, keyrecord_t* other_record) {
   switch (tap_hold_keycode) {
     case LALT_T(KC_I):
-      if (other_keycode == LGUI_T(KC_C)) return true;
+      if (other_keycode == LGUI_T(KC_C) || other_keycode == LSFT_T(KC_A)) return true;
       break;
     case LCTL_T(KC_E):
       if (other_keycode == KC_U || other_keycode == LGUI_T(KC_C)) return true;

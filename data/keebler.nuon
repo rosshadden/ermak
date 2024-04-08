@@ -97,7 +97,7 @@
 				XX         !  '['  ']' '#' '`' ││ ││ ││                  ':'  kp7 kp8 kp9 %   XX
 				capw       ^  '('  ')' '$' '|' ││ ││ ││                  kp-  kp4 kp5 kp6 kp+ '_'
 				lsft[lock] <  '{'  '}' >   ~   __ ││ __                  kp*  kp1 kp2 kp3 kp/ rsft[lock]
-				││         ││ boot XX  XX  __  __ ││ lt[_nav,df[_ermak]] rspc kp0 kp. ',' ││  ││
+				││         ││ boot __  __  __  __ ││ lt[_nav,df[_ermak]] rspc kp0 kp. ',' ││  ││
 			]
 		}
 
@@ -148,11 +148,11 @@
 		{
 			name: meta
 			keys: [
-				XX         XX XX XX     XX XX ││ ││ ││ XX XX     XX   XX XX XX
-				XX         XX XX XX     XX XX ││ ││ ││ XX XX     XX   XX XX XX
-				__         XX XX eeprom XX XX ││ ││ ││ XX XX     XX   XX XX XX
-				lsft[lock] XX XX XX     XX XX __ ││ __ XX reboot make XX XX rsft[lock]
-				││         ││ XX __     __ __ __ ││ __ __ __     __   XX ││ ││
+				XX         XX    XX XX     XX XX ││ ││ ││ XX XX     XX   XX XX XX
+				XX         XX    XX XX     XX XX ││ ││ ││ XX XX     XX   XX XX XX
+				__         clear XX eeprom XX XX ││ ││ ││ XX XX     XX   XX XX XX
+				lsft[lock] XX    XX XX     XX XX __ ││ __ XX reboot make XX XX rsft[lock]
+				││         ││    XX __     __ __ __ ││ __ __ __     __   XX ││ ││
 			]
 		}
 
