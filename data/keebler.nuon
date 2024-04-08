@@ -93,11 +93,11 @@
 		{
 			name: num
 			keys: [
-				XX         XX XX     XX   XX   &   ││ ││ ││                  ';' XX  XX  kp= @   num
-				XX         !  '['    ']'  '#'  '`' ││ ││ ││                  ':' kp7 kp8 kp9 %   XX
-				capw       ^  '('    ')'  '$'  '|' ││ ││ ││                  kp- kp4 kp5 kp6 kp+ '_'
-				lsft[lock] <  '{'    '}'  >    ~   __ ││ __                  kp* kp1 kp2 kp3 kp/ rsft[lock]
-				││         ││ eeprom boot make __  __ ││ lt[_nav,df[_ermak]] __  kp0 kp. ',' ││  ││
+				eeprom     XX XX   XX     XX   &   ││ ││ ││                  ';'  XX  XX  kp= @   num
+				XX         !  '['  ']'    '#'  '`' ││ ││ ││                  ':'  kp7 kp8 kp9 %   XX
+				capw       ^  '('  ')'    '$'  '|' ││ ││ ││                  kp-  kp4 kp5 kp6 kp+ '_'
+				lsft[lock] <  '{'  '}'    >    ~   __ ││ __                  kp*  kp1 kp2 kp3 kp/ rsft[lock]
+				││         ││ boot reboot make __  __ ││ lt[_nav,df[_ermak]] rspc kp0 kp. ',' ││  ││
 			]
 		}
 

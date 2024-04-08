@@ -22,6 +22,7 @@ enum custom_keycodes {
   PG_SEL,
   KC_JUP, KC_JDOWN, KC_JLEFT, KC_JRIGHT, KC_JMOD,
   KC_CUP, KC_CDOWN, KC_CLEFT, KC_CRIGHT,
+  KC_RSPC,
 };
 
 const custom_shift_key_t custom_shift_keys[] = {
@@ -90,6 +91,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         set_single_persistent_default_layer(_ERMAK);
         return false;
       }
+      break;
+
+    case KC_RSPC:
+      if (!record->event.pressed) return false;
+      tap_code16(KC_SPACE);
+      tap_code16(KC_LEFT);
       break;
 
     // hyprland
@@ -220,8 +227,10 @@ bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record, ui
 uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
   switch (tap_hold_keycode) {
     case LCTL_T(KC_ESC):
-    case LT(_NUM, KC_TAB):
+    case LT(_NAV, DF(_ERMAK)):
     case LT(_NAV, KC_ENTER):
+    case LT(_NUM, DF(_ERMAK)):
+    case LT(_NUM, KC_TAB):
       return 0;
   }
   return 800;

@@ -50,10 +50,10 @@
     {
       "y": -0.85,
       "c": "#aaaaaa",
-      "a": 1,
+      "a": 0,
       "f": 9
     },
-    "{\n[\n\n\n\n]}",
+    "ee\n\n\n\n\n]}\n\n\n{\n\n[",
     {
       "c": "#cccccc",
       "a": 4,
@@ -136,12 +136,12 @@
       "c": "#cccccc",
       "a": 4
     },
-    "!\n\n\nml\n\n\n\n\n\nB",
+    "!\n\n\nmM\n\n\n\n\n\nB",
     {
       "x": 3,
       "a": 0
     },
-    "`\n\n\nmr\n\n'\n\n\n(\n\n'",
+    "`\n\n\nmM\n\n'\n\n\n(\n\n'",
     {
       "a": 7,
       "f": 6,
@@ -205,16 +205,16 @@
       "c": "#aaaaaa",
       "f": 6
     },
-    "capw\n\n\n\nctrl\n\n\n\n\nEsc",
+    "capw\n\n\n\nctrl\n\n\n\n\nesc",
     {
       "c": "#cccccc",
       "f": 8
     },
-    "^\n\n\nmu\nsuper\n\n\n\n\nC",
+    "^\n\n\nmL\nsuper\n\n\n\n\nC",
     {
       "x": 3
     },
-    "|\n\n\nmu\n\n\n\n\n;\n\n,",
+    "|\n\n\nmL\n\n\n\n\n;\n\n,",
     {
       "x": 3
     },
@@ -238,7 +238,7 @@
       "a": 4,
       "f": 8
     },
-    "}\n\n\nmM\n\n\n\n\n\nJ",
+    "}\n\n\nmd\n\n\n\n\n\nJ",
     {
       "x": 7
     },
@@ -260,11 +260,11 @@
       "y": -0.8999999999999999,
       "x": 2
     },
-    "{\n\n\nmR\n\n\n\n\n\nX",
+    "{\n\n\n\n\n\n\n\n\nX",
     {
       "x": 1
     },
-    ">\n\n\nmL\n\n\n\n\n\nK",
+    ">\n\n\nmu\n\n\n\n\n\nK",
     {
       "x": 5
     },
@@ -285,11 +285,11 @@
       "c": "#cccccc",
       "f": 8
     },
-    "<\n\n\nmd\n\n\n\n\n\nG",
+    "<\n\n\nmR\n\n\n\n\n\nG",
     {
       "x": 3
     },
-    "~\n\n\nmd\n\n\n\n\n_\n\n-",
+    "~\n\n\nmR\n\n\n\n\n_\n\n-",
     {
       "x": 3
     },
@@ -310,7 +310,7 @@
       "x": 2.75,
       "f": 9
     },
-    "boot\n\n\nmR\nalt\n\n\n\n\nwez",
+    "reboot\n\n\nmR\nalt\n\n\n\n\nwez",
     "make\n\n\nmL\ngui\n\n\n\n\nhypr",
     {
       "x": 5.5
@@ -323,7 +323,7 @@
       "x": 1.75,
       "a": 0
     },
-    "ee\n\n\nmM\n\n`\n\n\n@\n\n`"
+    "boot\n\n\nmM\n\n`\n\n\n@\n\n`"
   ],
   [
     {
@@ -361,7 +361,7 @@
       "a": 7,
       "h": 1.5
     },
-    "Tab\n\n\n\nnum"
+    "tab\n\n\n\nnum"
   ],
   [
     {
@@ -372,7 +372,7 @@
       "f": 8,
       "h": 1.5
     },
-    "Enter\n\n\n\nnav"
+    "enter\n\n\n\nnav"
   ],
   [
     {
@@ -380,8 +380,9 @@
       "rx": 10,
       "x": -1,
       "c": "#777777",
+      "a": 4,
       "f": 9
     },
-    "Space"
+    "rspc\n\n\n\n\n\n\n\n\nspace"
   ]
 ]

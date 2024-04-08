@@ -93,6 +93,7 @@ let keymap = {
 	dup: QK_DYNAMIC_TAPPING_TERM_UP
 	eeprom: QK_CLEAR_EEPROM
 	make: QK_MAKE
+	reboot: QK_REBOOT
 
 	lock: PG_LOCK
 	sel: PG_SEL
