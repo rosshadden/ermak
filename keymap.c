@@ -242,6 +242,9 @@ bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record, ui
     case LCTL_T(KC_E):
       if (other_keycode == KC_U || other_keycode == LGUI_T(KC_C)) return true;
       break;
+    case RCTL_T(KC_T):
+      if (other_keycode == KC_R) return true;
+      break;
     case RGUI_T(KC_N):
       if (other_keycode == RSFT_T(KC_H) || other_keycode == KC_L) return true;
       break;
