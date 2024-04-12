@@ -129,7 +129,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case LT(_NUM, DF(_ERMAK)):
     case LT(_NAV, DF(_ERMAK)):
       if (record->event.pressed && record->tap.count) {
-        set_single_persistent_default_layer(_ERMAK);
+        default_layer_set(_ERMAK);
+        layer_move(_ERMAK);
         return false;
       }
       break;
@@ -258,6 +259,10 @@ bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record, ui
 
 uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
   switch (tap_hold_keycode) {
+    case LALT_T(KC_NO):
+    case RALT_T(KC_NO):
+    case LGUI_T(KC_NO):
+    case RGUI_T(KC_NO):
     case LCTL_T(KC_ESC):
     case LT(_NAV, DF(_ERMAK)):
     case LT(_NAV, KC_ENTER):
