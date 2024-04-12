@@ -2,6 +2,7 @@
 // Copyright 2024 Ryan Neff (@JellyTitan)
 // SPDX-License-Identifier: GPL-2.0-or-later
 
+#include "print.h"
 #include QMK_KEYBOARD_H
 
 #include "features/achordion.h"
@@ -74,6 +75,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 layer_state_t layer_state_set_user(layer_state_t state) {
+  uprintf("%d\n", state);
   return update_tri_layer_state(state, _NUM, _NAV, _LAYERS);
 }
 
