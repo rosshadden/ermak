@@ -237,7 +237,7 @@ void matrix_scan_user(void) {
 bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record, uint16_t other_keycode, keyrecord_t* other_record) {
   switch (tap_hold_keycode) {
     case LALT_T(KC_I):
-      if (other_keycode == LGUI_T(KC_C) || other_keycode == LSFT_T(KC_A)) return true;
+      if (other_keycode == LGUI_T(KC_C) || other_keycode == LSFT_T(KC_A) || other_keycode == KC_J || other_keycode == KC_K) return true;
       break;
     case LCTL_T(KC_E):
       if (other_keycode == KC_U || other_keycode == LGUI_T(KC_C)) return true;
@@ -246,7 +246,7 @@ bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record, ui
       if (other_keycode == KC_R) return true;
       break;
     case RGUI_T(KC_N):
-      if (other_keycode == RSFT_T(KC_H) || other_keycode == KC_L) return true;
+      if (other_keycode == RSFT_T(KC_H) || other_keycode == KC_L || other_keycode == KC_W || other_keycode == KC_P) return true;
       break;
   }
 
