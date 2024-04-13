@@ -129,15 +129,42 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         tap_code16(KC_LEFT);
       }
       return false;
+    case L(KC_RIGHT_PAREN):
+      // TODO: clean up. Using `l[)]` sucks, and so does manually custom shifting
+      if (!record->event.pressed) return false;
+      if (record->tap.count) {
+        if (get_mods() & MOD_MASK_SHIFT) {
+          tap_code16(KC_RIGHT_PAREN);
+        } else {
+          tap_code16(KC_DOUBLE_QUOTE);
+        }
+      } else {
+        if (get_mods() & MOD_MASK_SHIFT) {
+          tap_code16(KC_RIGHT_PAREN);
+        } else {
+          tap_code16(KC_DOUBLE_QUOTE);
+          tap_code16(KC_DOUBLE_QUOTE);
+          del_mods(MOD_MASK_SHIFT);
+          tap_code16(KC_LEFT);
+        }
+      }
+      return false;
     case L(KC_QUOTE):
       if (!record->event.pressed) return false;
       if (record->tap.count) {
           tap_code16(KC_QUOTE);
       } else {
-        tap_code16(KC_QUOTE);
-        tap_code16(KC_QUOTE);
-        del_mods(MOD_MASK_SHIFT);
-        tap_code16(KC_LEFT);
+        if (get_mods() & MOD_MASK_SHIFT) {
+          tap_code16(KC_LEFT_PAREN);
+          tap_code16(KC_RIGHT_PAREN);
+          del_mods(MOD_MASK_SHIFT);
+          tap_code16(KC_LEFT);
+        } else {
+          tap_code16(KC_QUOTE);
+          tap_code16(KC_QUOTE);
+          del_mods(MOD_MASK_SHIFT);
+          tap_code16(KC_LEFT);
+        }
       }
       return false;
     case L(KC_GRAVE):

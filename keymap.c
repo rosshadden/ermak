@@ -59,7 +59,7 @@ const custom_shift_key_t custom_shift_keys[] = {
 uint8_t NUM_CUSTOM_SHIFT_KEYS = sizeof(custom_shift_keys) / sizeof(custom_shift_key_t);
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [_ERMAK] = LAYOUT(L(KC_LEFT_BRACKET), KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_RIGHT_BRACKET, KC_HASH, KC_B, KC_Y, KC_O, KC_U, L(KC_QUOTE), KC_DOUBLE_QUOTE, KC_L, KC_D, KC_W, KC_V, KC_Z, LCTL_T(KC_ESC), LGUI_T(KC_C), LALT_T(KC_I), LCTL_T(KC_E), LSFT_T(KC_A), KC_COMMA, KC_DOT, RSFT_T(KC_H), RCTL_T(KC_T), RALT_T(KC_S), RGUI_T(KC_N), L(KC_Q), OSM(MOD_LSFT), KC_G, KC_X, KC_J, KC_K, KC_MINUS, KC_MUTE, KC_F20, KC_SLASH, KC_R, KC_M, KC_F, KC_P, OSM(MOD_RSFT), L(KC_GRAVE), LALT_T(KC_NO), LGUI_T(KC_NO), KC_BACKSPACE, LT(_NUM, KC_TAB), LT(_NAV, KC_ENTER), KC_SPACE, RGUI_T(KC_NO), RALT_T(KC_NO), KC_QUESTION),
+  [_ERMAK] = LAYOUT(L(KC_LEFT_BRACKET), KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_RIGHT_BRACKET, KC_HASH, KC_B, KC_Y, KC_O, KC_U, L(KC_QUOTE), L(KC_RIGHT_PAREN), KC_L, KC_D, KC_W, KC_V, KC_Z, LCTL_T(KC_ESC), LGUI_T(KC_C), LALT_T(KC_I), LCTL_T(KC_E), LSFT_T(KC_A), KC_COMMA, KC_DOT, RSFT_T(KC_H), RCTL_T(KC_T), RALT_T(KC_S), RGUI_T(KC_N), L(KC_Q), OSM(MOD_LSFT), KC_G, KC_X, KC_J, KC_K, KC_MINUS, KC_MUTE, KC_F20, KC_SLASH, KC_R, KC_M, KC_F, KC_P, OSM(MOD_RSFT), L(KC_GRAVE), LALT_T(KC_NO), LGUI_T(KC_NO), KC_BACKSPACE, LT(_NUM, KC_TAB), LT(_NAV, KC_ENTER), KC_SPACE, RGUI_T(KC_NO), RALT_T(KC_NO), KC_QUESTION),
   [_TYPING] = LAYOUT(KC_LEFT_BRACKET, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_B, KC_Y, KC_O, KC_U, KC_QUOTE, _______, KC_L, KC_D, KC_W, KC_V, _______, _______, KC_C, KC_I, KC_E, KC_A, _______, _______, KC_H, KC_T, KC_S, KC_N, _______, KC_LSFT, KC_G, KC_X, KC_J, KC_K, _______, _______, _______, _______, KC_R, KC_M, KC_F, KC_P, KC_RSFT, KC_GRAVE, _______, _______, _______, _______, _______, _______, _______, _______, _______),
   [_DVORAK] = LAYOUT(KC_GRAVE, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_BACKSLASH, KC_EQUAL, LGUI_T(KC_QUOTE), LALT_T(KC_COMMA), LCTL_T(KC_DOT), LSFT_T(KC_P), KC_Y, KC_F, RSFT_T(KC_G), RCTL_T(KC_C), RALT_T(KC_R), RGUI_T(KC_L), KC_SLASH, _______, KC_A, KC_O, KC_E, KC_U, KC_I, KC_D, KC_H, KC_T, KC_N, KC_S, KC_MINUS, _______, KC_SEMICOLON, KC_Q, KC_J, KC_K, KC_X, _______, DF(_ERMAK), KC_B, KC_M, KC_W, KC_V, KC_Z, _______, KC_LEFT_BRACKET, _______, _______, _______, _______, _______, _______, _______, _______, KC_RIGHT_BRACKET),
   [_QWERTY] = LAYOUT(KC_GRAVE, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_BACKSLASH, KC_EQUAL, LGUI_T(KC_Q), LALT_T(KC_W), LCTL_T(KC_E), LSFT_T(KC_R), KC_T, KC_Y, RSFT_T(KC_U), RCTL_T(KC_I), RALT_T(KC_O), RGUI_T(KC_P), KC_MINUS, _______, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SEMICOLON, KC_QUOTE, _______, KC_Z, KC_X, KC_C, KC_V, KC_B, _______, _______, KC_N, KC_M, KC_COMMA, KC_DOT, KC_SLASH, _______, KC_LEFT_BRACKET, _______, _______, _______, _______, _______, _______, _______, _______, KC_RIGHT_BRACKET),
@@ -149,15 +149,42 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         tap_code16(KC_LEFT);
       }
       return false;
+    case L(KC_RIGHT_PAREN):
+      // TODO: clean up. Using `l[)]` sucks, and so does manually custom shifting
+      if (!record->event.pressed) return false;
+      if (record->tap.count) {
+        if (get_mods() & MOD_MASK_SHIFT) {
+          tap_code16(KC_RIGHT_PAREN);
+        } else {
+          tap_code16(KC_DOUBLE_QUOTE);
+        }
+      } else {
+        if (get_mods() & MOD_MASK_SHIFT) {
+          tap_code16(KC_RIGHT_PAREN);
+        } else {
+          tap_code16(KC_DOUBLE_QUOTE);
+          tap_code16(KC_DOUBLE_QUOTE);
+          del_mods(MOD_MASK_SHIFT);
+          tap_code16(KC_LEFT);
+        }
+      }
+      return false;
     case L(KC_QUOTE):
       if (!record->event.pressed) return false;
       if (record->tap.count) {
           tap_code16(KC_QUOTE);
       } else {
-        tap_code16(KC_QUOTE);
-        tap_code16(KC_QUOTE);
-        del_mods(MOD_MASK_SHIFT);
-        tap_code16(KC_LEFT);
+        if (get_mods() & MOD_MASK_SHIFT) {
+          tap_code16(KC_LEFT_PAREN);
+          tap_code16(KC_RIGHT_PAREN);
+          del_mods(MOD_MASK_SHIFT);
+          tap_code16(KC_LEFT);
+        } else {
+          tap_code16(KC_QUOTE);
+          tap_code16(KC_QUOTE);
+          del_mods(MOD_MASK_SHIFT);
+          tap_code16(KC_LEFT);
+        }
       }
       return false;
     case L(KC_GRAVE):
