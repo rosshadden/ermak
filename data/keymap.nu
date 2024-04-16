@@ -2,7 +2,9 @@ let keymap = {
 	XX: XXXXXXX
 	__: _______
 	││: null
+
 	base: BASE
+	dq: DQ
 
 	kp*: KC_KP_ASTERISK
 	kp+: KC_KP_PLUS

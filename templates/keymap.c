@@ -12,6 +12,7 @@
 
 #define BASE DF(_ERMAK)
 #define L(kc) LT(0, kc)
+#define DQ KC_RIGHT_PAREN
 
 enum sofle_layers {
   {% for layer in layers -%}
@@ -130,7 +131,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         tap_code16(KC_LEFT);
       }
       return false;
-    case L(KC_RIGHT_PAREN):
+    case L(DQ):
       // TODO: clean up. Using `l[)]` sucks, and so does manually custom shifting
       if (!record->event.pressed) return false;
       if (record->tap.count) {
