@@ -10,6 +10,7 @@
 #include "features/layer_lock.h"
 #include "features/select_word.h"
 
+#define BASE DF(_ERMAK)
 #define L(kc) LT(0, kc)
 
 enum sofle_layers {
@@ -108,8 +109,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       break;
 
     // layers
-    case LT(_NUM, DF(_ERMAK)):
-    case LT(_NAV, DF(_ERMAK)):
+    case LT(_NUM, BASE):
+    case LT(_NAV, BASE):
       if (record->event.pressed && record->tap.count) {
         default_layer_set(_ERMAK);
         layer_move(_ERMAK);
@@ -273,9 +274,9 @@ uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
     case LGUI_T(KC_NO):
     case RGUI_T(KC_NO):
     case LCTL_T(KC_ESC):
-    case LT(_NAV, DF(_ERMAK)):
+    case LT(_NAV, BASE):
     case LT(_NAV, KC_ENTER):
-    case LT(_NUM, DF(_ERMAK)):
+    case LT(_NUM, BASE):
     case LT(_NUM, KC_TAB):
       return 0;
   }
@@ -346,7 +347,7 @@ bool oled_task_user(void) {
 #if defined(ENCODER_MAP_ENABLE)
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
   [_ERMAK]  = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(XXXXXXX, DF(_DVORAK)) },
-  [_DVORAK] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(DF(_ERMAK), DF(_QWERTY)) },
+  [_DVORAK] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(BASE, DF(_QWERTY)) },
   [_QWERTY] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(DF(_DVORAK), XXXXXXX) },
 
   [_GAMING] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },

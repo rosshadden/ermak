@@ -11,7 +11,7 @@
 			keys: [
 				XX         XX XX XX XX XX ││ ││ ││ XX XX XX XX XX XX
 				XX         XX XX XX XX XX ││ ││ ││ XX XX XX XX XX XX
-				__         XX XX XX XX XX ││ ││ ││ XX XX XX XX XX XX
+				base       XX XX XX XX XX ││ ││ ││ XX XX XX XX XX XX
 				lsft[lock] XX XX XX XX XX __ ││ __ XX XX XX XX XX rsft[lock]
 				││         ││ XX __ __ __ __ ││ __ __ __ __ XX ││ ││
 			]
@@ -22,7 +22,7 @@
 			keys: [
 				__         __ __ __ __ __ ││ ││ ││ __ __ __ __ __ __
 				__         __ __ __ __ __ ││ ││ ││ __ __ __ __ __ __
-				__         __ __ __ __ __ ││ ││ ││ __ __ __ __ __ __
+				base       __ __ __ __ __ ││ ││ ││ __ __ __ __ __ __
 				lsft[lock] __ __ __ __ __ __ ││ __ __ __ __ __ __ rsft[lock]
 				││         ││ __ __ __ __ __ ││ __ __ __ __ __ ││ ││
 			]
@@ -60,11 +60,11 @@
 		{
 			name: dvorak
 			keys: [
-				'`' __        __      __      __      __ ││ ││ ││         __ __      __      __      __      \
-				=   "lgui[']" lalt[,] lctl[.] lsft[p] y  ││ ││ ││         f  rsft[g] rctl[c] ralt[r] rgui[l] /
-				__  a         o       e       u       i  ││ ││ ││         d  h       t       n       s       -
-				__  ';'       q       j       k       x  __ ││ df[_ermak] b  m       w       v       z       __
-				││  ││        '['     __      __      __ __ ││ __         __ __      __      ']'     ││      ││
+				'`' __        __      __      __      __ ││ ││ ││   __ __      __      __      __      \
+				=   "lgui[']" lalt[,] lctl[.] lsft[p] y  ││ ││ ││   f  rsft[g] rctl[c] ralt[r] rgui[l] /
+				__  a         o       e       u       i  ││ ││ ││   d  h       t       n       s       -
+				__  ';'       q       j       k       x  __ ││ base b  m       w       v       z       __
+				││  ││        '['     __      __      __ __ ││ __   __ __      __      ']'     ││      ││
 			]
 		}
 
@@ -93,22 +93,22 @@
 		{
 			name: num
 			keys: [
-				XX         XX XX   XX  XX  &   ││ ││ ││                  ';'  XX  XX  kp= @   num
-				XX         !  '['  ']' '#' '`' ││ ││ ││                  ':'  kp7 kp8 kp9 %   XX
-				capw       ^  '('  ')' '$' '|' ││ ││ ││                  kp-  kp4 kp5 kp6 kp+ '_'
-				lsft[lock] <  '{'  '}' >   ~   __ ││ __                  kp*  kp1 kp2 kp3 kp/ rsft[lock]
-				││         ││ boot __  __  __  __ ││ lt[_nav,df[_ermak]] rspc kp0 kp. ',' ││  ││
+				XX         XX XX   XX  XX  &   ││ ││ ││            ';'  XX  XX  kp= @   num
+				XX         !  '['  ']' '#' '`' ││ ││ ││            ':'  kp7 kp8 kp9 %   XX
+				capw       ^  '('  ')' '$' '|' ││ ││ ││            kp-  kp4 kp5 kp6 kp+ '_'
+				lsft[lock] <  '{'  '}' >   ~   __ ││ __            kp*  kp1 kp2 kp3 kp/ rsft[lock]
+				││         ││ boot __  __  __  __ ││ lt[_nav,base] rspc kp0 kp. ',' ││  ││
 			]
 		}
 
 		{
 			name: nav
 			keys: [
-				XX         macl0 macl1 macl2 XX     XX   ││                  ││ ││ XX   XX   btn3 XX    XX  menu
-				XX         btn3  mwl   mup   mwr    btn3 ││                  ││ ││ XX   btn1 up   btn2  XX  pgup
-				__         btn1  mleft mdown mright btn1 ││                  ││ ││ home left down right end pgdn
-				lsft[lock] btn2  __    mwd   mwu    btn2 __                  ││ __ XX   sel  undo again XX  rsft[lock]
-				││         ││    btn3  btn2  btn1   del  lt[_num,df[_ermak]] ││ __ __   __   __   XX    ││  ││
+				XX         macl0 macl1 macl2 XX     XX   ││            ││ ││ XX   XX   btn3 XX    XX  menu
+				XX         btn3  mwl   mup   mwr    btn3 ││            ││ ││ XX   btn1 up   btn2  XX  pgup
+				__         btn1  mleft mdown mright btn1 ││            ││ ││ home left down right end pgdn
+				lsft[lock] btn2  __    mwd   mwu    btn2 __            ││ __ XX   sel  undo again XX  rsft[lock]
+				││         ││    btn3  btn2  btn1   del  lt[_num,base] ││ __ __   __   __   XX    ││  ││
 			]
 		}
 
@@ -117,7 +117,7 @@
 			keys: [
 				XX         XX   XX XX   XX   XX ││ ││ ││ XX   XX   XX   XX   XX   XX
 				XX         rwnd XX XX   XX   XX ││ ││ ││ XX   next XX   XX   XX   XX
-				__         XX   XX XX   XX   XX ││ ││ ││ XX   prev XX   stop next XX
+				base       XX   XX XX   XX   XX ││ ││ ││ XX   prev XX   stop next XX
 				lsft[lock] XX   XX vold volu XX __ ││ __ XX   XX   mute ffwd prev rsft[lock]
 				││         ││   XX __   __   __ __ ││ __ play __   __   XX   ││   ││
 			]
@@ -128,7 +128,7 @@
 			keys: [
 				XX         XX XX   XX   XX   XX ││ ││ ││ XX XX XX XX   XX  XX
 				XX         XX pscr XX   XX   XX ││ ││ ││ XX XX XX wake XX  XX
-				__         XX XX   XX   XX   XX ││ ││ ││ XX XX XX slep XX  XX
+				base       XX XX   XX   XX   XX ││ ││ ││ XX XX XX slep XX  XX
 				lsft[lock] XX XX   brid briu XX __ ││ __ XX XX XX XX   pwr rsft[lock]
 				││         ││ XX   __   __   __ __ ││ __ __ __ __ XX   ││  ││
 			]
@@ -138,8 +138,8 @@
 			name: layers
 			keys: [
 				f12        f1          f2 f3         f4 f5      ││ ││ ││ f6        f7 f8          f9       f10 f11
-				eh_left    XX          XX XX         XX dt_up   ││ ││ ││ XX        XX df[_dvorak] XX       XX  eh_rght
-				__         XX          XX df[_ermak] XX dt_prnt ││ ││ ││ XX        XX df[_typing] df[_sys] XX  df[_qwerty]
+				eh_left    base        XX XX         XX dt_up   ││ ││ ││ XX        XX df[_dvorak] XX       XX  eh_rght
+				caps       base        XX df[_ermak] XX dt_prnt ││ ││ ││ XX        XX df[_typing] df[_sys] XX  df[_qwerty]
 				lsft[lock] df[_gaming] XX df[_melee] XX dt_down __ ││ __ XX        XX df[_media]  XX       XX  rsft[lock]
 				││         ││          XX __         __ __      __ ││ __ df[_meta] __ __          XX       ││  ││
 			]
@@ -150,7 +150,7 @@
 			keys: [
 				XX         XX    XX XX     XX XX ││ ││ ││ XX XX     XX   XX XX XX
 				XX         XX    XX XX     XX XX ││ ││ ││ XX XX     XX   XX XX XX
-				__         clear XX eeprom XX XX ││ ││ ││ XX XX     XX   XX XX XX
+				base       clear XX eeprom XX XX ││ ││ ││ XX XX     XX   XX XX XX
 				lsft[lock] XX    XX XX     XX XX __ ││ __ XX reboot make XX XX rsft[lock]
 				││         ││    XX __     __ __ __ ││ __ __ __     __   XX ││ ││
 			]
