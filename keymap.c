@@ -40,7 +40,7 @@ enum custom_keycodes {
 
 const custom_shift_key_t custom_shift_keys[] = {
   { KC_0, KC_ASTERISK },
-  { KC_1, KC_PIPE },
+  { KC_1, KC_BACKSLASH },
   { KC_2, KC_EQUAL },
   { KC_3, KC_TILDE },
   { KC_4, KC_PLUS },
@@ -56,7 +56,7 @@ const custom_shift_key_t custom_shift_keys[] = {
   { L(DQ), KC_RIGHT_PAREN },
   { L(KC_GRAVE), KC_AT },
   { L(KC_QUOTE), KC_LEFT_PAREN },
-  { L(KC_SLASH), KC_BACKSLASH },
+  { L(KC_SLASH), KC_PIPE },
 };
 uint8_t NUM_CUSTOM_SHIFT_KEYS = sizeof(custom_shift_keys) / sizeof(custom_shift_key_t);
 
@@ -185,8 +185,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case L(KC_SLASH):
       if (!record->event.pressed || record->tap.count) return true;
       if (get_mods() & MOD_MASK_SHIFT) {
-        tap_code16(KC_BACKSLASH);
-        tap_code16(KC_BACKSLASH);
+        tap_code16(KC_PIPE);
+        tap_code16(KC_PIPE);
         del_mods(MOD_MASK_SHIFT);
         tap_code16(KC_LEFT);
       } else {
