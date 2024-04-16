@@ -40,7 +40,7 @@
 				#'#'           lgui[b] lalt[y] lctl[o]  lsft[u]  "l[']" ││           ││ ││             '"'   rsft[l]  rctl[d]  ralt[w] rgui[v] z
 				#lctl[esc]     c       i       e        a        ','    ││           ││ ││             .     h        t        s       n       l[q]
 				lctl[esc]      lgui[c] lalt[i] lctl[e]  lsft[a]  ','    ││           ││ ││             .     rsft[h]  rctl[t]  ralt[s] rgui[n] l[q]
-				osm[mod_lsft]  g       x       j        k        -      mute         ││ mic            /     r        m        f       p       osm[mod_rsft]
+				osm[mod_lsft]  g       x       j        k        l[-]   mute         ││ mic            l[/]  r        m        f       p       osm[mod_rsft]
 				#osm[mod_lsft] lgui[g] lalt[x] lctl[j]  lsft[k]  -      mute         ││ mic            /     rsft[r]  rctl[m]  ralt[f] rgui[p] osm[mod_rsft]
 				││             ││      "l[`]"  lalt[no] lgui[no] back   lt[_num,tab] ││ lt[_nav,enter] space rgui[no] ralt[no] ?       ││      ││
 			]

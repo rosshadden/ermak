@@ -41,12 +41,12 @@ const custom_shift_key_t custom_shift_keys[] = {
   { KC_9, KC_PERCENT },
   { KC_COMMA, KC_SEMICOLON },
   { KC_DOT, KC_COLON },
-  { KC_DOUBLE_QUOTE, KC_RIGHT_PAREN },
   { KC_HASH, KC_DOLLAR },
   { KC_QUESTION, KC_EXCLAIM },
-  { KC_SLASH, KC_BACKSLASH },
+  { L(DQ), KC_RIGHT_PAREN },
   { L(KC_GRAVE), KC_AT },
   { L(KC_QUOTE), KC_LEFT_PAREN },
+  { L(KC_SLASH), KC_BACKSLASH },
 };
 uint8_t NUM_CUSTOM_SHIFT_KEYS = sizeof(custom_shift_keys) / sizeof(custom_shift_key_t);
 
@@ -121,22 +121,67 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     // lingers
     case L(KC_LEFT_BRACKET):
-      if (!record->event.pressed) return false;
-      if (record->tap.count) {
-        tap_code16(KC_LEFT_BRACKET);
+      if (!record->event.pressed || record->tap.count) return true;
+      tap_code16(KC_LEFT_BRACKET);
+      tap_code16(KC_RIGHT_BRACKET);
+      del_mods(MOD_MASK_SHIFT);
+      tap_code16(KC_LEFT);
+      return false;
+    case L(KC_QUOTE):
+      if (!record->event.pressed || record->tap.count) return true;
+      if (get_mods() & MOD_MASK_SHIFT) {
+        tap_code16(KC_LEFT_PAREN);
+        tap_code16(KC_RIGHT_PAREN);
+        del_mods(MOD_MASK_SHIFT);
+        tap_code16(KC_LEFT);
       } else {
-        tap_code16(KC_LEFT_BRACKET);
-        tap_code16(KC_RIGHT_BRACKET);
+        tap_code16(KC_QUOTE);
+        tap_code16(KC_QUOTE);
+        del_mods(MOD_MASK_SHIFT);
+        tap_code16(KC_LEFT);
+      }
+      return false;
+    case L(KC_GRAVE):
+      if (!record->event.pressed || record->tap.count) return true;
+      tap_code16(KC_GRAVE);
+      tap_code16(KC_GRAVE);
+      del_mods(MOD_MASK_SHIFT);
+      tap_code16(KC_LEFT);
+      return true;
+    case L(KC_MINUS):
+      if (!record->event.pressed || record->tap.count) return true;
+      if (get_mods() & MOD_MASK_SHIFT) {
+        tap_code16(KC_UNDERSCORE);
+        tap_code16(KC_UNDERSCORE);
+        del_mods(MOD_MASK_SHIFT);
+        tap_code16(KC_LEFT);
+      } else {
+        tap_code16(KC_MINUS);
+        tap_code16(KC_MINUS);
+        del_mods(MOD_MASK_SHIFT);
+        tap_code16(KC_LEFT);
+      }
+      return false;
+    case L(KC_SLASH):
+      if (!record->event.pressed || record->tap.count) return true;
+      if (get_mods() & MOD_MASK_SHIFT) {
+        tap_code16(KC_BACKSLASH);
+        tap_code16(KC_BACKSLASH);
+        del_mods(MOD_MASK_SHIFT);
+        tap_code16(KC_LEFT);
+      } else {
+        tap_code16(KC_SLASH);
+        tap_code16(KC_SLASH);
         del_mods(MOD_MASK_SHIFT);
         tap_code16(KC_LEFT);
       }
       return false;
     case L(DQ):
       // TODO: clean up. Using `l[)]` sucks, and so does manually custom shifting
-      if (!record->event.pressed) return false;
+      if (!record->event.pressed) return true;
       if (record->tap.count) {
         if (get_mods() & MOD_MASK_SHIFT) {
-          tap_code16(KC_RIGHT_PAREN);
+          return true;
         } else {
           tap_code16(KC_DOUBLE_QUOTE);
         }
@@ -149,40 +194,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           del_mods(MOD_MASK_SHIFT);
           tap_code16(KC_LEFT);
         }
-      }
-      return false;
-    case L(KC_QUOTE):
-      if (!record->event.pressed) return false;
-      if (record->tap.count) {
-          tap_code16(KC_QUOTE);
-      } else {
-        if (get_mods() & MOD_MASK_SHIFT) {
-          tap_code16(KC_LEFT_PAREN);
-          tap_code16(KC_RIGHT_PAREN);
-          del_mods(MOD_MASK_SHIFT);
-          tap_code16(KC_LEFT);
-        } else {
-          tap_code16(KC_QUOTE);
-          tap_code16(KC_QUOTE);
-          del_mods(MOD_MASK_SHIFT);
-          tap_code16(KC_LEFT);
-        }
-      }
-      return false;
-    case L(KC_GRAVE):
-      if (!record->event.pressed) return false;
-      if (record->tap.count) {
-        tap_code16(KC_GRAVE);
-      } else {
-        tap_code16(KC_GRAVE);
-        tap_code16(KC_GRAVE);
-        del_mods(MOD_MASK_SHIFT);
-        tap_code16(KC_LEFT);
-        return true;
       }
       return false;
     case L(KC_Q):
-      if (!record->event.pressed) return false;
+      if (!record->event.pressed) return true;
       if (is_caps_word_on()) add_weak_mods(MOD_MASK_SHIFT);
       tap_code16(KC_Q);
       if (!record->tap.count) {
