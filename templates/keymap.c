@@ -22,13 +22,13 @@ enum sofle_layers {
 
 enum custom_keycodes {
   PG_LOCK = SAFE_RANGE, PG_SEL,
-  {% for kc in custom.mapped.keycodes -%}
+  {% for kc in keycodes_ -%}
     {{kc}},
   {% endfor %}
 };
 
 const custom_shift_key_t custom_shift_keys[] = {
-  {% for key in custom.mapped.shifts -%}
+  {% for key in shifts_ -%}
     { {{key.low}}, {{key.high}} },
   {% endfor %}
 };
@@ -347,7 +347,7 @@ bool oled_task_user(void) {
 #if defined(ENCODER_MAP_ENABLE)
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
   {% for layer in layers -%}
-  [{{layer.id}}] = { ENCODER_CCW_CW({{layer.encoders.mapped.left.0}}, {{layer.encoders.mapped.left.1}}), ENCODER_CCW_CW({{layer.encoders.mapped.right.0}}, {{layer.encoders.mapped.right.1}}) },
+    [{{layer.id}}] = { ENCODER_CCW_CW({{layer.encoders_.left.0}}, {{layer.encoders_.left.1}}), ENCODER_CCW_CW({{layer.encoders_.right.0}}, {{layer.encoders_.right.1}}) },
   {% endfor %}
 };
 #endif

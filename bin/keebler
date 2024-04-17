@@ -40,44 +40,32 @@ def map_all [
 }
 
 # Process all layers and keys into QMK keycodes.
-def "build codes" [ctx: record] {
-	$ctx | upsert layers (
-		$ctx.layers
-		| each {|layer|
-			$layer
-			| upsert codes ($layer.keys | compact | map_all)
-			| upsert encoders.mapped {
-				left: ($layer | get -i encoders.left | default [ "__", "__" ] | map_all)
-				right: ($layer | get -i encoders.right | default [ "__", "__" ] |map_all)
-			}
-		}
-	)
-}
-
-# Generate QMK code for each layer.
-def "build keymaps" [ctx: record] {
+def "build layers" [ctx: record] {
 	$ctx | upsert layers (
 		$ctx.layers
 		| each {|layer|
 			$layer
 			| upsert id $"_($layer.name | str upcase)"
-			| upsert keymap ($layer.codes | str join ", " | $"LAYOUT\(($in))")
+			| upsert keys_ ($layer.keys | compact | map_all)
+			| upsert encoders_ {
+				left: ($layer | get -i encoders.left | default [ "__", "__" ] | map_all)
+				right: ($layer | get -i encoders.right | default [ "__", "__" ] | map_all)
+			}
+			| upsert keymap ($in.keys_ | str join ", " | $"LAYOUT\(($in))")
 		}
 	)
 }
 
-# Generate custom transformations.
-def "build custom" [ctx: record] {
-	let custom = $ctx.custom
-	$ctx | upsert custom.mapped {
-		keycodes: ($custom.keycodes | map_all)
-		shifts: (
-			$custom.shifts
-			| items {|low, high|
-				{ low: ($low | map), high: ($high | map) }
-			}
-		)
-	}
+# Generate extra transformations.
+def "build extra" [ctx: record] {
+	$ctx
+	| upsert keycodes_ ($ctx.keycodes | map_all)
+	| upsert shifts_ (
+		$ctx.shifts
+		| items {|low, high|
+			{ low: ($low | map), high: ($high | map) }
+		}
+	)
 }
 
 # Generate QMK file.
@@ -91,9 +79,8 @@ def "build qmk" [ctx: record] {
 # Transform data.
 def transform [] {
 	open data/keebler.nuon
-	| build codes $in
-	| build keymaps $in
-	| build custom $in
+	| build layers $in
+	| build extra $in
 }
 
 ##
