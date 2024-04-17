@@ -22,9 +22,7 @@ def map [
 		| get 0
 		| values
 		| if ($in | is-empty) { [ ',' ] } else {}
-		| each {
-			map
-		}
+		| each { map }
 		| str join ", "
     $"($fn)\(($args))"
 	} else if ($fn or ($key | str contains '_')) {
@@ -36,41 +34,35 @@ def map [
 
 # Process all layers and keys into QMK keycodes.
 def "build codes" [ctx: record] {
-	let layers = $ctx
-	| get layers
-	| each {|layer|
-		let codes = get keys
-		| compact
-		| each {|key|
-			into string
-			| map
+	$ctx | upsert layers (
+		$ctx.layers
+		| each {|layer|
+			$layer | upsert codes (
+				$layer.keys
+				| compact
+				| each { into string | map }
+			)
 		}
-
-		$layer | upsert codes $codes
-	}
-	$ctx | upsert layers $layers
+	)
 }
 
 # Generate QMK code for each layer.
 def "build keymaps" [ctx: record] {
-	$ctx | upsert layers ($ctx
-		| get layers
+	$ctx | upsert layers (
+		$ctx.layers
 		| each {|layer|
-			let keymap = $layer.codes
-			| str join ", "
-			| $"LAYOUT\(($in))"
-
 			$layer
 			| upsert id $"_($layer.name | str upcase)"
-			| upsert keymap $keymap
-		})
+			| upsert keymap ($layer.codes | str join ", " | $"LAYOUT\(($in))")
+		}
+	)
 }
 
 # Generate custom transformations.
 def "build custom" [ctx: record] {
 	let custom = $ctx.custom
 	$ctx | upsert custom.mapped {
-		keycodes: ($custom.keycodes | each {|kc| map })
+		keycodes: ($custom.keycodes | each { map })
 		shifts: (
 			$custom.shifts
 			| items {|low, high|

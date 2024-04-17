@@ -2,7 +2,7 @@
 	keyboard: sofle_pico
 	firmware: keebler
 	keymap: ermak
-	version: v0.1.0
+	version: v0.2.0
 
 	templates: [
 
@@ -41,6 +41,10 @@
 				osm[mod_lsft] g       x       j        k        l[-]   mute         ││ mic            l[/]  r        m        f       p       osm[mod_rsft]
 				││            ││      "l[`]"  lalt[no] lgui[no] back   lt[_num,tab] ││ lt[_nav,enter] space rgui[no] ralt[no] ?       ││      ││
 			]
+			encoders: {
+				left: [ KC_VOLD, KC_VOLU ]
+				right: [ XXXXXXX, DF[_DVORAK] ]
+			}
 		}
 
 		{
