@@ -2,6 +2,38 @@
 
 source ../data/keymap.nu
 
+# Map a key string into a QMK keycode.
+def map [
+	# in: string # key
+	--fn (-f) # whether key is a function
+] {
+	let key = $in | str trim
+	let parts = $key | parse "{fn}[{args}]" | get -i 0
+
+	if $fn and $"($key)_t" in $keymap {
+		$keymap | get $"($key)_t"
+	} else if $key in $keymap {
+		$keymap | get $key
+	} else if ($parts | is-not-empty) {
+		let fn = $parts.fn | map --fn
+		let args = $parts.args
+		| split column -c ,
+		| str trim
+		| get 0
+		| values
+		| if ($in | is-empty) { [ ',' ] } else {}
+		| each {
+			map
+		}
+		| str join ", "
+    $"($fn)\(($args))"
+	} else if ($fn or ($key | str contains '_')) {
+		$key | str upcase
+	} else {
+		"KC_" ++ $key | str upcase
+	}
+}
+
 # Process all layers and keys into QMK keycodes.
 def "build codes" [ctx: record] {
 	let layers = $ctx
@@ -11,7 +43,7 @@ def "build codes" [ctx: record] {
 		| compact
 		| each {|key|
 			into string
-			| main map
+			| map
 		}
 
 		$layer | upsert codes $codes
@@ -21,26 +53,31 @@ def "build codes" [ctx: record] {
 
 # Generate QMK code for each layer.
 def "build keymaps" [ctx: record] {
-	let layers = $ctx
-	| get layers
-	| each {|layer|
-		let keymap = $layer.codes
-		| str join ", "
-		| $"LAYOUT\(($in))"
+	$ctx | upsert layers ($ctx
+		| get layers
+		| each {|layer|
+			let keymap = $layer.codes
+			| str join ", "
+			| $"LAYOUT\(($in))"
 
-		$layer
-		| upsert id $"_($layer.name | str upcase)"
-		| upsert keymap $keymap
-	}
-	$ctx | upsert layers $layers
+			$layer
+			| upsert id $"_($layer.name | str upcase)"
+			| upsert keymap $keymap
+		})
 }
 
 # Generate custom transformations.
 def "build custom" [ctx: record] {
-	let mapped = {
-		keycodes: ($ctx | get custom.keycodes | each {|kc| main map })
+	let custom = $ctx.custom
+	$ctx | upsert custom.mapped {
+		keycodes: ($custom.keycodes | each {|kc| map })
+		shifts: (
+			$custom.shifts
+			| items {|low, high|
+				{ low: ($low | map), high: ($high | map) }
+			}
+		)
 	}
-	$ctx | upsert custom.mapped $mapped
 }
 
 # Generate QMK file.
@@ -72,31 +109,7 @@ def "main map" [
 	# in: string # key
 	--fn (-f) # whether key is a function
 ] {
-	let key = $in | str trim
-	let parts = $key | parse "{fn}[{args}]" | get -i 0
-
-	if $fn and $"($key)_t" in $keymap {
-		$keymap | get $"($key)_t"
-	} else if $key in $keymap {
-		$keymap | get $key
-	} else if ($parts | is-not-empty) {
-		let fn = $parts.fn | main map --fn
-		let args = $parts.args
-		| split column -c ,
-		| str trim
-		| get 0
-		| values
-		| if ($in | is-empty) { [ ',' ] } else {}
-		| each {
-			main map
-		}
-		| str join ", "
-    $"($fn)\(($args))"
-	} else if ($fn or ($key | str contains '_')) {
-		$key | str upcase
-	} else {
-		"KC_" ++ $key | str upcase
-	}
+	if $fn { map --fn } else { map }
 }
 
 # Generate QMK file.

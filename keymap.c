@@ -56,14 +56,15 @@ const custom_shift_key_t custom_shift_keys[] = {
   { KC_7, KC_CIRCUMFLEX },
   { KC_8, KC_AMPERSAND },
   { KC_9, KC_PERCENT },
+  { L(KC_QUOTE), KC_LEFT_PAREN },
+  { L(KC_GRAVE), KC_AT },
+  { KC_HASH, KC_DOLLAR },
   { KC_COMMA, KC_SEMICOLON },
   { KC_DOT, KC_COLON },
-  { KC_HASH, KC_DOLLAR },
   { KC_QUESTION, KC_EXCLAIM },
-  { L(DQ), KC_RIGHT_PAREN },
-  { L(KC_GRAVE), KC_AT },
-  { L(KC_QUOTE), KC_LEFT_PAREN },
   { L(KC_SLASH), KC_PIPE },
+  { L(DQ), KC_RIGHT_PAREN },
+  
 };
 uint8_t NUM_CUSTOM_SHIFT_KEYS = sizeof(custom_shift_keys) / sizeof(custom_shift_key_t);
 

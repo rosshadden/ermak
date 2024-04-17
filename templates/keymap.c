@@ -16,42 +16,27 @@
 
 enum sofle_layers {
   {% for layer in layers -%}
-    {{ layer.id }},
+    {{layer.id}},
   {% endfor %}
 };
 
 enum custom_keycodes {
   PG_LOCK = SAFE_RANGE, PG_SEL,
   {% for kc in custom.mapped.keycodes -%}
-    {{ kc }},
+    {{kc}},
   {% endfor %}
 };
 
 const custom_shift_key_t custom_shift_keys[] = {
-  { KC_0, KC_ASTERISK },
-  { KC_1, KC_BACKSLASH },
-  { KC_2, KC_EQUAL },
-  { KC_3, KC_TILDE },
-  { KC_4, KC_PLUS },
-  { KC_5, KC_LEFT_ANGLE_BRACKET },
-  { KC_6, KC_RIGHT_ANGLE_BRACKET },
-  { KC_7, KC_CIRCUMFLEX },
-  { KC_8, KC_AMPERSAND },
-  { KC_9, KC_PERCENT },
-  { KC_COMMA, KC_SEMICOLON },
-  { KC_DOT, KC_COLON },
-  { KC_HASH, KC_DOLLAR },
-  { KC_QUESTION, KC_EXCLAIM },
-  { L(DQ), KC_RIGHT_PAREN },
-  { L(KC_GRAVE), KC_AT },
-  { L(KC_QUOTE), KC_LEFT_PAREN },
-  { L(KC_SLASH), KC_PIPE },
+  {% for key in custom.mapped.shifts -%}
+    { {{key.low}}, {{key.high}} },
+  {% endfor %}
 };
 uint8_t NUM_CUSTOM_SHIFT_KEYS = sizeof(custom_shift_keys) / sizeof(custom_shift_key_t);
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   {% for layer in layers -%}
-    [{{ layer.id }}] = {{ layer.keymap }},
+    [{{layer.id}}] = {{layer.keymap}},
   {% endfor %}
 };
 
@@ -319,13 +304,13 @@ static void render_logo(void) {
 }
 
 static void render_status(void) {
-  oled_write_P(PSTR("{{ firmware | capitalize }}\n{{ version }}\n~~~~~~~~~"), false);
+  oled_write_P(PSTR("{{firmware | capitalize}}\n{{version}}\n~~~~~~~~~"), false);
 
   oled_write_P(PSTR("\nLAYER:\n\t"), false);
   switch (get_highest_layer(default_layer_state)) {
     {% for layer in layers -%}
-    case {{ layer.id }}:
-      oled_write_P(PSTR("{{ layer.name }}"), false);
+    case {{layer.id}}:
+      oled_write_P(PSTR("{{layer.name}}"), false);
       break;
     {% endfor -%}
     default:
@@ -336,8 +321,8 @@ static void render_status(void) {
   oled_write_P(PSTR("\nOVERLAY:\n\t"), false);
   switch (get_highest_layer(layer_state)) {
     {% for layer in layers -%}
-    case {{ layer.id }}:
-      oled_write_P(PSTR("{{ layer.name }}"), false);
+    case {{layer.id}}:
+      oled_write_P(PSTR("{{layer.name}}"), false);
       break;
     {% endfor -%}
     default:
