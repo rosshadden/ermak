@@ -35,6 +35,14 @@ def "build keymaps" [ctx: record] {
 	$ctx | upsert layers $layers
 }
 
+# Generate custom transformations.
+def "build custom" [ctx: record] {
+	let mapped = {
+		keycodes: ($ctx | get custom.keycodes | each {|kc| main map })
+	}
+	$ctx | upsert custom.mapped $mapped
+}
+
 # Generate QMK file.
 def "build qmk" [ctx: record] {
 	$ctx
@@ -43,10 +51,19 @@ def "build qmk" [ctx: record] {
 	| save --force ./keymap.c
 }
 
-def main [] {
+# Transform data.
+def transform [] {
 	open data/keebler.nuon
 	| build codes $in
 	| build keymaps $in
+	| build custom $in
+}
+
+##
+
+# Transform data into json.
+def main [] {
+	transform
 	| to json
 }
 
@@ -84,9 +101,7 @@ def "main map" [
 
 # Generate QMK file.
 def "main build" [] {
-	open data/keebler.nuon
-	| build codes $in
-	| build keymaps $in
+	transform
 	| build qmk $in
 }
 

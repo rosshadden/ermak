@@ -21,11 +21,10 @@ enum sofle_layers {
 };
 
 enum custom_keycodes {
-  PG_LOCK = SAFE_RANGE,
-  PG_SEL,
-  KC_JUP, KC_JDOWN, KC_JLEFT, KC_JRIGHT, KC_JMOD,
-  KC_CUP, KC_CDOWN, KC_CLEFT, KC_CRIGHT,
-  KC_RSPC,
+  PG_LOCK = SAFE_RANGE, PG_SEL,
+  {% for kc in custom.mapped.keycodes -%}
+    {{ kc }},
+  {% endfor %}
 };
 
 const custom_shift_key_t custom_shift_keys[] = {

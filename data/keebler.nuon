@@ -165,4 +165,12 @@
 		}
 
 	]
+
+	custom: {
+		keycodes: [
+			rspc
+			jup jdown jleft jright jmod
+			cup cdown cleft cright
+		]
+	}
 }
