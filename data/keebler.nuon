@@ -42,8 +42,8 @@
 				││            ││      "l[`]"  lalt[no] lgui[no] back   lt[_num,tab] ││ lt[_nav,enter] space rgui[no] ralt[no] ?       ││      ││
 			]
 			encoders: {
-				left: [ KC_VOLD, KC_VOLU ]
-				right: [ XXXXXXX, DF[_DVORAK] ]
+				left: [ vold, volu ]
+				right: [ XX, df[_dvorak] ]
 			}
 		}
 
@@ -67,6 +67,9 @@
 				__  ';'       q       j       k       x  __ ││ base b  m       w       v       z       __
 				││  ││        '['     __      __      __ __ ││ __   __ __      __      ']'     ││      ││
 			]
+			encoders: {
+				right: [ base, df[_qwerty] ]
+			}
 		}
 
 		{
@@ -78,6 +81,9 @@
 				__  z       x       c       v       b  __ ││ __ n  m       ','     .       /       __
 				││  ││      '['     __      __      __ __ ││ __ __ __      __      ']'     ││      ││
 			]
+			encoders: {
+				right: [ df[_dvorak], XX ]
+			}
 		}
 
 		{

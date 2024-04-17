@@ -452,18 +452,19 @@ bool oled_task_user(void) {
 
 #if defined(ENCODER_MAP_ENABLE)
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
-  [_ERMAK]  = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(XXXXXXX, DF(_DVORAK)) },
+  [_ERMAK] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(XXXXXXX, DF(_DVORAK)) },
+  [_TYPING] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
   [_DVORAK] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(BASE, DF(_QWERTY)) },
   [_QWERTY] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(DF(_DVORAK), XXXXXXX) },
-
   [_GAMING] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
+  [_NUM] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
+  [_NAV] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
+  [_MEDIA] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
+  [_SYS] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
   [_LAYERS] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
-  [_MEDIA]  = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
-  [_MELEE]  = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
-  [_NAV]    = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
-  [_NUM]    = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
-  [_SYS]    = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
-  [_TYPING] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
+  [_META] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
+  [_MELEE] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
+  
 };
 #endif
 

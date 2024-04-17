@@ -22,7 +22,7 @@ def map [
 		| get 0
 		| values
 		| if ($in | is-empty) { [ ',' ] } else {}
-		| each { map }
+		| map_all
 		| str join ", "
     $"($fn)\(($args))"
 	} else if ($fn or ($key | str contains '_')) {
@@ -32,16 +32,24 @@ def map [
 	}
 }
 
+# Map all keys in a list.
+def map_all [
+	# in: list[string] # keys
+] {
+	each { into string | map }
+}
+
 # Process all layers and keys into QMK keycodes.
 def "build codes" [ctx: record] {
 	$ctx | upsert layers (
 		$ctx.layers
 		| each {|layer|
-			$layer | upsert codes (
-				$layer.keys
-				| compact
-				| each { into string | map }
-			)
+			$layer
+			| upsert codes ($layer.keys | compact | map_all)
+			| upsert encoders.mapped {
+				left: ($layer | get -i encoders.left | default [ "__", "__" ] | map_all)
+				right: ($layer | get -i encoders.right | default [ "__", "__" ] |map_all)
+			}
 		}
 	)
 }
@@ -62,7 +70,7 @@ def "build keymaps" [ctx: record] {
 def "build custom" [ctx: record] {
 	let custom = $ctx.custom
 	$ctx | upsert custom.mapped {
-		keycodes: ($custom.keycodes | each { map })
+		keycodes: ($custom.keycodes | map_all)
 		shifts: (
 			$custom.shifts
 			| items {|low, high|
