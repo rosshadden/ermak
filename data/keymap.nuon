@@ -1,4 +1,4 @@
-let keymap = {
+{
 	XX: XXXXXXX
 	__: _______
 	││: null
