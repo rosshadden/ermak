@@ -29,7 +29,7 @@ enum custom_keycodes {
 
 const custom_shift_key_t custom_shift_keys[] = {
   {% for key in shifts_ -%}
-    { {{key.low}}, {{key.high}} },
+    { {{key.key}}, {{key.value}} },
   {% endfor %}
 };
 uint8_t NUM_CUSTOM_SHIFT_KEYS = sizeof(custom_shift_keys) / sizeof(custom_shift_key_t);
@@ -247,18 +247,11 @@ void matrix_scan_user(void) {
 
 bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record, uint16_t other_keycode, keyrecord_t* other_record) {
   switch (tap_hold_keycode) {
-    case LALT_T(KC_I):
-      if (other_keycode == LGUI_T(KC_C) || other_keycode == LSFT_T(KC_A) || other_keycode == KC_J || other_keycode == KC_K) return true;
+  {%- for chord in achordion_ %}
+    case {{chord.key}}:
+      if (other_keycode == {{chord.value | join(sep=" || other_keycode == ")}}) return true;
       break;
-    case LCTL_T(KC_E):
-      if (other_keycode == KC_U || other_keycode == LGUI_T(KC_C)) return true;
-      break;
-    case RCTL_T(KC_T):
-      if (other_keycode == KC_R || other_keycode == KC_W) return true;
-      break;
-    case RGUI_T(KC_N):
-      if (other_keycode == RSFT_T(KC_H) || other_keycode == KC_L || other_keycode == KC_W || other_keycode == KC_P || other_keycode == KC_F) return true;
-      break;
+  {%- endfor %}
   }
 
   const uint8_t row = other_record->event.key.row % (MATRIX_ROWS / 2);

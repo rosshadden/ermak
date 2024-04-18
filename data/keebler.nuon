@@ -58,6 +58,13 @@
 		l[dq]: ')'
 	}
 
+	achordion: {
+		lalt[i]: [ lgui[c] lsft[a] j k ]
+		lctl[e]: [ lgui[c] u ]
+		rctl[t]: [ r w ]
+		rgui[n]: [ rsft[h] l w p f ]
+	}
+
 	layers: [
 
 		{
@@ -203,12 +210,5 @@
 		}
 
 	]
-
-	achordion: {
-		lalt[i]: [ lgui[c] lsft[a] j k ]
-		lctl[e]: [ lgui[c] u ]
-		rctl[t]: [ r w ]
-		rgui[n]: [ rsft[h] l w p f ]
-	}
 
 }

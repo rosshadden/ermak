@@ -80,12 +80,8 @@ def "build layers" [ctx: record] {
 def "build extra" [ctx: record] {
 	$ctx
 	| upsert keycodes_ ($ctx.keycodes | map)
-	| upsert shifts_ (
-		$ctx.shifts
-		| items {|low, high|
-			{ low: ($low | map), high: ($high | map) }
-		}
-	)
+	| upsert achordion_ ($ctx.achordion | map)
+	| upsert shifts_ ($ctx.shifts | map)
 }
 
 # Generate QMK file.
