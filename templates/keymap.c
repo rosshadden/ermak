@@ -302,8 +302,8 @@ static void render_logo(void) {
 }
 
 static void render_status(void) {
-  oled_write_P(PSTR(" {{firmware | capitalize}} \n {{version}}  "), true);
-  oled_write_P(PSTR("\n~~~~~~~~~\n"), false);
+  oled_write_P(PSTR(" {{firmware | capitalize}}   {{version}}   "), true);
+  oled_write_P(PSTR("~~~~~~~~~~"), false);
 
   led_t led_state = host_keyboard_led_state();
   oled_write_P(led_state.num_lock ? PSTR("NUM ") : PSTR("    "), false);
