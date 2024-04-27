@@ -135,10 +135,10 @@
 		{
 			name: num
 			keys: [
-				XX         XX XX   XX  XX  &   ││ ││ ││            ';'  XX  XX  kp= @   num
-				XX         !  '['  ']' '#' '`' ││ ││ ││            ':'  kp7 kp8 kp9 %   XX
-				capw       ^  '('  ')' '$' '|' ││ ││ ││            kp-  kp4 kp5 kp6 kp+ '_'
-				lsft[lock] <  '{'  '}' >   ~   __ ││ __            kp*  kp1 kp2 kp3 kp/ rsft[lock]
+				XX         XX <    >   XX  &   ││ ││ ││            ';'  XX  XX  kp= @   num
+				XX         !  '#'  '{' '}' '`' ││ ││ ││            ':'  kp7 kp8 kp9 %   XX
+				capw       ^  '|'  '[' ']' '$' ││ ││ ││            kp-  kp4 kp5 kp6 kp+ '_'
+				lsft[lock] XX XX   '(' ')' ~   __ ││ __            kp*  kp1 kp2 kp3 kp/ rsft[lock]
 				││         ││ boot __  __  __  __ ││ lt[_nav,base] rspc kp0 kp. ',' ││  ││
 			]
 		}
