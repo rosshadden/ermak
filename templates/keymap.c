@@ -294,11 +294,11 @@ static void render_logo(void) {
   };
   oled_write_raw_P(qmk_logo, sizeof(qmk_logo));
 
-  static const char PROGMEM tux[] = {
-    153,154,10,
-    185,186,0,
-  };
-  oled_write_P(tux, false);
+  // static const char PROGMEM tux[] = {
+  //   153,154,10,
+  //   185,186,0,
+  // };
+  // oled_write_P(tux, false);
 }
 
 static void render_status(void) {
