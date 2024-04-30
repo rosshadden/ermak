@@ -125,11 +125,11 @@
 		{
 			name: gaming
 			keys: [
-				'`' __  __  __ __ __ ││ ││ ││ __ __ __ __  __ \
-				=   p   q   w  e  r  ││ ││ ││ t  y  u  i   o  -
-				__  ';' a   s  d  f  ││ ││ ││ g  h  j  k   l  '"'
-				__  /   z   x  c  v  __ ││ __ b  n  m  ',' .  rsft
-				││  ││  '[' __ __ __ __ ││ __ __ __ __ ']' ││ ││
+				'`' __  __  __ __ __    ││ ││ ││ __   __ __ __  __ \
+				=   p   q   w  e  r     ││ ││ ││ t    y  u  i   o  -
+				__  ';' a   s  d  f     ││ ││ ││ g    h  j  k   l  '"'
+				__  /   z   x  c  v     __ ││ __ b    n  m  ',' .  rsft
+				││  ││  '[' __ __ space __ ││ __ back __ __ ']' ││ ││
 			]
 		}
 
@@ -139,7 +139,7 @@
 				XX         XX XX   <   >   &   ││ ││ ││            ';'  XX  XX  kp= @   num
 				XX         !  '#'  '{' '}' '`' ││ ││ ││            ':'  kp7 kp8 kp9 %   XX
 				capw       ^  '|'  '(' ')' '$' ││ ││ ││            kp-  kp4 kp5 kp6 kp+ '_'
-				lsft[lock] XX XX   '[' ']' ~   __ ││ __            kp*  kp1 kp2 kp3 kp/ rsft[lock]
+				lsft[lock] :  =    '[' ']' ~   __ ││ __            kp*  kp1 kp2 kp3 kp/ rsft[lock]
 				││         ││ boot __  __  __  __ ││ lt[_nav,base] rspc kp0 kp. ',' ││  ││
 			]
 		}
