@@ -54,8 +54,7 @@ joystick_config_t joystick_axes[JOYSTICK_AXIS_COUNT] = {
 
 static bool precision = false;
 static uint16_t precision_mod = 64;
-// static uint16_t axis_val = 127;
-static uint16_t axis_val = 255;
+static uint16_t axis_val = 127;
 
 uint8_t mod_state;
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
