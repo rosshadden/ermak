@@ -60,6 +60,13 @@ def map [
 	}
 }
 
+# Map keys into QMK keycodes.
+def "main map" [
+	# in: any # value
+] {
+	map
+}
+
 # Process all layers and keys into QMK keycodes.
 def "build layers" [ctx: record] {
 	$ctx | upsert layers (

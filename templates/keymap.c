@@ -231,32 +231,32 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       break;
 
     // joystick
-    case KC_JUP:
-      joystick_set_axis(1, record->event.pressed ? precision_val : 0);
-      return false;
-    case KC_JDOWN:
-      joystick_set_axis(1, record->event.pressed ? -precision_val : 0);
-      return false;
-    case KC_JLEFT:
+    case JS_L_LEFT:
       joystick_set_axis(0, record->event.pressed ? -precision_val : 0);
       return false;
-    case KC_JRIGHT:
+    case JS_L_RIGHT:
       joystick_set_axis(0, record->event.pressed ? precision_val : 0);
       return false;
-    case KC_JMOD:
+    case JS_L_DOWN:
+      joystick_set_axis(1, record->event.pressed ? -precision_val : 0);
+      return false;
+    case JS_L_UP:
+      joystick_set_axis(1, record->event.pressed ? precision_val : 0);
+      return false;
+    case JS_L_MOD:
       precision = record->event.pressed;
       return false;
-    case KC_CUP:
-      joystick_set_axis(3, record->event.pressed ? precision_val : 0);
-      return false;
-    case KC_CDOWN:
-      joystick_set_axis(3, record->event.pressed ? -precision_val : 0);
-      return false;
-    case KC_CLEFT:
+    case JS_R_LEFT:
       joystick_set_axis(2, record->event.pressed ? -precision_val : 0);
       return false;
-    case KC_CRIGHT:
+    case JS_R_RIGHT:
       joystick_set_axis(2, record->event.pressed ? precision_val : 0);
+      return false;
+    case JS_R_DOWN:
+      joystick_set_axis(3, record->event.pressed ? -precision_val : 0);
+      return false;
+    case JS_R_UP:
+      joystick_set_axis(3, record->event.pressed ? precision_val : 0);
       return false;
   }
 

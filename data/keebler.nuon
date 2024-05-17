@@ -32,8 +32,8 @@
 
 	keycodes: [
 		rspc
-		jup jdown jleft jright jmod
-		cup cdown cleft cright
+		js_l_left js_l_right js_l_down js_l_up js_l_mod
+		js_r_left js_r_right js_r_down js_r_up
 		mql mqr
 	]
 
@@ -185,7 +185,7 @@
 				f12        f1          f2 f3         f4 f5      ││ ││ ││ f6        f7 f8          f9       f10 f11
 				eh_left    base        XX XX         XX dt_up   ││ ││ ││ XX        XX df[_dvorak] XX       XX  eh_rght
 				caps       base        XX df[_ermak] XX dt_prnt ││ ││ ││ XX        XX df[_typing] df[_sys] XX  df[_qwerty]
-				lsft[lock] df[_gaming] XX df[_melee] XX dt_down __ ││ __ XX        XX df[_media]  XX       XX  rsft[lock]
+				lsft[lock] df[_gaming] XX df[_gamepad] XX dt_down __ ││ __ XX        XX df[_media]  XX       XX  rsft[lock]
 				││         ││          XX __         __ __      __ ││ __ df[_meta] __ __          XX       ││  ││
 			]
 		}
@@ -202,13 +202,13 @@
 		}
 
 		{
-			name: melee
+			name: gamepad
 			keys: [
-				XX         XX   XX    XX    XX     XX    ││ ││ ││ JS_7 XX    XX    XX   XX     XX
-				XX         XX   XX    jup   XX     XX    ││ ││ ││ XX   JS_6  JS_3  XX   XX     XX
-				__         JS_5 jleft jdown jright XX    ││ ││ ││ XX   JS_1  JS_2  JS_4 XX     XX
-				lsft[lock] XX   JS_8  JS_11 JS_9   JS_10 __ ││ __ XX   cleft cdown cup  cright rsft[lock]
-				││         ││   XX    __    __     jmod  __ ││ __ JS_0 XX    XX    XX   ││     ││
+				XX         XX XX        XX        XX         XX       ││ ││ ││ XX XX        XX        XX         XX XX
+				XX         XX XX        js_l_up   XX         XX       ││ ││ ││ XX XX        js_r_up   XX         XX XX
+				__         XX js_l_left js_l_down js_l_right XX       ││ ││ ││ XX js_r_left js_r_down js_r_right XX XX
+				lsft[lock] XX XX        XX        XX         XX       __ ││ __ XX XX        XX        XX         XX rsft[lock]
+				││         ││ XX        __        __         js_l_mod __ ││ __ XX XX        XX        XX         ││ ││
 			]
 		}
 
