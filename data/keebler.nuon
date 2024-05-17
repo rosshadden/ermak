@@ -34,6 +34,7 @@
 		rspc
 		jup jdown jleft jright jmod
 		cup cdown cleft cright
+		mql mqr
 	]
 
 	shifts: {
@@ -59,11 +60,12 @@
 	}
 
 	achordion: {
+		lgui[c]: [ lctl[esc] ]
 		lalt[i]: [ lgui[c] lsft[a] j k ]
 		lctl[e]: [ lgui[c] u ]
-		rctl[t]: [ r q w z ]
+		rctl[t]: [ q v w z ]
 		ralt[s]: [ l[q] ]
-		rgui[n]: [ rsft[h] l w p f ]
+		rgui[n]: [ rsft[h] l w f ]
 	}
 
 	layers: [
@@ -74,7 +76,7 @@
 				"l[[]"        1       2       3        4        5      ││           ││ ││             6     7        8        9       0       ']'
 				'#'           b       y       o        u        "l[']" ││           ││ ││             l[dq] l        d        w       v       z
 				lctl[esc]     lgui[c] lalt[i] lctl[e]  lsft[a]  ','    ││           ││ ││             .     rsft[h]  rctl[t]  ralt[s] rgui[n] l[q]
-				osm[mod_lsft] g       x       j        k        l[-]   mute         ││ mic            l[/]  r        m        f       p       osm[mod_rsft]
+				osm[mod_lsft] g       x       j        k        l[/]   mute         ││ mic            l[-]  r        m        f       p       osm[mod_rsft]
 				││            ││      "l[`]"  lalt[no] lgui[no] back   lt[_num,tab] ││ lt[_nav,enter] space rgui[no] ralt[no] ?       ││      ││
 			]
 			encoders: {
@@ -86,22 +88,22 @@
 		{
 			name: typing
 			keys: [
-				'['  __ __  __ __ __  ││ ││ ││ __ __ __ __ __ __
-				__   b  y   o  u  "'" ││ ││ ││ __ l  d  w  v  __
-				__   c  i   e  a  __  ││ ││ ││ __ h  t  s  n  __
-				lsft g  x   j  k  __  __ ││ __ __ r  m  f  p  rsft
-				││   ││ '`' __ __ __  __ ││ __ __ __ __ __ ││ ││
+				'['  __ __  __ __ __  ││ ││ ││ __  __ __ __ __ ']'
+				__   b  y   o  u  "'" ││ ││ ││ '"' l  d  w  v  z
+				__   c  i   e  a  ',' ││ ││ ││ .   h  t  s  n  q
+				lsft g  x   j  k  /   __ ││ __ -   r  m  f  p  rsft
+				││   ││ '`' __ __ __  __ ││ __ __  __ __ __ ││ ││
 			]
 		}
 
 		{
 			name: dvorak
 			keys: [
-				'`' __        __      __      __      __ ││ ││ ││   __ __      __      __      __      \
-				=   "lgui[']" lalt[,] lctl[.] lsft[p] y  ││ ││ ││   f  rsft[g] rctl[c] ralt[r] rgui[l] /
-				__  a         o       e       u       i  ││ ││ ││   d  h       t       n       s       -
-				__  ';'       q       j       k       x  __ ││ base b  m       w       v       z       __
-				││  ││        '['     __      __      __ __ ││ __   __ __      __      ']'     ││      ││
+				'`' __      __      __      __      __ ││ ││ ││   __ __      __      __      __      \
+				=   "'"     ','     .       p       y  ││ ││ ││   f  g       c       r       l       /
+				__  lgui[a] lalt[o] lctl[e] lsft[u] i  ││ ││ ││   d  rsft[h] rctl[t] ralt[n] rgui[s] -
+				__  ';'     q       j       k       x  __ ││ base b  m       w       v       z       __
+				││  ││      '['     __      __      __ __ ││ __   __ __      __      ']'     ││      ││
 			]
 			encoders: {
 				right: [ base, df[_qwerty] ]
@@ -112,8 +114,8 @@
 			name: qwerty
 			keys: [
 				'`' __      __      __      __      __ ││ ││ ││ __ __      __      __      __      \
-				=   lgui[q] lalt[w] lctl[e] lsft[r] t  ││ ││ ││ y  rsft[u] rctl[i] ralt[o] rgui[p] -
-				__  a       s       d       f       g  ││ ││ ││ h  j       k       l       ';'     "'"
+				=   q       w       e       r       t  ││ ││ ││ y  u       i       o       p       -
+				__  lgui[a] lalt[s] lctl[d] lsft[f] g  ││ ││ ││ h  rsft[j] rctl[k] ralt[l] rgui[;] "'"
 				__  z       x       c       v       b  __ ││ __ n  m       ','     .       /       __
 				││  ││      '['     __      __      __ __ ││ __ __ __      __      ']'     ││      ││
 			]
@@ -125,11 +127,11 @@
 		{
 			name: gaming
 			keys: [
-				'`' __  __  __ __ __    ││ ││ ││ __   __ __ __  __ \
-				=   p   q   w  e  r     ││ ││ ││ t    y  u  i   o  -
-				__  ';' a   s  d  f     ││ ││ ││ g    h  j  k   l  '"'
-				__  /   z   x  c  v     __ ││ __ b    n  m  ',' .  rsft
-				││  ││  '[' __ __ space __ ││ __ back __ __ ']' ││ ││
+				'`'  __  __  __   __   __    ││ ││ ││ __   __   __   __  __ \
+				=    p   q   w    e    r     ││ ││ ││ t    y    u    i   o  -
+				__   ';' a   s    d    f     ││ ││ ││ g    h    j    k   l  "'"
+				lsft /   z   x    c    v     __ ││ __ b    n    m    ',' .  rsft
+				││   ││  '[' lalt lgui space __ ││ __ back rgui ralt ']' ││ ││
 			]
 		}
 
@@ -147,7 +149,7 @@
 		{
 			name: nav
 			keys: [
-				XX         macl0 macl1 macl2 XX     XX   ││            ││ ││ XX   XX   btn3 XX    XX  menu
+				XX         macl0 macl1 macl2 XX     XX   ││            ││ ││ XX   mql  btn3 mqr   XX  menu
 				XX         btn3  mwl   mup   mwr    btn3 ││            ││ ││ XX   btn1 up   btn2  XX  pgup
 				__         btn1  mleft mdown mright btn1 ││            ││ ││ home left down right end pgdn
 				lsft[lock] btn2  __    mwd   mwu    btn2 __            ││ __ XX   sel  undo again XX  rsft[lock]
@@ -207,6 +209,17 @@
 				__         JS_5 jleft jdown jright XX    ││ ││ ││ XX   JS_1  JS_2  JS_4 XX     XX
 				lsft[lock] XX   JS_8  JS_11 JS_9   JS_10 __ ││ __ XX   cleft cdown cup  cright rsft[lock]
 				││         ││   XX    __    __     jmod  __ ││ __ JS_0 XX    XX    XX   ││     ││
+			]
+		}
+
+		{
+			name: arrow
+			keys: [
+				XX         XX XX   XX   XX    XX ││ ││ ││ XX XX   XX   XX    XX XX
+				XX         XX XX   up   XX    XX ││ ││ ││ XX XX   up   XX    XX XX
+				base       XX left down right XX ││ ││ ││ XX left down right XX XX
+				lsft[lock] XX XX   XX   XX    XX __ ││ __ XX XX   XX   XX    XX rsft[lock]
+				││         ││ XX   __   __    __ __ ││ __ __ __   __   XX    ││ ││
 			]
 		}
 

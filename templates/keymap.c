@@ -42,6 +42,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 layer_state_t layer_state_set_user(layer_state_t state) {
   uprintf("%d\n", state);
+  // only trilayer if no layer is locked
+  if (is_layer_locked(get_highest_layer(layer_state))) return state;
   return update_tri_layer_state(state, _NUM, _NAV, _LAYERS);
 }
 
@@ -205,6 +207,26 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         // wezterm
         tap_code16(C(KC_SPACE));
         return false;
+      }
+      break;
+
+    // mouse
+    case KC_MQL:
+      if (record->event.pressed) {
+        register_code(KC_MS_ACCEL2);
+        register_code(KC_MS_LEFT);
+      } else {
+        unregister_code(KC_MS_LEFT);
+        unregister_code(KC_MS_ACCEL2);
+      }
+      break;
+    case KC_MQR:
+      if (record->event.pressed) {
+        register_code(KC_MS_ACCEL2);
+        register_code(KC_MS_RIGHT);
+      } else {
+        unregister_code(KC_MS_RIGHT);
+        unregister_code(KC_MS_ACCEL2);
       }
       break;
 
