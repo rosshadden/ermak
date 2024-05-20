@@ -169,13 +169,13 @@
 		}
 
 		{
-			name: gamepad
+			name: 🎮pad
 			keys: [
 				XX   XX       XX        XX        XX         js_17 ││ ││ ││ js_16 XX        XX        XX         XX       XX
 				XX   js_12    js_9      js_l_up   js_8       XX    ││ ││ ││ XX    js_10     js_r_up   js_11      js_13    XX
 				__   js_l_mod js_l_left js_l_down js_l_right js_15 ││ ││ ││ js_14 js_r_left js_r_down js_r_right js_r_mod XX
 				lsft js_0     js_1      js_2      js_3       XX    __ ││ __ XX    js_6      js_4      js_7       js_5     rsft
-				││   ││       js_9      js_8      js_7       js_6  __ ││ __ js_4  js_5      js_10     js_11      ││       ││
+				││   ││       js_9      js_8      js_7       js_5  __ ││ __ js_4  js_6      js_10     js_11      ││       ││
 			]
 		}
 
@@ -217,8 +217,8 @@
 			keys: [
 				f12        f1          f2 f3         f4 f5      ││ ││ ││ f6        f7 f8          f9       f10 f11
 				eh_left    base        XX XX         XX dt_up   ││ ││ ││ XX        XX df[_dvorak] XX       XX  eh_rght
-				caps       base        XX df[_ermak] XX dt_prnt ││ ││ ││ XX        XX df[_typing] df[_sys] XX  df[_qwerty]
-				lsft[lock] df[_gaming] XX df[_gamepad] XX dt_down __ ││ __ XX        XX df[_media]  XX       XX  rsft[lock]
+				caps       df[_🎮pad]  XX df[_ermak] XX dt_prnt ││ ││ ││ XX        XX df[_typing] df[_sys] XX  df[_qwerty]
+				lsft[lock] df[_gaming] XX XX         XX dt_down __ ││ __ XX        XX df[_media]  XX       XX  rsft[lock]
 				││         ││          XX __         __ __      __ ││ __ df[_meta] __ __          XX       ││  ││
 			]
 		}
