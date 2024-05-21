@@ -58,8 +58,10 @@ struct {
   bool right;
   bool mod;
   int16_t value;
+  int16_t x;
+  int16_t y;
 } left_stick, right_stick;
-static uint16_t precision_mod = 63;
+static uint16_t precision_mod = 75;
 static uint16_t axis_val = 127;
 
 uint8_t mod_state;
@@ -74,10 +76,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       if (!process_custom_shift_keys(keycode, record)) return false;
   }
 
-  left_stick.value = axis_val;
-  right_stick.value = axis_val;
-  if (left_stick.mod) left_stick.value -= precision_mod;
-  if (right_stick.mod) right_stick.value -= precision_mod;
+  left_stick.value = (left_stick.mod) ? precision_mod : axis_val;
+  right_stick.value = (right_stick.mod) ? precision_mod : axis_val;
 
   switch (keycode) {
     // keys
@@ -238,66 +238,94 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     // joystick
     case JS_L_LEFT:
       left_stick.left = record->event.pressed;
-      joystick_set_axis(0, record->event.pressed ? -left_stick.value : 0);
+      left_stick.x = (record->event.pressed) ? -left_stick.value : 0;
       if (left_stick.right) {
-        joystick_set_axis(0, record->event.pressed ? 0 : left_stick.value);
+        left_stick.x = (record->event.pressed) ? 0 : left_stick.value;
       }
+      joystick_set_axis(0, left_stick.x);
       return false;
     case JS_L_RIGHT:
       left_stick.right = record->event.pressed;
-      joystick_set_axis(0, record->event.pressed ? left_stick.value : 0);
+      left_stick.x = (record->event.pressed) ? left_stick.value : 0;
       if (left_stick.left) {
-        joystick_set_axis(0, record->event.pressed ? 0 : -left_stick.value);
+        left_stick.x = (record->event.pressed) ? 0 : -left_stick.value;
       }
+      joystick_set_axis(0, left_stick.x);
       return false;
     case JS_L_DOWN:
       left_stick.down = record->event.pressed;
-      joystick_set_axis(1, record->event.pressed ? -left_stick.value : 0);
+      left_stick.y = (record->event.pressed) ? -left_stick.value : 0;
       if (left_stick.up) {
-        joystick_set_axis(1, record->event.pressed ? 0 : left_stick.value);
+        left_stick.y = (record->event.pressed) ? 0 : left_stick.value;
       }
+      joystick_set_axis(1, left_stick.y);
       return false;
     case JS_L_UP:
       left_stick.up = record->event.pressed;
-      joystick_set_axis(1, record->event.pressed ? left_stick.value : 0);
+      left_stick.y = (record->event.pressed) ? left_stick.value : 0;
       if (left_stick.down) {
-        joystick_set_axis(1, record->event.pressed ? 0 : -left_stick.value);
+        left_stick.y = (record->event.pressed) ? 0 : -left_stick.value;
       }
+      joystick_set_axis(1, left_stick.y);
       return false;
     case JS_L_MOD:
       left_stick.mod = record->event.pressed;
+      if (left_stick.x < 0) {
+        joystick_set_axis(0, (record->event.pressed) ? -precision_mod : -axis_val);
+      } else if (left_stick.x > 0) {
+        joystick_set_axis(0, (record->event.pressed) ? precision_mod : axis_val);
+      }
+      if (left_stick.y < 0) {
+        joystick_set_axis(1, (record->event.pressed) ? -precision_mod : -axis_val);
+      } else if (left_stick.y > 0) {
+        joystick_set_axis(1, (record->event.pressed) ? precision_mod : axis_val);
+      }
       return false;
     //
     case JS_R_LEFT:
       right_stick.left = record->event.pressed;
-      joystick_set_axis(2, record->event.pressed ? -right_stick.value : 0);
+      right_stick.x = (record->event.pressed) ? -right_stick.value : 0;
       if (right_stick.right) {
-        joystick_set_axis(2, record->event.pressed ? 0 : right_stick.value);
+        right_stick.x = (record->event.pressed) ? 0 : right_stick.value;
       }
+      joystick_set_axis(2, right_stick.x);
       return false;
     case JS_R_RIGHT:
       right_stick.right = record->event.pressed;
-      joystick_set_axis(2, record->event.pressed ? right_stick.value : 0);
+      right_stick.x = (record->event.pressed) ? right_stick.value : 0;
       if (right_stick.left) {
-        joystick_set_axis(2, record->event.pressed ? 0 : -right_stick.value);
+        right_stick.x = (record->event.pressed) ? 0 : -right_stick.value;
       }
+      joystick_set_axis(2, right_stick.x);
       return false;
     case JS_R_DOWN:
       right_stick.down = record->event.pressed;
-      joystick_set_axis(3, record->event.pressed ? -right_stick.value : 0);
+      right_stick.y = (record->event.pressed) ? -right_stick.value : 0;
       if (right_stick.up) {
-        joystick_set_axis(3, record->event.pressed ? 0 : right_stick.value);
+        right_stick.y = (record->event.pressed) ? right_stick.value : 0;
       }
+      joystick_set_axis(3, right_stick.y);
       return false;
     case JS_R_UP:
       right_stick.up = record->event.pressed;
-      joystick_set_axis(3, record->event.pressed ? right_stick.value : 0);
+      right_stick.y = (record->event.pressed) ? right_stick.value : 0;
       if (right_stick.down) {
-        joystick_set_axis(3, record->event.pressed ? 0 : -right_stick.value);
+        right_stick.y = (record->event.pressed) ? -right_stick.value : 0;
       }
+      joystick_set_axis(3, right_stick.y);
       return false;
     case JS_R_MOD:
       right_stick.mod = record->event.pressed;
+      if (right_stick.x < 0) {
+        joystick_set_axis(2, (record->event.pressed) ? -precision_mod : -axis_val);
+      } else if (right_stick.x > 0) {
+        joystick_set_axis(2, (record->event.pressed) ? precision_mod : axis_val);
+      }
+      if (right_stick.y < 0) {
+        joystick_set_axis(3, (record->event.pressed) ? -precision_mod : -axis_val);
+      } else if (right_stick.y > 0) {
+        joystick_set_axis(3, (record->event.pressed) ? precision_mod : axis_val);
+      }
       return false;
   }
 
