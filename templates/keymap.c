@@ -59,7 +59,7 @@ struct {
   bool mod;
   int16_t value;
 } left_stick, right_stick;
-static uint16_t precision_mod = 64;
+static uint16_t precision_mod = 63;
 static uint16_t axis_val = 127;
 
 uint8_t mod_state;

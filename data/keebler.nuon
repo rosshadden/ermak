@@ -171,11 +171,11 @@
 		{
 			name: 🎮pad
 			keys: [
-				XX   XX       XX        XX        XX         js_17 ││ ││ ││ js_16 XX        XX        XX         XX       XX
-				XX   js_12    js_9      js_l_up   js_8       XX    ││ ││ ││ XX    js_10     js_r_up   js_11      js_13    XX
-				__   js_l_mod js_l_left js_l_down js_l_right js_15 ││ ││ ││ js_14 js_r_left js_r_down js_r_right js_r_mod XX
-				lsft js_0     js_1      js_2      js_3       XX    __ ││ __ XX    js_6      js_4      js_7       js_5     rsft
-				││   ││       js_9      js_8      js_7       js_5  __ ││ __ js_4  js_6      js_10     js_11      ││       ││
+				js_17 XX       XX        js_12     XX         XX    ││ ││ ││ XX    XX        js_13     XX         XX       js_16
+				js_11 js_10    js_9      js_l_up   js_8       js_15 ││ ││ ││ js_14 js_10     js_r_up   js_11      js_8     js_9
+				__    js_l_mod js_l_left js_l_down js_l_right js_12 ││ ││ ││ js_13 js_r_left js_r_down js_r_right js_r_mod XX
+				lsft  js_0     js_1      js_2      js_3       XX    __ ││ __ XX    js_6      js_4      js_7       js_5     rsft
+				││    ││       js_9      js_8      js_7       js_5  __ ││ __ js_4  js_6      js_10     js_11      ││       ││
 			]
 		}
 
