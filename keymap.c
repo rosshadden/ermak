@@ -39,6 +39,7 @@ enum custom_keycodes {
   JS_L_DOWN,
   JS_L_UP,
   JS_L_MOD,
+  JS_L_LOCK,
   JS_R_LEFT,
   JS_R_RIGHT,
   JS_R_DOWN,
@@ -73,18 +74,18 @@ const custom_shift_key_t custom_shift_keys[] = {
 uint8_t NUM_CUSTOM_SHIFT_KEYS = sizeof(custom_shift_keys) / sizeof(custom_shift_key_t);
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [_ERMAK] = LAYOUT(L(KC_LEFT_BRACKET), KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_RIGHT_BRACKET, KC_HASH, KC_B, KC_Y, KC_O, KC_U, L(KC_QUOTE), L(DQ), KC_L, KC_D, KC_W, KC_V, KC_Z, LCTL_T(KC_ESC), LGUI_T(KC_C), LALT_T(KC_I), LCTL_T(KC_E), LSFT_T(KC_A), KC_COMMA, KC_DOT, RSFT_T(KC_H), RCTL_T(KC_T), RALT_T(KC_S), RGUI_T(KC_N), L(KC_Q), OSM(MOD_LSFT), KC_G, KC_X, KC_J, KC_K, L(KC_SLASH), KC_MUTE, KC_F20, L(KC_MINUS), KC_R, KC_M, KC_F, KC_P, OSM(MOD_RSFT), L(KC_GRAVE), LALT_T(KC_NO), LGUI_T(KC_NO), KC_BACKSPACE, LT(_NUM, KC_TAB), LT(_NAV, KC_ENTER), KC_SPACE, RGUI_T(KC_NO), RALT_T(KC_NO), KC_QUESTION),
-  [_TYPING] = LAYOUT(KC_LEFT_BRACKET, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_RIGHT_BRACKET, _______, KC_B, KC_Y, KC_O, KC_U, KC_QUOTE, KC_DOUBLE_QUOTE, KC_L, KC_D, KC_W, KC_V, KC_Z, _______, KC_C, KC_I, KC_E, KC_A, KC_COMMA, KC_DOT, KC_H, KC_T, KC_S, KC_N, KC_Q, KC_LSFT, KC_G, KC_X, KC_J, KC_K, KC_SLASH, _______, _______, KC_MINUS, KC_R, KC_M, KC_F, KC_P, KC_RSFT, KC_GRAVE, _______, _______, _______, _______, _______, _______, _______, _______, _______),
+  [_ERMAK] = LAYOUT(L(KC_LEFT_BRACKET), KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_RIGHT_BRACKET, KC_HASH, KC_B, KC_Y, KC_O, KC_U, L(KC_QUOTE), L(DQ), KC_L, KC_D, KC_W, KC_V, KC_Z, LCTL_T(KC_ESC), LGUI_T(KC_C), LALT_T(KC_I), LCTL_T(KC_E), LSFT_T(KC_A), KC_COMMA, KC_DOT, RSFT_T(KC_H), RCTL_T(KC_T), RALT_T(KC_S), RGUI_T(KC_N), L(KC_Q), OSM(MOD_LSFT), KC_G, KC_X, KC_J, KC_K, L(KC_MINUS), KC_MUTE, KC_F20, L(KC_SLASH), KC_R, KC_M, KC_F, KC_P, OSM(MOD_RSFT), L(KC_GRAVE), LALT_T(KC_NO), LGUI_T(KC_NO), KC_BACKSPACE, LT(_NUM, KC_TAB), LT(_NAV, KC_ENTER), KC_SPACE, RGUI_T(KC_NO), RALT_T(KC_NO), KC_QUESTION),
+  [_TYPING] = LAYOUT(KC_LEFT_BRACKET, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_RIGHT_BRACKET, _______, KC_B, KC_Y, KC_O, KC_U, KC_QUOTE, KC_DOUBLE_QUOTE, KC_L, KC_D, KC_W, KC_V, KC_Z, _______, KC_C, KC_I, KC_E, KC_A, KC_COMMA, KC_DOT, KC_H, KC_T, KC_S, KC_N, KC_Q, KC_LSFT, KC_G, KC_X, KC_J, KC_K, KC_MINUS, _______, _______, KC_SLASH, KC_R, KC_M, KC_F, KC_P, KC_RSFT, KC_GRAVE, _______, _______, _______, _______, _______, _______, _______, _______, _______),
   [_DVORAK] = LAYOUT(KC_GRAVE, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_BACKSLASH, KC_EQUAL, KC_QUOTE, KC_COMMA, KC_DOT, KC_P, KC_Y, KC_F, KC_G, KC_C, KC_R, KC_L, KC_SLASH, _______, LGUI_T(KC_A), LALT_T(KC_O), LCTL_T(KC_E), LSFT_T(KC_U), KC_I, KC_D, RSFT_T(KC_H), RCTL_T(KC_T), RALT_T(KC_N), RGUI_T(KC_S), KC_MINUS, _______, KC_SEMICOLON, KC_Q, KC_J, KC_K, KC_X, _______, BASE, KC_B, KC_M, KC_W, KC_V, KC_Z, _______, KC_LEFT_BRACKET, _______, _______, _______, _______, _______, _______, _______, _______, KC_RIGHT_BRACKET),
   [_QWERTY] = LAYOUT(KC_GRAVE, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_BACKSLASH, KC_EQUAL, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_MINUS, _______, LGUI_T(KC_A), LALT_T(KC_S), LCTL_T(KC_D), LSFT_T(KC_F), KC_G, KC_H, RSFT_T(KC_J), RCTL_T(KC_K), RALT_T(KC_L), RGUI_T(KC_SEMICOLON), KC_QUOTE, _______, KC_Z, KC_X, KC_C, KC_V, KC_B, _______, _______, KC_N, KC_M, KC_COMMA, KC_DOT, KC_SLASH, _______, KC_LEFT_BRACKET, _______, _______, _______, _______, _______, _______, _______, _______, KC_RIGHT_BRACKET),
   [_GAMING] = LAYOUT(KC_GRAVE, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_BACKSLASH, KC_EQUAL, KC_P, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_MINUS, _______, KC_SEMICOLON, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_QUOTE, KC_LSFT, KC_SLASH, KC_Z, KC_X, KC_C, KC_V, _______, _______, KC_B, KC_N, KC_M, KC_COMMA, KC_DOT, KC_RSFT, KC_LEFT_BRACKET, KC_LALT, KC_LGUI, KC_SPACE, _______, _______, KC_BACKSPACE, KC_RGUI, KC_RALT, KC_RIGHT_BRACKET),
   [_MEDIA] = LAYOUT(XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_MEDIA_REWIND, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_MEDIA_NEXT_TRACK, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, BASE, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_MEDIA_PREV_TRACK, XXXXXXX, KC_MEDIA_STOP, KC_MEDIA_NEXT_TRACK, XXXXXXX, LSFT_T(PG_LOCK), XXXXXXX, XXXXXXX, KC_VOLD, KC_VOLU, XXXXXXX, _______, _______, XXXXXXX, XXXXXXX, KC_MUTE, KC_MEDIA_FAST_FORWARD, KC_MEDIA_PREV_TRACK, RSFT_T(PG_LOCK), XXXXXXX, _______, _______, _______, _______, _______, KC_MEDIA_PLAY_PAUSE, _______, _______, XXXXXXX),
   [_SYS] = LAYOUT(XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PSCR, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_WAKE, XXXXXXX, XXXXXXX, BASE, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_SLEP, XXXXXXX, XXXXXXX, LSFT_T(PG_LOCK), XXXXXXX, XXXXXXX, KC_BRID, KC_BRIU, XXXXXXX, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PWR, RSFT_T(PG_LOCK), XXXXXXX, _______, _______, _______, _______, _______, _______, _______, _______, XXXXXXX),
   [_META] = LAYOUT(XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, BASE, KC_CLEAR, XXXXXXX, QK_CLEAR_EEPROM, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, LSFT_T(PG_LOCK), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, XXXXXXX, QK_REBOOT, QK_MAKE, XXXXXXX, XXXXXXX, RSFT_T(PG_LOCK), XXXXXXX, _______, _______, _______, _______, _______, _______, _______, _______, XXXXXXX),
-  [_🎮PAD] = LAYOUT(JS_17, XXXXXXX, XXXXXXX, JS_12, JS_13, JS_11, JS_9, JS_12, JS_13, XXXXXXX, XXXXXXX, JS_16, JS_11, JS_10, JS_9, JS_L_UP, JS_8, JS_10, JS_8, JS_10, JS_R_UP, JS_11, JS_8, JS_9, _______, JS_L_MOD, JS_L_LEFT, JS_L_DOWN, JS_L_RIGHT, JS_12, JS_13, JS_R_LEFT, JS_R_DOWN, JS_R_RIGHT, JS_R_MOD, KC_ESC, KC_LSFT, JS_0, JS_1, JS_2, JS_3, JS_15, _______, _______, JS_14, JS_6, JS_4, JS_7, JS_5, KC_RSFT, JS_9, JS_8, JS_7, JS_5, _______, _______, JS_4, JS_6, JS_10, JS_11),
+  [_🎮PAD] = LAYOUT(JS_17, XXXXXXX, XXXXXXX, JS_L_LOCK, JS_13, JS_11, JS_9, JS_12, JS_13, XXXXXXX, XXXXXXX, JS_16, JS_11, JS_10, JS_9, JS_L_UP, JS_8, JS_10, JS_8, JS_10, JS_R_UP, JS_11, JS_8, JS_9, _______, JS_L_MOD, JS_L_LEFT, JS_L_DOWN, JS_L_RIGHT, JS_12, JS_13, JS_R_LEFT, JS_R_DOWN, JS_R_RIGHT, JS_R_MOD, KC_ESC, KC_LSFT, JS_0, JS_1, JS_2, JS_3, JS_15, _______, _______, JS_14, JS_6, JS_4, JS_7, JS_5, KC_RSFT, JS_9, JS_8, JS_7, JS_5, _______, _______, JS_4, JS_6, JS_10, JS_11),
   [_ARROW] = LAYOUT(XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_UP, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_UP, XXXXXXX, XXXXXXX, XXXXXXX, BASE, XXXXXXX, KC_LEFT, KC_DOWN, KC_RIGHT, XXXXXXX, XXXXXXX, KC_LEFT, KC_DOWN, KC_RIGHT, XXXXXXX, XXXXXXX, LSFT_T(PG_LOCK), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RSFT_T(PG_LOCK), XXXXXXX, _______, _______, _______, _______, _______, _______, _______, _______, XXXXXXX),
-  [_NUM] = LAYOUT(XXXXXXX, XXXXXXX, XXXXXXX, KC_LEFT_ANGLE_BRACKET, KC_RIGHT_ANGLE_BRACKET, KC_AMPERSAND, KC_SEMICOLON, XXXXXXX, XXXXXXX, KC_KP_EQUAL, KC_AT, KC_NUM, XXXXXXX, KC_EXCLAIM, KC_HASH, KC_LEFT_CURLY_BRACE, KC_RIGHT_CURLY_BRACE, KC_GRAVE, KC_COLON, KC_KP_7, KC_KP_8, KC_KP_9, KC_PERCENT, XXXXXXX, QK_CAPS_WORD_TOGGLE, KC_CIRCUMFLEX, KC_PIPE, KC_LEFT_PAREN, KC_RIGHT_PAREN, KC_DOLLAR, KC_KP_MINUS, KC_KP_4, KC_KP_5, KC_KP_6, KC_KP_PLUS, KC_UNDERSCORE, LSFT_T(PG_LOCK), KC_COLON, KC_EQUAL, KC_LEFT_BRACKET, KC_RIGHT_BRACKET, KC_TILDE, _______, _______, KC_KP_ASTERISK, KC_KP_1, KC_KP_2, KC_KP_3, KC_KP_SLASH, RSFT_T(PG_LOCK), QK_BOOT, _______, _______, _______, _______, LT(_NAV, BASE), KC_RSPC, KC_KP_0, KC_KP_DOT, KC_COMMA),
-  [_NAV] = LAYOUT(XXXXXXX, KC_MS_ACCEL0, KC_MS_ACCEL1, KC_MS_ACCEL2, XXXXXXX, XXXXXXX, XXXXXXX, KC_MQL, KC_BTN3, KC_MQR, XXXXXXX, KC_MENU, XXXXXXX, KC_BTN3, KC_MS_WH_LEFT, KC_MS_UP, KC_MS_WH_RIGHT, KC_BTN3, XXXXXXX, KC_BTN1, KC_UP, KC_BTN2, XXXXXXX, KC_PGUP, _______, KC_BTN1, KC_MS_LEFT, KC_MS_DOWN, KC_MS_RIGHT, KC_BTN1, KC_HOME, KC_LEFT, KC_DOWN, KC_RIGHT, KC_END, KC_PGDN, LSFT_T(PG_LOCK), KC_BTN2, _______, KC_MS_WH_DOWN, KC_MS_WH_UP, KC_BTN2, _______, _______, XXXXXXX, PG_SEL, KC_UNDO, KC_AGAIN, XXXXXXX, RSFT_T(PG_LOCK), KC_BTN3, KC_BTN2, KC_BTN1, KC_DEL, LT(_NUM, BASE), _______, _______, _______, _______, XXXXXXX),
+  [_NUM] = LAYOUT(QK_LOCK, XXXXXXX, XXXXXXX, KC_LEFT_ANGLE_BRACKET, KC_RIGHT_ANGLE_BRACKET, KC_AMPERSAND, KC_SEMICOLON, XXXXXXX, XXXXXXX, KC_KP_EQUAL, KC_AT, KC_NUM, XXXXXXX, KC_EXCLAIM, KC_HASH, KC_LEFT_CURLY_BRACE, KC_RIGHT_CURLY_BRACE, KC_GRAVE, KC_COLON, KC_KP_7, KC_KP_8, KC_KP_9, KC_PERCENT, XXXXXXX, QK_CAPS_WORD_TOGGLE, KC_CIRCUMFLEX, KC_PIPE, KC_LEFT_PAREN, KC_RIGHT_PAREN, KC_DOLLAR, KC_KP_MINUS, KC_KP_4, KC_KP_5, KC_KP_6, KC_KP_PLUS, KC_UNDERSCORE, LSFT_T(PG_LOCK), KC_COLON, KC_EQUAL, KC_LEFT_BRACKET, KC_RIGHT_BRACKET, KC_TILDE, _______, _______, KC_KP_ASTERISK, KC_KP_1, KC_KP_2, KC_KP_3, KC_KP_SLASH, RSFT_T(PG_LOCK), QK_BOOT, _______, _______, _______, _______, LT(_NAV, BASE), KC_RSPC, KC_KP_0, KC_KP_DOT, KC_COMMA),
+  [_NAV] = LAYOUT(KC_MS_ACCEL0, KC_MS_ACCEL1, KC_MS_ACCEL2, KC_BTN3, XXXXXXX, XXXXXXX, XXXXXXX, KC_MQL, KC_BTN3, KC_MQR, XXXXXXX, KC_MENU, XXXXXXX, KC_MS_WH_LEFT, KC_BTN2, KC_MS_UP, KC_BTN1, KC_MS_WH_RIGHT, XXXXXXX, KC_BTN1, KC_UP, KC_BTN2, XXXXXXX, KC_PGUP, _______, KC_BTN1, KC_MS_LEFT, KC_MS_DOWN, KC_MS_RIGHT, KC_BTN1, KC_HOME, KC_LEFT, KC_DOWN, KC_RIGHT, KC_END, KC_PGDN, LSFT_T(PG_LOCK), KC_BTN2, _______, KC_MS_WH_DOWN, KC_MS_WH_UP, KC_BTN2, _______, _______, XXXXXXX, PG_SEL, KC_UNDO, KC_AGAIN, XXXXXXX, RSFT_T(PG_LOCK), KC_BTN3, KC_BTN2, KC_BTN1, KC_DEL, LT(_NUM, BASE), _______, _______, _______, _______, XXXXXXX),
   [_LAYERS] = LAYOUT(KC_F12, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, EH_LEFT, BASE, XXXXXXX, XXXXXXX, XXXXXXX, DT_UP, XXXXXXX, XXXXXXX, DF(_DVORAK), XXXXXXX, XXXXXXX, EH_RGHT, KC_CAPS, DF(_🎮PAD), XXXXXXX, DF(_ERMAK), XXXXXXX, DT_PRNT, XXXXXXX, XXXXXXX, DF(_TYPING), DF(_SYS), XXXXXXX, DF(_QWERTY), LSFT_T(PG_LOCK), DF(_GAMING), XXXXXXX, XXXXXXX, XXXXXXX, DT_DOWN, _______, _______, XXXXXXX, XXXXXXX, DF(_MEDIA), XXXXXXX, XXXXXXX, RSFT_T(PG_LOCK), XXXXXXX, _______, _______, _______, _______, _______, DF(_META), _______, _______, XXXXXXX),
   
 };
@@ -106,6 +107,7 @@ struct {
   bool left;
   bool right;
   bool mod;
+  bool lock;
   int16_t value;
   int16_t x;
   int16_t y;
@@ -286,7 +288,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     // joystick
     case JS_L_LEFT:
-      left_stick.left = record->event.pressed;
+      left_stick.left = record->event.pressed || left_stick.lock;
       left_stick.x = (record->event.pressed) ? -left_stick.value : 0;
       if (left_stick.right) {
         left_stick.x = (record->event.pressed) ? 0 : left_stick.value;
@@ -294,7 +296,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       joystick_set_axis(0, left_stick.x);
       return false;
     case JS_L_RIGHT:
-      left_stick.right = record->event.pressed;
+      left_stick.right = record->event.pressed || left_stick.lock;
       left_stick.x = (record->event.pressed) ? left_stick.value : 0;
       if (left_stick.left) {
         left_stick.x = (record->event.pressed) ? 0 : -left_stick.value;
@@ -302,7 +304,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       joystick_set_axis(0, left_stick.x);
       return false;
     case JS_L_DOWN:
-      left_stick.down = record->event.pressed;
+      left_stick.down = record->event.pressed || left_stick.lock;
       left_stick.y = (record->event.pressed) ? -left_stick.value : 0;
       if (left_stick.up) {
         left_stick.y = (record->event.pressed) ? 0 : left_stick.value;
@@ -310,6 +312,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       joystick_set_axis(1, left_stick.y);
       return false;
     case JS_L_UP:
+      if (left_stick.lock) return false;
       left_stick.up = record->event.pressed;
       left_stick.y = (record->event.pressed) ? left_stick.value : 0;
       if (left_stick.down) {
@@ -328,6 +331,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         joystick_set_axis(1, (record->event.pressed) ? -precision_mod : -axis_val);
       } else if (left_stick.y > 0) {
         joystick_set_axis(1, (record->event.pressed) ? precision_mod : axis_val);
+      }
+      return false;
+    case JS_L_LOCK:
+      if (record->event.pressed) {
+        left_stick.lock = record->tap.count == 1;
       }
       return false;
     //
@@ -394,10 +402,10 @@ bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record, ui
       if (other_keycode == LGUI_T(KC_C) || other_keycode == LSFT_T(KC_A) || other_keycode == KC_J || other_keycode == KC_K) return true;
       break;
     case LCTL_T(KC_E):
-      if (other_keycode == LGUI_T(KC_C) || other_keycode == KC_U) return true;
+      if (other_keycode == LGUI_T(KC_C)) return true;
       break;
     case RCTL_T(KC_T):
-      if (other_keycode == KC_Q || other_keycode == KC_V || other_keycode == KC_W || other_keycode == KC_Z) return true;
+      if (other_keycode == L(KC_Q) || other_keycode == KC_V || other_keycode == KC_W || other_keycode == KC_Z) return true;
       break;
     case RALT_T(KC_S):
       if (other_keycode == L(KC_Q)) return true;

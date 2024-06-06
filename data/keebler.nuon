@@ -32,7 +32,7 @@
 
 	keycodes: [
 		rspc
-		js_l_left js_l_right js_l_down js_l_up js_l_mod
+		js_l_left js_l_right js_l_down js_l_up js_l_mod js_l_lock
 		js_r_left js_r_right js_r_down js_r_up js_r_mod
 		mql mqr
 	]
@@ -62,8 +62,8 @@
 	achordion: {
 		lgui[c]: [ lctl[esc] ]
 		lalt[i]: [ lgui[c] lsft[a] j k ]
-		lctl[e]: [ lgui[c] u ]
-		rctl[t]: [ q v w z ]
+		lctl[e]: [ lgui[c] ]
+		rctl[t]: [ l[q] v w z ]
 		ralt[s]: [ l[q] ]
 		rgui[n]: [ rsft[h] l w f ]
 	}
@@ -76,7 +76,7 @@
 				"l[[]"        1       2       3        4        5      ││           ││ ││             6     7        8        9       0       ']'
 				'#'           b       y       o        u        "l[']" ││           ││ ││             l[dq] l        d        w       v       z
 				lctl[esc]     lgui[c] lalt[i] lctl[e]  lsft[a]  ','    ││           ││ ││             .     rsft[h]  rctl[t]  ralt[s] rgui[n] l[q]
-				osm[mod_lsft] g       x       j        k        l[/]   mute         ││ mic            l[-]  r        m        f       p       osm[mod_rsft]
+				osm[mod_lsft] g       x       j        k        l[-]   mute         ││ mic            l[/]  r        m        f       p       osm[mod_rsft]
 				││            ││      "l[`]"  lalt[no] lgui[no] back   lt[_num,tab] ││ lt[_nav,enter] space rgui[no] ralt[no] ?       ││      ││
 			]
 			encoders: {
@@ -91,7 +91,7 @@
 				'['  __ __  __ __ __  ││ ││ ││ __  __ __ __ __ ']'
 				__   b  y   o  u  "'" ││ ││ ││ '"' l  d  w  v  z
 				__   c  i   e  a  ',' ││ ││ ││ .   h  t  s  n  q
-				lsft g  x   j  k  /   __ ││ __ -   r  m  f  p  rsft
+				lsft g  x   j  k  -   __ ││ __ /   r  m  f  p  rsft
 				││   ││ '`' __ __ __  __ ││ __ __  __ __ __ ││ ││
 			]
 		}
@@ -171,7 +171,7 @@
 		{
 			name: 🎮pad
 			keys: [
-				js_17 XX       XX        js_12     js_13      js_11 ││ ││ ││ js_9  js_12     js_13     XX         XX       js_16
+				js_17 XX       XX        js_l_lock js_13      js_11 ││ ││ ││ js_9  js_12     js_13     XX         XX       js_16
 				js_11 js_10    js_9      js_l_up   js_8       js_10 ││ ││ ││ js_8  js_10     js_r_up   js_11      js_8     js_9
 				__    js_l_mod js_l_left js_l_down js_l_right js_12 ││ ││ ││ js_13 js_r_left js_r_down js_r_right js_r_mod esc
 				lsft  js_0     js_1      js_2      js_3       js_15 __ ││ __ js_14 js_6      js_4      js_7       js_5     rsft
@@ -193,7 +193,7 @@
 		{
 			name: num
 			keys: [
-				XX         XX XX   <   >   &   ││ ││ ││            ';'  XX  XX  kp= @   num
+				qk_lock    XX XX   <   >   &   ││ ││ ││            ';'  XX  XX  kp= @   num
 				XX         !  '#'  '{' '}' '`' ││ ││ ││            ':'  kp7 kp8 kp9 %   XX
 				capw       ^  '|'  '(' ')' '$' ││ ││ ││            kp-  kp4 kp5 kp6 kp+ '_'
 				lsft[lock] :  =    '[' ']' ~   __ ││ __            kp*  kp1 kp2 kp3 kp/ rsft[lock]
@@ -204,8 +204,8 @@
 		{
 			name: nav
 			keys: [
-				XX         macl0 macl1 macl2 XX     XX   ││            ││ ││ XX   mql  btn3 mqr   XX  menu
-				XX         btn3  mwl   mup   mwr    btn3 ││            ││ ││ XX   btn1 up   btn2  XX  pgup
+				macl0      macl1 macl2 btn3  XX     XX   ││            ││ ││ XX   mql  btn3 mqr   XX  menu
+				XX         mwl   btn2  mup   btn1   mwr  ││            ││ ││ XX   btn1 up   btn2  XX  pgup
 				__         btn1  mleft mdown mright btn1 ││            ││ ││ home left down right end pgdn
 				lsft[lock] btn2  __    mwd   mwu    btn2 __            ││ __ XX   sel  undo again XX  rsft[lock]
 				││         ││    btn3  btn2  btn1   del  lt[_num,base] ││ __ __   __   __   XX    ││  ││

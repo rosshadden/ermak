@@ -57,6 +57,7 @@ struct {
   bool left;
   bool right;
   bool mod;
+  bool lock;
   int16_t value;
   int16_t x;
   int16_t y;
@@ -237,7 +238,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     // joystick
     case JS_L_LEFT:
-      left_stick.left = record->event.pressed;
+      left_stick.left = record->event.pressed || left_stick.lock;
       left_stick.x = (record->event.pressed) ? -left_stick.value : 0;
       if (left_stick.right) {
         left_stick.x = (record->event.pressed) ? 0 : left_stick.value;
@@ -245,7 +246,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       joystick_set_axis(0, left_stick.x);
       return false;
     case JS_L_RIGHT:
-      left_stick.right = record->event.pressed;
+      left_stick.right = record->event.pressed || left_stick.lock;
       left_stick.x = (record->event.pressed) ? left_stick.value : 0;
       if (left_stick.left) {
         left_stick.x = (record->event.pressed) ? 0 : -left_stick.value;
@@ -253,7 +254,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       joystick_set_axis(0, left_stick.x);
       return false;
     case JS_L_DOWN:
-      left_stick.down = record->event.pressed;
+      left_stick.down = record->event.pressed || left_stick.lock;
       left_stick.y = (record->event.pressed) ? -left_stick.value : 0;
       if (left_stick.up) {
         left_stick.y = (record->event.pressed) ? 0 : left_stick.value;
@@ -261,6 +262,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       joystick_set_axis(1, left_stick.y);
       return false;
     case JS_L_UP:
+      if (left_stick.lock) return false;
       left_stick.up = record->event.pressed;
       left_stick.y = (record->event.pressed) ? left_stick.value : 0;
       if (left_stick.down) {
@@ -279,6 +281,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         joystick_set_axis(1, (record->event.pressed) ? -precision_mod : -axis_val);
       } else if (left_stick.y > 0) {
         joystick_set_axis(1, (record->event.pressed) ? precision_mod : axis_val);
+      }
+      return false;
+    case JS_L_LOCK:
+      if (record->event.pressed) {
+        left_stick.lock = record->tap.count == 1;
       }
       return false;
     //
