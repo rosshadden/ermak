@@ -85,7 +85,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_🎮PAD] = LAYOUT(JS_17, XXXXXXX, XXXXXXX, JS_L_LOCK, JS_13, JS_11, JS_9, JS_12, JS_13, XXXXXXX, XXXXXXX, JS_16, JS_11, JS_10, JS_9, JS_L_UP, JS_8, JS_10, JS_8, JS_10, JS_R_UP, JS_11, JS_8, JS_9, _______, JS_L_MOD, JS_L_LEFT, JS_L_DOWN, JS_L_RIGHT, JS_12, JS_13, JS_R_LEFT, JS_R_DOWN, JS_R_RIGHT, JS_R_MOD, KC_ESC, KC_LSFT, JS_15, JS_0, JS_1, JS_2, JS_3, _______, _______, JS_6, JS_4, JS_7, JS_5, JS_14, KC_RSFT, JS_9, JS_8, JS_7, JS_5, _______, _______, JS_4, JS_6, JS_10, JS_11),
   [_ARROW] = LAYOUT(XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_UP, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_UP, XXXXXXX, XXXXXXX, XXXXXXX, BASE, XXXXXXX, KC_LEFT, KC_DOWN, KC_RIGHT, XXXXXXX, XXXXXXX, KC_LEFT, KC_DOWN, KC_RIGHT, XXXXXXX, XXXXXXX, LSFT_T(PG_LOCK), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RSFT_T(PG_LOCK), XXXXXXX, _______, _______, _______, _______, _______, _______, _______, _______, XXXXXXX),
   [_NUM] = LAYOUT(QK_LOCK, XXXXXXX, XXXXXXX, KC_LEFT_ANGLE_BRACKET, KC_RIGHT_ANGLE_BRACKET, KC_AMPERSAND, KC_SEMICOLON, XXXXXXX, XXXXXXX, KC_KP_EQUAL, KC_AT, KC_NUM, XXXXXXX, KC_EXCLAIM, KC_HASH, KC_LEFT_CURLY_BRACE, KC_RIGHT_CURLY_BRACE, KC_GRAVE, KC_COLON, KC_KP_7, KC_KP_8, KC_KP_9, KC_PERCENT, XXXXXXX, QK_CAPS_WORD_TOGGLE, KC_CIRCUMFLEX, KC_PIPE, KC_LEFT_PAREN, KC_RIGHT_PAREN, KC_DOLLAR, KC_KP_MINUS, KC_KP_4, KC_KP_5, KC_KP_6, KC_KP_PLUS, KC_UNDERSCORE, LSFT_T(PG_LOCK), KC_COLON, KC_EQUAL, KC_LEFT_BRACKET, KC_RIGHT_BRACKET, KC_TILDE, _______, _______, KC_KP_ASTERISK, KC_KP_1, KC_KP_2, KC_KP_3, KC_KP_SLASH, RSFT_T(PG_LOCK), QK_BOOT, _______, _______, _______, _______, LT(_NAV, BASE), KC_RSPC, KC_KP_0, KC_KP_DOT, KC_COMMA),
-  [_NAV] = LAYOUT(KC_MS_ACCEL0, KC_MS_ACCEL1, KC_MS_ACCEL2, KC_BTN3, XXXXXXX, XXXXXXX, XXXXXXX, KC_MQL, KC_BTN3, KC_MQR, XXXXXXX, KC_MENU, XXXXXXX, KC_MS_WH_LEFT, KC_BTN2, KC_MS_UP, KC_BTN1, KC_MS_WH_RIGHT, XXXXXXX, KC_BTN1, KC_UP, KC_BTN2, XXXXXXX, KC_PGUP, _______, KC_BTN1, KC_MS_LEFT, KC_MS_DOWN, KC_MS_RIGHT, KC_BTN1, KC_HOME, KC_LEFT, KC_DOWN, KC_RIGHT, KC_END, KC_PGDN, LSFT_T(PG_LOCK), KC_BTN2, _______, KC_MS_WH_DOWN, KC_MS_WH_UP, KC_BTN2, _______, _______, XXXXXXX, PG_SEL, KC_UNDO, KC_AGAIN, XXXXXXX, RSFT_T(PG_LOCK), KC_BTN3, KC_BTN2, KC_BTN1, KC_DEL, LT(_NUM, BASE), _______, _______, _______, _______, XXXXXXX),
+  [_NAV] = LAYOUT(KC_MS_ACCEL0, KC_MS_ACCEL1, KC_MS_ACCEL2, KC_BTN3, XXXXXXX, XXXXXXX, XXXXXXX, KC_MQL, KC_BTN3, KC_MQR, XXXXXXX, KC_AGAIN, XXXXXXX, KC_MS_WH_LEFT, KC_BTN2, KC_MS_UP, KC_BTN1, KC_MS_WH_RIGHT, XXXXXXX, KC_BTN1, KC_UP, KC_BTN2, XXXXXXX, KC_UNDO, _______, KC_BTN1, KC_MS_LEFT, KC_MS_DOWN, KC_MS_RIGHT, KC_BTN1, KC_HOME, KC_LEFT, KC_DOWN, KC_RIGHT, KC_END, PG_SEL, LSFT_T(PG_LOCK), KC_BTN2, _______, KC_MS_WH_DOWN, KC_MS_WH_UP, KC_BTN2, _______, _______, XXXXXXX, KC_PGUP, KC_PGDN, KC_MENU, XXXXXXX, RSFT_T(PG_LOCK), KC_BTN3, KC_BTN2, KC_BTN1, KC_DEL, LT(_NUM, BASE), _______, _______, _______, _______, XXXXXXX),
   [_LAYERS] = LAYOUT(KC_F12, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, EH_LEFT, BASE, XXXXXXX, XXXXXXX, XXXXXXX, DT_UP, XXXXXXX, XXXXXXX, DF(_DVORAK), XXXXXXX, XXXXXXX, EH_RGHT, KC_CAPS, DF(_🎮PAD), XXXXXXX, DF(_ERMAK), XXXXXXX, DT_PRNT, XXXXXXX, XXXXXXX, DF(_TYPING), DF(_SYS), XXXXXXX, DF(_QWERTY), LSFT_T(PG_LOCK), DF(_GAMING), XXXXXXX, XXXXXXX, XXXXXXX, DT_DOWN, _______, _______, XXXXXXX, XXXXXXX, DF(_MEDIA), XXXXXXX, XXXXXXX, RSFT_T(PG_LOCK), XXXXXXX, _______, _______, _______, _______, _______, DF(_META), _______, _______, XXXXXXX),
   
 };
@@ -396,7 +396,7 @@ void matrix_scan_user(void) {
 bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record, uint16_t other_keycode, keyrecord_t* other_record) {
   switch (tap_hold_keycode) {
     case LGUI_T(KC_C):
-      if (other_keycode == LCTL_T(KC_ESC)) return true;
+      if (other_keycode == LCTL_T(KC_ESC) || other_keycode == KC_G) return true;
       break;
     case LALT_T(KC_I):
       if (other_keycode == LGUI_T(KC_C) || other_keycode == LSFT_T(KC_A) || other_keycode == KC_J || other_keycode == KC_K) return true;
@@ -411,7 +411,7 @@ bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record, ui
       if (other_keycode == L(KC_Q)) return true;
       break;
     case RGUI_T(KC_N):
-      if (other_keycode == RSFT_T(KC_H) || other_keycode == KC_L || other_keycode == KC_W || other_keycode == KC_F) return true;
+      if (other_keycode == RSFT_T(KC_H) || other_keycode == KC_F || other_keycode == KC_L || other_keycode == KC_P || other_keycode == KC_W) return true;
       break;
   }
 

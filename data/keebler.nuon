@@ -60,12 +60,12 @@
 	}
 
 	achordion: {
-		lgui[c]: [ lctl[esc] ]
+		lgui[c]: [ lctl[esc] g ]
 		lalt[i]: [ lgui[c] lsft[a] j k ]
 		lctl[e]: [ lgui[c] ]
 		rctl[t]: [ l[q] v w z ]
 		ralt[s]: [ l[q] ]
-		rgui[n]: [ rsft[h] l w f ]
+		rgui[n]: [ rsft[h] f l p w ]
 	}
 
 	layers: [
@@ -204,10 +204,10 @@
 		{
 			name: nav
 			keys: [
-				macl0      macl1 macl2 btn3  XX     XX   ││            ││ ││ XX   mql  btn3 mqr   XX  menu
-				XX         mwl   btn2  mup   btn1   mwr  ││            ││ ││ XX   btn1 up   btn2  XX  pgup
-				__         btn1  mleft mdown mright btn1 ││            ││ ││ home left down right end pgdn
-				lsft[lock] btn2  __    mwd   mwu    btn2 __            ││ __ XX   sel  undo again XX  rsft[lock]
+				macl0      macl1 macl2 btn3  XX     XX   ││            ││ ││ XX   mql  btn3 mqr   XX  again
+				XX         mwl   btn2  mup   btn1   mwr  ││            ││ ││ XX   btn1 up   btn2  XX  undo
+				__         btn1  mleft mdown mright btn1 ││            ││ ││ home left down right end sel
+				lsft[lock] btn2  __    mwd   mwu    btn2 __            ││ __ XX   pgup pgdn menu  XX  rsft[lock]
 				││         ││    btn3  btn2  btn1   del  lt[_num,base] ││ __ __   __   __   XX    ││  ││
 			]
 		}
