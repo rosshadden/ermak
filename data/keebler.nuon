@@ -85,8 +85,9 @@
 				││        ││ "lctl[`]" lalt[no] lgui[no] back lt[_num,tab] ││ lt[_nav,enter] space rgui[no] ralt[no] rctl[?] ││ ││
 			]
 			encoders: {
-				left: [ vold, volu ]
-				right: [ XX, df[_dvorak] ]
+				left: [ vold volu ]
+				# TODO: current app volume
+				right: [ tg[_gamepad] tg[_gaming] ]
 			}
 		}
 
@@ -112,9 +113,6 @@
 				__  ';'     q         j       k       x  __ ││ base b  m       w       v         z       __
 				││  ││      "lctl[[]" __      __      __ __ ││ __   __ __      __      "rctl[]]" ││      ││
 			]
-			encoders: {
-				right: [ base, df[_qwerty] ]
-			}
 		}
 
 		{
@@ -126,9 +124,17 @@
 				__  z       x         c       v       b  __ ││ __ n  m       ','     .         /       __
 				││  ││      "lctl[[]" __      __      __ __ ││ __ __ __      __      "rctl[]]" ││      ││
 			]
-			encoders: {
-				right: [ df[_dvorak], XX ]
-			}
+		}
+
+		{
+			name: gamepad
+			keys: [
+				js_17 XX       XX        js_l_lock js_13      js_11 ││ ││ ││ js_9  js_12     js_13     XX         XX       js_16
+				js_11 js_10    js_9      js_l_up   js_8       js_10 ││ ││ ││ js_8  js_10     js_r_up   js_11      js_8     js_9
+				__    js_l_mod js_l_left js_l_down js_l_right js_12 ││ ││ ││ js_13 js_r_left js_r_down js_r_right js_r_mod esc
+				lsft  js_15    js_0      js_1      js_2       js_3  __ ││ __ js_6  js_4      js_7      js_5       js_14    rsft
+				││    ││       js_9      js_8      js_7       js_5  __ ││ __ js_4  js_6      js_10     js_11      ││       ││
+			]
 		}
 
 		{
@@ -176,17 +182,6 @@
 		}
 
 		{
-			name: 🎮pad
-			keys: [
-				js_17 XX       XX        js_l_lock js_13      js_11 ││ ││ ││ js_9  js_12     js_13     XX         XX       js_16
-				js_11 js_10    js_9      js_l_up   js_8       js_10 ││ ││ ││ js_8  js_10     js_r_up   js_11      js_8     js_9
-				__    js_l_mod js_l_left js_l_down js_l_right js_12 ││ ││ ││ js_13 js_r_left js_r_down js_r_right js_r_mod esc
-				lsft  js_15    js_0      js_1      js_2       js_3  __ ││ __ js_6  js_4      js_7      js_5       js_14    rsft
-				││    ││       js_9      js_8      js_7       js_5  __ ││ __ js_4  js_6      js_10     js_11      ││       ││
-			]
-		}
-
-		{
 			name: arrow
 			keys: [
 				XX         XX XX   XX   XX    XX ││ ││ ││ XX XX   XX   XX    XX XX
@@ -222,11 +217,11 @@
 		{
 			name: layers
 			keys: [
-				f12        f1          f2 f3          f4 f5      ││ ││ ││ f6        f7 f8          f9       f10 f11
-				eh_left    base        XX XX          XX dt_up   ││ ││ ││ XX        XX df[_dvorak] XX       XX  eh_rght
-				caps       tg[_🎮pad]  XX df[_engram] XX dt_prnt ││ ││ ││ XX        XX to[_engram] tg[_sys] XX  df[_qwerty]
-				lsft[lock] tg[_gaming] XX XX          XX dt_down __ ││ __ XX        XX tg[_media]  XX       XX  rsft[lock]
-				││         ││          __ __          __ __      __ ││ __ tg[_meta] __ __          __       ││  ││
+				f12        f1           f2 f3          f4 f5      ││ ││ ││ f6        f7 f8          f9       f10 f11
+				eh_left    base         XX XX          XX dt_up   ││ ││ ││ XX        XX df[_dvorak] XX       XX  eh_rght
+				caps       tg[_gamepad] XX df[_engram] XX dt_prnt ││ ││ ││ XX        XX to[_engram] tg[_sys] XX  df[_qwerty]
+				lsft[lock] tg[_gaming]  XX XX          XX dt_down __ ││ __ XX        XX tg[_media]  XX       XX  rsft[lock]
+				││         ││           __ __          __ __      __ ││ __ tg[_meta] __ __          __       ││  ││
 			]
 		}
 
