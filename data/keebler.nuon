@@ -38,29 +38,30 @@
 	]
 
 	shifts: {
-		'0':    *
-		'1':    '\'
-		'2':    '='
-		'3':    ~
-		'4':    +
-		'5':    <
-		'6':    >
-		'7':    ^
-		'8':    &
-		'9':    %
+		'0':       *
+		'1':       '\'
+		'2':       '='
+		'3':       ~
+		'4':       +
+		'5':       <
+		'6':       >
+		'7':       ^
+		'8':       &
+		'9':       %
 
-		"'":    '('
-		"l[']": '('
-		"`":    @
-		"l[`]": @
-		'#':    '$'
-		',':    ';'
-		.:      ':'
-		?:      !
-		/:      '|'
-		l[/]:   '|'
-		'"':    ')'
-		l[dq]:  ')'
+		"'":       '('
+		"l[']":    '('
+		"`":       @
+		"lctl[`]": @
+		'#':       '$'
+		',':       ';'
+		.:         ':'
+		?:         !
+		"rctl[?]": !
+		/:         '|'
+		l[/]:      '|'
+		'"':       ')'
+		l[dq]:     ')'
 	}
 
 	achordion: {
@@ -77,11 +78,11 @@
 		{
 			name: engram
 			keys: [
-				'['       1  2   3        4        5    ││           ││ ││             6     7        8        9 0  ']'
-				'#'       b  y   o        u        "'"  ││           ││ ││             '"'   l        d        w v  z
-				lctl[esc] c  i   e        a        ','  ││           ││ ││             .     h        t        s n  q
-				lsft      g  x   j        k        -    mute         ││ mic            /     r        m        f p  rsft
-				││        ││ '`' lalt[no] lgui[no] back lt[_num,tab] ││ lt[_nav,enter] space rgui[no] ralt[no] ? ││ ││
+				'['       1  2         3        4        5    ││           ││ ││             6     7        8        9       0  ']'
+				'#'       b  y         o        u        "'"  ││           ││ ││             '"'   l        d        w       v  z
+				lctl[esc] c  i         e        a        ','  ││           ││ ││             .     h        t        s       n  q
+				lsft      g  x         j        k        -    mute         ││ mic            /     r        m        f       p  rsft
+				││        ││ "lctl[`]" lalt[no] lgui[no] back lt[_num,tab] ││ lt[_nav,enter] space rgui[no] ralt[no] rctl[?] ││ ││
 			]
 			encoders: {
 				left: [ vold, volu ]
@@ -91,7 +92,6 @@
 
 		# TODO: key to toggle or move HRM
 		# TODO: temp key swap (ex: space and backspace)
-		# TODO: make ` and ? keys hold as ctrl
 		{
 			name: ermak
 			keys: [
@@ -99,18 +99,18 @@
 				__            __      __      __      __      "l[']" ││ ││ ││ l[dq] __      __      __      __      __
 				__            lgui[c] lalt[i] lctl[e] lsft[a] __     ││ ││ ││ __    rsft[h] rctl[t] ralt[s] rgui[n] l[q]
 				osm[mod_lsft] __      __      __      __      l[-]   __ ││ __ l[/]  __      __      __      __      osm[mod_rsft]
-				││            ││      "l[`]"  __      __      __     __ ││ __ __    __      __      __      ││      ││
+				││            ││      __      __      __      __     __ ││ __ __    __      __      __      ││      ││
 			]
 		}
 
 		{
 			name: dvorak
 			keys: [
-				'`' __      __      __      __      __ ││ ││ ││   __ __      __      __      __      \
-				=   "'"     ','     .       p       y  ││ ││ ││   f  g       c       r       l       /
-				__  lgui[a] lalt[o] lctl[e] lsft[u] i  ││ ││ ││   d  rsft[h] rctl[t] ralt[n] rgui[s] -
-				__  ';'     q       j       k       x  __ ││ base b  m       w       v       z       __
-				││  ││      '['     __      __      __ __ ││ __   __ __      __      ']'     ││      ││
+				'`' __      __        __      __      __ ││ ││ ││   __ __      __      __        __      \
+				=   "'"     ','       .       p       y  ││ ││ ││   f  g       c       r         l       /
+				__  lgui[a] lalt[o]   lctl[e] lsft[u] i  ││ ││ ││   d  rsft[h] rctl[t] ralt[n]   rgui[s] -
+				__  ';'     q         j       k       x  __ ││ base b  m       w       v         z       __
+				││  ││      "lctl[[]" __      __      __ __ ││ __   __ __      __      "rctl[]]" ││      ││
 			]
 			encoders: {
 				right: [ base, df[_qwerty] ]
@@ -120,11 +120,11 @@
 		{
 			name: qwerty
 			keys: [
-				'`' __      __      __      __      __ ││ ││ ││ __ __      __      __      __      \
-				=   q       w       e       r       t  ││ ││ ││ y  u       i       o       p       -
-				__  lgui[a] lalt[s] lctl[d] lsft[f] g  ││ ││ ││ h  rsft[j] rctl[k] ralt[l] rgui[;] "'"
-				__  z       x       c       v       b  __ ││ __ n  m       ','     .       /       __
-				││  ││      '['     __      __      __ __ ││ __ __ __      __      ']'     ││      ││
+				'`' __      __        __      __      __ ││ ││ ││ __ __      __      __        __      \
+				=   q       w         e       r       t  ││ ││ ││ y  u       i       o         p       -
+				__  lgui[a] lalt[s]   lctl[d] lsft[f] g  ││ ││ ││ h  rsft[j] rctl[k] ralt[l]   rgui[;] "'"
+				__  z       x         c       v       b  __ ││ __ n  m       ','     .         /       __
+				││  ││      "lctl[[]" __      __      __ __ ││ __ __ __      __      "rctl[]]" ││      ││
 			]
 			encoders: {
 				right: [ df[_dvorak], XX ]
@@ -134,11 +134,11 @@
 		{
 			name: gaming
 			keys: [
-				'`'  __  __  __   __   __    ││ ││ ││ __   __   __   __  __ \
-				=    p   q   w    e    r     ││ ││ ││ t    y    u    i   o  -
-				__   ';' a   s    d    f     ││ ││ ││ g    h    j    k   l  "'"
-				lsft /   z   x    c    v     __ ││ __ b    n    m    ',' .  rsft
-				││   ││  '[' lalt lgui space __ ││ __ back rgui ralt ']' ││ ││
+				'`'  __  __        __   __   __    ││ ││ ││ __   __   __   __        __ \
+				=    p   q         w    e    r     ││ ││ ││ t    y    u    i         o  -
+				__   ';' a         s    d    f     ││ ││ ││ g    h    j    k         l  "'"
+				lsft /   z         x    c    v     __ ││ __ b    n    m    ','       .  rsft
+				││   ││  "lctl[[]" lalt lgui space __ ││ __ back rgui ralt "rctl[]]" ││ ││
 			]
 		}
 
@@ -149,7 +149,7 @@
 				XX         rwnd XX XX   XX   XX ││ ││ ││ XX   next XX   XX   XX   XX
 				base       XX   XX XX   XX   XX ││ ││ ││ XX   prev XX   stop next XX
 				lsft[lock] XX   XX vold volu XX __ ││ __ XX   XX   mute ffwd prev rsft[lock]
-				││         ││   XX __   __   __ __ ││ __ play __   __   XX   ││   ││
+				││         ││   __ __   __   __ __ ││ __ play __   __   __   ││   ││
 			]
 		}
 
@@ -160,7 +160,7 @@
 				XX         XX pscr XX   XX   XX ││ ││ ││ XX XX XX wake XX  XX
 				base       XX XX   XX   XX   XX ││ ││ ││ XX XX XX slep XX  XX
 				lsft[lock] XX XX   brid briu XX __ ││ __ XX XX XX XX   pwr rsft[lock]
-				││         ││ XX   __   __   __ __ ││ __ __ __ __ XX   ││  ││
+				││         ││ __   __   __   __ __ ││ __ __ __ __ __   ││  ││
 			]
 		}
 
@@ -171,7 +171,7 @@
 				XX         XX    XX XX     XX XX ││ ││ ││ XX XX     XX   XX XX XX
 				base       clear XX eeprom XX XX ││ ││ ││ XX XX     XX   XX XX XX
 				lsft[lock] XX    XX XX     XX XX __ ││ __ XX reboot make XX XX rsft[lock]
-				││         ││    XX __     __ __ __ ││ __ __ __     __   XX ││ ││
+				││         ││    __ __     __ __ __ ││ __ __ __     __   __ ││ ││
 			]
 		}
 
@@ -193,7 +193,7 @@
 				XX         XX XX   up   XX    XX ││ ││ ││ XX XX   up   XX    XX XX
 				base       XX left down right XX ││ ││ ││ XX left down right XX XX
 				lsft[lock] XX XX   XX   XX    XX __ ││ __ XX XX   XX   XX    XX rsft[lock]
-				││         ││ XX   __   __    __ __ ││ __ __ __   __   XX    ││ ││
+				││         ││ __   __   __    __ __ ││ __ __ __   __   __    ││ ││
 			]
 		}
 
@@ -215,7 +215,7 @@
 				XX         mwl   btn2  mup   btn1   mwr  ││            ││ ││ XX   btn1 up   btn2  XX  undo
 				__         btn1  mleft mdown mright btn1 ││            ││ ││ home left down right end sel
 				lsft[lock] btn2  __    mwd   mwu    btn2 __            ││ __ XX   pgup pgdn menu  XX  rsft[lock]
-				││         ││    btn3  btn2  btn1   del  lt[_num,base] ││ __ __   __   __   XX    ││  ││
+				││         ││    btn3  btn2  btn1   del  lt[_num,base] ││ __ __   __   __   __    ││  ││
 			]
 		}
 
@@ -226,7 +226,7 @@
 				eh_left    base        XX XX          XX dt_up   ││ ││ ││ XX        XX df[_dvorak] XX       XX  eh_rght
 				caps       tg[_🎮pad]  XX df[_engram] XX dt_prnt ││ ││ ││ XX        XX to[_engram] tg[_sys] XX  df[_qwerty]
 				lsft[lock] tg[_gaming] XX XX          XX dt_down __ ││ __ XX        XX tg[_media]  XX       XX  rsft[lock]
-				││         ││          XX __          __ __      __ ││ __ tg[_meta] __ __          XX       ││  ││
+				││         ││          __ __          __ __      __ ││ __ tg[_meta] __ __          __       ││  ││
 			]
 		}
 

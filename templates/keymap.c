@@ -105,6 +105,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         return false;
       }
       break;
+    case RCTL_T(KC_QUESTION):
+      if (record->event.pressed && record->tap.count) {
+        tap_code16(KC_QUESTION);
+        return false;
+      }
+      break;
 
     // layers
     case BASE:
@@ -145,13 +151,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         tap_code16(KC_LEFT);
       }
       return false;
-    case L(KC_GRAVE):
-      if (!record->event.pressed || record->tap.count) return true;
-      tap_code16(KC_GRAVE);
-      tap_code16(KC_GRAVE);
-      del_mods(MOD_MASK_SHIFT);
-      tap_code16(KC_LEFT);
-      return true;
     case L(KC_MINUS):
       if (!record->event.pressed || record->tap.count) return true;
       if (get_mods() & MOD_MASK_SHIFT) {
@@ -377,6 +376,8 @@ uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
     case LGUI_T(KC_NO):
     case RGUI_T(KC_NO):
     case LCTL_T(KC_ESC):
+    case LCTL_T(KC_GRAVE):
+    case RCTL_T(KC_QUESTION):
     case LT(_NAV, BASE):
     case LT(_NAV, KC_ENTER):
     case LT(_NUM, BASE):
