@@ -10,7 +10,7 @@
 #include "features/layer_lock.h"
 #include "features/select_word.h"
 
-#define BASE DF(_ERMAK)
+#define BASE DF(_ENGRAM)
 #define L(kc) LT(0, kc)
 #define DQ KC_RIGHT_PAREN
 
@@ -65,6 +65,11 @@ struct {
 static uint16_t precision_mod = 75;
 static uint16_t axis_val = 127;
 
+void keyboard_post_init_user() {
+  // Apply layer on startup
+  layer_move(_ERMAK);
+}
+
 uint8_t mod_state;
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (!process_achordion(keycode, record)) return false;
@@ -73,7 +78,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
   switch (get_highest_layer(default_layer_state)) {
     case _ERMAK:
-    case _TYPING:
+    case _ENGRAM:
       if (!process_custom_shift_keys(keycode, record)) return false;
   }
 
@@ -102,10 +107,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       break;
 
     // layers
+    case BASE:
+      if (record->event.pressed) {
+        default_layer_set(_ENGRAM);
+        layer_move(_ERMAK);
+        return false;
+      }
+      break;
     case LT(_NUM, BASE):
     case LT(_NAV, BASE):
       if (record->event.pressed && record->tap.count) {
-        default_layer_set(_ERMAK);
+        default_layer_set(_ENGRAM);
         layer_move(_ERMAK);
         return false;
       }
