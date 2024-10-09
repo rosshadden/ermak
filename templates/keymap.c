@@ -70,6 +70,22 @@ void keyboard_post_init_user() {
   layer_move(_ERMAK);
 }
 
+/* bool pre_process_record_user(uint16_t keycode, keyrecord_t *record) { */
+/*   if (get_highest_layer(layer_state) == _ENGRAM) { */
+/*     if (record->event.key.row == 2) { */
+/*       if (record->event.key.col == 1) { */
+/*         if (record->event.pressed) { */
+/*           register_code16(KC_LGUI); */
+/*         } else { */
+/*           unregister_code16(KC_LGUI); */
+/*         } */
+/*         return false; */
+/*       } */
+/*     } */
+/*   } */
+/*   return true; */
+/* } */
+
 uint8_t mod_state;
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (!process_achordion(keycode, record)) return false;
@@ -77,7 +93,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (!process_select_word(keycode, record, PG_SEL)) return false;
 
   switch (get_highest_layer(default_layer_state)) {
-    case _ERMAK:
     case _ENGRAM:
       if (!process_custom_shift_keys(keycode, record)) return false;
   }
@@ -180,7 +195,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
     case L(DQ):
-      // TODO: clean up. Using `l[)]` sucks, and so does manually custom shifting
+      // TODO: avoid manually custom shifting
       if (!record->event.pressed) return true;
       if (record->tap.count) {
         if (get_mods() & MOD_MASK_SHIFT) {
@@ -433,7 +448,7 @@ static void render_status(void) {
       break;
   }
 
-  oled_write_P(PSTR("\nOVERLAY:\n\t"), false);
+  oled_write_P(PSTR("\nSTATE:\n\t"), false);
   switch (get_highest_layer(layer_state)) {
     {% for layer in layers -%}
     case {{layer.id}}:

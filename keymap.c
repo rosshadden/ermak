@@ -80,7 +80,7 @@ uint8_t NUM_CUSTOM_SHIFT_KEYS = sizeof(custom_shift_keys) / sizeof(custom_shift_
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_ENGRAM] = LAYOUT(KC_LEFT_BRACKET, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_RIGHT_BRACKET, KC_HASH, KC_B, KC_Y, KC_O, KC_U, KC_QUOTE, KC_DOUBLE_QUOTE, KC_L, KC_D, KC_W, KC_V, KC_Z, LCTL_T(KC_ESC), KC_C, KC_I, KC_E, KC_A, KC_COMMA, KC_DOT, KC_H, KC_T, KC_S, KC_N, KC_Q, KC_LSFT, KC_G, KC_X, KC_J, KC_K, KC_MINUS, KC_MUTE, KC_F20, KC_SLASH, KC_R, KC_M, KC_F, KC_P, KC_RSFT, LCTL_T(KC_GRAVE), LALT_T(KC_NO), LGUI_T(KC_NO), KC_BACKSPACE, LT(_NUM, KC_TAB), LT(_NAV, KC_ENTER), KC_SPACE, RGUI_T(KC_NO), RALT_T(KC_NO), RCTL_T(KC_QUESTION)),
-  [_ERMAK] = LAYOUT(L(KC_LEFT_BRACKET), _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, L(KC_QUOTE), L(DQ), _______, _______, _______, _______, _______, _______, LGUI_T(KC_C), LALT_T(KC_I), LCTL_T(KC_E), LSFT_T(KC_A), _______, _______, RSFT_T(KC_H), RCTL_T(KC_T), RALT_T(KC_S), RGUI_T(KC_N), L(KC_Q), OSM(MOD_LSFT), _______, _______, _______, _______, L(KC_MINUS), _______, _______, L(KC_SLASH), _______, _______, _______, _______, OSM(MOD_RSFT), _______, _______, _______, _______, _______, _______, _______, _______, _______, _______),
+  [_ERMAK] = LAYOUT(L(KC_LEFT_BRACKET), _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, L(KC_QUOTE), L(DQ), _______, _______, _______, _______, _______, KC_ESC, LGUI_T(KC_C), LALT_T(KC_I), LCTL_T(KC_E), LSFT_T(KC_A), _______, _______, RSFT_T(KC_H), RCTL_T(KC_T), RALT_T(KC_S), RGUI_T(KC_N), L(KC_Q), OSM(MOD_LSFT), _______, _______, _______, _______, L(KC_MINUS), _______, _______, L(KC_SLASH), _______, _______, _______, _______, OSM(MOD_RSFT), _______, _______, _______, _______, _______, _______, _______, _______, _______, _______),
   [_DVORAK] = LAYOUT(KC_GRAVE, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_BACKSLASH, KC_EQUAL, KC_QUOTE, KC_COMMA, KC_DOT, KC_P, KC_Y, KC_F, KC_G, KC_C, KC_R, KC_L, KC_SLASH, _______, LGUI_T(KC_A), LALT_T(KC_O), LCTL_T(KC_E), LSFT_T(KC_U), KC_I, KC_D, RSFT_T(KC_H), RCTL_T(KC_T), RALT_T(KC_N), RGUI_T(KC_S), KC_MINUS, _______, KC_SEMICOLON, KC_Q, KC_J, KC_K, KC_X, _______, BASE, KC_B, KC_M, KC_W, KC_V, KC_Z, _______, LCTL_T(KC_LEFT_BRACKET), _______, _______, _______, _______, _______, _______, _______, _______, RCTL_T(KC_RIGHT_BRACKET)),
   [_QWERTY] = LAYOUT(KC_GRAVE, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_BACKSLASH, KC_EQUAL, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_MINUS, _______, LGUI_T(KC_A), LALT_T(KC_S), LCTL_T(KC_D), LSFT_T(KC_F), KC_G, KC_H, RSFT_T(KC_J), RCTL_T(KC_K), RALT_T(KC_L), RGUI_T(KC_SEMICOLON), KC_QUOTE, _______, KC_Z, KC_X, KC_C, KC_V, KC_B, _______, _______, KC_N, KC_M, KC_COMMA, KC_DOT, KC_SLASH, _______, LCTL_T(KC_LEFT_BRACKET), _______, _______, _______, _______, _______, _______, _______, _______, RCTL_T(KC_RIGHT_BRACKET)),
   [_GAMEPAD] = LAYOUT(JS_17, XXXXXXX, XXXXXXX, JS_L_LOCK, JS_13, JS_11, JS_9, JS_12, JS_13, XXXXXXX, XXXXXXX, JS_16, JS_11, JS_10, JS_9, JS_L_UP, JS_8, JS_10, JS_8, JS_10, JS_R_UP, JS_11, JS_8, JS_9, _______, JS_L_MOD, JS_L_LEFT, JS_L_DOWN, JS_L_RIGHT, JS_12, JS_13, JS_R_LEFT, JS_R_DOWN, JS_R_RIGHT, JS_R_MOD, KC_ESC, KC_LSFT, JS_15, JS_0, JS_1, JS_2, JS_3, _______, _______, JS_6, JS_4, JS_7, JS_5, JS_14, KC_RSFT, JS_9, JS_8, JS_7, JS_5, _______, _______, JS_4, JS_6, JS_10, JS_11),
@@ -125,6 +125,22 @@ void keyboard_post_init_user() {
   layer_move(_ERMAK);
 }
 
+/* bool pre_process_record_user(uint16_t keycode, keyrecord_t *record) { */
+/*   if (get_highest_layer(layer_state) == _ENGRAM) { */
+/*     if (record->event.key.row == 2) { */
+/*       if (record->event.key.col == 1) { */
+/*         if (record->event.pressed) { */
+/*           register_code16(KC_LGUI); */
+/*         } else { */
+/*           unregister_code16(KC_LGUI); */
+/*         } */
+/*         return false; */
+/*       } */
+/*     } */
+/*   } */
+/*   return true; */
+/* } */
+
 uint8_t mod_state;
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (!process_achordion(keycode, record)) return false;
@@ -132,7 +148,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (!process_select_word(keycode, record, PG_SEL)) return false;
 
   switch (get_highest_layer(default_layer_state)) {
-    case _ERMAK:
     case _ENGRAM:
       if (!process_custom_shift_keys(keycode, record)) return false;
   }
@@ -235,7 +250,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
     case L(DQ):
-      // TODO: clean up. Using `l[)]` sucks, and so does manually custom shifting
+      // TODO: avoid manually custom shifting
       if (!record->event.pressed) return true;
       if (record->tap.count) {
         if (get_mods() & MOD_MASK_SHIFT) {
@@ -535,7 +550,7 @@ static void render_status(void) {
       break;
   }
 
-  oled_write_P(PSTR("\nOVERLAY:\n\t"), false);
+  oled_write_P(PSTR("\nSTATE:\n\t"), false);
   switch (get_highest_layer(layer_state)) {
     case _ENGRAM:
       oled_write_P(PSTR("engram"), false);

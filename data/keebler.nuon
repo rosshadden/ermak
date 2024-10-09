@@ -98,7 +98,7 @@
 			keys: [
 				"l[[]"        __      __      __      __      __     ││ ││ ││ __    __      __      __      __      __
 				__            __      __      __      __      "l[']" ││ ││ ││ l[dq] __      __      __      __      __
-				__            lgui[c] lalt[i] lctl[e] lsft[a] __     ││ ││ ││ __    rsft[h] rctl[t] ralt[s] rgui[n] l[q]
+				esc           lgui[c] lalt[i] lctl[e] lsft[a] __     ││ ││ ││ __    rsft[h] rctl[t] ralt[s] rgui[n] l[q]
 				osm[mod_lsft] __      __      __      __      l[-]   __ ││ __ l[/]  __      __      __      __      osm[mod_rsft]
 				││            ││      __      __      __      __     __ ││ __ __    __      __      __      ││      ││
 			]
