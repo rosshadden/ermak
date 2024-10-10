@@ -86,98 +86,104 @@ void keyboard_post_init_user() {
 /*   return true; */
 /* } */
 
+const uint8_t rows = MATRIX_ROWS / 2;
 bool hrm = true;
+uint8_t hrm_row = 2;
 bool process_hrm(uint16_t keycode, keyrecord_t *record) {
   if (keycode == KC_HRM && record->event.pressed) {
     hrm = !hrm;
     return false;
+  } else if (keycode == KC_HRMU && record->event.pressed) {
+    hrm_row = (hrm_row + 1) % rows;
+    return false;
   }
 
-  if (hrm) return true;
-
   // TODO: loop over achordion
-  switch (keycode) {
-    case LGUI_T(KC_C):
-      if (record->tap.count) return true;
-      if (record->event.pressed) {
-        register_code(KC_C);
-      } else {
-        unregister_code(KC_C);
-      }
-      return false;
-    case LALT_T(KC_I):
-      if (record->tap.count) return true;
-      if (record->event.pressed) {
-        register_code(KC_I);
-      } else {
-        unregister_code(KC_I);
-      }
-      return false;
-    case LCTL_T(KC_E):
-      if (record->tap.count) return true;
-      if (record->event.pressed) {
-        register_code(KC_E);
-      } else {
-        unregister_code(KC_E);
-      }
-      return false;
-    case LSFT_T(KC_A):
-      if (record->tap.count) return true;
-      if (record->event.pressed) {
-        register_code(KC_A);
-      } else {
-        unregister_code(KC_A);
-      }
-      return false;
-    case RSFT_T(KC_H):
-      if (record->tap.count) return true;
-      if (record->event.pressed) {
-        register_code(KC_H);
-      } else {
-        unregister_code(KC_H);
-      }
-      return false;
-    case RCTL_T(KC_T):
-      if (record->tap.count) return true;
-      if (record->event.pressed) {
-        register_code(KC_T);
-      } else {
-        unregister_code(KC_T);
-      }
-      return false;
-    case RALT_T(KC_S):
-      if (record->tap.count) return true;
-      if (record->event.pressed) {
-        register_code(KC_S);
-      } else {
-        unregister_code(KC_S);
-      }
-      return false;
-    case RGUI_T(KC_N):
-      if (record->tap.count) return true;
-      if (record->event.pressed) {
-        register_code(KC_N);
-      } else {
-        unregister_code(KC_N);
-      }
-      return false;
+  if (!hrm || hrm_row != 2) {
+    switch (keycode) {
+      case LGUI_T(KC_C):
+        if (record->tap.count) return true;
+        if (record->event.pressed) {
+          register_code(KC_C);
+        } else {
+          unregister_code(KC_C);
+        }
+        return false;
+      case LALT_T(KC_I):
+        if (record->tap.count) return true;
+        if (record->event.pressed) {
+          register_code(KC_I);
+        } else {
+          unregister_code(KC_I);
+        }
+        return false;
+      case LCTL_T(KC_E):
+        if (record->tap.count) return true;
+        if (record->event.pressed) {
+          register_code(KC_E);
+        } else {
+          unregister_code(KC_E);
+        }
+        return false;
+      case LSFT_T(KC_A):
+        if (record->tap.count) return true;
+        if (record->event.pressed) {
+          register_code(KC_A);
+        } else {
+          unregister_code(KC_A);
+        }
+        return false;
+      case RSFT_T(KC_H):
+        if (record->tap.count) return true;
+        if (record->event.pressed) {
+          register_code(KC_H);
+        } else {
+          unregister_code(KC_H);
+        }
+        return false;
+      case RCTL_T(KC_T):
+        if (record->tap.count) return true;
+        if (record->event.pressed) {
+          register_code(KC_T);
+        } else {
+          unregister_code(KC_T);
+        }
+        return false;
+      case RALT_T(KC_S):
+        if (record->tap.count) return true;
+        if (record->event.pressed) {
+          register_code(KC_S);
+        } else {
+          unregister_code(KC_S);
+        }
+        return false;
+      case RGUI_T(KC_N):
+        if (record->tap.count) return true;
+        if (record->event.pressed) {
+          register_code(KC_N);
+        } else {
+          unregister_code(KC_N);
+        }
+        return false;
+    }
   }
 
   return true;
 }
 
 uint16_t hrm_timeout(uint16_t keycode, uint16_t timeout) {
-  if (hrm) return timeout;
-  switch (keycode) {
-    case LGUI_T(KC_C):
-    case LALT_T(KC_I):
-    case LCTL_T(KC_E):
-    case LSFT_T(KC_A):
-    case RSFT_T(KC_H):
-    case RCTL_T(KC_T):
-    case RALT_T(KC_S):
-    case RGUI_T(KC_N):
-      return 0;
+  if (!hrm || hrm_row != 2) {
+    switch (keycode) {
+      case LGUI_T(KC_C):
+      case LALT_T(KC_I):
+      case LCTL_T(KC_E):
+      case LSFT_T(KC_A):
+      case RSFT_T(KC_H):
+      case RCTL_T(KC_T):
+      case RALT_T(KC_S):
+      case RGUI_T(KC_N):
+        return 0;
+    }
   }
   return timeout;
 }
@@ -560,6 +566,16 @@ static void render_status(void) {
   }
 
   oled_write_ln_P(PSTR("\n\n"), false);
+
+  char hrm_str[4];
+  snprintf(hrm_str, sizeof(hrm_str), "%d", hrm_row);
+  oled_write_P(PSTR("  HRM: "), false);
+  if (hrm) {
+    oled_write_P(PSTR(" "), false);
+    oled_write_P(PSTR(hrm_str), false);
+  } else {
+    oled_write_P(PSTR("OFF"), false);
+  }
 
   oled_write_ln_P(PSTR("\n"), false);
 }

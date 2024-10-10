@@ -2,7 +2,7 @@
 	keyboard: sofle_pico
 	firmware: keebler
 	keymap: ermak
-	version: v1.0.0
+	version: v0.8.0
 
 	templates: [
 
@@ -31,7 +31,7 @@
 	]
 
 	keycodes: [
-		hrm rspc
+		hrm hrmu rspc
 		js_l_left js_l_right js_l_down js_l_up js_l_mod js_l_lock
 		js_r_left js_r_right js_r_down js_r_up js_r_mod
 		mql mqr
@@ -233,7 +233,7 @@
 				f12        f1           f2 f3          f4 f5      ││ ││ ││ f6        f7       f8          f9       f10 f11
 				eh_left    base         XX XX          XX dt_up   ││ ││ ││ XX        df[_lab] df[_dvorak] XX       XX  eh_rght
 				caps       tg[_gamepad] XX df[_engram] XX dt_prnt ││ ││ ││ XX        hrm      to[_engram] tg[_sys] XX  df[_qwerty]
-				lsft[lock] tg[_gaming]  XX XX          XX dt_down __ ││ __ XX        XX       tg[_media]  XX       XX  rsft[lock]
+				lsft[lock] tg[_gaming]  XX XX          XX dt_down __ ││ __ XX        hrmu     tg[_media]  XX       XX  rsft[lock]
 				││         ││           __ __          __ __      __ ││ __ tg[_meta] __       __          __       ││  ││
 			]
 		}

@@ -35,6 +35,7 @@ enum sofle_layers {
 enum custom_keycodes {
   PG_LOCK = SAFE_RANGE, PG_SEL,
   KC_HRM,
+  KC_HRMU,
   KC_RSPC,
   JS_L_LEFT,
   JS_L_RIGHT,
@@ -94,7 +95,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_ARROW] = LAYOUT(XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_UP, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_UP, XXXXXXX, XXXXXXX, XXXXXXX, BASE, XXXXXXX, KC_LEFT, KC_DOWN, KC_RIGHT, XXXXXXX, XXXXXXX, KC_LEFT, KC_DOWN, KC_RIGHT, XXXXXXX, XXXXXXX, LSFT_T(PG_LOCK), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RSFT_T(PG_LOCK), _______, _______, _______, _______, _______, _______, _______, _______, _______, _______),
   [_NUM] = LAYOUT(QK_LOCK, XXXXXXX, XXXXXXX, KC_LEFT_ANGLE_BRACKET, KC_RIGHT_ANGLE_BRACKET, KC_AMPERSAND, KC_SEMICOLON, XXXXXXX, XXXXXXX, KC_KP_EQUAL, KC_AT, KC_NUM, XXXXXXX, KC_EXCLAIM, KC_HASH, KC_LEFT_CURLY_BRACE, KC_RIGHT_CURLY_BRACE, KC_GRAVE, KC_COLON, KC_KP_7, KC_KP_8, KC_KP_9, KC_PERCENT, XXXXXXX, QK_CAPS_WORD_TOGGLE, KC_CIRCUMFLEX, KC_PIPE, KC_LEFT_PAREN, KC_RIGHT_PAREN, KC_DOLLAR, KC_KP_MINUS, KC_KP_4, KC_KP_5, KC_KP_6, KC_KP_PLUS, KC_UNDERSCORE, LSFT_T(PG_LOCK), KC_COLON, KC_EQUAL, KC_LEFT_BRACKET, KC_RIGHT_BRACKET, KC_TILDE, _______, _______, KC_KP_SLASH, KC_KP_1, KC_KP_2, KC_KP_3, KC_KP_ASTERISK, RSFT_T(PG_LOCK), QK_BOOT, _______, _______, _______, _______, LT(_NAV, BASE), KC_RSPC, KC_KP_0, KC_KP_DOT, KC_COMMA),
   [_NAV] = LAYOUT(KC_MS_ACCEL0, KC_MS_ACCEL1, KC_MS_ACCEL2, KC_BTN3, XXXXXXX, XXXXXXX, XXXXXXX, KC_MQL, KC_BTN3, KC_MQR, XXXXXXX, KC_AGAIN, XXXXXXX, KC_MS_WH_LEFT, KC_BTN2, KC_MS_UP, KC_BTN1, KC_MS_WH_RIGHT, XXXXXXX, KC_BTN1, KC_UP, KC_BTN2, XXXXXXX, KC_UNDO, _______, KC_BTN1, KC_MS_LEFT, KC_MS_DOWN, KC_MS_RIGHT, KC_BTN1, KC_HOME, KC_LEFT, KC_DOWN, KC_RIGHT, KC_END, PG_SEL, LSFT_T(PG_LOCK), KC_BTN2, _______, KC_MS_WH_DOWN, KC_MS_WH_UP, KC_BTN2, _______, _______, XXXXXXX, KC_PGUP, KC_PGDN, KC_MENU, XXXXXXX, RSFT_T(PG_LOCK), KC_BTN3, KC_BTN2, KC_BTN1, KC_DEL, LT(_NUM, BASE), _______, _______, _______, _______, _______),
-  [_LAYERS] = LAYOUT(KC_F12, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, EH_LEFT, BASE, XXXXXXX, XXXXXXX, XXXXXXX, DT_UP, XXXXXXX, DF(_LAB), DF(_DVORAK), XXXXXXX, XXXXXXX, EH_RGHT, KC_CAPS, TG(_GAMEPAD), XXXXXXX, DF(_ENGRAM), XXXXXXX, DT_PRNT, XXXXXXX, KC_HRM, TO(_ENGRAM), TG(_SYS), XXXXXXX, DF(_QWERTY), LSFT_T(PG_LOCK), TG(_GAMING), XXXXXXX, XXXXXXX, XXXXXXX, DT_DOWN, _______, _______, XXXXXXX, XXXXXXX, TG(_MEDIA), XXXXXXX, XXXXXXX, RSFT_T(PG_LOCK), _______, _______, _______, _______, _______, _______, TG(_META), _______, _______, _______),
+  [_LAYERS] = LAYOUT(KC_F12, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, EH_LEFT, BASE, XXXXXXX, XXXXXXX, XXXXXXX, DT_UP, XXXXXXX, DF(_LAB), DF(_DVORAK), XXXXXXX, XXXXXXX, EH_RGHT, KC_CAPS, TG(_GAMEPAD), XXXXXXX, DF(_ENGRAM), XXXXXXX, DT_PRNT, XXXXXXX, KC_HRM, TO(_ENGRAM), TG(_SYS), XXXXXXX, DF(_QWERTY), LSFT_T(PG_LOCK), TG(_GAMING), XXXXXXX, XXXXXXX, XXXXXXX, DT_DOWN, _______, _______, XXXXXXX, KC_HRMU, TG(_MEDIA), XXXXXXX, XXXXXXX, RSFT_T(PG_LOCK), _______, _______, _______, _______, _______, _______, TG(_META), _______, _______, _______),
   
 };
 
@@ -144,98 +145,104 @@ void keyboard_post_init_user() {
 /*   return true; */
 /* } */
 
+const uint8_t rows = MATRIX_ROWS / 2;
 bool hrm = true;
+uint8_t hrm_row = 2;
 bool process_hrm(uint16_t keycode, keyrecord_t *record) {
   if (keycode == KC_HRM && record->event.pressed) {
     hrm = !hrm;
     return false;
+  } else if (keycode == KC_HRMU && record->event.pressed) {
+    hrm_row = (hrm_row + 1) % rows;
+    return false;
   }
 
-  if (hrm) return true;
-
   // TODO: loop over achordion
-  switch (keycode) {
-    case LGUI_T(KC_C):
-      if (record->tap.count) return true;
-      if (record->event.pressed) {
-        register_code(KC_C);
-      } else {
-        unregister_code(KC_C);
-      }
-      return false;
-    case LALT_T(KC_I):
-      if (record->tap.count) return true;
-      if (record->event.pressed) {
-        register_code(KC_I);
-      } else {
-        unregister_code(KC_I);
-      }
-      return false;
-    case LCTL_T(KC_E):
-      if (record->tap.count) return true;
-      if (record->event.pressed) {
-        register_code(KC_E);
-      } else {
-        unregister_code(KC_E);
-      }
-      return false;
-    case LSFT_T(KC_A):
-      if (record->tap.count) return true;
-      if (record->event.pressed) {
-        register_code(KC_A);
-      } else {
-        unregister_code(KC_A);
-      }
-      return false;
-    case RSFT_T(KC_H):
-      if (record->tap.count) return true;
-      if (record->event.pressed) {
-        register_code(KC_H);
-      } else {
-        unregister_code(KC_H);
-      }
-      return false;
-    case RCTL_T(KC_T):
-      if (record->tap.count) return true;
-      if (record->event.pressed) {
-        register_code(KC_T);
-      } else {
-        unregister_code(KC_T);
-      }
-      return false;
-    case RALT_T(KC_S):
-      if (record->tap.count) return true;
-      if (record->event.pressed) {
-        register_code(KC_S);
-      } else {
-        unregister_code(KC_S);
-      }
-      return false;
-    case RGUI_T(KC_N):
-      if (record->tap.count) return true;
-      if (record->event.pressed) {
-        register_code(KC_N);
-      } else {
-        unregister_code(KC_N);
-      }
-      return false;
+  if (!hrm || hrm_row != 2) {
+    switch (keycode) {
+      case LGUI_T(KC_C):
+        if (record->tap.count) return true;
+        if (record->event.pressed) {
+          register_code(KC_C);
+        } else {
+          unregister_code(KC_C);
+        }
+        return false;
+      case LALT_T(KC_I):
+        if (record->tap.count) return true;
+        if (record->event.pressed) {
+          register_code(KC_I);
+        } else {
+          unregister_code(KC_I);
+        }
+        return false;
+      case LCTL_T(KC_E):
+        if (record->tap.count) return true;
+        if (record->event.pressed) {
+          register_code(KC_E);
+        } else {
+          unregister_code(KC_E);
+        }
+        return false;
+      case LSFT_T(KC_A):
+        if (record->tap.count) return true;
+        if (record->event.pressed) {
+          register_code(KC_A);
+        } else {
+          unregister_code(KC_A);
+        }
+        return false;
+      case RSFT_T(KC_H):
+        if (record->tap.count) return true;
+        if (record->event.pressed) {
+          register_code(KC_H);
+        } else {
+          unregister_code(KC_H);
+        }
+        return false;
+      case RCTL_T(KC_T):
+        if (record->tap.count) return true;
+        if (record->event.pressed) {
+          register_code(KC_T);
+        } else {
+          unregister_code(KC_T);
+        }
+        return false;
+      case RALT_T(KC_S):
+        if (record->tap.count) return true;
+        if (record->event.pressed) {
+          register_code(KC_S);
+        } else {
+          unregister_code(KC_S);
+        }
+        return false;
+      case RGUI_T(KC_N):
+        if (record->tap.count) return true;
+        if (record->event.pressed) {
+          register_code(KC_N);
+        } else {
+          unregister_code(KC_N);
+        }
+        return false;
+    }
   }
 
   return true;
 }
 
 uint16_t hrm_timeout(uint16_t keycode, uint16_t timeout) {
-  if (hrm) return timeout;
-  switch (keycode) {
-    case LGUI_T(KC_C):
-    case LALT_T(KC_I):
-    case LCTL_T(KC_E):
-    case LSFT_T(KC_A):
-    case RSFT_T(KC_H):
-    case RCTL_T(KC_T):
-    case RALT_T(KC_S):
-    case RGUI_T(KC_N):
-      return 0;
+  if (!hrm || hrm_row != 2) {
+    switch (keycode) {
+      case LGUI_T(KC_C):
+      case LALT_T(KC_I):
+      case LCTL_T(KC_E):
+      case LSFT_T(KC_A):
+      case RSFT_T(KC_H):
+      case RCTL_T(KC_T):
+      case RALT_T(KC_S):
+      case RGUI_T(KC_N):
+        return 0;
+    }
   }
   return timeout;
 }
@@ -596,7 +603,7 @@ static void render_logo(void) {
 }
 
 static void render_status(void) {
-  oled_write_P(PSTR(" Keebler   v1.0.0   "), true);
+  oled_write_P(PSTR(" Keebler   v0.8.0   "), true);
   oled_write_P(PSTR("~~~~~~~~~~"), false);
 
   led_t led_state = host_keyboard_led_state();
@@ -705,6 +712,16 @@ static void render_status(void) {
   }
 
   oled_write_ln_P(PSTR("\n\n"), false);
+
+  char hrm_str[4];
+  snprintf(hrm_str, sizeof(hrm_str), "%d", hrm_row);
+  oled_write_P(PSTR("  HRM: "), false);
+  if (hrm) {
+    oled_write_P(PSTR(" "), false);
+    oled_write_P(PSTR(hrm_str), false);
+  } else {
+    oled_write_P(PSTR("OFF"), false);
+  }
 
   oled_write_ln_P(PSTR("\n"), false);
 }
