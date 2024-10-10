@@ -600,12 +600,13 @@ static void render_status(void) {
   oled_write_P(PSTR("~~~~~~~~~~"), false);
 
   led_t led_state = host_keyboard_led_state();
-  oled_write_P(led_state.num_lock ? PSTR("NUM ") : PSTR("    "), false);
-  oled_write_P(led_state.caps_lock ? PSTR("CAP ") : PSTR("    "), false);
-  oled_write_P(led_state.scroll_lock ? PSTR("S ") : PSTR("  "), false);
-  oled_write_P(hrm ? PSTR("HRM ") : PSTR("    "), false);
+  if (led_state.num_lock) oled_write_P(PSTR("NUM "), false);
+  if (led_state.caps_lock) oled_write_P(PSTR("CAP "), false);
+  if (is_caps_word_on()) oled_write_P(PSTR("CAPW "), false);
+  if (led_state.scroll_lock) oled_write_P(PSTR("SCR "), false);
+  oled_write_ln_P(PSTR(""), false);
 
-  oled_write_P(PSTR("\n\nLAYER:\n\t"), false);
+  oled_write_P(PSTR("\n\nLAYER:\n  "), false);
   switch (get_highest_layer(default_layer_state)) {
     case _ENGRAM:
       oled_write_P(PSTR("engram"), false);
@@ -654,7 +655,7 @@ static void render_status(void) {
       break;
   }
 
-  oled_write_P(PSTR("\nSTATE:\n\t"), false);
+  oled_write_P(PSTR("\nSTATE:\n  "), false);
   switch (get_highest_layer(layer_state)) {
     case _ENGRAM:
       oled_write_P(PSTR("engram"), false);
@@ -703,7 +704,9 @@ static void render_status(void) {
       break;
   }
 
-  oled_write_P(PSTR("\n\n\n"), false);
+  oled_write_ln_P(PSTR("\n\n"), false);
+
+  oled_write_ln_P(PSTR("\n"), false);
 }
 
 bool oled_task_user(void) {
