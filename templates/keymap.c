@@ -474,6 +474,7 @@ void matrix_scan_user(void) {
 bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record, uint16_t other_keycode, keyrecord_t* other_record) {
   switch (tap_hold_keycode) {
   {%- for chord in achordion_ %}
+    {%- if chord.value | length == 0 %}{% continue %}{% endif %}
     case {{chord.key}}:
       if (other_keycode == {{chord.value | join(sep=" || other_keycode == ")}}) return true;
       break;

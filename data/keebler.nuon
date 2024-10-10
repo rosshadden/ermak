@@ -68,8 +68,8 @@
 		lgui[c]: [ lctl[esc] g ]
 		lalt[i]: [ lgui[c] lsft[a] j k ]
 		lctl[e]: [ lgui[c] ]
-		# lsft[a]: []
-		# rsft[h]: []
+		lsft[a]: []
+		rsft[h]: []
 		rctl[t]: [ l[q] v w z ]
 		ralt[s]: [ l[q] ]
 		rgui[n]: [ rsft[h] f l p w ]
@@ -88,7 +88,7 @@
 			]
 			encoders: {
 				left: [ vold volu ]
-				# TODO: current app volume
+				# TODO: current app volume?
 				right: [ tg[_gamepad] tg[_gaming] ]
 			}
 		}
