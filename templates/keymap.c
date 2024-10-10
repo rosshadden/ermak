@@ -86,11 +86,107 @@ void keyboard_post_init_user() {
 /*   return true; */
 /* } */
 
-uint8_t mod_state;
+bool hrm = true;
+bool process_hrm(uint16_t keycode, keyrecord_t *record) {
+  if (keycode == KC_HRM && record->event.pressed) {
+    hrm = !hrm;
+    return false;
+  }
+
+  if (hrm) return true;
+
+  // TODO: loop over achordion
+  switch (keycode) {
+    case LGUI_T(KC_C):
+      if (record->tap.count) return true;
+      if (record->event.pressed) {
+        register_code(KC_C);
+      } else {
+        unregister_code(KC_C);
+      }
+      return false;
+    case LALT_T(KC_I):
+      if (record->tap.count) return true;
+      if (record->event.pressed) {
+        register_code(KC_I);
+      } else {
+        unregister_code(KC_I);
+      }
+      return false;
+    case LCTL_T(KC_E):
+      if (record->tap.count) return true;
+      if (record->event.pressed) {
+        register_code(KC_E);
+      } else {
+        unregister_code(KC_E);
+      }
+      return false;
+    case LSFT_T(KC_A):
+      if (record->tap.count) return true;
+      if (record->event.pressed) {
+        register_code(KC_A);
+      } else {
+        unregister_code(KC_A);
+      }
+      return false;
+    case RSFT_T(KC_H):
+      if (record->tap.count) return true;
+      if (record->event.pressed) {
+        register_code(KC_H);
+      } else {
+        unregister_code(KC_H);
+      }
+      return false;
+    case RCTL_T(KC_T):
+      if (record->tap.count) return true;
+      if (record->event.pressed) {
+        register_code(KC_T);
+      } else {
+        unregister_code(KC_T);
+      }
+      return false;
+    case RALT_T(KC_S):
+      if (record->tap.count) return true;
+      if (record->event.pressed) {
+        register_code(KC_S);
+      } else {
+        unregister_code(KC_S);
+      }
+      return false;
+    case RGUI_T(KC_N):
+      if (record->tap.count) return true;
+      if (record->event.pressed) {
+        register_code(KC_N);
+      } else {
+        unregister_code(KC_N);
+      }
+      return false;
+  }
+
+  return true;
+}
+
+uint16_t hrm_timeout(uint16_t keycode, uint16_t timeout) {
+  if (hrm) return timeout;
+  switch (keycode) {
+    case LGUI_T(KC_C):
+    case LALT_T(KC_I):
+    case LCTL_T(KC_E):
+    case LSFT_T(KC_A):
+    case RSFT_T(KC_H):
+    case RCTL_T(KC_T):
+    case RALT_T(KC_S):
+    case RGUI_T(KC_N):
+      return 0;
+  }
+  return timeout;
+}
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (!process_achordion(keycode, record)) return false;
   if (!process_layer_lock(keycode, record, PG_LOCK)) return false;
   if (!process_select_word(keycode, record, PG_SEL)) return false;
+  if (!process_hrm(keycode, record)) return false;
 
   switch (get_highest_layer(default_layer_state)) {
     case _ENGRAM:
@@ -399,11 +495,12 @@ uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
     case LT(_NUM, KC_TAB):
       return 0;
   }
-  return 800;
+
+  return hrm_timeout(tap_hold_keycode, 800);
 }
 
-uint16_t achordion_streak_timeout(uint16_t tap_hold_keycode) {
-  return 120;
+bool achordion_eager_mod(uint8_t mod) {
+  return !hrm;
 }
 
 #if defined(OLED_ENABLE)
@@ -434,7 +531,8 @@ static void render_status(void) {
   led_t led_state = host_keyboard_led_state();
   oled_write_P(led_state.num_lock ? PSTR("NUM ") : PSTR("    "), false);
   oled_write_P(led_state.caps_lock ? PSTR("CAP ") : PSTR("    "), false);
-  oled_write_P(led_state.scroll_lock ? PSTR("S") : PSTR(" "), false);
+  oled_write_P(led_state.scroll_lock ? PSTR("S ") : PSTR("  "), false);
+  oled_write_P(hrm ? PSTR("HRM ") : PSTR("    "), false);
 
   oled_write_P(PSTR("\n\nLAYER:\n\t"), false);
   switch (get_highest_layer(default_layer_state)) {

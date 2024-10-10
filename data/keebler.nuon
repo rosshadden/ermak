@@ -31,7 +31,7 @@
 	]
 
 	keycodes: [
-		rspc
+		hrm rspc
 		js_l_left js_l_right js_l_down js_l_up js_l_mod js_l_lock
 		js_r_left js_r_right js_r_down js_r_up js_r_mod
 		mql mqr
@@ -68,6 +68,8 @@
 		lgui[c]: [ lctl[esc] g ]
 		lalt[i]: [ lgui[c] lsft[a] j k ]
 		lctl[e]: [ lgui[c] ]
+		# lsft[a]: []
+		# rsft[h]: []
 		rctl[t]: [ l[q] v w z ]
 		ralt[s]: [ l[q] ]
 		rgui[n]: [ rsft[h] f l p w ]
@@ -101,6 +103,17 @@
 				esc           lgui[c] lalt[i] lctl[e] lsft[a] __     ││ ││ ││ __    rsft[h] rctl[t] ralt[s] rgui[n] l[q]
 				osm[mod_lsft] __      __      __      __      l[-]   __ ││ __ l[/]  __      __      __      __      osm[mod_rsft]
 				││            ││      __      __      __      __     __ ││ __ __    __      __      __      ││      ││
+			]
+		}
+
+		{
+			name: lab
+			keys: [
+				__ __       __ __ __ __ ││ ││ ││ __ __ __ __ __ __
+				__ __       __ __ __ __ ││ ││ ││ __ __ __ __ __ __
+				__ lgui[__] __ __ __ __ ││ ││ ││ __ __ __ __ __ __
+				__ __       __ __ __ __ __ ││ __ __ __ __ __ __ __
+				││ ││       __ __ __ __ __ ││ __ __ __ __ __ ││ ││
 			]
 		}
 
@@ -217,11 +230,11 @@
 		{
 			name: layers
 			keys: [
-				f12        f1           f2 f3          f4 f5      ││ ││ ││ f6        f7 f8          f9       f10 f11
-				eh_left    base         XX XX          XX dt_up   ││ ││ ││ XX        XX df[_dvorak] XX       XX  eh_rght
-				caps       tg[_gamepad] XX df[_engram] XX dt_prnt ││ ││ ││ XX        XX to[_engram] tg[_sys] XX  df[_qwerty]
-				lsft[lock] tg[_gaming]  XX XX          XX dt_down __ ││ __ XX        XX tg[_media]  XX       XX  rsft[lock]
-				││         ││           __ __          __ __      __ ││ __ tg[_meta] __ __          __       ││  ││
+				f12        f1           f2 f3          f4 f5      ││ ││ ││ f6        f7       f8          f9       f10 f11
+				eh_left    base         XX XX          XX dt_up   ││ ││ ││ XX        df[_lab] df[_dvorak] XX       XX  eh_rght
+				caps       tg[_gamepad] XX df[_engram] XX dt_prnt ││ ││ ││ XX        hrm      to[_engram] tg[_sys] XX  df[_qwerty]
+				lsft[lock] tg[_gaming]  XX XX          XX dt_down __ ││ __ XX        XX       tg[_media]  XX       XX  rsft[lock]
+				││         ││           __ __          __ __      __ ││ __ tg[_meta] __       __          __       ││  ││
 			]
 		}
 

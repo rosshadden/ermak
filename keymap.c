@@ -17,6 +17,7 @@
 enum sofle_layers {
   _ENGRAM,
   _ERMAK,
+  _LAB,
   _DVORAK,
   _QWERTY,
   _GAMEPAD,
@@ -33,6 +34,7 @@ enum sofle_layers {
 
 enum custom_keycodes {
   PG_LOCK = SAFE_RANGE, PG_SEL,
+  KC_HRM,
   KC_RSPC,
   JS_L_LEFT,
   JS_L_RIGHT,
@@ -81,6 +83,7 @@ uint8_t NUM_CUSTOM_SHIFT_KEYS = sizeof(custom_shift_keys) / sizeof(custom_shift_
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_ENGRAM] = LAYOUT(KC_LEFT_BRACKET, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_RIGHT_BRACKET, KC_HASH, KC_B, KC_Y, KC_O, KC_U, KC_QUOTE, KC_DOUBLE_QUOTE, KC_L, KC_D, KC_W, KC_V, KC_Z, LCTL_T(KC_ESC), KC_C, KC_I, KC_E, KC_A, KC_COMMA, KC_DOT, KC_H, KC_T, KC_S, KC_N, KC_Q, KC_LSFT, KC_G, KC_X, KC_J, KC_K, KC_MINUS, KC_MUTE, KC_F20, KC_SLASH, KC_R, KC_M, KC_F, KC_P, KC_RSFT, LCTL_T(KC_GRAVE), LALT_T(KC_NO), LGUI_T(KC_NO), KC_BACKSPACE, LT(_NUM, KC_TAB), LT(_NAV, KC_ENTER), KC_SPACE, RGUI_T(KC_NO), RALT_T(KC_NO), RCTL_T(KC_QUESTION)),
   [_ERMAK] = LAYOUT(L(KC_LEFT_BRACKET), _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, L(KC_QUOTE), L(DQ), _______, _______, _______, _______, _______, KC_ESC, LGUI_T(KC_C), LALT_T(KC_I), LCTL_T(KC_E), LSFT_T(KC_A), _______, _______, RSFT_T(KC_H), RCTL_T(KC_T), RALT_T(KC_S), RGUI_T(KC_N), L(KC_Q), OSM(MOD_LSFT), _______, _______, _______, _______, L(KC_MINUS), _______, _______, L(KC_SLASH), _______, _______, _______, _______, OSM(MOD_RSFT), _______, _______, _______, _______, _______, _______, _______, _______, _______, _______),
+  [_LAB] = LAYOUT(_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, LGUI_T(_______), _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______),
   [_DVORAK] = LAYOUT(KC_GRAVE, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_BACKSLASH, KC_EQUAL, KC_QUOTE, KC_COMMA, KC_DOT, KC_P, KC_Y, KC_F, KC_G, KC_C, KC_R, KC_L, KC_SLASH, _______, LGUI_T(KC_A), LALT_T(KC_O), LCTL_T(KC_E), LSFT_T(KC_U), KC_I, KC_D, RSFT_T(KC_H), RCTL_T(KC_T), RALT_T(KC_N), RGUI_T(KC_S), KC_MINUS, _______, KC_SEMICOLON, KC_Q, KC_J, KC_K, KC_X, _______, BASE, KC_B, KC_M, KC_W, KC_V, KC_Z, _______, LCTL_T(KC_LEFT_BRACKET), _______, _______, _______, _______, _______, _______, _______, _______, RCTL_T(KC_RIGHT_BRACKET)),
   [_QWERTY] = LAYOUT(KC_GRAVE, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_BACKSLASH, KC_EQUAL, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_MINUS, _______, LGUI_T(KC_A), LALT_T(KC_S), LCTL_T(KC_D), LSFT_T(KC_F), KC_G, KC_H, RSFT_T(KC_J), RCTL_T(KC_K), RALT_T(KC_L), RGUI_T(KC_SEMICOLON), KC_QUOTE, _______, KC_Z, KC_X, KC_C, KC_V, KC_B, _______, _______, KC_N, KC_M, KC_COMMA, KC_DOT, KC_SLASH, _______, LCTL_T(KC_LEFT_BRACKET), _______, _______, _______, _______, _______, _______, _______, _______, RCTL_T(KC_RIGHT_BRACKET)),
   [_GAMEPAD] = LAYOUT(JS_17, XXXXXXX, XXXXXXX, JS_L_LOCK, JS_13, JS_11, JS_9, JS_12, JS_13, XXXXXXX, XXXXXXX, JS_16, JS_11, JS_10, JS_9, JS_L_UP, JS_8, JS_10, JS_8, JS_10, JS_R_UP, JS_11, JS_8, JS_9, _______, JS_L_MOD, JS_L_LEFT, JS_L_DOWN, JS_L_RIGHT, JS_12, JS_13, JS_R_LEFT, JS_R_DOWN, JS_R_RIGHT, JS_R_MOD, KC_ESC, KC_LSFT, JS_15, JS_0, JS_1, JS_2, JS_3, _______, _______, JS_6, JS_4, JS_7, JS_5, JS_14, KC_RSFT, JS_9, JS_8, JS_7, JS_5, _______, _______, JS_4, JS_6, JS_10, JS_11),
@@ -91,7 +94,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_ARROW] = LAYOUT(XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_UP, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_UP, XXXXXXX, XXXXXXX, XXXXXXX, BASE, XXXXXXX, KC_LEFT, KC_DOWN, KC_RIGHT, XXXXXXX, XXXXXXX, KC_LEFT, KC_DOWN, KC_RIGHT, XXXXXXX, XXXXXXX, LSFT_T(PG_LOCK), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RSFT_T(PG_LOCK), _______, _______, _______, _______, _______, _______, _______, _______, _______, _______),
   [_NUM] = LAYOUT(QK_LOCK, XXXXXXX, XXXXXXX, KC_LEFT_ANGLE_BRACKET, KC_RIGHT_ANGLE_BRACKET, KC_AMPERSAND, KC_SEMICOLON, XXXXXXX, XXXXXXX, KC_KP_EQUAL, KC_AT, KC_NUM, XXXXXXX, KC_EXCLAIM, KC_HASH, KC_LEFT_CURLY_BRACE, KC_RIGHT_CURLY_BRACE, KC_GRAVE, KC_COLON, KC_KP_7, KC_KP_8, KC_KP_9, KC_PERCENT, XXXXXXX, QK_CAPS_WORD_TOGGLE, KC_CIRCUMFLEX, KC_PIPE, KC_LEFT_PAREN, KC_RIGHT_PAREN, KC_DOLLAR, KC_KP_MINUS, KC_KP_4, KC_KP_5, KC_KP_6, KC_KP_PLUS, KC_UNDERSCORE, LSFT_T(PG_LOCK), KC_COLON, KC_EQUAL, KC_LEFT_BRACKET, KC_RIGHT_BRACKET, KC_TILDE, _______, _______, KC_KP_SLASH, KC_KP_1, KC_KP_2, KC_KP_3, KC_KP_ASTERISK, RSFT_T(PG_LOCK), QK_BOOT, _______, _______, _______, _______, LT(_NAV, BASE), KC_RSPC, KC_KP_0, KC_KP_DOT, KC_COMMA),
   [_NAV] = LAYOUT(KC_MS_ACCEL0, KC_MS_ACCEL1, KC_MS_ACCEL2, KC_BTN3, XXXXXXX, XXXXXXX, XXXXXXX, KC_MQL, KC_BTN3, KC_MQR, XXXXXXX, KC_AGAIN, XXXXXXX, KC_MS_WH_LEFT, KC_BTN2, KC_MS_UP, KC_BTN1, KC_MS_WH_RIGHT, XXXXXXX, KC_BTN1, KC_UP, KC_BTN2, XXXXXXX, KC_UNDO, _______, KC_BTN1, KC_MS_LEFT, KC_MS_DOWN, KC_MS_RIGHT, KC_BTN1, KC_HOME, KC_LEFT, KC_DOWN, KC_RIGHT, KC_END, PG_SEL, LSFT_T(PG_LOCK), KC_BTN2, _______, KC_MS_WH_DOWN, KC_MS_WH_UP, KC_BTN2, _______, _______, XXXXXXX, KC_PGUP, KC_PGDN, KC_MENU, XXXXXXX, RSFT_T(PG_LOCK), KC_BTN3, KC_BTN2, KC_BTN1, KC_DEL, LT(_NUM, BASE), _______, _______, _______, _______, _______),
-  [_LAYERS] = LAYOUT(KC_F12, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, EH_LEFT, BASE, XXXXXXX, XXXXXXX, XXXXXXX, DT_UP, XXXXXXX, XXXXXXX, DF(_DVORAK), XXXXXXX, XXXXXXX, EH_RGHT, KC_CAPS, TG(_GAMEPAD), XXXXXXX, DF(_ENGRAM), XXXXXXX, DT_PRNT, XXXXXXX, XXXXXXX, TO(_ENGRAM), TG(_SYS), XXXXXXX, DF(_QWERTY), LSFT_T(PG_LOCK), TG(_GAMING), XXXXXXX, XXXXXXX, XXXXXXX, DT_DOWN, _______, _______, XXXXXXX, XXXXXXX, TG(_MEDIA), XXXXXXX, XXXXXXX, RSFT_T(PG_LOCK), _______, _______, _______, _______, _______, _______, TG(_META), _______, _______, _______),
+  [_LAYERS] = LAYOUT(KC_F12, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, EH_LEFT, BASE, XXXXXXX, XXXXXXX, XXXXXXX, DT_UP, XXXXXXX, DF(_LAB), DF(_DVORAK), XXXXXXX, XXXXXXX, EH_RGHT, KC_CAPS, TG(_GAMEPAD), XXXXXXX, DF(_ENGRAM), XXXXXXX, DT_PRNT, XXXXXXX, KC_HRM, TO(_ENGRAM), TG(_SYS), XXXXXXX, DF(_QWERTY), LSFT_T(PG_LOCK), TG(_GAMING), XXXXXXX, XXXXXXX, XXXXXXX, DT_DOWN, _______, _______, XXXXXXX, XXXXXXX, TG(_MEDIA), XXXXXXX, XXXXXXX, RSFT_T(PG_LOCK), _______, _______, _______, _______, _______, _______, TG(_META), _______, _______, _______),
   
 };
 
@@ -141,11 +144,107 @@ void keyboard_post_init_user() {
 /*   return true; */
 /* } */
 
-uint8_t mod_state;
+bool hrm = true;
+bool process_hrm(uint16_t keycode, keyrecord_t *record) {
+  if (keycode == KC_HRM && record->event.pressed) {
+    hrm = !hrm;
+    return false;
+  }
+
+  if (hrm) return true;
+
+  // TODO: loop over achordion
+  switch (keycode) {
+    case LGUI_T(KC_C):
+      if (record->tap.count) return true;
+      if (record->event.pressed) {
+        register_code(KC_C);
+      } else {
+        unregister_code(KC_C);
+      }
+      return false;
+    case LALT_T(KC_I):
+      if (record->tap.count) return true;
+      if (record->event.pressed) {
+        register_code(KC_I);
+      } else {
+        unregister_code(KC_I);
+      }
+      return false;
+    case LCTL_T(KC_E):
+      if (record->tap.count) return true;
+      if (record->event.pressed) {
+        register_code(KC_E);
+      } else {
+        unregister_code(KC_E);
+      }
+      return false;
+    case LSFT_T(KC_A):
+      if (record->tap.count) return true;
+      if (record->event.pressed) {
+        register_code(KC_A);
+      } else {
+        unregister_code(KC_A);
+      }
+      return false;
+    case RSFT_T(KC_H):
+      if (record->tap.count) return true;
+      if (record->event.pressed) {
+        register_code(KC_H);
+      } else {
+        unregister_code(KC_H);
+      }
+      return false;
+    case RCTL_T(KC_T):
+      if (record->tap.count) return true;
+      if (record->event.pressed) {
+        register_code(KC_T);
+      } else {
+        unregister_code(KC_T);
+      }
+      return false;
+    case RALT_T(KC_S):
+      if (record->tap.count) return true;
+      if (record->event.pressed) {
+        register_code(KC_S);
+      } else {
+        unregister_code(KC_S);
+      }
+      return false;
+    case RGUI_T(KC_N):
+      if (record->tap.count) return true;
+      if (record->event.pressed) {
+        register_code(KC_N);
+      } else {
+        unregister_code(KC_N);
+      }
+      return false;
+  }
+
+  return true;
+}
+
+uint16_t hrm_timeout(uint16_t keycode, uint16_t timeout) {
+  if (hrm) return timeout;
+  switch (keycode) {
+    case LGUI_T(KC_C):
+    case LALT_T(KC_I):
+    case LCTL_T(KC_E):
+    case LSFT_T(KC_A):
+    case RSFT_T(KC_H):
+    case RCTL_T(KC_T):
+    case RALT_T(KC_S):
+    case RGUI_T(KC_N):
+      return 0;
+  }
+  return timeout;
+}
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (!process_achordion(keycode, record)) return false;
   if (!process_layer_lock(keycode, record, PG_LOCK)) return false;
   if (!process_select_word(keycode, record, PG_SEL)) return false;
+  if (!process_hrm(keycode, record)) return false;
 
   switch (get_highest_layer(default_layer_state)) {
     case _ENGRAM:
@@ -467,11 +566,12 @@ uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
     case LT(_NUM, KC_TAB):
       return 0;
   }
-  return 800;
+
+  return hrm_timeout(tap_hold_keycode, 800);
 }
 
-uint16_t achordion_streak_timeout(uint16_t tap_hold_keycode) {
-  return 120;
+bool achordion_eager_mod(uint8_t mod) {
+  return !hrm;
 }
 
 #if defined(OLED_ENABLE)
@@ -502,7 +602,8 @@ static void render_status(void) {
   led_t led_state = host_keyboard_led_state();
   oled_write_P(led_state.num_lock ? PSTR("NUM ") : PSTR("    "), false);
   oled_write_P(led_state.caps_lock ? PSTR("CAP ") : PSTR("    "), false);
-  oled_write_P(led_state.scroll_lock ? PSTR("S") : PSTR(" "), false);
+  oled_write_P(led_state.scroll_lock ? PSTR("S ") : PSTR("  "), false);
+  oled_write_P(hrm ? PSTR("HRM ") : PSTR("    "), false);
 
   oled_write_P(PSTR("\n\nLAYER:\n\t"), false);
   switch (get_highest_layer(default_layer_state)) {
@@ -511,6 +612,9 @@ static void render_status(void) {
       break;
     case _ERMAK:
       oled_write_P(PSTR("ermak"), false);
+      break;
+    case _LAB:
+      oled_write_P(PSTR("lab"), false);
       break;
     case _DVORAK:
       oled_write_P(PSTR("dvorak"), false);
@@ -557,6 +661,9 @@ static void render_status(void) {
       break;
     case _ERMAK:
       oled_write_P(PSTR("ermak"), false);
+      break;
+    case _LAB:
+      oled_write_P(PSTR("lab"), false);
       break;
     case _DVORAK:
       oled_write_P(PSTR("dvorak"), false);
@@ -614,6 +721,7 @@ bool oled_task_user(void) {
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
   [_ENGRAM] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(TG(_GAMEPAD), TG(_GAMING)) },
   [_ERMAK] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
+  [_LAB] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
   [_DVORAK] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
   [_QWERTY] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
   [_GAMEPAD] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
