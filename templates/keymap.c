@@ -98,7 +98,6 @@ bool process_hrm(uint16_t keycode, keyrecord_t *record) {
     return false;
   }
 
-  // TODO: loop over achordion
   if (!hrm || hrm_row != 2) {
     switch (keycode) {
       case LGUI_T(KC_C):
