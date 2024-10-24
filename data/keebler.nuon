@@ -66,7 +66,7 @@
 
 	achordion: {
 		lgui[c]: [ lctl[esc] esc g ]
-		lalt[i]: [ lgui[c] lsft[a] b g j k u x l[-] , "l[']" '`' ]
+		lalt[i]: [ lgui[c] lsft[a] b g j k u x l[-] ',' "l[']" '`' ]
 		lctl[e]: [ lgui[c] ]
 		lsft[a]: []
 		rsft[h]: []
@@ -84,7 +84,7 @@
 				'`'       b  y         o        u        "'"  ││           ││ ││             '"'   l        d        w       v  z
 				lctl[esc] c  i         e        a        ','  ││           ││ ││             .     h        t        s       n  q
 				lsft      g  x         j        k        -    mute         ││ mic            /     r        m        f       p  rsft
-				││        ││ "lctl[#]" lalt[no] lgui[no] back lt[_num,tab] ││ lt[_nav,enter] space rgui[no] ralt[no] rctl[?] ││ ││
+				││        ││ "lctl[#]" lgui[no] lalt[no] back lt[_num,tab] ││ lt[_nav,enter] space rgui[no] ralt[no] rctl[?] ││ ││
 			]
 			encoders: {
 				left: [ vold volu ]
@@ -157,7 +157,7 @@
 				=    p   q         w    e    r     ││ ││ ││ t    y    u    i         o  -
 				__   ';' a         s    d    f     ││ ││ ││ g    h    j    k         l  "'"
 				lsft /   z         x    c    v     __ ││ __ b    n    m    ','       .  rsft
-				││   ││  "lctl[[]" lalt lgui space __ ││ __ back rgui ralt "rctl[]]" ││ ││
+				││   ││  "lctl[[]" lgui lalt space __ ││ __ back rgui ralt "rctl[]]" ││ ││
 			]
 		}
 
