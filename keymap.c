@@ -75,6 +75,7 @@ const custom_shift_key_t custom_shift_keys[] = {
   { RCTL_T(KC_QUESTION), KC_EXCLAIM },
   { KC_SLASH, KC_PIPE },
   { L(KC_SLASH), KC_PIPE },
+  { RGUI_T(KC_SLASH), KC_PIPE },
   { KC_DOUBLE_QUOTE, KC_RIGHT_PAREN },
   { L(DQ), KC_RIGHT_PAREN },
   
@@ -83,7 +84,7 @@ uint8_t NUM_CUSTOM_SHIFT_KEYS = sizeof(custom_shift_keys) / sizeof(custom_shift_
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_ENGRAM] = LAYOUT(KC_LEFT_BRACKET, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_RIGHT_BRACKET, KC_GRAVE, KC_B, KC_Y, KC_O, KC_U, KC_QUOTE, KC_DOUBLE_QUOTE, KC_L, KC_D, KC_W, KC_V, KC_Z, LCTL_T(KC_ESC), KC_C, KC_I, KC_E, KC_A, KC_COMMA, KC_DOT, KC_H, KC_T, KC_S, KC_N, KC_Q, KC_LSFT, KC_G, KC_X, KC_J, KC_K, LGUI_T(KC_MINUS), KC_MUTE, KC_F20, RGUI_T(KC_SLASH), KC_R, KC_M, KC_F, KC_P, KC_RSFT, LCTL_T(KC_HASH), LGUI_T(KC_NO), LALT_T(KC_NO), KC_BACKSPACE, LT(_NUM, KC_TAB), LT(_NAV, KC_ENTER), KC_SPACE, RGUI_T(KC_NO), RALT_T(KC_NO), RCTL_T(KC_QUESTION)),
-  [_ERMAK] = LAYOUT(L(KC_LEFT_BRACKET), _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, L(KC_QUOTE), L(DQ), _______, _______, _______, _______, _______, _______, LGUI_T(KC_C), LALT_T(KC_I), LCTL_T(KC_E), LSFT_T(KC_A), _______, _______, RSFT_T(KC_H), RCTL_T(KC_T), RALT_T(KC_S), RGUI_T(KC_N), L(KC_Q), OSM(MOD_LSFT), _______, _______, _______, _______, L(KC_MINUS), _______, _______, L(KC_SLASH), _______, _______, _______, _______, OSM(MOD_RSFT), _______, _______, _______, _______, _______, _______, _______, _______, _______, _______),
+  [_ERMAK] = LAYOUT(L(KC_LEFT_BRACKET), _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, L(KC_QUOTE), L(DQ), _______, _______, _______, _______, _______, _______, LGUI_T(KC_C), LALT_T(KC_I), LCTL_T(KC_E), LSFT_T(KC_A), _______, _______, RSFT_T(KC_H), RCTL_T(KC_T), RALT_T(KC_S), RGUI_T(KC_N), L(KC_Q), OSM(MOD_LSFT), _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, OSM(MOD_RSFT), _______, _______, _______, _______, _______, _______, _______, _______, _______, _______),
   [_LAB] = LAYOUT(_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, LGUI_T(_______), _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______),
   [_DVORAK] = LAYOUT(KC_GRAVE, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_BACKSLASH, KC_EQUAL, KC_QUOTE, KC_COMMA, KC_DOT, KC_P, KC_Y, KC_F, KC_G, KC_C, KC_R, KC_L, KC_SLASH, _______, LGUI_T(KC_A), LALT_T(KC_O), LCTL_T(KC_E), LSFT_T(KC_U), KC_I, KC_D, RSFT_T(KC_H), RCTL_T(KC_T), RALT_T(KC_N), RGUI_T(KC_S), KC_MINUS, _______, KC_SEMICOLON, KC_Q, KC_J, KC_K, KC_X, _______, BASE, KC_B, KC_M, KC_W, KC_V, KC_Z, _______, LCTL_T(KC_LEFT_BRACKET), _______, _______, _______, _______, _______, _______, _______, _______, RCTL_T(KC_RIGHT_BRACKET)),
   [_QWERTY] = LAYOUT(KC_GRAVE, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_BACKSLASH, KC_EQUAL, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_MINUS, _______, LGUI_T(KC_A), LALT_T(KC_S), LCTL_T(KC_D), LSFT_T(KC_F), KC_G, KC_H, RSFT_T(KC_J), RCTL_T(KC_K), RALT_T(KC_L), RGUI_T(KC_SEMICOLON), KC_QUOTE, _______, KC_Z, KC_X, KC_C, KC_V, KC_B, _______, _______, KC_N, KC_M, KC_COMMA, KC_DOT, KC_SLASH, _______, LCTL_T(KC_LEFT_BRACKET), _______, _______, _______, _______, _______, _______, _______, _______, RCTL_T(KC_RIGHT_BRACKET)),
@@ -543,7 +544,7 @@ bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record, ui
       if (other_keycode == LCTL_T(KC_ESC) || other_keycode == KC_ESC || other_keycode == KC_G) return true;
       break;
     case LGUI_T(KC_MINUS):
-      if (other_keycode == LCTL_T(KC_ESC) || other_keycode == LGUI_T(KC_C) || other_keycode == KC_C || other_keycode == KC_ESC || other_keycode == KC_G) return true;
+      if (other_keycode == LCTL_T(KC_ESC) || other_keycode == LGUI_T(KC_C) || other_keycode == KC_ESC || other_keycode == KC_C || other_keycode == KC_G || other_keycode == KC_I) return true;
       break;
     case LALT_T(KC_I):
       if (other_keycode == LGUI_T(KC_C) || other_keycode == LSFT_T(KC_A) || other_keycode == KC_B || other_keycode == KC_G || other_keycode == KC_J || other_keycode == KC_K || other_keycode == KC_U || other_keycode == KC_X || other_keycode == L(KC_MINUS) || other_keycode == KC_COMMA || other_keycode == L(KC_QUOTE) || other_keycode == KC_GRAVE) return true;
@@ -564,7 +565,7 @@ bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record, ui
       if (other_keycode == RSFT_T(KC_H) || other_keycode == KC_F || other_keycode == KC_L || other_keycode == KC_P || other_keycode == KC_W) return true;
       break;
     case RGUI_T(KC_SLASH):
-      if (other_keycode == RSFT_T(KC_H) || other_keycode == RGUI_T(KC_N) || other_keycode == KC_N || other_keycode == KC_F || other_keycode == KC_L || other_keycode == KC_P || other_keycode == KC_W) return true;
+      if (other_keycode == RSFT_T(KC_H) || other_keycode == RGUI_T(KC_N) || other_keycode == KC_N || other_keycode == KC_F || other_keycode == KC_L || other_keycode == KC_P || other_keycode == KC_S || other_keycode == KC_W) return true;
       break;
   }
 

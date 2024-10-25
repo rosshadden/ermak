@@ -60,13 +60,14 @@
 		"rctl[?]": !
 		/:         '|'
 		l[/]:      '|'
+		rgui[/]:   '|'
 		'"':       ')'
 		l[dq]:     ')'
 	}
 
 	achordion: {
 		lgui[c]: [ lctl[esc] esc g ]
-		lgui[-]: [ lctl[esc] lgui[c] c esc g ]
+		lgui[-]: [ lctl[esc] lgui[c] esc c g i ]
 		lalt[i]: [ lgui[c] lsft[a] b g j k u x l[-] ',' "l[']" '`' ]
 		lctl[e]: [ lgui[c] ]
 		lsft[a]: [ '`' ]
@@ -74,7 +75,7 @@
 		rctl[t]: [ l[q] v w z ]
 		ralt[s]: [ l[q] ]
 		rgui[n]: [ rsft[h] f l p w ]
-		rgui[/]: [ rsft[h] rgui[n] n f l p w ]
+		rgui[/]: [ rsft[h] rgui[n] n f l p s w ]
 	}
 
 	layers: [
@@ -103,7 +104,7 @@
 				"l[[]"        __      __      __      __      __     ││ ││ ││ __    __      __      __      __      __
 				__            __      __      __      __      "l[']" ││ ││ ││ l[dq] __      __      __      __      __
 				__            lgui[c] lalt[i] lctl[e] lsft[a] __     ││ ││ ││ __    rsft[h] rctl[t] ralt[s] rgui[n] l[q]
-				osm[mod_lsft] __      __      __      __      l[-]   __ ││ __ l[/]  __      __      __      __      osm[mod_rsft]
+				osm[mod_lsft] __      __      __      __      __     __ ││ __ __    __      __      __      __      osm[mod_rsft]
 				││            ││      __      __      __      __     __ ││ __ __    __      __      __      ││      ││
 			]
 		}
