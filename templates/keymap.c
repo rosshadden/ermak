@@ -174,6 +174,7 @@ uint16_t hrm_timeout(uint16_t keycode, uint16_t timeout) {
   if (!hrm || hrm_row != 2) {
     switch (keycode) {
       case LGUI_T(KC_C):
+      case LGUI_T(KC_COMMA):
       case LALT_T(KC_I):
       case LCTL_T(KC_E):
       case LSFT_T(KC_A):
@@ -181,6 +182,7 @@ uint16_t hrm_timeout(uint16_t keycode, uint16_t timeout) {
       case RCTL_T(KC_T):
       case RALT_T(KC_S):
       case RGUI_T(KC_N):
+      case RGUI_T(KC_DOT):
         return 0;
     }
   }
