@@ -81,6 +81,25 @@
 	mwr: KC_MS_WH_RIGHT
 	mwu: KC_MS_WH_UP
 
+	js_A: JS_4
+	js_B: JS_5
+	js_X: JS_6
+	js_Y: JS_7
+	js_L1: JS_8
+	js_L2: JS_9
+	js_L3: JS_12
+	js_R1: JS_10
+	js_R2: JS_11
+	js_R3: JS_13
+	js_START: JS_14
+	js_SEL: JS_15
+	js_DL: JS_0
+	js_DD: JS_1
+	js_DU: JS_2
+	js_DR: JS_3
+	js_HOME: JS_16
+	js_SW: JS_17
+
 	ffwd: KC_MEDIA_FAST_FORWARD
 	mic: KC_F20
 	next: KC_MEDIA_NEXT_TRACK

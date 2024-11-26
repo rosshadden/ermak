@@ -70,8 +70,8 @@
 		lgui[-]: [ lctl[esc] lgui[c] esc c g i ]
 		lalt[i]: [ lgui[c] lsft[a] b g j k u x l[-] ',' "l[']" '`' ]
 		lctl[e]: [ lgui[c] ]
-		lsft[a]: [ '`' ]
-		rsft[h]: []
+		lsft[a]: [ '`' . / ]
+		rsft[h]: [ ',' - ]
 		rctl[t]: [ l[q] v w z ]
 		ralt[s]: [ l[q] ]
 		rgui[n]: [ rsft[h] f l p w ]
@@ -106,6 +106,17 @@
 				__            lgui[c] lalt[i] lctl[e] lsft[a] __     ││ ││ ││ __    rsft[h] rctl[t] ralt[s] rgui[n] l[q]
 				osm[mod_lsft] __      __      __      __      __     __ ││ __ __    __      __      __      __      osm[mod_rsft]
 				││            ││      __      __      __      __     __ ││ __ __    __      __      __      ││      ││
+			]
+		}
+
+		{
+			name: dota
+			keys: [
+				__   __ __ __ __   __   ││ ││ ││ __ __ __ __ __ __
+				__   __ __ __ __   __   ││ ││ ││ __ __ __ __ __ __
+				__   __ __ __ __   __   ││ ││ ││ __ __ __ __ __ __
+				lsft __ __ __ __   __   __ ││ __ __ __ __ __ __ rsft
+				││   ││ /  .  back lalt __ ││ __ __ __ __ __ ││ ││
 			]
 		}
 
@@ -145,11 +156,11 @@
 		{
 			name: gamepad
 			keys: [
-				js_17 XX       XX        js_l_lock js_13      js_11 ││ ││ ││ js_9  js_12     js_13     XX         XX       js_16
-				js_11 js_10    js_9      js_l_up   js_8       js_10 ││ ││ ││ js_8  js_10     js_r_up   js_11      js_8     js_9
-				__    js_l_mod js_l_left js_l_down js_l_right js_12 ││ ││ ││ js_13 js_r_left js_r_down js_r_right js_r_mod esc
-				lsft  js_15    js_0      js_1      js_2       js_3  __ ││ __ js_6  js_4      js_7      js_5       js_14    rsft
-				││    ││       js_9      js_8      js_7       js_5  __ ││ __ js_4  js_6      js_10     js_11      ││       ││
+				js_SEL js_SW    XX        js_l_lock XX         js_L1 ││ ││ ││ js_R1 XX        XX        XX         js_HOME  js_START
+				XX     js_L1    XX        js_l_up   XX         js_L2 ││ ││ ││ js_R2 js_Y      js_r_up   js_X       js_R1    XX
+				js_L3  js_l_mod js_l_left js_l_down js_l_right js_L3 ││ ││ ││ js_R3 js_r_left js_r_down js_r_right js_r_mod js_R3
+				lsft   js_L2    js_DL     js_DD     js_DU      js_DR __ ││ __ js_X  js_A      js_Y      js_B       js_R2    rsft
+				││     ││       js_R1     js_L3     js_L2      js_L1 __ ││ __ js_R1 js_R2     js_R3     js_L1      ││       ││
 			]
 		}
 
@@ -211,7 +222,7 @@
 		{
 			name: num
 			keys: [
-				f12        f1 f2   <   >   &   ││ ││ ││            ';'  XX  XX  kp= @   num
+				f12        f1 f2   <   >   &   ││ ││ ││            ';'  ins XX  kp= @   num
 				f11        ^  '#'  '{' '}' '$' ││ ││ ││            ':'  kp7 kp8 kp9 %   qk_lock
 				capw       !  =    '(' ')' '`' ││ ││ ││            kp-  kp4 kp5 kp6 kp+ '_'
 				lsft[lock] :  '|'  '[' ']' ~   __ ││ __            kp/  kp1 kp2 kp3 kp* rsft[lock]
@@ -233,11 +244,11 @@
 		{
 			name: layers
 			keys: [
-				f12        f1           f2 f3          f4 f5      ││ ││ ││ f6        f7       f8          f9       f10 f11
-				eh_left    base         XX XX          XX dt_up   ││ ││ ││ XX        df[_lab] df[_dvorak] XX       XX  eh_rght
-				caps       tg[_gamepad] XX df[_engram] XX dt_prnt ││ ││ ││ XX        hrm      to[_engram] tg[_sys] XX  df[_qwerty]
-				lsft[lock] tg[_gaming]  XX XX          XX dt_down __ ││ __ XX        hrmu     tg[_media]  XX       XX  rsft[lock]
-				││         ││           __ __          __ __      __ ││ __ tg[_meta] __       __          __       ││  ││
+				f12        f1           f2 f3          f4 f5      ││ ││ ││ f6        f7       f8          f9       f10         f11
+				eh_left    base         XX XX          XX dt_up   ││ ││ ││ XX        df[_lab] to[_dota]   XX       df[_dvorak] eh_rght
+				caps       tg[_gamepad] XX df[_engram] XX dt_prnt ││ ││ ││ XX        hrm      to[_engram] tg[_sys] XX          df[_qwerty]
+				lsft[lock] tg[_gaming]  XX XX          XX dt_down __ ││ __ XX        hrmu     tg[_media]  XX       XX          rsft[lock]
+				││         ││           __ __          __ __      __ ││ __ tg[_meta] __       __          __       ││          ││
 			]
 		}
 
