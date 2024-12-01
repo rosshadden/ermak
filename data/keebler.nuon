@@ -70,8 +70,8 @@
 		lgui[-]: [ lctl[esc] lgui[c] esc c g i ]
 		lalt[i]: [ lgui[c] lsft[a] b g j k u x l[-] ',' "l[']" '`' ]
 		lctl[e]: [ lgui[c] ]
-		lsft[a]: [ '`' . / ]
-		rsft[h]: [ ',' - ]
+		lsft[a]: [ '`' . rgui[/] / ]
+		rsft[h]: [ ',' lgui[-] - ]
 		rctl[t]: [ l[q] v w z ]
 		ralt[s]: [ l[q] ]
 		rgui[n]: [ rsft[h] f l p w ]
@@ -86,7 +86,7 @@
 				'['       1  2         3        4        5       ││           ││ ││             6       7        8        9       0  ']'
 				'`'       b  y         o        u        "'"     ││           ││ ││             '"'     l        d        w       v  z
 				lctl[esc] c  i         e        a        ','     ││           ││ ││             .       h        t        s       n  q
-				lsft      g  x         j        k        lgui[-] mute         ││ mic            rgui[/] r        m        f       p  rsft
+				lsft      g  x         j        k        lgui[-] mute         ││ sh_togg        rgui[/] r        m        f       p  rsft
 				││        ││ "lctl[#]" lgui[no] lalt[no] back    lt[_num,tab] ││ lt[_nav,enter] space   rgui[no] ralt[no] rctl[?] ││ ││
 			]
 			encoders: {
@@ -109,14 +109,15 @@
 			]
 		}
 
+		# TODO: make both base orders work
 		{
 			name: dota
 			keys: [
-				esc  __ __ __ __   __   ││ ││ ││ __ __ __ __ __ __
-				__   __ __ __ __   __   ││ ││ ││ __ __ __ __ __ __
-				lctl __ __ __ __   __   ││ ││ ││ __ __ __ __ __ __
-				lsft __ __ __ __   __   __ ││ __ __ __ __ __ __ rsft
-				││   ││ /  .  back lalt __ ││ __ __ __ __ __ ││ ││
+				esc  __ __ __ __   __   ││        ││ ││ __ __ __ __ __ __
+				tab  __ __ __ __   __   ││        ││ ││ __ __ __ __ __ __
+				lctl __ __ __ __   __   ││        ││ ││ __ __ __ __ __ __
+				lsft __ __ __ __   __   __        ││ __ __ __ __ __ __ rsft
+				││   ││ f1 f2 back lalt sh_t[tab] ││ __ __ __ __ __ ││ ││
 			]
 		}
 
@@ -181,7 +182,7 @@
 				XX         XX   XX XX   XX   XX ││ ││ ││ XX   XX   XX   XX   XX   XX
 				XX         rwnd XX XX   XX   XX ││ ││ ││ XX   next XX   XX   XX   XX
 				base       XX   XX XX   XX   XX ││ ││ ││ XX   prev XX   stop next XX
-				lsft[lock] XX   XX vold volu XX __ ││ __ XX   XX   mute ffwd prev rsft[lock]
+				lsft[lock] XX   XX vold volu XX __ ││ __ XX   mic  mute ffwd prev rsft[lock]
 				││         ││   __ __   __   __ __ ││ __ play __   __   __   ││   ││
 			]
 		}

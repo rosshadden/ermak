@@ -84,15 +84,15 @@ const custom_shift_key_t custom_shift_keys[] = {
 uint8_t NUM_CUSTOM_SHIFT_KEYS = sizeof(custom_shift_keys) / sizeof(custom_shift_key_t);
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [_ENGRAM] = LAYOUT(KC_LEFT_BRACKET, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_RIGHT_BRACKET, KC_GRAVE, KC_B, KC_Y, KC_O, KC_U, KC_QUOTE, KC_DOUBLE_QUOTE, KC_L, KC_D, KC_W, KC_V, KC_Z, LCTL_T(KC_ESC), KC_C, KC_I, KC_E, KC_A, KC_COMMA, KC_DOT, KC_H, KC_T, KC_S, KC_N, KC_Q, KC_LSFT, KC_G, KC_X, KC_J, KC_K, LGUI_T(KC_MINUS), KC_MUTE, KC_F20, RGUI_T(KC_SLASH), KC_R, KC_M, KC_F, KC_P, KC_RSFT, LCTL_T(KC_HASH), LGUI_T(KC_NO), LALT_T(KC_NO), KC_BACKSPACE, LT(_NUM, KC_TAB), LT(_NAV, KC_ENTER), KC_SPACE, RGUI_T(KC_NO), RALT_T(KC_NO), RCTL_T(KC_QUESTION)),
+  [_ENGRAM] = LAYOUT(KC_LEFT_BRACKET, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_RIGHT_BRACKET, KC_GRAVE, KC_B, KC_Y, KC_O, KC_U, KC_QUOTE, KC_DOUBLE_QUOTE, KC_L, KC_D, KC_W, KC_V, KC_Z, LCTL_T(KC_ESC), KC_C, KC_I, KC_E, KC_A, KC_COMMA, KC_DOT, KC_H, KC_T, KC_S, KC_N, KC_Q, KC_LSFT, KC_G, KC_X, KC_J, KC_K, LGUI_T(KC_MINUS), KC_MUTE, SH_TOGG, RGUI_T(KC_SLASH), KC_R, KC_M, KC_F, KC_P, KC_RSFT, LCTL_T(KC_HASH), LGUI_T(KC_NO), LALT_T(KC_NO), KC_BACKSPACE, LT(_NUM, KC_TAB), LT(_NAV, KC_ENTER), KC_SPACE, RGUI_T(KC_NO), RALT_T(KC_NO), RCTL_T(KC_QUESTION)),
   [_ERMAK] = LAYOUT(L(KC_LEFT_BRACKET), _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, L(KC_QUOTE), L(DQ), _______, _______, _______, _______, _______, _______, LGUI_T(KC_C), LALT_T(KC_I), LCTL_T(KC_E), LSFT_T(KC_A), _______, _______, RSFT_T(KC_H), RCTL_T(KC_T), RALT_T(KC_S), RGUI_T(KC_N), L(KC_Q), OSM(MOD_LSFT), _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, OSM(MOD_RSFT), _______, _______, _______, _______, _______, _______, _______, _______, _______, _______),
-  [_DOTA] = LAYOUT(KC_ESC, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_LCTL, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_LSFT, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_RSFT, KC_SLASH, KC_DOT, KC_BACKSPACE, KC_LALT, _______, _______, _______, _______, _______, _______),
+  [_DOTA] = LAYOUT(KC_ESC, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_TAB, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_LCTL, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_LSFT, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_RSFT, KC_F1, KC_F2, KC_BACKSPACE, KC_LALT, SH_T(KC_TAB), _______, _______, _______, _______, _______),
   [_LAB] = LAYOUT(_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, LGUI_T(_______), _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______),
   [_DVORAK] = LAYOUT(KC_GRAVE, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_BACKSLASH, KC_EQUAL, KC_QUOTE, KC_COMMA, KC_DOT, KC_P, KC_Y, KC_F, KC_G, KC_C, KC_R, KC_L, KC_SLASH, _______, LGUI_T(KC_A), LALT_T(KC_O), LCTL_T(KC_E), LSFT_T(KC_U), KC_I, KC_D, RSFT_T(KC_H), RCTL_T(KC_T), RALT_T(KC_N), RGUI_T(KC_S), KC_MINUS, _______, KC_SEMICOLON, KC_Q, KC_J, KC_K, KC_X, _______, BASE, KC_B, KC_M, KC_W, KC_V, KC_Z, _______, LCTL_T(KC_LEFT_BRACKET), _______, _______, _______, _______, _______, _______, _______, _______, RCTL_T(KC_RIGHT_BRACKET)),
   [_QWERTY] = LAYOUT(KC_GRAVE, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_BACKSLASH, KC_EQUAL, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_MINUS, _______, LGUI_T(KC_A), LALT_T(KC_S), LCTL_T(KC_D), LSFT_T(KC_F), KC_G, KC_H, RSFT_T(KC_J), RCTL_T(KC_K), RALT_T(KC_L), RGUI_T(KC_SEMICOLON), KC_QUOTE, _______, KC_Z, KC_X, KC_C, KC_V, KC_B, _______, _______, KC_N, KC_M, KC_COMMA, KC_DOT, KC_SLASH, _______, LCTL_T(KC_LEFT_BRACKET), _______, _______, _______, _______, _______, _______, _______, _______, RCTL_T(KC_RIGHT_BRACKET)),
   [_GAMEPAD] = LAYOUT(JS_15, JS_17, XXXXXXX, JS_L_LOCK, XXXXXXX, JS_8, JS_10, XXXXXXX, XXXXXXX, XXXXXXX, JS_16, JS_14, XXXXXXX, JS_8, XXXXXXX, JS_L_UP, XXXXXXX, JS_9, JS_11, JS_7, JS_R_UP, JS_6, JS_10, XXXXXXX, JS_12, JS_L_MOD, JS_L_LEFT, JS_L_DOWN, JS_L_RIGHT, JS_12, JS_13, JS_R_LEFT, JS_R_DOWN, JS_R_RIGHT, JS_R_MOD, JS_13, KC_LSFT, JS_9, JS_0, JS_1, JS_2, JS_3, _______, _______, JS_6, JS_4, JS_7, JS_5, JS_11, KC_RSFT, JS_10, JS_12, JS_9, JS_8, _______, _______, JS_10, JS_11, JS_13, JS_8),
   [_GAMING] = LAYOUT(KC_GRAVE, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_BACKSLASH, KC_EQUAL, KC_P, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_MINUS, _______, KC_SEMICOLON, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_QUOTE, KC_LSFT, KC_SLASH, KC_Z, KC_X, KC_C, KC_V, _______, _______, KC_B, KC_N, KC_M, KC_COMMA, KC_DOT, KC_RSFT, LCTL_T(KC_LEFT_BRACKET), KC_LGUI, KC_LALT, KC_SPACE, _______, _______, KC_BACKSPACE, KC_RGUI, KC_RALT, RCTL_T(KC_RIGHT_BRACKET)),
-  [_MEDIA] = LAYOUT(XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_MEDIA_REWIND, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_MEDIA_NEXT_TRACK, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, BASE, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_MEDIA_PREV_TRACK, XXXXXXX, KC_MEDIA_STOP, KC_MEDIA_NEXT_TRACK, XXXXXXX, LSFT_T(PG_LOCK), XXXXXXX, XXXXXXX, KC_VOLD, KC_VOLU, XXXXXXX, _______, _______, XXXXXXX, XXXXXXX, KC_MUTE, KC_MEDIA_FAST_FORWARD, KC_MEDIA_PREV_TRACK, RSFT_T(PG_LOCK), _______, _______, _______, _______, _______, _______, KC_MEDIA_PLAY_PAUSE, _______, _______, _______),
+  [_MEDIA] = LAYOUT(XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_MEDIA_REWIND, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_MEDIA_NEXT_TRACK, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, BASE, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_MEDIA_PREV_TRACK, XXXXXXX, KC_MEDIA_STOP, KC_MEDIA_NEXT_TRACK, XXXXXXX, LSFT_T(PG_LOCK), XXXXXXX, XXXXXXX, KC_VOLD, KC_VOLU, XXXXXXX, _______, _______, XXXXXXX, KC_F20, KC_MUTE, KC_MEDIA_FAST_FORWARD, KC_MEDIA_PREV_TRACK, RSFT_T(PG_LOCK), _______, _______, _______, _______, _______, _______, KC_MEDIA_PLAY_PAUSE, _______, _______, _______),
   [_SYS] = LAYOUT(XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PSCR, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_WAKE, XXXXXXX, XXXXXXX, BASE, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_SLEP, XXXXXXX, XXXXXXX, LSFT_T(PG_LOCK), XXXXXXX, XXXXXXX, KC_BRID, KC_BRIU, XXXXXXX, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PWR, RSFT_T(PG_LOCK), _______, _______, _______, _______, _______, _______, _______, _______, _______, _______),
   [_META] = LAYOUT(XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, BASE, KC_CLEAR, XXXXXXX, QK_CLEAR_EEPROM, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, LSFT_T(PG_LOCK), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, XXXXXXX, QK_REBOOT, QK_MAKE, XXXXXXX, XXXXXXX, RSFT_T(PG_LOCK), _______, _______, _______, _______, _______, _______, _______, _______, _______, _______),
   [_ARROW] = LAYOUT(XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_UP, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_UP, XXXXXXX, XXXXXXX, XXXXXXX, BASE, XXXXXXX, KC_LEFT, KC_DOWN, KC_RIGHT, XXXXXXX, XXXXXXX, KC_LEFT, KC_DOWN, KC_RIGHT, XXXXXXX, XXXXXXX, LSFT_T(PG_LOCK), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RSFT_T(PG_LOCK), _______, _______, _______, _______, _______, _______, _______, _______, _______, _______),
@@ -555,10 +555,10 @@ bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record, ui
       if (other_keycode == LGUI_T(KC_C)) return true;
       break;
     case LSFT_T(KC_A):
-      if (other_keycode == KC_GRAVE || other_keycode == KC_DOT || other_keycode == KC_SLASH) return true;
+      if (other_keycode == KC_GRAVE || other_keycode == KC_DOT || other_keycode == RGUI_T(KC_SLASH) || other_keycode == KC_SLASH) return true;
       break;
     case RSFT_T(KC_H):
-      if (other_keycode == KC_COMMA || other_keycode == KC_MINUS) return true;
+      if (other_keycode == KC_COMMA || other_keycode == LGUI_T(KC_MINUS) || other_keycode == KC_MINUS) return true;
       break;
     case RCTL_T(KC_T):
       if (other_keycode == L(KC_Q) || other_keycode == KC_V || other_keycode == KC_W || other_keycode == KC_Z) return true;
@@ -602,6 +602,27 @@ uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
 bool achordion_eager_mod(uint8_t mod) {
   return !hrm;
 }
+
+#if defined(SWAP_HANDS_ENABLE)
+__attribute__ ((weak))
+const keypos_t PROGMEM hand_swap_config[MATRIX_ROWS][MATRIX_COLS] = {
+  // Left
+  { {0, 5}, {1, 5}, {2, 5}, {3, 5}, {4, 5}, {5, 5} },
+  { {0, 6}, {1, 6}, {2, 6}, {3, 6}, {4, 6}, {5, 6} },
+  { {0, 7}, {1, 7}, {2, 7}, {3, 7}, {4, 7}, {5, 7} },
+  { {0, 8}, {1, 8}, {2, 8}, {3, 8}, {4, 8}, {5, 8} },
+  { {0, 9}, {1, 9}, {2, 9}, {3, 9}, {4, 9}, {5, 9} },
+  // Right
+  { {0, 0}, {1, 0}, {2, 0}, {3, 0}, {4, 0}, {5, 0} },
+  { {0, 1}, {1, 1}, {2, 1}, {3, 1}, {4, 1}, {5, 1} },
+  { {0, 2}, {1, 2}, {2, 2}, {3, 2}, {4, 2}, {5, 2} },
+  { {0, 3}, {1, 3}, {2, 3}, {3, 3}, {4, 3}, {5, 3} },
+  { {0, 4}, {1, 4}, {2, 4}, {3, 4}, {4, 4}, {5, 4} },
+};
+#endif
+#if defined(SWAP_HANDS_ENABLE) && defined(ENCODER_MAP_ENABLE)
+const uint8_t PROGMEM encoder_hand_swap_config[NUM_ENCODERS] = { 0, 0 };
+#endif
 
 #if defined(OLED_ENABLE)
 
