@@ -252,6 +252,19 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         return false;
       }
       break;
+    case SH_T(KC_TAB):
+      // make base reset work as expected
+      if (
+        record->event.pressed
+        && !is_swap_hands_on()
+      ) {
+        swap_hands_on();
+        default_layer_set(_ENGRAM);
+        layer_move(_ERMAK);
+        return false;
+      }
+      return true;
+      break;
 
     // lingers
     case L(KC_LEFT_BRACKET):
@@ -535,7 +548,7 @@ const keypos_t PROGMEM hand_swap_config[MATRIX_ROWS][MATRIX_COLS] = {
 };
 #endif
 #if defined(SWAP_HANDS_ENABLE) && defined(ENCODER_MAP_ENABLE)
-const uint8_t PROGMEM encoder_hand_swap_config[NUM_ENCODERS] = { 0, 0 };
+const uint8_t PROGMEM encoder_hand_swap_config[NUM_ENCODERS] = { 0, 1 };
 #endif
 
 #if defined(OLED_ENABLE)
@@ -568,6 +581,7 @@ static void render_status(void) {
   if (led_state.caps_lock) oled_write_P(PSTR("CAP "), false);
   if (is_caps_word_on()) oled_write_P(PSTR("CAPW "), false);
   if (led_state.scroll_lock) oled_write_P(PSTR("SCR "), false);
+  if (is_swap_hands_on()) oled_write_P(PSTR("SWP "), false);
   oled_write_ln_P(PSTR(""), false);
 
   oled_write_P(PSTR("\n\nLAYER:\n  "), false);
