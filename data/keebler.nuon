@@ -86,7 +86,7 @@
 				'['       1  2         3        4        5       ││           ││ ││             6       7        8        9       0  ']'
 				'`'       b  y         o        u        "'"     ││           ││ ││             '"'     l        d        w       v  z
 				lctl[esc] c  i         e        a        ','     ││           ││ ││             .       h        t        s       n  q
-				lsft      g  x         j        k        lgui[-] mute         ││ sh_togg        rgui[/] r        m        f       p  rsft
+				lsft      g  x         j        k        lgui[-] mute         ││ mic            rgui[/] r        m        f       p  rsft
 				││        ││ "lctl[#]" lgui[no] lalt[no] back    lt[_num,tab] ││ lt[_nav,enter] space   rgui[no] ralt[no] rctl[?] ││ ││
 			]
 			encoders: {
@@ -212,33 +212,33 @@
 		{
 			name: arrow
 			keys: [
-				XX         XX XX   XX   XX    XX ││ ││ ││ XX XX   XX   XX    XX XX
-				XX         XX XX   up   XX    XX ││ ││ ││ XX XX   up   XX    XX XX
-				base       XX left down right XX ││ ││ ││ XX left down right XX XX
-				lsft[lock] XX XX   XX   XX    XX __ ││ __ XX XX   XX   XX    XX rsft[lock]
-				││         ││ __   __   __    __ __ ││ __ __ __   __   __    ││ ││
+				XX         XX XX   XX   XX    XX ││ ││ ││ XX   XX   XX   XX    XX XX
+				XX         XX XX   up   XX    XX ││ ││ ││ XX   XX   up   XX    XX XX
+				base       XX left down right XX ││ ││ ││ XX   left down right XX XX
+				lsft[lock] XX XX   XX   XX    XX __ ││ __ XX   XX   XX   XX    XX rsft[lock]
+				││         ││ __   __   __    __ __ ││ __ rspc __   __   __    ││ ││
 			]
 		}
 
 		{
 			name: num
 			keys: [
-				f12        f1 f2   <   >   &   ││ ││ ││            ';'  ins XX  kp= @   num
-				f11        ^  '#'  '{' '}' '$' ││ ││ ││            ':'  kp7 kp8 kp9 %   qk_lock
-				capw       !  =    '(' ')' '`' ││ ││ ││            kp-  kp4 kp5 kp6 kp+ '_'
-				lsft[lock] :  '|'  '[' ']' ~   __ ││ __            kp/  kp1 kp2 kp3 kp* rsft[lock]
-				││         ││ boot __  __  __  __ ││ lt[_nav,base] rspc kp0 kp. ',' ││  ││
+				sh_togg    f1 f2   <   >   &   ││ ││ ││            ';' ins XX  kp= @   sh_togg
+				f11        ^  '#'  '{' '}' '$' ││ ││ ││            ':' kp7 kp8 kp9 %   qk_lock
+				capw       !  =    '(' ')' '`' ││ ││ ││            kp- kp4 kp5 kp6 kp+ '_'
+				lsft[lock] :  '|'  '[' ']' ~   __ ││ num           kp/ kp1 kp2 kp3 kp* rsft[lock]
+				││         ││ boot __  __  __  __ ││ lt[_nav,base] __  kp0 kp. ',' ││  ││
 			]
 		}
 
 		{
 			name: nav
 			keys: [
-				f12        f1   f2    f3    f4     f5   ││            ││ ││ XX   mql  btn3 mqr   XX  again
-				f11        mwl  btn2  mup   btn1   mwr  ││            ││ ││ XX   btn1 up   btn2  XX  undo
-				__         btn1 mleft mdown mright btn1 ││            ││ ││ home left down right end sel
-				lsft[lock] btn2 __    mwd   mwu    btn2 __            ││ __ XX   pgup pgdn menu  XX  rsft[lock]
-				││         ││   btn3  btn2  btn1   del  lt[_num,base] ││ __ __   __   __   __    ││  ││
+				sh_togg    f1   f2    f3    f4     f5   ││            ││ ││ XX   mql  btn3 mqr   again sh_togg
+				f11        mwl  btn2  mup   btn1   mwr  ││            ││ ││ XX   btn1 up   btn2  XX    undo
+				__         btn1 mleft mdown mright btn1 ││            ││ ││ home left down right end   sel
+				lsft[lock] btn2 __    mwd   mwu    btn2 __            ││ __ XX   pgup pgdn menu  XX    rsft[lock]
+				││         ││   btn3  btn2  btn1   del  lt[_num,base] ││ __ __   __   __   __    ││    ││
 			]
 		}
 
