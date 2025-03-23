@@ -74,7 +74,7 @@
 		rsft[h]: [ ',' lgui[-] - ]
 		rctl[t]: [ l[q] v w z ]
 		ralt[s]: [ l[q] ]
-		rgui[n]: [ rsft[h] f l p w ]
+		rgui[n]: [ rsft[h] f l p ]
 		rgui[/]: [ rsft[h] rgui[n] n f l p s w ]
 	}
 

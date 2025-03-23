@@ -580,7 +580,7 @@ bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record, ui
       if (other_keycode == L(KC_Q)) return true;
       break;
     case RGUI_T(KC_N):
-      if (other_keycode == RSFT_T(KC_H) || other_keycode == KC_F || other_keycode == KC_L || other_keycode == KC_P || other_keycode == KC_W) return true;
+      if (other_keycode == RSFT_T(KC_H) || other_keycode == KC_F || other_keycode == KC_L || other_keycode == KC_P) return true;
       break;
     case RGUI_T(KC_SLASH):
       if (other_keycode == RSFT_T(KC_H) || other_keycode == RGUI_T(KC_N) || other_keycode == KC_N || other_keycode == KC_F || other_keycode == KC_L || other_keycode == KC_P || other_keycode == KC_S || other_keycode == KC_W) return true;
