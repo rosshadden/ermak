@@ -223,10 +223,10 @@
 		{
 			name: num
 			keys: [
-				sh_togg    f1 f2   <   >   &   ││ ││ ││            ';' ins XX  kp= @   sh_togg
-				f11        ^  '#'  '{' '}' '$' ││ ││ ││            ':' kp7 kp8 kp9 %   qk_lock
-				capw       !  =    '(' ')' '`' ││ ││ ││            kp- kp4 kp5 kp6 kp+ '_'
-				lsft[lock] :  '|'  '[' ']' ~   __ ││ num           kp/ kp1 kp2 kp3 kp* rsft[lock]
+				sh_togg    f1 f2   <   >   ~   ││ ││ ││            ';' ins XX  kp= @   sh_togg
+				'|'        ^  '#'  '{' '}' '$' ││ ││ ││            :   kp7 kp8 kp9 %   qk_lock
+				capw       :  =    '(' ')' &   ││ ││ ││            kp- kp4 kp5 kp6 kp+ '_'
+				lsft[lock] !  ';'  '[' ']' '_' __ ││ num           kp/ kp1 kp2 kp3 kp* rsft[lock]
 				││         ││ boot __  __  __  __ ││ lt[_nav,base] __  kp0 kp. ',' ││  ││
 			]
 		}
