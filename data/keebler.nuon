@@ -201,11 +201,11 @@
 		{
 			name: meta
 			keys: [
-				XX         XX    XX XX     XX XX ││ ││ ││ XX XX     XX   XX XX XX
-				XX         XX    XX XX     XX XX ││ ││ ││ XX XX     XX   XX XX XX
-				base       clear XX eeprom XX XX ││ ││ ││ XX XX     XX   XX XX XX
-				lsft[lock] XX    XX XX     XX XX __ ││ __ XX reboot make XX XX rsft[lock]
-				││         ││    __ __     __ __ __ ││ __ __ __     __   __ ││ ││
+				XX         XX    XX XX     XX XX ││ ││ ││ XX   XX     XX   XX XX XX
+				XX         XX    XX XX     XX XX ││ ││ ││ XX   XX     XX   XX XX XX
+				base       clear XX eeprom XX XX ││ ││ ││ XX   XX     XX   XX XX XX
+				lsft[lock] XX    XX XX     XX XX __ ││ __ XX   reboot make XX XX rsft[lock]
+				││         ││    __ __     __ __ __ ││ __ boot __     __   __ ││ ││
 			]
 		}
 
@@ -227,7 +227,7 @@
 				'|'        ^  '#'  '{' '}' '$' ││ ││ ││            :   kp7 kp8 kp9 %   qk_lock
 				capw       :  =    '(' ')' &   ││ ││ ││            kp- kp4 kp5 kp6 kp+ '_'
 				lsft[lock] !  ';'  '[' ']' '_' __ ││ num           kp/ kp1 kp2 kp3 kp* rsft[lock]
-				││         ││ boot __  __  __  __ ││ lt[_nav,base] __  kp0 kp. ',' ││  ││
+				││         ││ __   __  __  __  __ ││ lt[_nav,base] __  kp0 kp. ',' ││  ││
 			]
 		}
 
